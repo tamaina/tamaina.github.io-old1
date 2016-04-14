@@ -1,7 +1,7 @@
 h1 {
     font-weight: bold;
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 500px) {
 h1 {
    font-size: 23pt;
 }
@@ -10,7 +10,7 @@ h2 {
 }
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 500px) {
 h1 {
    font-size: 58pt;
 }
