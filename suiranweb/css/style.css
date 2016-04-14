@@ -1,3 +1,6 @@
+h1 {
+    font-weight: bold;
+}
 @media screen and (max-width: 370px) {
 h1 {
    font-size: 23pt;
