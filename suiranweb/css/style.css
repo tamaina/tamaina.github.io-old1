@@ -1,6 +1,6 @@
 @media screen and (max-width: 370px) {
 h1 {
-   font-size: 14pt;
+   font-size: 23pt;
 }
 h2 {
    font-size: 12pt;
@@ -9,9 +9,9 @@ h2 {
 
 @media screen and (min-width: 370px) {
 h1 {
-   font-size: 17pt;
+   font-size: 40pt;
 }
 h2 {
-   font-size: 15pt;
+   font-size: 25pt;
 }
 }
