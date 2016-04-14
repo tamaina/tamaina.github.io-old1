@@ -26,3 +26,6 @@ h2 {
 .piccard-title {
     text-shadow: 0 0 2px black,0 0 3px black;
 }
+p {
+    text-indent: 1em;
+}
