@@ -2,10 +2,16 @@
 .entry-title {
    font-size: 17pt;
 }
+.widget-title {
+    font-size: 15pt;
+}
 }
 
 @media screen and (min-width: 500px) {
 .entry-title {
    font-size: 26pt;
+}
+.widget-title {
+    font-size: 25pt;
 }
 }
