@@ -19,7 +19,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
-         <base href="http://tamaina.github.io/suiranweb/">
+         <base href="http://localhost/suiranweb/">
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <meta name="viewport" content="width=device-width">
            <title>翠巒祭プレス - <?php bloginfo('name'); ?></title>
