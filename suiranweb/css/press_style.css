@@ -1,0 +1,11 @@
+@media screen and (max-width: 500px) {
+.entry-title {
+   font-size: 17pt;
+}
+}
+
+@media screen and (min-width: 500px) {
+.entry-title {
+   font-size: 26pt;
+}
+}
