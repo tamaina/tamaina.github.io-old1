@@ -20,7 +20,7 @@
 	<?php endif; ?>
 	<?php wp_head(); ?>
 
-         <base href="http://tamaina.github.io/suiranweb/">
+<base href="http://192.168.1.10/suiranweb/">
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <meta name="viewport" content="width=device-width">
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
