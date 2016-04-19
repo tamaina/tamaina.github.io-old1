@@ -1,17 +1,28 @@
 @media screen and (max-width: 500px) {
 .entry-title {
    font-size: 17pt;
+   color: #004d40
 }
 .widget-title {
     font-size: 15pt;
+}
+.presstitle {
+    font-size: 60pt;
 }
 }
 
 @media screen and (min-width: 500px) {
 .entry-title {
    font-size: 26pt;
+   color: #004d40
 }
 .widget-title {
     font-size: 25pt;
 }
+.presstitle {
+    font-size: 32pt;
+}
+}
+#content .infoList .infoListBox div.thumbImage div.thumbImageInner img.wp-post-image .size-post-thumbnail .attachment-post-thumbnnail {
+    width: 100%;
 }
