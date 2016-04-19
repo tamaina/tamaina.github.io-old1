@@ -27,17 +27,29 @@ get_header(); ?>
 		    <a href="<?php the_permalink(); ?>">
 			<h2><span class="card-title entry_title"><?php the_title(); ?></span></h2>
 			<?php if ( has_post_thumbnail() ) : ?>
-			<div class="col s2"><?php the_post_thumbnail(); ?></div>
-			<div class="col s10"><?php echo mb_substr($post->post_content,0,200).'...'; ?></div>
-			<?php else: ?>
-			<div class="col s12"><?php echo mb_substr($post->post_content,0,250).'...'; ?></div>
+			<div style="width:100px;height:100px;float:left;"><?php the_post_thumbnail( array(100,100) ); ?></div>
+			<div style="float:right;"><?php echo mb_substr($post->post_content,0,200).'...'; ?></div>
 			<?php endif; ?>
 			</a>
 	</div>
 </div>
 		<?php endwhile; endif; ?>
 		
+	<?php $paged = get_query_var('paged'); ?>
+
+	<?php query_posts("posts_per_page=10&paged=$paged"); ?>
+
+	 
+
+	<?php if (have_posts()) : while(have_posts()) : the_post(); ?>
+
 	
+
+	<?php endwhile; ?>
+
+	<?php else: ?>
+
+	<?php endif; ?>
 
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
