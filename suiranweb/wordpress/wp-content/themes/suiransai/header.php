@@ -12,6 +12,8 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
+	
+<base href="http://tamaina.bikkuri.link/suiranweb/">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
@@ -20,7 +22,6 @@
 	<?php endif; ?>
 	<?php wp_head(); ?>
 
-<base href="http://192.168.1.10/suiranweb/">
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <meta name="viewport" content="width=device-width">
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

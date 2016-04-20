@@ -26,16 +26,16 @@
 
 // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
 /** WordPress のためのデータベース名 */
-define('DB_NAME', 'suiranpress');
+define('DB_NAME', 'bikk_17904701_suiranpress');
 
 /** MySQL データベースのユーザー名 */
-define('DB_USER', 'root');
+define('DB_USER', '	bikk_17904701');
 
 /** MySQL データベースのパスワード */
-define('DB_PASSWORD', 'i897-2222.su1ran');
+define('DB_PASSWORD', 's1mutrans');
 
 /** MySQL のホスト名 */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '	sql306.bikkuri.link');
 
 /** データベースのテーブルを作成する際のデータベースの文字セット */
 define('DB_CHARSET', 'utf8mb4');
