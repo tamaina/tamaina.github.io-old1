@@ -18,48 +18,46 @@
 
 get_header(); ?>
 
+<div class="col s12 l8">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
 		<?php if ( have_posts() ) : ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+		<div class="row card teal lighten-5">
+		<div class="card-content col s12">
+			<p><?php the_category(); ?>投稿者:<?php the_author_posts_link(); ?> ／ <?php the_tags(); ?> ／ 作成:<?php the_time('Y年m月d日（D）'); ?>
+			</p>
+		    <a href="<?php the_permalink(); ?>" class="index_press">
+			<h2><span class="card-title entry_title"><?php the_title(); ?></span></h2>
+			<?php if ( has_post_thumbnail() ) : ?>
+			<div style="width:100px;height:100px;float:left;"><?php the_post_thumbnail( array(100,100) ); ?></div>
+			<div style="float:right;"><?php echo mb_substr($post->post_content,0,200).'...'; ?></div>
+			<?php else: ?>
+			<div style="float:none;"><?php echo mb_substr($post->post_content,0,200).'...'; ?></div>
+			<?php endif; ?>
+			</a>
+	</div>
+</div>
+		<?php endwhile; endif; ?>
+		
+	<?php $paged = get_query_var('paged'); ?>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+	<?php query_posts("posts_per_page=10&paged=$paged"); ?>
 
-			<?php
-			// Start the Loop.
-			while ( have_posts() ) : the_post();
+	 
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+	<?php if (have_posts()) : while(have_posts()) : the_post(); ?>
 
-			// End the loop.
-			endwhile;
+	
 
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-				'next_text'          => __( 'Next page', 'twentysixteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-			) );
+	<?php endwhile; ?>
 
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'template-parts/content', 'none' );
+	<?php else: ?>
 
-		endif;
-		?>
-
+	<?php endif; ?>
+<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
-
+</div>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

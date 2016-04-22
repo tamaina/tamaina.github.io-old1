@@ -2,6 +2,9 @@ h1 {
     font-weight: bold;
 }
 h3 {
+    font-size: 15pt;
+}
+h4 {
     font-size: 13.5pt;
 }
 @media screen and (max-width: 500px) {
@@ -9,18 +12,18 @@ h1 {
    font-size: 23pt;
 }
 h2 {
-   font-size: 15pt;
-   font-weight: 500;
+   font-size: 16pt;
+   font-weight: 600;
 }
 }
 
 @media screen and (min-width: 500px) {
 h1 {
-   font-size: 58pt;
+   font-size: 50pt;
 }
 h2 {
-   font-size: 25pt;
-   font-weight: 600;
+   font-size: 23pt;
+   font-weight: 500;
 }
 }
 .piccard-title {
@@ -33,10 +36,10 @@ p {
     font-size: 15pt;
 }
 a:link {
-    color: darkblue;
+    color: royalblue;
 }
 a:visited {
-    color: midnightblue;
+    color: darkblue;
 }
 .movie {
     position: relative;
@@ -49,6 +52,7 @@ a:visited {
 }
 iframe {
     width: 100%;
+    border: 0;
 }
 .youtube {
     position: absolute;
@@ -57,4 +61,25 @@ iframe {
     width: 100%;
     height: 100%;
     border: 0px;
+}
+.ggmap {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px;
+height: 0;
+overflow: hidden;
+}
+ 
+.ggmap iframe,
+.ggmap object,
+.ggmap embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+@media screen and (max-width: 1260px) and (min-width: 975px) {
+.blogo {
+    font-size: 10pt;
 }

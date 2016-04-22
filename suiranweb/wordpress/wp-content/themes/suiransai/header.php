@@ -21,9 +21,6 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
-
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta name="viewport" content="width=device-width">
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <meta name="viewport" content="width=device-width">
          <!--Import jQuery before materialize.js-->
@@ -44,4 +41,4 @@ $("#footer").load("./parts/footer.html");
 </div>
 <div id="header"></div>
 <div class="container row">
-  <h1 class="presstitle"><a href="./wordpress/">ニュース</a><?php wp_title (); ?></h1>
+  <h1 class="presstitle"><a href="./wordpress/" style="color:black;">Press</a><?php wp_title (); ?></h1>
