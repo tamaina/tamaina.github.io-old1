@@ -12,12 +12,9 @@ get_header(); ?>
 <div class="col s12 l8">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
-	<?php $paged = get_query_var('paged'); ?>
-	<?php query_posts("posts_per_page=10&paged='.$paged"); ?>
-	<?php if (have_posts()) : while(have_posts()) : the_post(); ?>
-	
-	
+			<?php if (have_posts()) : ?>
+			<p><?php echo $wp_query->found_posts; ?>件の記事が見つかりました。
+		<?php while ( have_posts() ) : the_post(); ?>
 		<div class="row card teal lighten-5">
 		<div class="card-content col s12">
 			<p><?php the_category(); ?>投稿者:<?php the_author_posts_link(); ?> ／ <?php the_tags(); ?> ／ 作成:<?php the_time('Y年m月d日（D）'); ?>
@@ -34,17 +31,10 @@ get_header(); ?>
 			</a>
 		</div>
 		</div>
-		
-		
-	<?php endwhile; ?>
-	<?php else: ?>
-	
-			<p>条件に当てはまる記事はありませんでした。</p>
-			
-	<?php endif; ?>
-
 	<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
-	<?php wp_reset_query(); ?>
+		<?php endwhile; else: ?>
+		<p>「<?php the_search_query(); ?>」は見つかりませんでした。</p>
+		<?php endif; ?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 </div>

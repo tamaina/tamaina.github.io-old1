@@ -37,14 +37,6 @@ get_header(); ?>
 		</div>
 		</div>
 		<?php endwhile; endif; ?>
-		
-	<?php $paged = get_query_var('paged'); ?>
-	<?php query_posts("posts_per_page=10&paged=$paged"); ?>
-	<?php if (have_posts()) : while(have_posts()) : the_post(); ?>
-	<?php endwhile; ?>
-	<?php else: ?>
-	<?php endif; ?>
-
 	<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->

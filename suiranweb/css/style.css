@@ -88,3 +88,6 @@ margin-left: 10em;
 .blogo {
     margin: 0;
 }
+.TheList {
+    list-style-type: circle;
+}
