@@ -14,8 +14,8 @@ get_header(); ?>
 		<?php if ( have_posts() ) : the_post(); ?>
 		<div class="card grey lighten-5">
 		<div class="card-content">
-			<p><?php the_category(); ?>投稿者:<?php the_author_posts_link(); ?> ／ <?php the_tags(); ?> ／ 作成:<?php the_time('Y年m月d日（D）'); ?>
-			</p>
+			<span class="post_header"><?php the_category(); ?><?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); the_author_posts_link(); ?> ／ <?php the_tags( 'Tags: ', ', ', '／' ); ?> 作成:<?php the_time('Y年m月d日（D）'); ?>
+			</span>
 			<h2><span class="card-title entry_title"><?php the_title(); ?></span></h2>
 			<div style="float:none;"><?php the_content(); ?></div>
 		</div>

@@ -428,7 +428,7 @@ function mytheme_comment($comment, $args, $depth) {
         $add_below = 'div-comment';
     }
     ?>
-    <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+    <?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
     <?php if ( 'div' != $args['style'] ) : ?>
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
     <?php endif; ?>
@@ -458,3 +458,13 @@ function mytheme_comment($comment, $args, $depth) {
     <?php endif; ?>
     <?php
     }
+//---------------------------------------------------------------------------
+// ビジュアルエディタのフォント変更
+//---------------------------------------------------------------------------
+add_editor_style('editor-style.css');
+function custom_editor_settings( $initArray ){
+$initArray['body_class'] = 'editor-area'; //オリジナルのクラスを設定する
+return $initArray;
+}
+add_filter( 'tiny_mce_before_init', 'custom_editor_settings' );
+?>
