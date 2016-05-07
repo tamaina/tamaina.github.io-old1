@@ -26,19 +26,19 @@
 
 // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
 /** WordPress のためのデータベース名 */
-define('DB_NAME', 'bikk_17904701_suiranpress');
+define('DB_NAME', 'bikk_17904701_suiranpress');
 
 /** MySQL データベースのユーザー名 */
-define('DB_USER', '	bikk_17904701');
+define('DB_USER', 'bikk_17904701');
 
 /** MySQL データベースのパスワード */
-define('DB_PASSWORD', 's1mutrans');
+define('DB_PASSWORD', 's1mutrans');
 
 /** MySQL のホスト名 */
-define('DB_HOST', '	sql306.bikkuri.link');
+define('DB_HOST', 'sql306.bikkuri.link');
 
 /** データベースのテーブルを作成する際のデータベースの文字セット */
-define('DB_CHARSET', 'utf8mb4');
+define('DB_CHARSET', 'utf8mb4');
 
 /** データベースの照合順序 (ほとんどの場合変更する必要はありません) */
 define('DB_COLLATE', '');
@@ -52,14 +52,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '=m?$^CT`((ESf#1pB! %SzXRSd=*)u0R@rLo>~%W0.i,H8fw{YsJD6:Q.OS_-[~f');
-define('SECURE_AUTH_KEY',  'Jq>HwEKI}X_E7AQ1k|;u7:cW!DoTgdQIr;v~JU,YXQ{eYzG<f3:w8=HorQ[S_gT^');
-define('LOGGED_IN_KEY',    'xt+~:6K6w5aGr zQqe]W#EW:1M1(_@p|ODg%h:qzPo2fah|+U3.]_zLclY1.e0#0');
-define('NONCE_KEY',        '0xU[2HJCMmHsa1?2s*N+_%.U$(k1_U8#*7Qw jM%#.I*it3>g;;AzdL8DA)@W%YL');
-define('AUTH_SALT',        'NN}5MALxDZuSr/QGZ,J|6HOp%D<wpdVhlZN(jFQFLh.*$9 go_A9 >W-5>t;Iqji');
-define('SECURE_AUTH_SALT', 'R%mA&M.9_N{,(NLU5-`[[V*OxD&2Dt_LQ+&FaERRsq-K$Z{8@o]qCkKJ@RLV4:qq');
-define('LOGGED_IN_SALT',   'Uy)1=Ivk6yTT*Sa_>;m0^g(7yc^q0)STNXW4e!T53hA]pdFO0OZOO7+a2N8~{FN&');
-define('NONCE_SALT',       '8*7x0g7Tf@:AjYqB+|@%kET231[ tw#<=GXXiZ<a^OIuE{#@$.A<rvdlv]fB?8AQ');
+define('AUTH_KEY',         'J*Bs8S#y!3[{8vtd|d_N?.n(0Kamr@XIN45q|yVJ(c4}prGb=#bp^yaMiC4Ij;$L');
+define('SECURE_AUTH_KEY',  'eYwHlHy!aCNh=dS/qh10Kc4aNYw%9I5W]3LObG_/mM6uu.vxNV;igX!Gk:m_QF-2');
+define('LOGGED_IN_KEY',    '1cv=5EK!k?7WDW2#iv!*=GR2}3ch=$T%YOM+A.oIZRA7,j:.Mg!r0x 3}6A-s]Os');
+define('NONCE_KEY',        'ikz/%Z&pb[%{{QJi/QTG3?[u+CMd22>6BG%>Z`;w}%8,31(8&&3>?fW}>J`ZEjfv');
+define('AUTH_SALT',        '%slH3+}czeqSgO5q-R%wn;C@eLuO9hqi}[oY!9`3OTQEQ%hH%$*7zco)C7-GizcI');
+define('SECURE_AUTH_SALT', 'NG?=9i7/tz+8uF2s9&UY;$7eM >=sFQb8((0Ho.E{`QPECe.21{`mv K_b>^{kDv');
+define('LOGGED_IN_SALT',   '%cVhA#>;<kz5V]y#>fq:-nLR54qj>b/3}_YP6=IxdGfJE(wY91??p19e6Qqcs4Si');
+define('NONCE_SALT',       'Qo1EBNk&l@BU.$2;l!w xrMF:%M>c+.m|*D`k~W^w`  8=1IR{>|{u5gpL,s:*Z[');
 
 /**#@-*/
 
@@ -69,7 +69,7 @@ define('NONCE_SALT',       '8*7x0g7Tf@:AjYqB+|@%kET231[ tw#<=GXXiZ<a^OIuE{#@$.A<
  * それぞれにユニーク (一意) な接頭辞を与えることで一つのデータベースに複数の WordPress を
  * インストールすることができます。半角英数字と下線のみを使用してください。
  */
-$table_prefix  = 'wp_';
+$table_prefix  = 'wp_';
 
 /**
  * 開発者へ: WordPress デバッグモード
