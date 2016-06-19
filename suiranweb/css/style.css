@@ -1,3 +1,6 @@
+div#main {
+    min-height: 1vh;
+}
 h1 {
     font-weight: bold;
 }
@@ -31,6 +34,7 @@ h2 {
 }
 p {
     text-indent: 1em;
+    padding-bottom: 1ex;
 }
 .littletitle{
     font-size: 15pt;
@@ -91,4 +95,26 @@ margin-left: 10em;
 .TheList {
     list-style-type: circle;
 }
+}
+
+
+#loader {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -105px; /* heightの半分のマイナス値 */
+    margin-left: -105px; /* widthの半分のマイナス値 */
+    z-index: 100;
+}
+ 
+#fade {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 50;
 }

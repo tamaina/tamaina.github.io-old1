@@ -15,7 +15,7 @@
 <?php $paged = get_query_var('paged'); ?>
 <?php query_posts("posts_per_page=10&paged=$paged"); ?>
 <?php if (have_posts()) : while(have_posts()) : the_post(); ?>
-<a href="<?php the_permalink(); ?>" class="collection-item" target="_blank"><?php the_title(); ?></li>
+<a href="<?php the_permalink(); ?>" class="collection-item" target="_blank"><?php the_time('Y年m月d日'); ?> <?php the_title(); ?></li>
 <?php endwhile; endif; ?>
 </ui>
 </body>
