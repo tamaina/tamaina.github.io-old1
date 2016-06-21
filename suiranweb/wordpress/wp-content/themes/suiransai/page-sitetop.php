@@ -13,11 +13,11 @@
      <body>
 <div class="collection">
 <?php $paged = get_query_var('paged'); ?>
-<?php query_posts("posts_per_page=10&paged=$paged"); ?>
+<?php query_posts("posts_per_page=8&paged=$paged"); ?>
 <?php if (have_posts()) : while(have_posts()) : the_post(); ?>
-<a href="<?php the_permalink(); ?>" class="collection-item" target="_blank"><?php the_time('Y年m月d日'); ?> <?php the_title(); ?></li>
+<a href="<?php the_permalink(); ?>" class="collection-item" target="_blank"><?php the_time('Y/m/d'); ?> <?php the_title(); ?> by <?php $posttags = get_the_tags();$count = count($posttags);$loop = 0;if ($posttags) {foreach ($posttags as $tag) {$loop++;if ($count == $loop){echo $tag->name . '';} else {echo $tag->name . ', ';}}} ?> <?php the_author(); ?></a>
 <?php endwhile; endif; ?>
-</ui>
+
 </body>
 
 <script type="text/javascript">

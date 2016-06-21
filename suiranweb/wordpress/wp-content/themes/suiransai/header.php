@@ -1,15 +1,4 @@
-<?php
-/**
- * The template for displaying the header
- *
- * Displays all of the head element and everything up until the "site-content" div.
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
- */
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 	
@@ -41,4 +30,4 @@ $("#footer").load("./parts/footer.html");
 </div>
 <div id="header"></div>
 <div class="container row">
-  <h1 class="presstitle"><a href="./wordpress/" style="color:black;">Press</a><?php wp_title (); ?></h1>
+  <h1 class="presstitle"><a href="./wordpress/" style="color:black;">Press</a></h1>
