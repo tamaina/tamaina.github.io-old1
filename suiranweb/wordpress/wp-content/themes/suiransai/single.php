@@ -14,6 +14,14 @@ get_header(); ?>
 		<?php if ( have_posts() ) : the_post(); ?>
 		<div class="card grey lighten-5">
 		<div class="card-content">
+		
+            <?php if ( has_post_thumbnail() ) : ?>
+            <div style="width:106px;height:106px;float:left;">
+			<?php the_post_thumbnail( array(100,100) ); ?></div>
+			<?php else: ?>
+			<div style="width:106px;height:106px;float:left;">
+			<img src="images/eyecatch.png" style="width:100px;height:100px;"></div>
+			<?php endif; ?>
             <?php the_time('Y年m月d日（D）'); ?>
 			<h2><span class="card-title entry_title"><?php the_title(); ?></span></h2>
 			<div style="padding-bottom:7px;"><img src="<?php echo get_avatar_onlyurl( get_the_author_meta( 'ID' ), 24 ); ?>" style="margin-bottom: -6px;"> <?php the_author_posts_link(); ?> | <i class="fa fa-book" aria-hidden="true"></i>
@@ -21,23 +29,15 @@ get_header(); ?>
 			</div>
 			<?php the_content(); ?>
 		</div>
-				<div class="card-action">
-		<div class="ninja_onebutton">
-<script type="text/javascript">
-//<![CDATA[
-(function(d){
-if(typeof(window.NINJA_CO_JP_ONETAG_BUTTON_ec2c73dceb084177a8128786f4c9db5d)=='undefined'){
-    document.write("<sc"+"ript type='text\/javascript' src='\/\/omt.shinobi.jp\/b\/ec2c73dceb084177a8128786f4c9db5d'><\/sc"+"ript>");
-}else{
-    window.NINJA_CO_JP_ONETAG_BUTTON_ec2c73dceb084177a8128786f4c9db5d.ONETAGButton_Load();}
-})(document);
-//]]>
-</script><span class="ninja_onebutton_hidden" style="display:none;"><?php the_permalink(); ?></span><span style="display:none;" class="ninja_onebutton_hidden"><?php the_title(); ?></span>
-</div>
-		</div>
-		<?php endif; ?>
-		</div>
+		<div class="card-action"><p class="share_buttons">
+  <a href="http://line.me/R/msg/text/?%e9%ab%98%e5%b4%8e%e9%ab%98%e6%a0%a1%e6%96%87%e5%8c%96%e7%a5%ad%e3%80%8c%e7%bf%a0%e5%b7%92%e7%a5%ad%e3%80%8d%e5%85%ac%e5%bc%8f%e3%83%96%e3%83%ad%e3%82%b0%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%a7%e3%81%99%e3%80%82%0d%0a%0d%0a%e3%82%bf%e3%82%a4%e3%83%88%e3%83%ab%e3%80%8c<?php echo urlencode( $post->post_title ); ?>%e3%80%8d%0d%0a%0d%0a%e7%bf%a0%e5%b7%92%e7%a5%ad%e3%83%9b%e3%83%bc%e3%83%a0%e3%83%9a%e3%83%bc%e3%82%b8%3a%20http%3a%2f%2fsuiranfes%2ecom%2f" class="waves-effect waves-light btn" target="_blank" style="color: white;"><img src="./img/line.png" style="height: 1em;" /> LINE</a>
+  <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode( empty($_SERVER['HTTPS']) ? 'http://' : 'https://' ) . urlencode( $_SERVER['HTTP_HOST'] ) . urlencode( $_SERVER['REQUEST_URI'] ); ?>&text=%e9%ab%98%e5%b4%8e%e9%ab%98%e6%a0%a1%e6%96%87%e5%8c%96%e7%a5%ad%e3%80%8c%e7%bf%a0%e5%b7%92%e7%a5%ad%e3%80%8d%e3%81%ae%e5%85%ac%e5%bc%8f%e3%83%96%e3%83%ad%e3%82%b0%e3%81%ae%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%82%92%e8%aa%ad%e3%82%93%e3%81%a7%e3%81%8f%e3%81%a0%e3%81%95%e3%81%84%ef%bc%81&original_referer=&related=suirannsai64&via=suirannsai64&hashtags=%E3%82%B9%E3%82%A4%E3%83%A9%E3%83%B3%E7%A5%AD" target="_blank" class="waves-effect waves-light btn" target="_blank" style="color: white;"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( empty($_SERVER['HTTPS']) ? 'http://' : 'https://' ) . urlencode( $_SERVER['HTTP_HOST'] ) . urlencode( $_SERVER['REQUEST_URI'] ); ?>" class="waves-effect waves-light btn" target="_blank" style="color: white;"><i class="fa fa-facebook-official" aria-hidden="true"></i> facebook</a>
+  <a href="https://plus.google.com/share?url=<?php echo urlencode( empty($_SERVER['HTTPS']) ? 'http://' : 'https://' ) . urlencode( $_SERVER['HTTP_HOST'] ) . urlencode( $_SERVER['REQUEST_URI'] ); ?>" class="waves-effect waves-light btn" target="_blank" style="color: white;"><i class="fa fa-google-plus" aria-hidden="true"></i> Google+</a>
+
+  </p></div>
 	</div>
-</div>
+</div></div>
+<?php endif; ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -99,8 +99,8 @@ p.__answer {
     padding-bottom: 0.7ex;
 }
 p {
-    text-indent: 1em;
     padding-bottom: 1ex;
+    padding-left: 0.5ex;
 }
 p.ans_by {
     text-align: right;

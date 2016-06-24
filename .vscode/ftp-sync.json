@@ -1,0 +1,16 @@
+{
+    "remotePath": "./",
+    "host": "ftp.bikkuri.link",
+    "username": "bikk_17904701",
+    "password": "s1mutrans",
+    "port": 21,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git"
+    ]
+}

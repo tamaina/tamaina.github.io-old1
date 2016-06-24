@@ -483,7 +483,7 @@ return $initArray;
 add_filter( 'tiny_mce_before_init', 'custom_editor_settings' );
 
 function custom_login_logo() {
- echo '<style type="text/css">h1 a { background: http://tamaina.bikkuri.link/suiranweb/img/wp-loginlogo.png) 50% 50% no-repeat !important; }</style>';
+ echo '<style type="text/css">h1 a { background: ' . url( get_bloginfo("template_directory")) . '/img/wp-loginlogo.png 50% 50% no-repeat !important; }</style>';
  }
 add_action('login_head', 'custom_login_logo');
 

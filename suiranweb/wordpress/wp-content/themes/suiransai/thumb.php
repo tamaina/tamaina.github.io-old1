@@ -17,12 +17,15 @@
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(100,100) ); ?></a></div>
 			<?php the_content('Read more...'); ?>
 			<?php else: ?>
+			<div style="width:106px;height:106px;float:left;">
+			<a href="<?php the_permalink(); ?>"><img src="img/eyecatch.png" style="width:100px;height:100px;"></a></div>
 			<?php the_content('Read more...'); ?>
 			<?php endif; ?>
 		</div>
 		</div>
-		<?php endwhile; endif; ?>
-	<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
+		<?php endwhile; else: ?>
+		<div><p>投稿はありません</p></div>
+	<?php endif; if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 </div>
