@@ -482,11 +482,6 @@ return $initArray;
 }
 add_filter( 'tiny_mce_before_init', 'custom_editor_settings' );
 
-function custom_login_logo() {
- echo '<style type="text/css">h1 a { background: ' . url( get_bloginfo("template_directory")) . '/img/wp-loginlogo.png 50% 50% no-repeat !important; }</style>';
- }
-add_action('login_head', 'custom_login_logo');
-
 // フッターWordPressリンクを非表示に
 function custom_admin_footer() {
  echo '<a href="mailto:xxx@zzz">お問い合わせ</a>';
@@ -566,3 +561,15 @@ function remove_default_post_screen_metaboxes() {
  }
  }
 add_action('admin_menu','remove_default_post_screen_metaboxes');
+
+function custom_login() { ?>
+<style>
+.login #login h1 a {
+	width: 320px;
+	height: 100px;
+	background: url(<?php echo get_bloginfo('template_directory'); ?>/images/login.png) no-repeat 0 0;
+}
+</style>
+
+<?php }
+add_action('login_head', 'custom_login');

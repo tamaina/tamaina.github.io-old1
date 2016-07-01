@@ -2,20 +2,63 @@
 <html>
     <head>
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta name="viewport" content="width=device-width">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
          <title>翠巒祭 - Q&A</title>
-         <!--Import jQuery before materialize.js-->
-         <script type="text/javascript" src="../scripts/jquery-2.2.3.min.js"></script>
-         <!-- Compiled and minified JavaScript -->
-         <script src="../scripts/materialize/js/materialize.min.js"></script>
-         
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<base href="../">
 <script type="text/javascript">
 $(function(){
-$("#header").load("../parts/header.html");
-$("#footer").load("../parts/footer.html");
+$("#footer").load("./parts/footer.html");
+$("div.Qu").load("./parts/q.html");
+$("div.An").load("./parts/a.html");
 })
 </script>
-<div id="header"></div>
+         <link rel="shortcut icon" href="./img/THS-Mark.png" type="image/png"> 
+         <link href="./scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+         <script src="./scripts/remodal/remodal.min.js"></script>
+         <link rel="stylesheet" href="./scripts/remodal/remodal.css" />
+         <!-- Compiled and minified CSS -->
+         <link rel="stylesheet" href="./css/style.css" />
+         <link rel="stylesheet" href="./css/press_style.css" />
+</head>
+<body>
+
+<div class="navbar-fixed">
+  <nav class="navigationbar light-blue darken-3">
+    <div class="nav-wrapper" style="margin-left:1em;padding-right:1em;">
+      <a href="./" class="brand-logo grey-text text-lighten-3 blogo">第65回翠巒祭</a>
+       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="grey-text text-lighten-3" href="./">トップ</a></li>
+        <li><a class="grey-text text-lighten-3" href="./about/">翠巒祭について</a></li>
+        <li><a class="grey-text text-lighten-3" href="./attractions/">企画・模擬店</a></li>
+        <li><a class="grey-text text-lighten-3" href="./access/">アクセス</a></li>
+        <li><a class="grey-text text-lighten-3" href="./qa/">Q & A</a></li>
+        <li><a class="grey-text text-lighten-3" href="./garally/">ギャラリー</a></li>
+        <li><a class="grey-text text-lighten-3" href="./steering_committee/">実行委員</a></li>
+        <li><a class="grey-text text-lighten-3" href="./wordpress/">Press</a></li>
+<!--        <li><a class="grey-text text-lighten-3" href="./game/">Game</a></li>-->
+      </ul>
+      <ul id="slide-out" class="side-nav">
+        <li><a href="./">トップ</a></li>
+        <li><a href="./about/">翠巒祭について</a></li>
+        <li><a href="./attractions/">企画紹介</a></li>
+        <li><a href="./access/">アクセス</a></li>
+        <li><a href="./qa/">Q & A</a></li>
+        <li><a href="./garally/">ギャラリー</a></li>
+        <li><a href="./steering_committee/">実行委員</a></li>
+        <li><a href="./wordpress/">Press</a></li>
+<!--        <li><a href="./game/">Game</a></li>-->
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse container">
+          <i class="fa fa-bars" aria-hidden="true" style="color: white;"></i>
+</a>
+    </div>
+  </nav>
+</div>
+
 <div id="main">
 <div class="row container">
 <h1>よくある質問</h1>
@@ -23,67 +66,27 @@ $("#footer").load("../parts/footer.html");
     <p>諸注意などを一問一答形式でわかりやすくお伝えします。</p>
   </div>
 
-<!--こっから-->
+<div class="card-panel">
+<div><div class="Qu"></div><div class="question"><p>落とし物を落とした / 落とし物を見つけた</p></div></div>
 <div class="divider"></div><!--ちなみにこれは仕切り-->
-<div class="section ">
-<p class="question">Q.落とし物を落とした / 落とし物を見つけた</p>
-<p class="__answer">A.インフォメーションセンターにお越しください。</p>
+<div><div class="An"></div><div class="__answer"><p>インフォメーションセンターにお越しください。</p></div>
 <p class="ans_by">Information Center</p>
-</div>
-<!--ここまでが一つのカタマリだから！！！-->
-<!--こっから-->
+</div></div>
+
+<div class="card-panel">
+<div><div class="Qu"></div><div class="question"><p>校内を撮影してよいか</p></div></div>
 <div class="divider"></div><!--ちなみにこれは仕切り-->
-<div class="section ">
-<p class="question">Q.順路はありますか？</p>
-<p class="__answer">A.いいえ。どうぞご自由にお好きなだけご覧ください。</p>
-<p class="ans_by">広報課</p>
-</div>
-<!--ここまでが一つのカタマリだから！！！-->
-<!--こっから-->
+<div><div class="An"></div><div class="__answer"><p>校内の撮影は禁止しておりません。SNSへの投稿もバンバンしてください。ただし、常識の範囲でお願いします。とくに肖像権やプライバシーについてご留意ください。</p></div>
+<p class="ans_by">実行委員長</p>
+</div></div>
+
+<div class="card-panel">
+<div><div class="Qu"></div><div class="question"><p>このホームページやTwitterの情報を転載してよいか</p></div></div>
 <div class="divider"></div><!--ちなみにこれは仕切り-->
-<div class="section ">
-<p class="question">Q.上履きを持っていく必要はありますか？</p>
-<p class="__answer">A.いいえ。その必要は全くありません。スリッパ班が懇切丁寧にスリッパをお渡しいたします。</p>
-<p class="ans_by">スリッパ班</p>
-</div>
-<!--ここまでが一つのカタマリだから！！！-->
-<!--こっから-->
-<div class="divider"></div><!--ちなみにこれは仕切り-->
-<div class="section ">
-<p class="question">Q.ホームページやTwitterの内容を転載していいでしょうか？</p>
-<p class="__answer">A.はい。但し、URL(suiranfes.com)やTwitterアカウント(@suiranfes)を出典元としてお書きいただければなお幸いです。</p>
-<p class="ans_by">web課</p>
-</div>
-<!--ここまでが一つのカタマリだから！！！-->
-<!--こっから-->
-<div class="divider"></div><!--ちなみにこれは仕切り-->
-<div class="section ">
-<p class="question">Q.ホームページの内容が間違ってたんだけど......</p>
-<p class="__answer">A.申し訳ございません。人力で発信している以上、不備が発生してしまいますことをご理解いただければ幸いです。</p>
-<p class="ans_by">web課</p>
-</div>
-<!--ここまでが一つのカタマリだから！！！-->
-<!--こっから-->
-<div class="divider"></div><!--ちなみにこれは仕切り-->
-<div class="section ">
-<p class="question">Q.ホームページの表示が乱れる</p>
-<p class="__answer">A.申し訳ございません。新しいブラウザをお使いください。<br>
-こちらでは、MS Edge(Win10)、Firefox(Win10,Android)、Chrome(Win10,Android)、Safari(iOS)の最新版で動作を確認しております。<br>
-通常の設定をしていれば、表示できるはずですが、不備がありましたら下記の問い合わせ先でご相談ください。</p>
-<p class="ans_by">web課</p>
-</div>
-<!--ここまでが一つのカタマリだから！！！-->
-<!--こっから-->
-<div class="divider"></div><!--ちなみにこれは仕切り-->
-<div class="section ">
-<p class="question">Q.翠巒祭について質問したい。 / ホームページを舐めまわして見たが、やはり不明な点がある。</p>
-<p class="__answer">A.メール(***☆---.++(@が☆に変わっています))または専用投稿フォームでお気軽にお尋ねください。<br>
-返信が可能なように、返信先のメールアドレスをご記入いただきますようお願い申し上げます。</p>
-<p class="ans_by">広報課</p>
-<p class="__answer">また、Twitterアカウント(@suiranfes)にリプライやDMを送っていただければ、可能な限り対応致します。</p>
+<div><div class="An"></div><div class="__answer"><p>引用元(URL若しくはTwitterアカウントID)を明記の上転載をお願いします。また、掲載された情報が誤っていたり変更になる可能性がありますので、定期的に「お知らせ」の確認をお願いします。</p><p>Twitterに一報を入れていただけると、担当が喜びます。</p></div>
 <p class="ans_by">Web課</p>
-</div>
-<!--ここまでが一つのカタマリだから！！！-->
+</div></div>
+
 </div>
 </div>
 

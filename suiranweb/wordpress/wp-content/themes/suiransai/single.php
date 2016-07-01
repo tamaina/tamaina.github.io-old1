@@ -14,19 +14,18 @@ get_header(); ?>
 		<?php if ( have_posts() ) : the_post(); ?>
 		<div class="card grey lighten-5">
 		<div class="card-content">
-		
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div style="width:106px;height:106px;float:left;">
-			<?php the_post_thumbnail( array(100,100) ); ?></div>
-			<?php else: ?>
-			<div style="width:106px;height:106px;float:left;">
-			<img src="images/eyecatch.png" style="width:100px;height:100px;"></div>
-			<?php endif; ?>
             <?php the_time('Y年m月d日（D）'); ?>
 			<h2><span class="card-title entry_title"><?php the_title(); ?></span></h2>
 			<div style="padding-bottom:7px;"><img src="<?php echo get_avatar_onlyurl( get_the_author_meta( 'ID' ), 24 ); ?>" style="margin-bottom: -6px;"> <?php the_author_posts_link(); ?> | <i class="fa fa-book" aria-hidden="true"></i>
  <?php the_category(' '); ?><?php the_tags( '| <i class="fa fa-tags" aria-hidden="true"></i> ', ', ', '' ); ?>
 			</div>
+            <?php if ( has_post_thumbnail() ) : ?>
+            <div style="width:106px;height:106px;float:left;">
+			<?php the_post_thumbnail( array(100,100) ); ?></div>
+			<?php else: ?>
+			<div style="width:106px;height:106px;float:left;">
+			<img src="<?php echo get_bloginfo('template_directory'); ?>/images/eyecatch.png" style="width:100px;height:100px;"></div>
+			<?php endif; ?>
 			<?php the_content(); ?>
 		</div>
 		<div class="card-action"><p class="share_buttons">

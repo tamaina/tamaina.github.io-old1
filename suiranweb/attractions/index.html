@@ -2,33 +2,76 @@
 <html>
     <head>
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta name="viewport" content="width=device-width">
-         <title>翠巒祭 - 企画紹介</title>
-         <!--Import jQuery before materialize.js-->
-         <script type="text/javascript" src="../scripts/jquery-2.2.3.min.js"></script>
-         <!-- Compiled and minified JavaScript -->
-         <script src="../scripts/materialize/js/materialize.min.js"></script>
-
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>翠巒祭 - 企画と模擬店</title>
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<base href="../">
 <script type="text/javascript">
 $(function(){
-$("#header").load("../parts/header.html");
-$("#footer").load("../parts/footer.html");
+$("#footer").load("./parts/footer.html");
 })
 </script>
-<div id="header"></div>
+         <link rel="shortcut icon" href="./img/THS-Mark.png" type="image/png"> 
+         <link href="./scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+         <script src="./scripts/remodal/remodal.min.js"></script>
+         <link rel="stylesheet" href="./scripts/remodal/remodal.css" />
+         <!-- Compiled and minified CSS -->
+         <link rel="stylesheet" href="./css/style.css" />
+         <link rel="stylesheet" href="./css/press_style.css" />
+</head>
+<body>
+
+<div class="navbar-fixed">
+  <nav class="navigationbar light-blue darken-3">
+    <div class="nav-wrapper" style="margin-left:1em;padding-right:1em;">
+      <a href="./" class="brand-logo grey-text text-lighten-3 blogo">第65回翠巒祭</a>
+       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="grey-text text-lighten-3" href="./">トップ</a></li>
+        <li><a class="grey-text text-lighten-3" href="./about/">翠巒祭について</a></li>
+        <li><a class="grey-text text-lighten-3" href="./attractions/">企画・模擬店</a></li>
+        <li><a class="grey-text text-lighten-3" href="./access/">アクセス</a></li>
+        <li><a class="grey-text text-lighten-3" href="./qa/">Q & A</a></li>
+        <li><a class="grey-text text-lighten-3" href="./garally/">ギャラリー</a></li>
+        <li><a class="grey-text text-lighten-3" href="./steering_committee/">実行委員</a></li>
+        <li><a class="grey-text text-lighten-3" href="./wordpress/">Press</a></li>
+<!--        <li><a class="grey-text text-lighten-3" href="./game/">Game</a></li>-->
+      </ul>
+      <ul id="slide-out" class="side-nav">
+        <li><a href="./">トップ</a></li>
+        <li><a href="./about/">翠巒祭について</a></li>
+        <li><a href="./attractions/">企画紹介</a></li>
+        <li><a href="./access/">アクセス</a></li>
+        <li><a href="./qa/">Q & A</a></li>
+        <li><a href="./garally/">ギャラリー</a></li>
+        <li><a href="./steering_committee/">実行委員</a></li>
+        <li><a href="./wordpress/">Press</a></li>
+<!--        <li><a href="./game/">Game</a></li>-->
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse container">
+          <i class="fa fa-bars" aria-hidden="true" style="color: white;"></i>
+</a>
+    </div>
+  </nav>
+</div>
+
 <div id="main">
 <div class="row">
 <div class="container">
-              <h1>企画紹介</h1>
+              <h1>企画と模擬店</h1>
 <!-- 大タブ -->
+<p>翠巒祭でやるものを、一挙に紹介します。下の緑色のタブをクリック(タップ)してご覧ください。</p>
 </div>
 <div class="col s12">
   <div class="teal darken-3">
     <div class="container">
     <ul class="tabs">
-      <li class="tab teal darken-3 white-text col s4" style="color: white;"><a class="active" href="#Events" style="color: white;">イベント</a></li>
-      <li class="tab teal darken-3 white-text col s4" style="color: white;"><a href="#Panten" style="color: white;">一般展示</a></li>
-      <li class="tab teal darken-3 white-text col s4" style="color: white;"><a href="#Foods" style="color: white;">飲食</a></li>
+      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a class="active" href="#Events" style="color: white;">イベント</a></li>
+      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Panten" style="color: white;">一般展示</a></li>
+      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Foods" style="color: white;">飲食</a></li>
+      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#InvitationMatch" style="color: white;">招待試合</a></li>
       </ul>
     </div>
   </div>
@@ -98,7 +141,7 @@ $("#footer").load("../parts/footer.html");
     <h3>グランドフィナーレ</h3>
     <p>何が起こるかわからない！？翠巒祭のラストにふさわしいグランドフィナーレ‼</p>
   </div>
- <!-- 「イベント」「屋外ステージ」 --><p>後日掲載予定</p></div></div>
+ <!-- 「イベント」「屋外ステージ」 --></div></div>
   <!-- 「イベント」「体育館」 -->
   <div class="container"><div id="EvtOnGym" class="col s12">
     <h2>体育館</h2>
@@ -107,7 +150,7 @@ $("#footer").load("../parts/footer.html");
     <p>新企画らしい</p>
   </div>
   
-  <!-- 「イベント」「体育館」 --><p>後日掲載予定</p></div></div>
+  <!-- 「イベント」「体育館」 --></div></div>
   <!-- 「イベント」「翠巒会館」 -->
   <div class="container"><div id="EvtOnSuiranHall" class="col s12">
     <h2>翠巒会館</h2>
@@ -128,7 +171,7 @@ $("#footer").load("../parts/footer.html");
     <p>なぜ付けたかは知らないよ！</p>
   </div>
 
-<!-- 「イベント」「翠巒会館」 --><p>後日掲載予定</p></div></div>
+<!-- 「イベント」「翠巒会館」 --></div></div>
 
 </div><!-- 「イベント」 -->
 
@@ -407,6 +450,12 @@ $("#footer").load("../parts/footer.html");
 
 <!-- 「飲食」 「喫茶店」--></div></div>
 </div><!-- 「飲食」 -->
+
+<!-- 「招待試合」 --><div id="InvitationMatch" class="col s12">
+<div class="container">
+  <h2>招待試合です</h2>
+</div>
+</div><!-- 「招待試合」 -->
 
 <!-- ######################################################################################### -->
 

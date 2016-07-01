@@ -1,49 +1,49 @@
 @font-face {
     font-family: 'GenShinGothic';
     src: url('../fonts/GSG-ExtraLight.eot');
-    src: url('../fonts/GSG-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/GSG-ExtraLight.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-ExtraLight.ttf'), local('NotoSansCJKjp-Thin.otf'), local('SourceHanSansJP-ExtraLight.otf'),
     url('../fonts/GSG-ExtraLight.woff') format('woff'),url('../fonts/GenShinGothic-ExtraLight.ttf') format('truetype');
     font-weight: 200;
 }
 @font-face {
     font-family: 'GenShinGothic';
     src: url('../fonts/GSG-Light.eot');
-    src: url('../fonts/GSG-Light.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/GSG-Light.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Light.ttf'), local('NotoSansCJKjp-Light.otf'), local('SourceHanSansJP-Light.otf'),
     url('../fonts/GSG-Light.woff') format('woff'),url('../fonts/GenShinGothic-Light.ttf') format('truetype');
     font-weight: 300;
 }
 @font-face {
     font-family: 'GenShinGothic';
     src: url('../fonts/GSG-Normal.eot');
-    src: url('../fonts/GSG-Normal.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/GSG-Normal.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Normal.ttf'), local('NotoSansCJKjp-DemiLight.otf'), local('SourceHanSansJP-Normal.otf'),
     url('../fonts/GSG-Normal.woff') format('woff'),url('../fonts/GenShinGothic-Normal.ttf') format('truetype');
     font-weight: 400;
 }
 @font-face {
     font-family: 'GenShinGothic';
     src: url('../fonts/GSG-Medium.eot');
-    src: url('../fonts/GSG-Medium.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/GSG-Medium.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Medium.ttf'), local('NotoSansCJKjp-Medium.otf'),  local('SourceHanSansJP-Medium.otf'),
     url('../fonts/GSG-Medium.woff') format('woff'),url('../fonts/GenShinGothic-Medium.ttf') format('truetype');
     font-weight: 500;
 }
 @font-face {
     font-family: 'GenShinGothic';
     src: url('../fonts/GSG-Regular.eot');
-    src: url('../fonts/GSG-Regular.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/GSG-Regular.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Regular.ttf'), local('NotoSansCJKjp-Regular.otf'), local('SourceHanSansJP-Regular.otf'),
     url('../fonts/GSG-Regular.woff') format('woff'),url('../fonts/GenShinGothic-Regular.ttf') format('truetype');
     font-weight: 600;
 }
 @font-face {
     font-family: 'GenShinGothic';
     src: url('../fonts/GSG-Bold.eot');
-    src: url('../fonts/GSG-Bold.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/GSG-Bold.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Bold.ttf'), local('NotoSansCJKjp-Bold.otf'), local('SourceHanSansJP-Bold.otf'),
     url('../fonts/GSG-Bold.woff') format('woff'),url('../fonts/GenShinGothic-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 @font-face {
     font-family: 'GenShinGothic';
     src: url('../fonts/GSG-Heavy.eot');
-    src: url('../fonts/GSG-Heavy.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/GSG-Heavy.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Heavy.ttf'), local('NotoSansCJKjp-Black.otf'), local('SourceHanSansJP-Heavy.otf'),
     url('../fonts/GSG-Heavy.woff') format('woff'),url('../fonts/GenShinGothic-Heavy.ttf') format('truetype');
     font-weight: 900;
 }
@@ -88,21 +88,11 @@ h2 {
     text-shadow: 0 0 2px black,0 0 3px black;
 }
 
-p.question {
-    padding-left: 1em;
-    text-indent: -1em;
-    padding-bottom: 0.7ex;
-}
-p.__answer {
-    padding-left: 1em;
-    text-indent: -1em;
-    padding-bottom: 0.7ex;
-}
 p {
     padding-bottom: 1ex;
     padding-left: 0.5ex;
 }
-p.ans_by {
+.ans_by {
     text-align: right;
 }
 .littletitle{
@@ -168,4 +158,17 @@ margin-left: 10em;
 
 div {
     margin-top: 0;
+}
+.parallax-container {
+    height: 45vh;
+}
+div.Qu,div.An {
+    display: block;
+    margin-top: -0.5em;
+    float: left;
+    width: 2em;
+}
+.question,.__answer {
+    display: block;
+    padding-bottom: 0.7ex;
 }
