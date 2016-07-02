@@ -22,8 +22,6 @@ $("#footer").load("./parts/footer.html");
 </script>
          <link rel="shortcut icon" href="./img/THS-Mark.png" type="image/png"> 
          <link href="./scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-         <script src="./scripts/remodal/remodal.min.js"></script>
-         <link rel="stylesheet" href="./scripts/remodal/remodal.css" />
          <!-- Compiled and minified CSS -->
          <link rel="stylesheet" href="./css/style.css" />
          <link rel="stylesheet" href="./css/press_style.css" />
@@ -39,7 +37,7 @@ $("#footer").load("./parts/footer.html");
 <div class="navbar-fixed">
   <nav class="navigationbar light-blue darken-3">
     <div class="nav-wrapper" style="margin-left:1em;padding-right:1em;">
-      <a href="./" class="brand-logo grey-text text-lighten-3 blogo">第64回翠巒祭</a>
+      <a href="./" class="brand-logo grey-text text-lighten-3 blogo">第65回翠巒祭</a>
        <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a class="grey-text text-lighten-3" href="./">トップ</a></li>
         <li><a class="grey-text text-lighten-3" href="./about/">翠巒祭について</a></li>

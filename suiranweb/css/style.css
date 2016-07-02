@@ -172,3 +172,7 @@ div.Qu,div.An {
     display: block;
     padding-bottom: 0.7ex;
 }
+.btn {
+    margin: 3px 0;
+    width: 11em;
+}
