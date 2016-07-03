@@ -15,11 +15,11 @@
             <?php if ( has_post_thumbnail() ) : ?>
             <div style="width:106px;height:106px;float:left;">
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(100,100) ); ?></a></div>
-			<?php the_content('Read more...'); ?>
+			<div style="display: block;"><?php the_content('Read more...'); ?></div>
 			<?php else: ?>
 			<div style="width:106px;height:106px;float:left;">
 			<a href="<?php the_permalink(); ?>"><img src="<?php echo get_bloginfo('template_directory'); ?>/images/eyecatch.png" style="width:100px;height:100px;"></a></div>
-			<?php the_content('Read more...'); ?>
+			<div style="display: block;"><?php the_content('Read more...'); ?></div>
 			<?php endif; ?>
 		</div>
 		</div>

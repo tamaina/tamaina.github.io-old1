@@ -17,12 +17,19 @@
     font-size: 15pt;
 }
 }
-.widget {
-    border: #3f51b5 solid 1px;
-    border-left: #3f51b5 solid 10px;
-    padding: 20px;
-    background: #fff;
-}
 .index_press {
     color: #000000;
+}
+
+.wp-widget a:link {
+    color: #eceff1;
+}
+.wp-widget a:hover {
+    color: #455a64;
+}
+.wp-widget a:active {
+    color: #455a64;
+}
+.wp-widget a:visited {
+    color: #90a4ae;
 }

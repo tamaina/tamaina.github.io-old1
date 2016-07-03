@@ -1,53 +1,51 @@
+/*
 @font-face {
     font-family: 'GenShinGothic';
-    src: url('../fonts/GSG-ExtraLight.eot');
-    src: url('../fonts/GSG-ExtraLight.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-ExtraLight.ttf'), local('NotoSansCJKjp-Thin.otf'), local('SourceHanSansJP-ExtraLight.otf'),
+    src: local('GenShinGothic-ExtraLight'), local('NotoSansCJKjp-Thin'), local('SourceHanSansJP-ExtraLight'),
     url('../fonts/GSG-ExtraLight.woff') format('woff'),url('../fonts/GenShinGothic-ExtraLight.ttf') format('truetype');
     font-weight: 200;
 }
+*/
+
 @font-face {
     font-family: 'GenShinGothic';
-    src: url('../fonts/GSG-Light.eot');
-    src: url('../fonts/GSG-Light.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Light.ttf'), local('NotoSansCJKjp-Light.otf'), local('SourceHanSansJP-Light.otf'),
+    src: local('GenShinGothic-Light'), local('NotoSansCJKjp-Light'), local('SourceHanSansJP-Light'),
     url('../fonts/GSG-Light.woff') format('woff'),url('../fonts/GenShinGothic-Light.ttf') format('truetype');
     font-weight: 300;
 }
+
 @font-face {
     font-family: 'GenShinGothic';
-    src: url('../fonts/GSG-Normal.eot');
-    src: url('../fonts/GSG-Normal.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Normal.ttf'), local('NotoSansCJKjp-DemiLight.otf'), local('SourceHanSansJP-Normal.otf'),
+    src: local('GenShinGothic-Normal'), local('NotoSansCJKjp-DemiLight'), local('SourceHanSansJP-Normal'),
     url('../fonts/GSG-Normal.woff') format('woff'),url('../fonts/GenShinGothic-Normal.ttf') format('truetype');
     font-weight: 400;
 }
 @font-face {
     font-family: 'GenShinGothic';
-    src: url('../fonts/GSG-Medium.eot');
-    src: url('../fonts/GSG-Medium.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Medium.ttf'), local('NotoSansCJKjp-Medium.otf'),  local('SourceHanSansJP-Medium.otf'),
+    src: local('GenShinGothic-Medium'), local('NotoSansCJKjp-Medium'),  local('SourceHanSansJP-Medium'),
     url('../fonts/GSG-Medium.woff') format('woff'),url('../fonts/GenShinGothic-Medium.ttf') format('truetype');
     font-weight: 500;
 }
 @font-face {
     font-family: 'GenShinGothic';
-    src: url('../fonts/GSG-Regular.eot');
-    src: url('../fonts/GSG-Regular.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Regular.ttf'), local('NotoSansCJKjp-Regular.otf'), local('SourceHanSansJP-Regular.otf'),
+    src: local('GenShinGothic-Regular'), local('NotoSansCJKjp-Regular'), local('SourceHanSansJP-Regular'),
     url('../fonts/GSG-Regular.woff') format('woff'),url('../fonts/GenShinGothic-Regular.ttf') format('truetype');
     font-weight: 600;
 }
 @font-face {
     font-family: 'GenShinGothic';
-    src: url('../fonts/GSG-Bold.eot');
-    src: url('../fonts/GSG-Bold.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Bold.ttf'), local('NotoSansCJKjp-Bold.otf'), local('SourceHanSansJP-Bold.otf'),
+    src: local('GenShinGothic-Bold'), local('NotoSansCJKjp-Bold'), local('SourceHanSansJP-Bold'),
     url('../fonts/GSG-Bold.woff') format('woff'),url('../fonts/GenShinGothic-Bold.ttf') format('truetype');
     font-weight: 700;
 }
+/*
 @font-face {
     font-family: 'GenShinGothic';
-    src: url('../fonts/GSG-Heavy.eot');
-    src: url('../fonts/GSG-Heavy.eot?#iefix') format('embedded-opentype'), local('GenShinGothic-Heavy.ttf'), local('NotoSansCJKjp-Black.otf'), local('SourceHanSansJP-Heavy.otf'),
+    src: local('GenShinGothic-Heavy'), local('NotoSansCJKjp-Black'), local('SourceHanSansJP-Heavy'),
     url('../fonts/GSG-Heavy.woff') format('woff'),url('../fonts/GenShinGothic-Heavy.ttf') format('truetype');
     font-weight: 900;
 }
-
+*/
 
 body {
     font-family: Roboto, 'GenShinGothic', 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'Yu Gothic', 'YuGothic', Meiryo;
@@ -67,11 +65,11 @@ h4 {
 }
 @media screen and (max-width: 500px) {
 h1 {
-   font-size: 23pt;
+   font-size: 26pt;
 }
 h2 {
-   font-size: 16pt;
-   font-weight: 600;
+   font-size: 17pt;
+   font-weight: 500;
 }
 }
 
@@ -175,4 +173,15 @@ div.Qu,div.An {
 .btn {
     margin: 3px 0;
     width: 11em;
+}
+div.card-panel p {
+    padding: 0;
+}
+#ad {
+    display: inline;
+}
+@media screen and (max-width: 377px){
+#ad {
+    width: 100%
+}
 }
