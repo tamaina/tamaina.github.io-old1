@@ -185,3 +185,13 @@ div.card-panel p {
     width: 100%
 }
 }
+#article ul li {
+    list-style-type: disc;
+}
+#article ol li {
+    list-style-type: upper-roman;
+}
+#ariticle ul, #article ol {
+    padding-right: -1.5em;
+    margin-right: 1.5em 
+}

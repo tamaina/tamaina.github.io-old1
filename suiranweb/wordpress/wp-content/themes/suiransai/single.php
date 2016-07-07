@@ -12,7 +12,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		<?php if ( have_posts() ) : the_post(); ?>
-		<div class="card grey lighten-5">
+		<div id="article" class="card grey lighten-5">
 		<div class="card-content">
             <?php the_time('Y年m月d日（D）'); ?>
 			<h2><span class="card-title entry_title"><?php the_title(); ?></span></h2>
@@ -20,10 +20,10 @@ get_header(); ?>
  <?php the_category(' '); ?><?php the_tags( '| <i class="fa fa-tags" aria-hidden="true"></i> ', ', ', '' ); ?>
 			</div>
             <?php if ( has_post_thumbnail() ) : ?>
-            <div style="width:106px;height:106px;float:left;">
+            <div style="width:106px;height:106px;display:inline-block;float:left;">
 			<?php the_post_thumbnail( array(100,100) ); ?></div>
 			<?php else: ?>
-			<div style="width:106px;height:106px;float:left;">
+			<div style="width:106px;height:106px;display:inline-block;float:left;">
 			<img src="<?php echo get_bloginfo('template_directory'); ?>/images/eyecatch.png" style="width:100px;height:100px;"></div>
 			<?php endif; ?>
 			<?php the_content(); ?>

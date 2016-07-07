@@ -54,7 +54,7 @@ $(".share-button").load("./parts/share-button.html");
       <ul id="slide-out" class="side-nav">
         <li><a href="./">トップ</a></li>
         <li><a href="./about/">翠巒祭について</a></li>
-        <li><a href="./attractions/">企画紹介</a></li>
+        <li><a href="./attractions/">企画・模擬店</a></li>
         <li><a href="./access/">アクセス</a></li>
         <li><a href="./qa/">Q & A</a></li>
         <li><a href="./garally/">ギャラリー</a></li>
