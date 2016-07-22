@@ -6,11 +6,8 @@
 		<?php while ( have_posts() ) : the_post(); ?>
 		<div id="article" class="row card teal lighten-5">
 		<div class="card-content col s12">
-            <?php the_time('Y年m月d日（D）'); ?>
+			<div style="padding-bottom: 7px;"><a href="<?php echo home_url(); ?>/?auther=<?php echo get_the_author_meta( 'ID' ) ?>"><img src="<?php echo get_avatar_onlyurl( get_the_author_meta( 'ID' ), 48 ); ?>" style="margin-right:4px;display:block;float:left;"></a><?php the_author_posts_link(); ?> | <i class="fa fa-book" aria-hidden="true"></i><?php the_category(' '); ?><?php the_tags( ' | <i class="fa fa-tags" aria-hidden="true"></i> ', ', ', '' ); ?><br><i class="fa fa-calendar-o" aria-hidden="true"></i> <?php the_time('Y年m月d日（D） H時m分'); ?>
 			<h2><span class="card-title entry_title"><a href="<?php the_permalink(); ?>" class="index_press"><?php the_title(); ?></a></span></h2>
-			<div style="padding-bottom: 7px;"><img src="<?php echo get_avatar_onlyurl( get_the_author_meta( 'ID' ), 24 ); ?>" style="margin-bottom: -6px;"> <?php the_author_posts_link(); ?> | <i class="fa fa-book" aria-hidden="true"></i>
- <?php the_category(' '); ?><?php the_tags( ' | <i class="fa fa-tags" aria-hidden="true"></i>
- ', ', ', '' ); ?>
 			</div>
             <?php if ( has_post_thumbnail() ) : ?>
             <div style="width:106px;height:106px;float:left;display:inline-block;">
@@ -25,7 +22,7 @@
 		</div>
 		<?php endwhile; else: ?>
 		<div><p>投稿はありません</p></div>
-	<?php endif; if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
+		<?php endif; ?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 </div>

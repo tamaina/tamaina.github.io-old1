@@ -18,12 +18,12 @@
 <li><div class="collapsible-header"><i class="fa fa-user" aria-hidden="true"></i> 実行委員から探す</div>
     <div class="collapsible-body" style="padding-top:1em;padding-bottom:1em;"><div class="container"><div class="row">
      <!--投稿者一覧を表示-->
-        <?php $users =get_users( array('orderby'=>ID,'order'=>ASC) );
+        <?php $users =get_users( array('orderby'=>'ID','order'=>'ASC') );
         foreach($users as $user):
             $uid = $user->ID;
             $userData = get_userdata($uid);
            echo '<div class="col s12 m4"><div class="writer-link" style="margin: 0px; padding: 4px;">';
-           echo '<a href="'.get_bloginfo(url).'/?author='.$uid.'">';
+           echo '<a href="'.get_bloginfo('url').'/?author='.$uid.'">';
            echo '<img src="' .get_avatar_onlyurl( $uid , 24 ) .'" style="margin-bottom: -6px;">'.$user->display_name;
            echo '</a><br></div></div>';
                 endforeach; ?>

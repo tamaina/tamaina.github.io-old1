@@ -11,13 +11,18 @@
          <!-- Compiled and minified CSS -->
      </head>
      <body>
-<div class="collection">
+<div style="padding: 7px;">
+<div class="collection z-depth-1">
 <?php $paged = get_query_var('paged'); ?>
-<?php query_posts("posts_per_page=8&paged=$paged"); ?>
+<?php query_posts("posts_per_page=20&paged=$paged"); ?>
 <?php if (have_posts()) : while(have_posts()) : the_post(); ?>
-<a href="<?php the_permalink(); ?>" class="collection-item" target="_blank"><?php the_time('Y/m/d'); ?> <?php the_title(); ?> by <?php $posttags = get_the_tags();$count = count($posttags);$loop = 0;if ($posttags) {foreach ($posttags as $tag) {$loop++;if ($count == $loop){echo $tag->name . '';} else {echo $tag->name . ', ';}}} ?> <?php the_author(); ?></a>
+<a href="<?php the_permalink(); ?>" class="collection-item" target="_blank">
+<i class="fa fa-calendar-o" aria-hidden="true"></i><?php the_time('Y/m/d H:m'); ?>
+  <?php the_title(); if(get_the_tags()){ ?>
+ <i class="fa fa-tags" aria-hidden="true"></i><?php $posttags = get_the_tags();$count = count($posttags);$loop = 0;if ($posttags) {foreach ($posttags as $tag) {$loop++;if ($count == $loop){echo $tag->name . '';} else {echo $tag->name . ', ';}}}}?>
+ <i class="fa fa-user" aria-hidden="true"></i><?php the_author(); ?></a>
 <?php endwhile; endif; ?>
-
+</div></div>
 </body>
 
 <script type="text/javascript">
@@ -26,12 +31,9 @@ $(document).ready(function(){
 
  $('ul.tabs').tabs();
  $('ul.tabs').tabs('select_tab', 'tab_id');
+
+$("#sitetop_parentelement", window.parent.document).height(document.body.scrollHeight);
 });
- $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 240
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    }
-  );
+
 </script>
 </html>

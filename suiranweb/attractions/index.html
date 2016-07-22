@@ -1,277 +1,298 @@
 <!doctype html>
 <html>
-    <head>
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <title>企画と模擬店</title>
-         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-<base href="../">
-<script type="text/javascript">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>企画と模擬店</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script src="display.js"></script>
+  <base href="../">
+  <script type="text/javascript">
 $(function(){
 $("#footer").load("./parts/footer.html");
 $(".share-button").load("./parts/share-button.html");
-})
+// http://kyasper.com/jquery-tips/
+   // .ainttクリックした場合に処理
+   $('.aintt').click(function(){
+      // スクロールの速度
+      var speed = 400; // ミリ秒
+      // 座標取得
+      var theid = $(this).attr('forid');
+      var idname = "'h3#" + theid + "'";
+      var position = $(idname).offset().top;
+      // スムーススクロール
+      $('body,html').animate({scrollTop:position}, speed, 'swing');
+      return false;
+   });
+
+WriteHTMLOfEvents();
+
+});
 </script>
-         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
-         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
-         <link href="./scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-         <!-- Compiled and minified CSS -->
-         <link rel="stylesheet" href="./css/style.css" />
-         <link rel="stylesheet" href="./css/press_style.css" />
+  <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png">
+  <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
+  <link href="./scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/press_style.css" />
 </head>
+
 <body>
 
-<div class="navbar-fixed">
-  <nav class="navigationbar light-blue darken-3">
-    <div class="nav-wrapper" style="margin-left:1em;padding-right:1em;">
-      <a href="javascript:void(0)" class="brand-logo grey-text text-lighten-3 blogo">第65回翠巒祭</a>
-       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="grey-text text-lighten-3" href="./">トップ</a></li>
-        <li><a class="grey-text text-lighten-3" href="./about/">翠巒祭について</a></li>
-        <li><a class="grey-text text-lighten-3" href="./attractions/">企画・模擬店</a></li>
-        <li><a class="grey-text text-lighten-3" href="./access/">アクセス</a></li>
-        <li><a class="grey-text text-lighten-3" href="./qa/">Q & A</a></li>
-        <li><a class="grey-text text-lighten-3" href="./garally/">ギャラリー</a></li>
-        <li><a class="grey-text text-lighten-3" href="./steering_committee/">実行委員</a></li>
-        <li><a class="grey-text text-lighten-3" href="./wordpress/">Press</a></li>
-<!--        <li><a class="grey-text text-lighten-3" href="./game/">Game</a></li>-->
-      </ul>
-      <ul id="slide-out" class="side-nav">
-        <li><a href="./">トップ</a></li>
-        <li><a href="./about/">翠巒祭について</a></li>
-        <li><a href="./attractions/">企画・模擬店</a></li>
-        <li><a href="./access/">アクセス</a></li>
-        <li><a href="./qa/">Q & A</a></li>
-        <li><a href="./garally/">ギャラリー</a></li>
-        <li><a href="./steering_committee/">実行委員</a></li>
-        <li><a href="./wordpress/">Press</a></li>
-<!--        <li><a href="./game/">Game</a></li>-->
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse">
+  <div class="navbar-fixed">
+    <nav class="navigationbar light-blue darken-3">
+      <div class="nav-wrapper" style="margin-left:1em;padding-right:1em;">
+        <a href="javascript:void(0)" class="brand-logo grey-text text-lighten-3 blogo">第65回翠巒祭</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="grey-text text-lighten-3" href="./">トップ</a></li>
+          <li><a class="grey-text text-lighten-3" href="./about/">翠巒祭について</a></li>
+          <li><a class="grey-text text-lighten-3" href="./attractions/">企画・模擬店</a></li>
+          <li><a class="grey-text text-lighten-3" href="./access/">アクセス</a></li>
+          <li><a class="grey-text text-lighten-3" href="./qa/">Q & A</a></li>
+          <li><a class="grey-text text-lighten-3" href="./garally/">ギャラリー</a></li>
+          <li><a class="grey-text text-lighten-3" href="./steering_committee/">実行委員</a></li>
+          <li><a class="grey-text text-lighten-3" href="./wordpress/">Press</a></li>
+          <!--        <li><a class="grey-text text-lighten-3" href="./game/">Game</a></li>-->
+        </ul>
+        <ul id="slide-out" class="side-nav">
+          <li><a href="./">トップ</a></li>
+          <li><a href="./about/">翠巒祭について</a></li>
+          <li><a href="./attractions/">企画・模擬店</a></li>
+          <li><a href="./access/">アクセス</a></li>
+          <li><a href="./qa/">Q & A</a></li>
+          <li><a href="./garally/">ギャラリー</a></li>
+          <li><a href="./steering_committee/">実行委員</a></li>
+          <li><a href="./wordpress/">Press</a></li>
+          <!--        <li><a href="./game/">Game</a></li>-->
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse">
           <i class="fa fa-bars" aria-hidden="true" style="color: white;"></i>
-</a>
-    </div>
-  </nav>
-</div>
-
-<div id="main">
-<div class="row">
-<div class="container">
-              <h1>企画と模擬店</h1>
-<!-- 大タブ -->
-<p>翠巒祭のすべてを紹介します。<br>下の緑色のタブをクリック(タップ)してご覧ください。</p>
-</div>
-<div class="col s12">
-  <div class="teal darken-3">
-    <div class="container">
-    <ul class="tabs">
-      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a class="active" href="#Events" style="color: white;">イベント</a></li>
-      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Panten" style="color: white;">一般展示</a></li>
-      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Foods" style="color: white;">飲食</a></li>
-      <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#InvitationMatch" style="color: white;">招待試合</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<!-- 大タブ -->
-
-
-<!-- ######################################################################################### -->
-
-
-<!-- 「イベント」 --><div id="Events" class="col s12">
-<div class="teal darken-2">
-  <div class="container">
-    <ul class="tabs">
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#EvtOnStage" style="color: white;">屋外ステージ</a></li>
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#EvtOnGym" style="color: white;">体育館</a></li>
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#EvtOnSuiranHall" style="color: white;">翠巒会館</a></li>
-    </ul>
-  </div>
-</div>
-
-  <!-- 「イベント」「屋外ステージ」 -->
-  <div class="container"><div id="EvtOnStage" class="col s12">
-  <h2>屋外ステージ</h2>
-  <div class="section">
-    <h3>ミス高高コンテスト</h3><p>今年もやります‼超大人気企画ミス高高コンテスト‼<br>男の娘？いえいえ、「女の娘」らしさを競います。</p>
-  </div>
-<div class="card-panel light-blue lighten-4">
-<h3>イベント班より</h3>
-<p>よろしくお願いします。</p>
-</div>
-
-  <div class="card-panel">
-    <h3>高高王</h3>
-    <p>超危険企画！？あの「高高王」が今年も帰ってきた‼<br>今年も高高を束ねる王者となるため、真の漢たちがエクストリームな戦いを繰り広げる‼</p>
-  <div class="divider"></div>
-    <ul>
-      <li>2日目 12:10～12:50</li>
-    </ul>
+        </a>
+      </div>
+    </nav>
   </div>
 
-
- <!-- 「イベント」「屋外ステージ」 --></div></div>
-  <!-- 「イベント」「体育館」 -->
-  <div class="container"><div id="EvtOnGym" class="col s12">
-    <h2>体育館</h2>
-  <div class="section">
-    <h3>翠巒クインテット</h3>
-    <p>新企画らしい</p>
-  </div>
-  
-  <!-- 「イベント」「体育館」 --></div></div>
-  <!-- 「イベント」「翠巒会館」 -->
-  <div class="container"><div id="EvtOnSuiranHall" class="col s12">
-    <h2>翠巒会館</h2>
-  <div class="section">
-    <h3>マンドリン部</h3>
-    <p>説明を入れてね！</p>
-  </div>
-
-  <div class="divider"></div>
-  <div class="section">
-    <h3>合唱部</h3>
-    <p>説明が入るよ！</p>
-  </div>
-
-  <div class="divider"></div>
-  <div class="section">
-    <h3>吹奏楽部</h3>
-    <p>なぜ付けたかは知らないよ！</p>
-  </div>
-
-<!-- 「イベント」「翠巒会館」 --></div></div>
-
-</div><!-- 「イベント」 -->
+  <div id="main">
+    <div class="col s12 l8">
+      <div class="container">
+        <h1>企画と模擬店</h1>
+        <!-- 大タブ -->
+        <p>翠巒祭のすべてを紹介します。<br>下の緑色のタブをクリック(タップ)してご覧ください。</p>
+      </div>
+      <div class="col s12">
+        <div class="teal darken-3">
+          <div class="container">
+            <ul class="tabs">
+              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a class="active" href="#Events" style="color: white;">イベント</a></li>
+              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Panten" style="color: white;">一般展示</a></li>
+              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Foods" style="color: white;">飲食</a></li>
+              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#InvitationMatch" style="color: white;">招待試合</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 大タブ -->
 
 
-<!-- ######################################################################################### -->
+      <!-- ######################################################################################### -->
 
-<!-- 「一般展示」 --><div id="Panten" class="col s12">
-<div class="teal darken-2">
-  <div class="container">
-    <ul class="tabs">
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#PtnOn1F" style="color: white;">1F</a></li>
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#PtnOn2F" style="color: white;">2F</a></li>
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#PtnOn3F" style="color: white;">3F</a></li>
-    </ul>
-  </div>
-</div>
 
-<!-- 「一般展示」「1F」 --><div class="container"><div id="PtnOn1F" class="col s12">
-<h2>一般展示1F</h2>
-<h3>1-1</h3>
-<p>展示内容を掲載予定</p>
+      <!-- 「イベント」 -->
+      <div id="Events" class="col s12">
+        <div class="teal darken-2">
+          <div class="container">
+            <ul class="tabs">
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#EvtOnStage" style="color: white;">屋外ステージ</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#EvtOnGym" style="color: white;">体育館</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#EvtOnSuiranHall" style="color: white;">翠巒会館</a></li>
+            </ul>
+          </div>
+        </div>
 
-<h3>1-2</h3>
-<p>展示内容を掲載予定</p>
+        <!-- 「イベント」「屋外ステージ」 -->
+        <div class="container">
+          <div id="EvtOnStage" class="row">
+            <h2>屋外ステージ</h2>
+            <div class="col s12">
+            <div class="card-panel light-blue lighten-4">
+              <h3>イベント班より</h3>
+              <p>【ここにあいさつをいれてね！】</p>
+            </div></div>
 
-<h3>1-3</h3>
-<p>展示内容を掲載予定</p>
+<div id="EvtOnStageProgs" class="col s12 l8"></div>
+<div id="EvtOnStageTT" class="col s12 l4"></div>
 
-<h3>1-4</h3>
-<p>展示内容を掲載予定</p>
+            <!-- 「イベント」「屋外ステージ」 -->
+          </div>
+        </div>
+        <!-- 「イベント」「体育館」 -->
+        <div class="container">
+          <div id="EvtOnGym" class="row">
 
-<h3>1-5</h3>
-<p>展示内容を掲載予定</p>
+<div id="EvtOnGymProgs" class="col s12 l8"></div>
+<div id="EvtOnGymTT" class="col s12 l4"></div>
 
-<h3>1-6</h3>
-<p>展示内容を掲載予定</p>
-<!--
+            <!-- 「イベント」「体育館」 -->
+          </div>
+        </div>
+        <!-- 「イベント」「翠巒会館」 -->
+        <div class="container">
+          <div id="EvtOnSuiranHall" class="row">
+<div id="EvtOnSuiranHallProgs" class="col s12 l8"></div>
+<div id="EvtOnSuiranHallTT" class="col s12 l4"></div>
+
+            <!-- 「イベント」「翠巒会館」 -->
+          </div>
+        </div>
+
+      </div>
+      <!-- 「イベント」 -->
+
+
+      <!-- ######################################################################################### -->
+
+      <!-- 「一般展示」 -->
+      <div id="Panten" class="col s12">
+        <div class="teal darken-2">
+          <div class="container">
+            <ul class="tabs">
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#PtnOn1F" style="color: white;">1F</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#PtnOn2F" style="color: white;">2F</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#PtnOn3F" style="color: white;">3F</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 「一般展示」「1F」 -->
+        <div class="container">
+          <div id="PtnOn1F" class="col s12">
+            <h2>一般展示1F</h2>
+            <h3>1-1</h3>
+            <p>展示内容を掲載予定</p>
+
+            <h3>1-2</h3>
+            <p>展示内容を掲載予定</p>
+
+            <h3>1-3</h3>
+            <p>展示内容を掲載予定</p>
+
+            <h3>1-4</h3>
+            <p>展示内容を掲載予定</p>
+
+            <h3>1-5</h3>
+            <p>展示内容を掲載予定</p>
+
+            <h3>1-6</h3>
+            <p>展示内容を掲載予定</p>
+            <!--
 <h3>1-6：鉄道研究部</h3>
 <p>ジオラマなど</p>
 -->
-<h3>1-7</h3>
-<p>展示内容を掲載予定</p>
+            <h3>1-7</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>1-8</h3>
-<p>展示内容を掲載予定</p>
+            <h3>1-8</h3>
+            <p>展示内容を掲載予定</p>
 
-<!-- 「一般展示」「1F」 --></div></div>
-<!-- 「一般展示」「2F」 --><div class="container"><div id="PtnOn2F" class="col s12">
-<h2>一般展示2F</h2>
-<h3>2-1</h3>
-<p>展示内容を掲載予定</p>
+            <!-- 「一般展示」「1F」 -->
+          </div>
+        </div>
+        <!-- 「一般展示」「2F」 -->
+        <div class="container">
+          <div id="PtnOn2F" class="col s12">
+            <h2>一般展示2F</h2>
+            <h3>2-1</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>2-2</h3>
-<p>展示内容を掲載予定</p>
+            <h3>2-2</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>2-3</h3>
-<p>展示内容を掲載予定</p>
+            <h3>2-3</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>2-4</h3>
-<p>展示内容を掲載予定</p>
+            <h3>2-4</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>2-5</h3>
-<p>展示内容を掲載予定</p>
+            <h3>2-5</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>2-6</h3>
-<p>展示内容を掲載予定</p>
+            <h3>2-6</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>2-7</h3>
-<p>展示内容を掲載予定</p>
+            <h3>2-7</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>2-8</h3>
-<p>展示内容を掲載予定</p>
-<!-- 「一般展示」「2F」 --></div></div>
-<!-- 「一般展示」「3F」 --><div class="container"><div id="PtnOn3F" class="col s12">
-<h2>一般展示3F</h2>
-<h3>3-1</h3>
-<p>展示内容を掲載予定</p>
+            <h3>2-8</h3>
+            <p>展示内容を掲載予定</p>
+            <!-- 「一般展示」「2F」 -->
+          </div>
+        </div>
+        <!-- 「一般展示」「3F」 -->
+        <div class="container">
+          <div id="PtnOn3F" class="col s12">
+            <h2>一般展示3F</h2>
+            <h3>3-1</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>3-2</h3>
-<p>展示内容を掲載予定</p>
+            <h3>3-2</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>3-3</h3>
-<p>展示内容を掲載予定</p>
+            <h3>3-3</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>3-4</h3>
-<p>展示内容を掲載予定</p>
+            <h3>3-4</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>3-5</h3>
-<p>展示内容を掲載予定</p>
+            <h3>3-5</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>3-6</h3>
-<p>展示内容を掲載予定</p>
+            <h3>3-6</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>3-7</h3>
-<p>展示内容を掲載予定</p>
+            <h3>3-7</h3>
+            <p>展示内容を掲載予定</p>
 
-<h3>3-8</h3>
-<p>展示内容を掲載予定</p>
+            <h3>3-8</h3>
+            <p>展示内容を掲載予定</p>
 
-<!-- 「一般展示」「3F」 --></div></div>
+            <!-- 「一般展示」「3F」 -->
+          </div>
+        </div>
 
-</div><!-- 「一般展示」 -->
+      </div>
+      <!-- 「一般展示」 -->
 
 
-<!-- ######################################################################################### -->
+      <!-- ######################################################################################### -->
 
 
-<!-- 「飲食」 --><div id="Foods" class="col s12">
-<div class="teal darken-2">
-  <div class="container">
-    <ul class="tabs">
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#Stall" style="color: white;">模擬店</a></li>
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#Purchase" style="color: white;">購買</a></li>
-      <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#Cafe" style="color: white;">喫茶店</a></li>
-    </ul>
-  </div>
-</div>
-<!-- 「飲食」 「模擬店」--><div class="container"><div id="Stall" class="col s12">
+      <!-- 「飲食」 -->
+      <div id="Foods" class="col s12">
+        <div class="teal darken-2">
+          <div class="container">
+            <ul class="tabs">
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#Stall" style="color: white;">模擬店</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#Purchase" style="color: white;">購買</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#Cafe" style="color: white;">喫茶店</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- 「飲食」 「模擬店」-->
+        <div class="container">
+          <div id="Stall" class="col s12">
 
-<div class="section">
-<h2 style="color:red;">販売店利用時のお願い</h2>
-<p>会計では、千円札と小銭のみ使用可能です。</p>
-<p>また、両替は翠巒祭では受け付けておりません。ご了承ください。</p>
-</div>
-  <div class="divider"></div>
-<h2>模擬店</h2>
-<!-- パンフレットの敷地画像を持ってくる
+            <div class="section">
+              <h2 style="color:red;">販売店利用時のお願い</h2>
+              <p>会計では、千円札と小銭のみ使用可能です。</p>
+              <p>また、両替は翠巒祭では受け付けておりません。ご了承ください。</p>
+            </div>
+            <div class="divider"></div>
+            <h2>模擬店</h2>
+            <!-- パンフレットの敷地画像を持ってくる
 <img src="StallMap.png" alt="模擬店地図" usemap="#StamllMap">
 <map name="StallMap">
 <area href="#Stall01" shape="rect" alt="模擬店①" coords="0,0,128,128">
@@ -279,159 +300,210 @@ $(".share-button").load("./parts/share-button.html");
 </map>
 -->
 
-      <table class="bordered">
-        <thead>
-          <tr>
-              <th data-field="id">販売所</th>
-              <th data-field="name">　</th>
-              <th data-field="price">価格</th>
-          </tr>
-        </thead>
-<!-- memo:たてほうこう→rowspan="またがる数"を追加 -->
-        <tbody>
-          <tr>
-            <td rowspan="2">①</td>
-            <td>ジュース</td>
-            <td>￥150円</td>
-          </tr>
-          <tr>
-            
-            <td>からあげ</td>
-            <td>￥100～150円</td>
-          </tr>
-          <tr>
-            <td>②</td>
-            <td>焼きまんじゅう</td>
-            <td>￥100円</td>
-          </tr>
-          <tr>
-            <td>③</td>
-            <td>かき氷</td>
-            <td>￥100円</td>
-          </tr>
-        </tbody>
-      </table>
-            
+            <table class="bordered">
+              <thead>
+                <tr>
+                  <th data-field="id">販売所</th>
+                  <th data-field="name">　</th>
+                  <th data-field="price">価格</th>
+                </tr>
+              </thead>
+              <!-- memo:たてほうこう→rowspan="またがる数"を追加 -->
+              <tbody>
+                <tr>
+                  <td rowspan="2">①</td>
+                  <td>ジュース</td>
+                  <td>￥150円</td>
+                </tr>
+                <tr>
+
+                  <td>からあげ</td>
+                  <td>￥100～150円</td>
+                </tr>
+                <tr>
+                  <td>②</td>
+                  <td>焼きまんじゅう</td>
+                  <td>￥100円</td>
+                </tr>
+                <tr>
+                  <td>③</td>
+                  <td>かき氷</td>
+                  <td>￥100円</td>
+                </tr>
+              </tbody>
+            </table>
 
 
-<!-- 「飲食」 「模擬店」--></div></div>
-<!-- 「飲食」 「購買」--><div class="container"><div id="Purchase" class="col s12">
-<div class="section">
-<h2 style="color:red;">販売店利用時のお願い</h2>
-<p>会計では、千円札と小銭のみ使用可能です。</p>
-<p>また、両替は翠巒祭では受け付けておりません。ご了承ください。</p>
-</div>
-  <div class="divider"></div>
- <h2>購買</h2>
-<p>家庭科棟2F 購買にて弁当・おにぎりを販売しております。</p>
-<p>また、購買奥 被覆室を食堂として開放しております。</p>
-      <table class="bordered">
-        <thead>
-          <tr>
-              <th data-field="name">　</th>
-              <th data-field="price">価格</th>
-          </tr>
-        </thead>
-<!-- memo:たてほうこう→rowspan="またがる数"を追加 -->
-        <tbody>
-          <tr>
-            <td>登利平 とりめし</td>
-            <td>￥700円</td>
-          </tr>
-          <tr>
-            
-            <td>チキンソースかつ丼</td>
-            <td>￥550円</td>
-          </tr>
-          <tr>
-            <td>ハンバーグ弁当</td>
-            <td>￥500円</td>
-          </tr>
-          <tr>
-            <td>田舎弁当</td>
-            <td>￥450円</td>
-          </tr>
-          <tr>
-            <td>カルビ焼き丼</td>
-            <td>￥550円</td>
-          </tr>
-          <tr>
-            <td>のりから弁当</td>
-            <td>￥450円</td>
-          </tr>
-          <tr>
-            <td>幕の内弁当</td>
-            <td>￥550円</td>
-          </tr>
-          <tr>
-            <td>さけおにぎり</td>
-            <td>￥120円</td>
-          </tr>
-          <tr>
-            <td>こんぶおにぎり</td>
-            <td>￥110円</td>
-          </tr>
-          <tr>
-            <td>アイス<ul style="list-style-type: circle;"><li>バニラ</li><li>チョコ</li><li>抹茶</li><li>オレンジ</li><li>ストロベリー</li><li>メロン</li><li>レモン</li></ul></td>
-            <td>各￥100円</td>
-          </tr>
-          <tr>
-            <td>ケーキ<ul style="list-style-type: circle;"><li>ティラミス</li><li>ニューヨークチーズケーキ</li><li>フランボワタルト</li><li>抹茶のズコット</li><li>モンブラン</li></ul></td>
-            <td>各￥250円</td>
-          </tr>
-          <tr>
-            <td>ドリンク</td>
-            <td>各種￥100円</td>
-          </tr>
-        </tbody>
-      </table>
 
-<!-- 「飲食」 「購買」--></div></div>
-<!-- 「飲食」 「喫茶店」--><div class="container"><div id="Cafe" class="col s12">
-<div class="section">
-<h2 style="color:red;">販売店利用時のお願い</h2>
-<p>会計では、千円札と小銭のみ使用可能です。</p>
-<p>また、両替は翠巒祭では受け付けておりません。ご了承ください。</p>
-</div>
-  <div class="divider"></div>
-<h2>喫茶店</h2>
-<p>教室棟2F 2-1・2-2</p>
-<p>ラストオーダーは15:30です。</p>
-      <table class="bordered">
-        <thead>
-          <tr>
-              <th data-field="name">　</th>
-              <th data-field="price">価格</th>
-          </tr>
-        </thead>
-<!-- memo:たてほうこう→rowspan="またがる数"を追加 -->
-        <tbody>
-          <tr>
-            <td>アイス<ul style="list-style-type: circle;"><li>バニラ</li><li>チョコ</li><li>抹茶</li><li>オレンジ</li><li>ストロベリー</li><li>メロン</li><li>レモン</li></ul></td>
-            <td>各￥100円</td>
-          </tr>
-          <tr>
-            <td>ケーキ<ul style="list-style-type: circle;"><li>ティラミス</li><li>ニューヨークチーズケーキ</li><li>フランボワタルト</li><li>抹茶のズコット</li><li>モンブラン</li></ul></td>
-            <td>各￥250円</td>
-          </tr>
-          <tr>
-            <td>ドリンク</td>
-            <td>各種￥100円</td>
-          </tr>
-        </tbody>
-      </table>
+            <!-- 「飲食」 「模擬店」-->
+          </div>
+        </div>
+        <!-- 「飲食」 「購買」-->
+        <div class="container">
+          <div id="Purchase" class="col s12">
+            <div class="section">
+              <h2 style="color:red;">販売店利用時のお願い</h2>
+              <p>会計では、千円札と小銭のみ使用可能です。</p>
+              <p>また、両替は翠巒祭では受け付けておりません。ご了承ください。</p>
+            </div>
+            <div class="divider"></div>
+            <h2>購買</h2>
+            <p>家庭科棟2F 購買にて弁当・おにぎりを販売しております。</p>
+            <p>また、購買奥 被覆室を食堂として開放しております。</p>
+            <table class="bordered">
+              <thead>
+                <tr>
+                  <th data-field="name">　</th>
+                  <th data-field="price">価格</th>
+                </tr>
+              </thead>
+              <!-- memo:たてほうこう→rowspan="またがる数"を追加 -->
+              <tbody>
+                <tr>
+                  <td>登利平 とりめし</td>
+                  <td>￥700円</td>
+                </tr>
+                <tr>
 
-<!-- 「飲食」 「喫茶店」--></div></div>
-</div><!-- 「飲食」 -->
+                  <td>チキンソースかつ丼</td>
+                  <td>￥550円</td>
+                </tr>
+                <tr>
+                  <td>ハンバーグ弁当</td>
+                  <td>￥500円</td>
+                </tr>
+                <tr>
+                  <td>田舎弁当</td>
+                  <td>￥450円</td>
+                </tr>
+                <tr>
+                  <td>カルビ焼き丼</td>
+                  <td>￥550円</td>
+                </tr>
+                <tr>
+                  <td>のりから弁当</td>
+                  <td>￥450円</td>
+                </tr>
+                <tr>
+                  <td>幕の内弁当</td>
+                  <td>￥550円</td>
+                </tr>
+                <tr>
+                  <td>さけおにぎり</td>
+                  <td>￥120円</td>
+                </tr>
+                <tr>
+                  <td>こんぶおにぎり</td>
+                  <td>￥110円</td>
+                </tr>
+                <tr>
+                  <td>アイス
+                    <ul style="list-style-type: circle;">
+                      <li>バニラ</li>
+                      <li>チョコ</li>
+                      <li>抹茶</li>
+                      <li>オレンジ</li>
+                      <li>ストロベリー</li>
+                      <li>メロン</li>
+                      <li>レモン</li>
+                    </ul>
+                  </td>
+                  <td>各￥100円</td>
+                </tr>
+                <tr>
+                  <td>ケーキ
+                    <ul style="list-style-type: circle;">
+                      <li>ティラミス</li>
+                      <li>ニューヨークチーズケーキ</li>
+                      <li>フランボワタルト</li>
+                      <li>抹茶のズコット</li>
+                      <li>モンブラン</li>
+                    </ul>
+                  </td>
+                  <td>各￥250円</td>
+                </tr>
+                <tr>
+                  <td>ドリンク</td>
+                  <td>各種￥100円</td>
+                </tr>
+              </tbody>
+            </table>
 
-<!-- 「招待試合」 --><div id="InvitationMatch" class="col s12">
-<div class="container">
-  <h2>招待試合です</h2>
-</div>
-</div><!-- 「招待試合」 -->
+            <!-- 「飲食」 「購買」-->
+          </div>
+        </div>
+        <!-- 「飲食」 「喫茶店」-->
+        <div class="container">
+          <div id="Cafe" class="col s12">
+            <div class="section">
+              <h2 style="color:red;">販売店利用時のお願い</h2>
+              <p>会計では、千円札と小銭のみ使用可能です。</p>
+              <p>また、両替は翠巒祭では受け付けておりません。ご了承ください。</p>
+            </div>
+            <div class="divider"></div>
+            <h2>喫茶店</h2>
+            <p>教室棟2F 2-1・2-2</p>
+            <p>ラストオーダーは15:30です。</p>
+            <table class="bordered">
+              <thead>
+                <tr>
+                  <th data-field="name">　</th>
+                  <th data-field="price">価格</th>
+                </tr>
+              </thead>
+              <!-- memo:たてほうこう→rowspan="またがる数"を追加 -->
+              <tbody>
+                <tr>
+                  <td>アイス
+                    <ul style="list-style-type: circle;">
+                      <li>バニラ</li>
+                      <li>チョコ</li>
+                      <li>抹茶</li>
+                      <li>オレンジ</li>
+                      <li>ストロベリー</li>
+                      <li>メロン</li>
+                      <li>レモン</li>
+                    </ul>
+                  </td>
+                  <td>各￥100円</td>
+                </tr>
+                <tr>
+                  <td>ケーキ
+                    <ul style="list-style-type: circle;">
+                      <li>ティラミス</li>
+                      <li>ニューヨークチーズケーキ</li>
+                      <li>フランボワタルト</li>
+                      <li>抹茶のズコット</li>
+                      <li>モンブラン</li>
+                    </ul>
+                  </td>
+                  <td>各￥250円</td>
+                </tr>
+                <tr>
+                  <td>ドリンク</td>
+                  <td>各種￥100円</td>
+                </tr>
+              </tbody>
+            </table>
 
-<!-- ######################################################################################### -->
+            <!-- 「飲食」 「喫茶店」-->
+          </div>
+        </div>
+      </div>
+      <!-- 「飲食」 -->
 
-</div></div>
+      <!-- 「招待試合」 -->
+      <div id="InvitationMatch" class="col s12">
+        <div class="container">
+          <h2>招待試合です</h2>
+        </div>
+      </div>
+      <!-- 「招待試合」 -->
+
+      <!-- ######################################################################################### -->
+
+    </div>
+  </div>
   <div id="footer"></div>
+
 </html>

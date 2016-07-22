@@ -13,7 +13,7 @@
          <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-<base href="<?php echo get_bloginfo('home'); ?>">
+<base href="<?php echo home_url(); ?>">
 <base href="../">
 <script type="text/javascript">
 $(function(){

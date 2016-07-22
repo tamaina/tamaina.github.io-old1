@@ -25,13 +25,13 @@
     src: local('GenShinGothic-Medium'), local('NotoSansCJKjp-Medium'),  local('SourceHanSansJP-Medium'),
     url('../fonts/GSG-Medium.woff') format('woff'),url('../fonts/GenShinGothic-Medium.ttf') format('truetype');
     font-weight: 500;
-}
+}/*
 @font-face {
     font-family: 'GenShinGothic';
     src: local('GenShinGothic-Regular'), local('NotoSansCJKjp-Regular'), local('SourceHanSansJP-Regular'),
     url('../fonts/GSG-Regular.woff') format('woff'),url('../fonts/GenShinGothic-Regular.ttf') format('truetype');
     font-weight: 600;
-}
+}*/
 @font-face {
     font-family: 'GenShinGothic';
     src: local('GenShinGothic-Bold'), local('NotoSansCJKjp-Bold'), local('SourceHanSansJP-Bold'),
@@ -149,9 +149,9 @@ margin-left: 10em;
 .blogo {
     margin: 0;
 }
+}
 .TheList {
     list-style-type: circle;
-}
 }
 
 div {
@@ -194,4 +194,61 @@ div.card-panel p {
 #ariticle ul, #article ol {
     padding-right: -1.5em;
     margin-right: 1.5em 
+}
+
+div.ttA {
+    border-top: 1px solid #e0e0e0;
+    background-color: #eceff1;
+    position: relative;
+}
+div.ttB {
+    border-top: 1px solid #e0e0e0;
+    background-color: #bbdefb;
+    position: relative;
+}
+div.ttrest {
+    border-top: 1px solid #e0e0e0;
+    background-color: white;
+    position: relative;
+}
+span.starttime {
+    top:7px;
+    left:7px;
+    position: absolute;
+}
+span.endtime {
+    bottom:7px;
+    left:7px;
+    position: absolute;
+}
+.ttprog {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 7px 0.15em 0px 5em;
+}
+.tth3 {
+    font-size: 15pt;
+    margin: 0;
+    padding: 0;
+}
+.ttsub {
+    font-size: 11pt;
+    margin: 0;
+    padding: 0;
+}
+a.aintt {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+a.aintt:link,a.aintt:visited{
+    color: black;
+}
+a.aintt:hover{
+    color: #78909c;
+}
+.card-title {
+    font-weight: 700;
+    font-size: 18pt;
 }
