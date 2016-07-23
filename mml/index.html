@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PicoViewer</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="flmmlonhtml5.js"></script>
+<script type="text/javascript" src="flmmlplayer.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(function() {
+$.get("http://dic.nicovideo.jp/mml/2375", function(data){
+new FlMMLPlayer({ mml: data });
+});
+});
+</script>     
+</body>
+</html>

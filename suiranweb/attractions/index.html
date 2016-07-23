@@ -15,23 +15,20 @@
 $(function(){
 $("#footer").load("./parts/footer.html");
 $(".share-button").load("./parts/share-button.html");
-// http://kyasper.com/jquery-tips/
-   // .ainttクリックした場合に処理
-   $('.aintt').click(function(){
-      // スクロールの速度
-      var speed = 400; // ミリ秒
-      // 座標取得
-      var theid = $(this).attr('forid');
-      var idname = "'h3#" + theid + "'";
-      var position = $(idname).offset().top;
-      // スムーススクロール
-      $('body,html').animate({scrollTop:position}, speed, 'swing');
-      return false;
-   });
 
 WriteHTMLOfEvents();
 
 });
+
+$(document).on('click','.aintt',function(event){
+event.preventDefault();
+console.log('click');
+var href = $(this).attr("href");
+var target = href.split('#');
+var target_top = $('#' + target[1]).offset().top - 90;
+$('html, body').animate({scrollTop:target_top}, 720);
+});
+
 </script>
   <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png">
   <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
@@ -87,10 +84,9 @@ WriteHTMLOfEvents();
         <div class="teal darken-3">
           <div class="container">
             <ul class="tabs">
-              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a class="active" href="#Events" style="color: white;">イベント</a></li>
-              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Panten" style="color: white;">一般展示</a></li>
-              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#Foods" style="color: white;">飲食</a></li>
-              <li class="tab teal darken-3 white-text col s3" style="color: white;"><a href="#InvitationMatch" style="color: white;">招待試合</a></li>
+              <li class="tab teal darken-3 white-text col s4" style="color: white;"><a class="active" href="#Events" style="color: white;">イベント・試合</a></li>
+              <li class="tab teal darken-3 white-text col s4" style="color: white;"><a href="#Panten" style="color: white;">一般展示</a></li>
+              <li class="tab teal darken-3 white-text col s4" style="color: white;"><a href="#Foods" style="color: white;">食べ物・飲み物</a></li>
             </ul>
           </div>
         </div>
@@ -106,9 +102,11 @@ WriteHTMLOfEvents();
         <div class="teal darken-2">
           <div class="container">
             <ul class="tabs">
-              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#EvtOnStage" style="color: white;">屋外ステージ</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a class="active" href="#EvtOnStage" style="color: white;">ステージ</a></li>
               <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#EvtOnGym" style="color: white;">体育館</a></li>
               <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#EvtOnSuiranHall" style="color: white;">翠巒会館</a></li>
+              <li class="tab teal darken-2 white-text col s4" style="color: white;"><a href="#EvtOther" style="color: white;">その他</a></li>
+              <li class="tab teal darken-2 white-text col s8" style="color: white;"><a href="#EvtTimeTables" style="color: white;">タイムテーブル一覧</a></li>
             </ul>
           </div>
         </div>
@@ -116,36 +114,91 @@ WriteHTMLOfEvents();
         <!-- 「イベント」「屋外ステージ」 -->
         <div class="container">
           <div id="EvtOnStage" class="row">
-            <h2>屋外ステージ</h2>
+              <!--- あいさつ--->
             <div class="col s12">
+            <h2>屋外ステージ</h2>
             <div class="card-panel light-blue lighten-4">
               <h3>イベント班より</h3>
               <p>【ここにあいさつをいれてね！】</p>
             </div></div>
+              <!--- あいさつ--->
 
-<div id="EvtOnStageProgs" class="col s12 l8"></div>
-<div id="EvtOnStageTT" class="col s12 l4"></div>
+<div class="EvtOnStageProgs col s12 l8"></div>
+<div class="EvtOnStageTT col s12 l4"></div>
 
             <!-- 「イベント」「屋外ステージ」 -->
           </div>
         </div>
+
+
+
         <!-- 「イベント」「体育館」 -->
         <div class="container">
           <div id="EvtOnGym" class="row">
+              <!--- あいさつ--->
+            <div class="col s12">
+            <h2>体育館</h2>
+            <div class="card-panel light-blue lighten-4">
+              <h3>体育館行事班より</h3>
+              <p>【ここにあいさつをいれてね！】</p>
+            </div></div>
+              <!--- あいさつ--->
 
-<div id="EvtOnGymProgs" class="col s12 l8"></div>
-<div id="EvtOnGymTT" class="col s12 l4"></div>
+<div class="EvtOnGymProgs col s12 l8"></div>
+<div class="EvtOnGymTT col s12 l4"></div>
 
             <!-- 「イベント」「体育館」 -->
           </div>
         </div>
+
+
+
         <!-- 「イベント」「翠巒会館」 -->
         <div class="container">
           <div id="EvtOnSuiranHall" class="row">
-<div id="EvtOnSuiranHallProgs" class="col s12 l8"></div>
-<div id="EvtOnSuiranHallTT" class="col s12 l4"></div>
-
+            <div class="col s12">
+            <h2>翠巒会館</h2>
+            <p>音楽系部活動の発表があります。</p>
+            </div>
+<div class="EvtOnSuiranHallProgs col s12 l8"></div>
+<div class="EvtOnSuiranHallTT col s12 l4"></div>
             <!-- 「イベント」「翠巒会館」 -->
+          </div>
+        </div>
+
+
+        <!-- 「イベント」「その他」 -->
+        <div class="container">
+          <div id="EvtOther" class="row">
+            <div class="col s12">
+            <h2>その他</h2>
+            <p>中庭・グラウンド</p>
+            </div>
+<div class="col s12 l4"><h2>中庭</h2>
+<div class="EvtOnInnerCourtProgs"></div></div>
+
+<div class="col s12 l4"><h2>グラウンド</h2>
+<div class="EvtOnGroundProgs"></div></div>
+
+<div class="col s12 l4"><h2>野球場</h2>
+<div class="EvtOnBBProgs"></div></div>
+
+<div class="col s12 l4"><h2>第二体育館</h2>
+<div class="EvtOn2ndGymProgs"></div></div>
+            <!-- 「イベント」「翠巒会館」 -->
+          </div>
+        </div>
+
+
+
+        <!-- 「イベント」「日程一覧」 -->
+        <div class="container">
+          <div id="EvtTimeTables" class="row">
+            <div class="col s12">
+            <h2>翠巒会館</h2>
+            <p>音楽系部活動の発表があります。</p>
+            </div>
+            <!-- 「イベント」「日程一覧」 -->
           </div>
         </div>
 
@@ -491,14 +544,6 @@ WriteHTMLOfEvents();
         </div>
       </div>
       <!-- 「飲食」 -->
-
-      <!-- 「招待試合」 -->
-      <div id="InvitationMatch" class="col s12">
-        <div class="container">
-          <h2>招待試合です</h2>
-        </div>
-      </div>
-      <!-- 「招待試合」 -->
 
       <!-- ######################################################################################### -->
 

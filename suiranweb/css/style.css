@@ -200,11 +200,13 @@ div.ttA {
     border-top: 1px solid #e0e0e0;
     background-color: #eceff1;
     position: relative;
+    padding-top: -1px;
 }
 div.ttB {
     border-top: 1px solid #e0e0e0;
     background-color: #bbdefb;
     position: relative;
+    padding-top: -1px;
 }
 div.ttrest {
     border-top: 1px solid #e0e0e0;

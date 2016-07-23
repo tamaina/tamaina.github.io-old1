@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-<div class="col s12 l8">
+
+<div class="col s12">
 <p>ここでは、日々の活動や、皆様へのお知らせを書いていきます。</p>
 <h2>記事をさがす</h2>
  <ul class="collapsible" data-collapsible="accordion">
@@ -22,7 +23,7 @@
         foreach($users as $user):
             $uid = $user->ID;
             $userData = get_userdata($uid);
-           echo '<div class="col s12 m4"><div class="writer-link" style="margin: 0px; padding: 4px;">';
+           echo '<div class="col s12 m4 l2"><div class="writer-link" style="margin: 0px; padding: 4px;">';
            echo '<a href="'.get_bloginfo('url').'/?author='.$uid.'">';
            echo '<img src="' .get_avatar_onlyurl( $uid , 24 ) .'" style="margin-bottom: -6px;">'.$user->display_name;
            echo '</a><br></div></div>';

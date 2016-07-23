@@ -15,8 +15,8 @@ function WriteHTMLOfEvents(){
 $.getJSON("attractions/Events.json", function(data){
 console.table(data);
 for(m=0;m<data.length;m++){
-var outputtargetidPROGS = '#' + data[m].ID + 'Progs';
-var outputtargetidTT = '#' + data[m].ID + 'TT';
+var outputtargetidPROGS = '.' + data[m].ID + 'Progs';
+var outputtargetidTT = '.' + data[m].ID + 'TT';
 ProgsArray = data[m].Programs;
 console.table(ProgsArray);
 TTDay1 = new Array();
@@ -62,7 +62,7 @@ return a[1]-b[1];
 });
 console.table(TTDay1);
 console.table(TTDay2);
-var tthtml = '', keisu = 4.3;
+var tthtml = '', keisu = 3.8;
 
 if(TTDay1[0]){
     var ttday1html = ttwrite( ProgsArray, TTDay1, 1, keisu );
@@ -78,18 +78,21 @@ $(outputtargetidTT).html( tthtml );
 
 }
 });
+
 }
 
 function ttwrite( ProgsArray, TTArray, Day, keisu ){
-var ttdhtml = '', restfrom = 0, restuntil = 0;
+var ttdhtml = '', restuntil = 0;
+if( Day == 1 ){ var restfrom = 720; }
+if( Day == 2 ){ var restfrom = 540; }
 for(x=0;x<TTArray.length;x++){
   if(x != 0){
     var restfrom = eval( ProgsArray[i][3][n][4] * 60 + ProgsArray[i][3][n][5] * 1 );
   }
   var i = TTArray[x][0][0] , n = TTArray[x][0][1] ; 
-  if(x != 0){
   var restuntil = eval( ProgsArray[i][3][n][2] * 60 + ProgsArray[i][3][n][3] * 1 );
   var restheight = eval( restuntil - restfrom );
+  if(restheight){
   ttdhtml += '<div style="height: '
               + restheight * keisu
               + 'px;" class="ttrest"></div>';
@@ -97,16 +100,15 @@ for(x=0;x<TTArray.length;x++){
   var divheight = TTArray[x][2] * keisu;
   ttdhtml += '<div style="height: '
               + divheight + 'px;';
-  if(x == 0){
-  ttdhtml += 'border-top: 0px;position: relative; background-color: #eceff1;">';
-  } else {
+  if( ProgsArray[i][4] != "" ){
+  ttdhtml += ProgsArray[i][4]
+  }
   if(x % 2 == 0){
   ttdhtml += '" class="ttA">';
   } else {
   ttdhtml += '" class="ttB">';
   }
-  }
-  ttdhtml += '<a href="javascript:void(0)" forid="'
+  ttdhtml += '<a href="attractions/#'
               + ProgsArray[i][0]
               + '" class="aintt"><span class="starttime">'
               + ProgsArray[i][3][n][2] + ':' + ProgsArray[i][3][n][3]
@@ -120,6 +122,14 @@ for(x=0;x<TTArray.length;x++){
               + ProgsArray[i][3][n][4] + ':' + ProgsArray[i][3][n][5]
               + '</span></a></div>';
 }
-
+if( Day == 1 ){ var restuntil = 990; }
+if( Day == 2 ){ var restuntil = 960; }
+var restfrom = eval( ProgsArray[i][3][n][4] * 60 + ProgsArray[i][3][n][5] * 1 );
+var restheight = eval( restuntil - restfrom );
+if(restheight){
+ttdhtml += '<div style="height: '
+            + restheight * keisu
+            + 'px;" class="ttrest"></div>';
+}
 return ttdhtml;
 }
