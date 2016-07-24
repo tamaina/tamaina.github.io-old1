@@ -1,26 +1,25 @@
 <!doctype html>
 <html>
     <head>
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+         <meta name="viewport" content="width=device-width, initial-scale=1" />
          <title>概要</title>
          <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-<base href="../">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" async></script>
+         <base href="../">
+         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
+         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
+         <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" />
+         <link rel="preload" as="style" href="./scripts/font-awesome/css/font-awesome.min.css" />
+         <link rel="preload" as="style" href="./css/style.css" />
 <script type="text/javascript">
 $(function(){
 $("#footer").load("./parts/footer.html");
 $(".share-button").load("./parts/share-button.html");
-})
+$('link[as = "style"]').attr('rel','stylesheet');
+});
 </script>
-         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
-         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
-         <link href="./scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-         <!-- Compiled and minified CSS -->
-         <link rel="stylesheet" href="./css/style.css" />
-         <link rel="stylesheet" href="./css/press_style.css" />
 </head>
 <body>
 
@@ -50,7 +49,7 @@ $(".share-button").load("./parts/share-button.html");
         <li><a href="./wordpress/">Press</a></li>
 <!--        <li><a href="./game/">Game</a></li>-->
       </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse">
+      <a href="javascript:void(0)" data-activates="slide-out" class="button-collapse">
           <i class="fa fa-bars" aria-hidden="true" style="color: white;"></i>
 </a>
     </div>

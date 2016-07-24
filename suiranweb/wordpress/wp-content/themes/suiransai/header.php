@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
-	<?php wp_head(); ?>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html">
+	<?php wp_head();?>
          <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-<base href="<?php echo home_url(); ?>">
-<base href="../">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" async></script>
+<base href="<?php echo home_url(); ?>" />
+         <base href="../">
+         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
+         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
+         <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" />
+         <link rel="preload" as="style" href="./scripts/font-awesome/css/font-awesome.min.css" />
+         <link rel="preload" as="style" href="./css/style.css" />
 <script type="text/javascript">
 $(function(){
 $("#footer").load("./parts/footer.html");
 $(".share-button").load("./parts/share-button.html");
-})
+$('link[as = "style"]').attr('rel','stylesheet');
+});
 </script>
-         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
-         <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
-         <link href="./scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-         <!-- Compiled and minified CSS -->
-         <link rel="stylesheet" href="./css/style.css" />
-         <link rel="stylesheet" href="./css/press_style.css" />
 </head>
 <body>
 <?php

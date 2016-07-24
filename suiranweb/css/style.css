@@ -254,3 +254,51 @@ a.aintt:hover{
     font-weight: 700;
     font-size: 18pt;
 }
+
+a {
+    display: block;
+    padding: 0.75rem 0.25rem 0.75rem 0.25rem;
+}
+
+/***********************************
+
+
+Press Part
+
+
+************************************/
+@media screen and (max-width: 500px) {
+.entry-title {
+   font-size: 17pt;
+   color: #004d40
+}
+.widget-title {
+    font-size: 15pt;
+}
+}
+
+@media screen and (min-width: 500px) {
+.entry-title {
+   font-size: 26pt;
+   color: #004d40
+}
+.widget-title {
+    font-size: 15pt;
+}
+}
+.index_press {
+    color: #000000;
+}
+
+.wp-widget a:link {
+    color: #e1f5fe;
+}
+.wp-widget a:hover {
+    color: #455a64;
+}
+.wp-widget a:active {
+    color: #455a64;
+}
+.wp-widget a:visited {
+    color: #90a4ae;
+}

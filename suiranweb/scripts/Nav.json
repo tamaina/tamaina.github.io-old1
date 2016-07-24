@@ -1,0 +1,42 @@
+[
+    {
+        "ID" : "top",
+        "Name" : "トップ",
+        "URL" : "./"
+    },
+    {
+        "ID" : "about",
+        "Name" : "概要",
+        "URL" : "./about/"
+    },
+    {
+        "ID" : "attractions",
+        "Name" : "企画",
+        "URL" : "./attractions/"
+    },
+    {
+        "ID" : "access",
+        "Name" : "アクセス",
+        "URL" : "./access/"
+    },
+    {
+        "ID" : "qa",
+        "Name" : "Q & A",
+        "URL" : "./qa/"
+    },
+    {
+        "ID" : "garally",
+        "Name" : "ギャラリー",
+        "URL" : "./garally/"
+    },
+    {
+        "ID" : "steering_committee",
+        "Name" : "実行委員",
+        "URL" : "./steering_committee/"
+    },
+    {
+        "ID" : "press",
+        "Name" : "Press",
+        "URL" : "./wordpress/"
+    }
+]

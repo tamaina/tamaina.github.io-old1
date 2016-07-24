@@ -13,24 +13,12 @@
 </p>
        </div>
        <div class="col l3 offset-l1 s12">
-         <h5 class="white-text">Menu</h5><ul>
-        <li><a class="grey-text text-lighten-3" href="./">トップ</a></li>
-        <li><a class="grey-text text-lighten-3" href="./about/">翠巒祭について</a></li>
-        <li><a class="grey-text text-lighten-3" href="./attractions/">企画紹介</a></li>
-        <li><a class="grey-text text-lighten-3" href="./access/">アクセス</a></li>
-        <li><a class="grey-text text-lighten-3" href="./qa/">Q & A</a></li>
-        <li><a class="grey-text text-lighten-3" href="./garally/">ギャラリー</a></li>
-        <li><a class="grey-text text-lighten-3" href="./steering_committee/">実行委員</a></li>
-        <li><a class="grey-text text-lighten-3" href="./wordpress/">Press</a></li>
-<!--        <li><a class="grey-text text-lighten-3" href="./game/">Game</a></li>-->
-                </ul>
+         <h5 class="white-text">Menu</h5>
+         <div class="HereIsFooterMenu"></div>
         </div>
       <div>
-      <div class="col l5 offset-l3 s12">
-      <p class="grey-text text-lighten-3" style="vertical-align: top;">広告<br>
-      <a id="adlink">
-      <img id="ad" />
-      </a></p>
+      <div class="col l5 offset-l1 s12">
+      <p class="grey-text text-lighten-3" style="vertical-align: top;">広告<br><div class="HereIsAd"></div><div class="HereIsAd"></div></p>
       </div>
       </div>
       </div>
@@ -48,26 +36,6 @@ $(document).ready(function(){
  $('.parallax').parallax();
  $('ul.tabs').tabs();
  $('ul.tabs').tabs('select_tab', 'tab_id');
-  var ads_array = [
-    	["testflight/Antique"          ,"http://japanese.simutrans.com/"           ,"#fff"],
-    	["testflight/Gothic"           ,""                                         ,"#fff"],
-    	["testflight/Katsuji"          ,""                            	           ,"#fff"],
-    	["testflight/LateMin"          ,""                                         ,"#fff"],
-    	["testflight/Mamelon"          ,""                                         ,"#fff"],
-    	["testflight/Mincho"           ,""                                         ,"#fff"],
-    	["testflight/Rounded Gothic"   ,""                                         ,"#fff"],
-    	["testflight/Tegaki"           ,""                                         ,"#fff"]
-  ];
-  var ad_l = ads_array.length;
-  var ad_r = Math.floor(Math.random()*ad_l);
-  var adurl = "./ads/" + ads_array[ad_r][0] + ".png";
-  $("img#ad").attr({ src : adurl });
-  $("img#ad").css({backgroundColor: ads_array[ad_r][2]});
-  if ( ads_array[ad_r][1] ) {
-  $("a#adlink").attr({ href : ads_array[ad_r][1] , target : "_blank" });
-  }
-
-
 return false;});
 $('.blogo').on('click',function(){
         $('body,html').animate({
@@ -80,5 +48,5 @@ $('.button-collapse').sideNav({
       edge: 'left', // Choose the horizontal origin
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
-  );
+);
 </script>

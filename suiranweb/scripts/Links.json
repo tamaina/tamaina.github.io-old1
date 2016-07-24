@@ -1,0 +1,47 @@
+[
+    {
+        "ID" : "TMO",
+        "Name" : "マンドリン部【TMO】",
+        "Twitter" : "Takataka_tmo"
+    },
+    {
+        "ID" : "Otokogumi",
+        "Name" : "和太鼓部【漢組】",
+        "Twitter" : "otokobumi_12th"
+    },
+    {
+        "ID" : "Tekken",
+        "Name" : "鉄道研究部",
+        "Twitter" : "takasaki_tekken"
+    },
+    {
+        "ID" : "Chorus",
+        "Name" : "合唱部",
+        "Twitter" : "takatakaglee"
+    },
+    {
+        "ID" : "Wind",
+        "Name" : "吹奏楽部【TWO】",
+        "Twitter" : "takatakasuibu"
+    },
+    {
+        "ID" : "Chorus_blog",
+        "Name" : "合唱部ブログ",
+        "URL" : "http://taka2gleeclub.blog.fc2.com/"
+    },
+    {
+        "ID" : "Tekken_blog",
+        "Name" : "鉄道研究部ホームページ",
+        "URL" : "http://ths.tekken.hariko.com/"
+    },
+    {
+        "ID" : "Seitokai_hp",
+        "Name" : "生徒会ホームページ",
+        "URL" : "http://www.takasaki-hs.gsn.ed.jp/external_links/seitokai/toppage.html"
+    },
+    {
+        "ID" : "THS_hp",
+        "Name" : "群馬県立高崎高等学校ホームページ",
+        "URL" : "http://www.takasaki-hs.gsn.ed.jp/"
+    }
+]
