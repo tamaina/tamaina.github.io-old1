@@ -174,7 +174,7 @@ return html;
   </ul>
 </div>
 */
-function WriteHTMLOfEvents(){
+function Att_WriteEvents(){
 
 $.getJSON("./attractions/Events.json", function(data){
 console.log('Events');

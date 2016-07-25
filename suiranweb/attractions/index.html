@@ -24,6 +24,7 @@ $.getScript("./scripts/makeparts.js", function(){
 WriteLinks();
 WriteNavBar();
 WriteAd();
+Att_WriteEvents();
 });
 
 $(document).on('click','.aintt',function(event){
@@ -194,9 +195,17 @@ $('html, body').animate({scrollTop:target_top}, 720);
         <div class="container">
           <div id="EvtTimeTables" class="row">
             <div class="col s12">
-            <h2>翠巒会館</h2>
-            <p>音楽系部活動の発表があります。</p>
+            <h2>タイムテーブル一覧</h2>
+            <p>タイムテーブルです。</p>
             </div>
+
+<div class="col s4"><h2>ステージ</h2>
+<div class="EvtOnGymTT"></div></div>
+<div class="col s4"><h2>体育館</h2>
+<div class="EvtOnGymTT"></div></div>
+<div class="col s4"><h2>その他</h2>
+<div class="EvtOnSuiranHallTT"></div></div>
+
             <!-- 「イベント」「日程一覧」 -->
           </div>
         </div>
