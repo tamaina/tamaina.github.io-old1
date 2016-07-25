@@ -63,7 +63,7 @@ h3 {
 h4 {
     font-size: 13.5pt;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 h1 {
    font-size: 26pt;
 }
@@ -73,7 +73,7 @@ h2 {
 }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
 h1 {
    font-size: 50pt;
 }
@@ -170,10 +170,21 @@ div.Qu,div.An {
     display: block;
     padding-bottom: 0.7ex;
 }
+
+@media screen and (max-width: 600px) {
+.btn {
+    margin: 3px 0;
+    width: 100%;
+}
+}
+
+@media screen and (min-width: 600px) {
 .btn {
     margin: 3px 0;
     width: 11em;
 }
+}
+
 div.card-panel p {
     padding: 0;
 }
@@ -181,7 +192,7 @@ div.card-panel p {
     display: inline;
 }
 @media screen and (max-width: 377px){
-#ad {
+.ad {
     width: 100%
 }
 }
@@ -255,11 +266,22 @@ a.aintt:hover{
     font-size: 18pt;
 }
 
-a {
+a.NormalLink {
     display: block;
-    padding: 0.75rem 0.25rem 0.75rem 0.25rem;
+    padding: 0.4rem 0.25rem 0.4em 0.25rem;
 }
-
+.HereIsAd{
+    display: inline-block;
+    width: 336px;
+}
+.adl{
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+.adimg{
+    width: 100%;
+}
 /***********************************
 
 
@@ -267,7 +289,7 @@ Press Part
 
 
 ************************************/
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 .entry-title {
    font-size: 17pt;
    color: #004d40
@@ -277,7 +299,7 @@ Press Part
 }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
 .entry-title {
    font-size: 26pt;
    color: #004d40

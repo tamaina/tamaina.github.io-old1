@@ -31,7 +31,7 @@ var html = '<ul>';
                   + data[i].ID
                   + '"><a href="'
                   + data[i].URL
-                  + '" target="_blank" class="NormalLink"><i class="fa fa-twitter-square" aria-hidden="true"></i>'
+                  + '" target="_blank" class="NormalLink">'
                   + data[i].Name
                   + '</a></li>';
         }
@@ -108,7 +108,7 @@ console.table(data);
                   + data[i].Name
                   + '</a></li>';
         
-        foothtml += '<li><a class="grey-text text-lighten-3" href="'
+        foothtml += '<li><a class="NormalLink grey-text text-lighten-3" href="'
                   + data[i].URL
                   + '">'
                   + data[i].Name
@@ -128,7 +128,7 @@ $.getJSON("./ads/list.json", function(data){
 console.log('ad');
 console.table(data);
 console.log(WriteAdCore(data));
-$('.HereIsAd').html(WriteAdCore(data));
+$('.HereIsAd').each(function(){$(this).html(WriteAdCore(data));});
 });
 }
 function WriteAdCore(data){
@@ -147,17 +147,17 @@ var ad_l = data.length, s = 0, m = 0, x = 0, y = 0 ;
 if(ad.Link){
   html += '<a href="'
         + ad.Link
-        + '"><img src="'
+        + '" class="adl"><img src="'
         + adurl
-        + '" style="background-color:'
+        + '" style="background-color: '
         + ad.bgColor
-        + ';"></a>';
+        + ';" class="adimg"></a>';
 } else {
   html += '<img src="'
-        + ad.URL
-        + '" style="background-color:'
         + adurl
-        + ';">';
+        + '" style="background-color: '
+        + ad.bgColor
+        + ';" class="adimg">';
 }
 return html;
 }

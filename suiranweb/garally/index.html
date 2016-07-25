@@ -19,6 +19,11 @@ $("#footer").load("./parts/footer.html");
 $(".share-button").load("./parts/share-button.html");
 $('link[as = "style"]').attr('rel','stylesheet');
 });
+$.getScript("./scripts/makeparts.js", function(){
+WriteLinks();
+WriteNavBar();
+WriteAd();
+});
 </script>
 </head>
 <body>

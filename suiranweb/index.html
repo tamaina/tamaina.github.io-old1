@@ -65,9 +65,11 @@ $(function(){
 $("#footer").load("./parts/footer.html");
 $(".share-button").load("./parts/share-button.html");
 $('link[as = "style"]').attr('rel','stylesheet');
-$.getScript("./links.js", function(){
-WriteWriteLinks();
 });
+$.getScript("./scripts/makeparts.js", function(){
+WriteLinks();
+WriteNavBar();
+WriteAd();
 });
 </script>
 </head>
@@ -167,7 +169,7 @@ headの終わりとbodyのはじめはheader.htmlで
 <div class="col s12 l6">
 <div class="card-panel">
 <h3>こちらもチェック</h3>
-<div class="LINKS"></div>
+<div class="HereIsLinks"></div>
   <div class="divider"></div>
 <h3>過去の翠巒祭ホームページ</h3>
 <ul>
