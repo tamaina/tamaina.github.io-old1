@@ -37,6 +37,6 @@
     {
         "ID" : "press",
         "Name" : "Press",
-        "URL" : "./wordpress/"
+        "URL" : "../wordpress/"
     }
 ]

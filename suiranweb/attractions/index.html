@@ -6,27 +6,17 @@
          <meta name="viewport" content="width=device-width, initial-scale=1" />
          <title>企画と模擬店</title>
          <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" async></script>
          <base href="../">
          <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
          <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
          <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" />
-         <link rel="preload" as="style" href="./scripts/font-awesome/css/font-awesome.min.css" />
+         <link rel="preload" as="style" href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css" />
          <link rel="preload" as="style" href="./css/style.css" />
   <script type="text/javascript">
-
-$(function(){
-$("#footer").load("./parts/footer.html");
-$(".share-button").load("./parts/share-button.html");
-$('link[as = "style"]').attr('rel','stylesheet');
-});
 $.getScript("./scripts/makeparts.js", function(){
-WriteLinks();
-WriteNavBar();
-WriteAd();
+BaseFunc();
 Att_WriteEvents();
 });
-
 $(document).on('click','.aintt',function(event){
 event.preventDefault();
 console.log('click');
@@ -40,38 +30,7 @@ $('html, body').animate({scrollTop:target_top}, 720);
 </head>
 <body>
 
-  <div class="navbar-fixed">
-    <nav class="navigationbar light-blue darken-3">
-      <div class="nav-wrapper" style="margin-left:1em;padding-right:1em;">
-        <a href="javascript:void(0)" class="brand-logo grey-text text-lighten-3 blogo">第65回翠巒祭</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a class="grey-text text-lighten-3" href="./">トップ</a></li>
-          <li><a class="grey-text text-lighten-3" href="./about/">翠巒祭について</a></li>
-          <li><a class="grey-text text-lighten-3" href="./attractions/">企画・模擬店</a></li>
-          <li><a class="grey-text text-lighten-3" href="./access/">アクセス</a></li>
-          <li><a class="grey-text text-lighten-3" href="./qa/">Q & A</a></li>
-          <li><a class="grey-text text-lighten-3" href="./garally/">ギャラリー</a></li>
-          <li><a class="grey-text text-lighten-3" href="./steering_committee/">実行委員</a></li>
-          <li><a class="grey-text text-lighten-3" href="./wordpress/">Press</a></li>
-          <!--        <li><a class="grey-text text-lighten-3" href="./game/">Game</a></li>-->
-        </ul>
-        <ul id="slide-out" class="side-nav">
-          <li><a href="./">トップ</a></li>
-          <li><a href="./about/">翠巒祭について</a></li>
-          <li><a href="./attractions/">企画・模擬店</a></li>
-          <li><a href="./access/">アクセス</a></li>
-          <li><a href="./qa/">Q & A</a></li>
-          <li><a href="./garally/">ギャラリー</a></li>
-          <li><a href="./steering_committee/">実行委員</a></li>
-          <li><a href="./wordpress/">Press</a></li>
-          <!--        <li><a href="./game/">Game</a></li>-->
-        </ul>
-        <a href="javascript:void(0)" data-activates="slide-out" class="button-collapse">
-          <i class="fa fa-bars" aria-hidden="true" style="color: white;"></i>
-        </a>
-      </div>
-    </nav>
-  </div>
+<div class="HereIsNavBar"></div>
 
   <div id="main">
     <div class="col s12 l8">
@@ -198,14 +157,43 @@ $('html, body').animate({scrollTop:target_top}, 720);
             <h2>タイムテーブル一覧</h2>
             <p>タイムテーブルです。</p>
             </div>
-
-<div class="col s4"><h2>ステージ</h2>
-<div class="EvtOnGymTT"></div></div>
-<div class="col s4"><h2>体育館</h2>
-<div class="EvtOnGymTT"></div></div>
-<div class="col s4"><h2>その他</h2>
-<div class="EvtOnSuiranHallTT"></div></div>
-
+<div class="container">
+<form id="ttpinch">
+<input type="range" name="ttrange" class="ttrange" value="" max="3" min="0.1" step="0.05">
+<span class="ttdisp"></span>
+</form>
+</div>
+<script type="text/javascript">
+//transform: scale(0.5)
+$(function(){
+  $('.ttdisp').text($('input[name="ttrange"]').val());
+  $('.TTwrapper').css('transform','scale(' + $('input[name="ttrange"]').val() + ')');
+  $('.TTwrapper').css('transform-origin','0');
+});
+$('input[name="ttrange"]').change(function(){
+  $('.ttdisp').text($(this).val());
+  $('.TTwrapper').css('transform','scale(' + $(this).val() + ')');
+});
+  
+</script>
+<div class="ttframe" style="overflow: scroll;">
+<div style="width: 2048px;height:auto;" class="TTwrapper">
+<div class="Lv1tt"><h2>ステージ</h2>
+<div class="EvtOnStageTTx"></div></div>
+<div class="Lv1tt"><h2>体育館</h2>
+<div class="EvtOnGymTTx"></div></div>
+<div class="Lv1tt"><h2>翠巒会館</h2>
+<div class="EvtOnSuiranHallTTx"></div></div>
+<div class="Lv2tt"><h2>中庭</h2>
+<div class="EvtOnInnerCourtTTx"></div></div>
+<div class="Lv2tt"><h2>グラウンド</h2>
+<div class="EvtOnGroundTTx"></div></div>
+<div class="Lv2tt"><h2>野球場</h2>
+<div class="EvtOnBBTTx"></div></div>
+<div class="Lv2tt"><h2>第二体育館</h2>
+<div class="EvtOn2ndGymTTx"></div></div>
+</div>
+</div>
             <!-- 「イベント」「日程一覧」 -->
           </div>
         </div>

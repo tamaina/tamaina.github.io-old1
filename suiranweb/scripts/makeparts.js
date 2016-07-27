@@ -1,3 +1,35 @@
+function BaseFunc(){
+
+WriteLinks();
+WriteNavBar();
+WriteAd();
+
+$(function(){
+$("#footer").load("./parts/footer.html");
+$(".share-button").load("./parts/share-button.html");
+$('link[as = "style"]').attr('rel','stylesheet');
+
+$.getScript("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js", function(){
+ $('.parallax').parallax();
+ $('ul.tabs').tabs();
+ $('ul.tabs').tabs('select_tab', 'tab_id');
+$('.blogo').on('click',function(){
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+});
+$('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+return false;
+});
+});
+
+}
+
 /*
 
 <ul>
@@ -14,8 +46,8 @@
 */
 function WriteLinks(){
 $.getJSON("./scripts/Links.json", function(data){
-console.log('links');
-console.table(data);
+//console.log('links');
+//console.table(data);
 var html = '<ul>';
     for(i=0;i<data.length;i++){
         if ( data[i].Twitter ){
@@ -93,8 +125,8 @@ function WriteNavBar(){
 var html = '<div class="navbar-fixed"><nav class="navigationbar light-blue darken-3"><div class="nav-wrapper" style="margin-left:1em;padding-right:1em;"><a href="javascript:void(0)" class="brand-logo grey-text text-lighten-3 blogo">第65回翠巒祭</a>',
 bar = '<ul id="nav-mobile" class="right hide-on-med-and-down">', slideout = '<ul id="slide-out" class="side-nav">', foothtml = '<ul>';
 $.getJSON("./scripts/Nav.json", function(data){
-console.log('NavBar');
-console.table(data);
+//console.log('NavBar');
+//console.table(data);
     for(i=0;i<data.length;i++){
         bar += '<li><a class="grey-text text-lighten-3" href="'
              + data[i].URL
@@ -125,9 +157,9 @@ $('.HereIsFooterMenu').html( foothtml );
 
 function WriteAd(){
 $.getJSON("./ads/list.json", function(data){
-console.log('ad');
-console.table(data);
-console.log(WriteAdCore(data));
+//console.log('ad');
+//console.table(data);
+//console.log(WriteAdCore(data));
 $('.HereIsAd').each(function(){$(this).html(WriteAdCore(data));});
 });
 }
@@ -177,13 +209,14 @@ return html;
 function Att_WriteEvents(){
 
 $.getJSON("./attractions/Events.json", function(data){
-console.log('Events');
-console.table(data);
+//console.log('Events');
+//console.table(data);
 for(m=0;m<data.length;m++){
 var outputtargetidPROGS = '.' + data[m].ID + 'Progs';
 var outputtargetidTT = '.' + data[m].ID + 'TT';
+var outputtargetidTTx = '.' + data[m].ID + 'TTx';
 ProgsArray = data[m].Programs;
-console.table(ProgsArray);
+//console.table(ProgsArray);
 TTDay1 = new Array();
 TTDay2 = new Array();
 var html = '';
@@ -225,33 +258,39 @@ return a[1]-b[1];
 TTDay2.sort(function(a,b){
 return a[1]-b[1];
 });
-console.log('TTDay1');
-console.table(TTDay1);
-console.log('TTDay2');
-console.table(TTDay2);
-var tthtml = '', keisu = 3.8;
+//console.log('TTDay1');
+//console.table(TTDay1);
+//console.log('TTDay2');
+//console.table(TTDay2);
+var tthtml = '', tthtmlx = '', keisu = 3.8;
 
-if(TTDay1[0]){
-    var ttday1html = ttwrite( ProgsArray, TTDay1, 1, keisu );
+var ttday1html = ttwrite( ProgsArray, TTDay1, 1, keisu, 0 );
 tthtml += '<div class="card-panel" style="padding: 1.75px;"><h3 style="margin-left:20px;">1日目スケジュール</h3>'
-        + ttday1html + '</div>'
-}
-if(TTDay2[0]){
-var ttday2html = ttwrite( ProgsArray, TTDay2, 2, keisu );
+        + ttday1html + '</div>';
+var ttday2html = ttwrite( ProgsArray, TTDay2, 2, keisu, 0 );
 tthtml += '<div class="card-panel" style="padding: 1.75px;"><h3 style="margin-left:20px;">2日目スケジュール</h3>'
-        + ttday2html + '</div>'
-}
+        + ttday2html + '</div>';
 $(outputtargetidTT).html( tthtml );
+
+
+var ttday1htmlx = ttwrite( ProgsArray, TTDay1, 1, keisu, 1 );
+tthtmlx += '<div class="card-panel" style="padding: 1.75px;"><h3 style="margin-left:20px;">1日目スケジュール</h3>'
+        + ttday1htmlx + '</div>';
+var ttday2htmlx = ttwrite( ProgsArray, TTDay2, 2, keisu, 1 );
+tthtmlx += '<div class="card-panel" style="padding: 1.75px;"><h3 style="margin-left:20px;">2日目スケジュール</h3>'
+        + ttday2htmlx + '</div>';
+$(outputtargetidTTx).html( tthtmlx );
 
 }
 });
 
 }
 
-function ttwrite( ProgsArray, TTArray, Day, keisu ){
+function ttwrite( ProgsArray, TTArray, Day, keisu, Mode ){
 var ttdhtml = '', restuntil = 0;
 if( Day == 1 ){ var restfrom = 720; }
 if( Day == 2 ){ var restfrom = 540; }
+if(TTArray[0]){
 for(x=0;x<TTArray.length;x++){
   if(x != 0){
     var restfrom = eval( ProgsArray[i][3][n][4] * 60 + ProgsArray[i][3][n][5] * 1 );
@@ -275,9 +314,14 @@ for(x=0;x<TTArray.length;x++){
   } else {
   ttdhtml += '" class="ttB">';
   }
+  var tojiA = '';
+  if(Mode == 0){
   ttdhtml += '<a href="attractions/#'
               + ProgsArray[i][0]
-              + '" class="aintt"><span class="starttime">'
+              + '" class="aintt">';
+  tojiA += '</a>';
+  }  
+  ttdhtml +='<span class="starttime">'
               + ProgsArray[i][3][n][2] + ':' + ProgsArray[i][3][n][3]
               + '</span><div class="ttprog"><p class="tth3">'
               + ProgsArray[i][1]
@@ -287,11 +331,14 @@ for(x=0;x<TTArray.length;x++){
   }
   ttdhtml += '</div><span class="endtime">'
               + ProgsArray[i][3][n][4] + ':' + ProgsArray[i][3][n][5]
-              + '</span></a></div>';
+              + '</span>'
+              + tojiA
+              + '</div>';
+}
+var restfrom = eval( ProgsArray[i][3][n][4] * 60 + ProgsArray[i][3][n][5] * 1 );
 }
 if( Day == 1 ){ var restuntil = 990; }
 if( Day == 2 ){ var restuntil = 960; }
-var restfrom = eval( ProgsArray[i][3][n][4] * 60 + ProgsArray[i][3][n][5] * 1 );
 var restheight = eval( restuntil - restfrom );
 if(restheight){
 ttdhtml += '<div style="height: '

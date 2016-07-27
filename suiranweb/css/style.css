@@ -142,7 +142,7 @@ height: 100%;
 }
 @media screen and (min-width: 1260px){
 .blogo { 
-margin-left: 10em;
+margin-left: 10rem;
 }
 }
 @media screen and (max-width: 1260px){
@@ -162,9 +162,9 @@ div {
 }
 div.Qu,div.An {
     display: block;
-    margin-top: -0.5em;
+    margin-top: -0.5rem;
     float: left;
-    width: 2em;
+    width: 2rem;
 }
 .question,.__answer {
     display: block;
@@ -208,12 +208,14 @@ div.card-panel p {
 }
 
 div.ttA {
+    display: block;
     border-top: 1px solid #e0e0e0;
     background-color: #eceff1;
     position: relative;
     padding-top: -1px;
 }
 div.ttB {
+    display: block;
     border-top: 1px solid #e0e0e0;
     background-color: #bbdefb;
     position: relative;
@@ -238,7 +240,7 @@ span.endtime {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 7px 0.15em 0px 5em;
+    padding: 7px 0.15rem 0px 5rem;
 }
 .tth3 {
     font-size: 15pt;
@@ -250,6 +252,26 @@ span.endtime {
     margin: 0;
     padding: 0;
 }
+.ttframe{
+    width: 95%;
+    margin: 2.5%;
+    height: 80vh;
+    border: 1px solid #e0e0e0;
+    padding: 0.25rem;
+}
+.Lv1tt{
+    display: block;
+    width: 350px;
+    margin-right: 10px; 
+    float: left;
+}
+.Lv2tt{
+    display: block;
+    width: 230px;
+    margin-right: 10px; 
+    float: left;
+}
+
 a.aintt {
     display: block;
     width: 100%;
@@ -265,14 +287,13 @@ a.aintt:hover{
     font-weight: 700;
     font-size: 18pt;
 }
-
 a.NormalLink {
     display: block;
-    padding: 0.5rem 0.25rem 0.5em 0.25rem;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem;
 }
 .HereIsAd{
     display: inline-block;
-    width: 336px;
+    max-width: 336px;
 }
 .adl{
     display: inline;

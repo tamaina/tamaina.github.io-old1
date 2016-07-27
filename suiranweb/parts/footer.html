@@ -31,22 +31,3 @@
         </footer>
 
 </body>
-<script type="text/javascript">
-$(document).ready(function(){
- $('.parallax').parallax();
- $('ul.tabs').tabs();
- $('ul.tabs').tabs('select_tab', 'tab_id');
-return false;});
-$('.blogo').on('click',function(){
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-});
-$('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 240
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    }
-);
-</script>
