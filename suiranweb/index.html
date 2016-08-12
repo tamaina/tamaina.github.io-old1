@@ -56,11 +56,12 @@
          <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
          <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
          <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
-         <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" />
+         <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" />
          <link rel="preload" as="style" href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css" />
-         <link rel="preload" as="style" href="./css/style.css" />
+         <link rel="preload" as="style" href="../lib/css/style.css" />
+         <link rel="preload" as="style" href="./local.css" />
 <script type="text/javascript">
-$.getScript("./scripts/makeparts.js", function(){
+$.getScript("../lib/scripts/makeparts.js", function(){
 BaseFunc();
 });
 </script>
@@ -77,9 +78,11 @@ headの終わりとbodyのはじめはheader.htmlで
 -->
   <div class="parallax-container">
     <div class="parallax"><img src="./img/indexbg.jpg" alt=""></div>
+    <div class="container">
+    <h1 class="toppageh1">第65回翠巒祭</h1><span class="toppagetheme">“NullPointerException”</span> 
+    </div>
   </div>
 <div class="row container">
-<h1>第65回翠巒祭 “NullPointerException”</h1>
 <h2>開催日時</h2>
               <div class="col s12 l6">
                 <div class="card-panel"><p>
@@ -109,7 +112,7 @@ headの終わりとbodyのはじめはheader.htmlで
    </div></div>
  <div class="col s12 l6">
   <h3>お知らせ</h3>
-<iframe src="./wordpress/sitetop/" id="sitetop_parentelement" style="border:0;height:350px;"></iframe>
+<iframe src="../wordpress/sitetop/" id="sitetop_parentelement" style="border:0;height:350px;"></iframe>
 
 <!--
 

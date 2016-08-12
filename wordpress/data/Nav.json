@@ -1,0 +1,15 @@
+{
+    "title": "第65回翠巒祭",
+    "pages" : [
+    {
+        "ID" : "press",
+        "Name" : "Pressトップ",
+        "URL" : "./"
+    },
+    {
+        "ID" : "suiransai",
+        "Name" : "第65回翠巒祭",
+        "URL" : "../suiranweb/"
+    }
+    ]
+}

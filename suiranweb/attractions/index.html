@@ -9,11 +9,12 @@
          <base href="../">
          <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.png" type="image/png"> 
          <link rel="shortcut icon" sizes="any" href="./img/TypeS-S-600-FAVICON.svg" type="image/svg+xml">
-         <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" />
+         <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" />
          <link rel="preload" as="style" href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css" />
-         <link rel="preload" as="style" href="./css/style.css" />
+         <link rel="preload" as="style" href="../lib/css/style.css" />
+         <link rel="preload" as="style" href="./local.css" />
   <script type="text/javascript">
-$.getScript("./scripts/makeparts.js", function(){
+$.getScript("../lib/scripts/makeparts.js", function(){
 BaseFunc();
 Att_WriteEvents();
 });
@@ -178,20 +179,33 @@ $('input[name="ttrange"]').change(function(){
 </script>
 <div class="ttframe" style="overflow: scroll;">
 <div style="width: 2048px;height:auto;" class="TTwrapper">
-<div class="Lv1tt"><h2>ステージ</h2>
+
+<div style="display:block;height:300px;width:1000px;">
+<div style="display:block;height:auto;width:300px;border-right:1px solid #e0e0e0;"><h3>テスト</h3></div>
+<div style="display:block;height:auto;width:100px;border-right:1px solid #e0e0e0;"></div>
+<div style="display:block;height:auto;width:400px;border-right:1px solid #e0e0e0;"><h3>テスト</h3></div>
+</div>
+<div style="display:block;height:300px;width:1000px;">
+<div style="display:block;height:auto;width:300px;border-right:1px solid #e0e0e0;"><h3>テスト</h3></div>
+<div style="display:block;height:auto;width:100px;border-right:1px solid #e0e0e0;"></div>
+<div style="display:block;height:auto;width:400px;border-right:1px solid #e0e0e0;"><h3>テスト</h3></div>
+</div>
+<!--
+<div class="Lv1ttx"><h2>ステージ</h2>
 <div class="EvtOnStageTTx"></div></div>
-<div class="Lv1tt"><h2>体育館</h2>
+<div class="Lv1ttx"><h2>体育館</h2>
 <div class="EvtOnGymTTx"></div></div>
-<div class="Lv1tt"><h2>翠巒会館</h2>
+<div class="Lv1ttx"><h2>翠巒会館</h2>
 <div class="EvtOnSuiranHallTTx"></div></div>
-<div class="Lv2tt"><h2>中庭</h2>
+<div class="Lv2ttx"><h2>中庭</h2>
 <div class="EvtOnInnerCourtTTx"></div></div>
-<div class="Lv2tt"><h2>グラウンド</h2>
+<div class="Lv2ttx"><h2>グラウンド</h2>
 <div class="EvtOnGroundTTx"></div></div>
-<div class="Lv2tt"><h2>野球場</h2>
+<div class="Lv2ttx"><h2>野球場</h2>
 <div class="EvtOnBBTTx"></div></div>
-<div class="Lv2tt"><h2>第二体育館</h2>
+<div class="Lv2ttx"><h2>第二体育館</h2>
 <div class="EvtOn2ndGymTTx"></div></div>
+-->
 </div>
 </div>
             <!-- 「イベント」「日程一覧」 -->
