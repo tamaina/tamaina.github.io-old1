@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /suiranweb/
-Disallow: /wordpress/
-Disallow: /geneadmin/
