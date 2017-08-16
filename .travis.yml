@@ -1,0 +1,16 @@
+language: node_js
+notifications:
+  email: false
+node_js:
+- 8.4.0
+sudo: required
+cache:
+  directories:
+  - node_modules
+git:
+  submodules: false
+before_install:
+- echo 'Asia/Tokyo' | sudo tee /etc/timezone
+- grunt --version
+script:
+- grunt refresh
