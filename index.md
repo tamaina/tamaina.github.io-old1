@@ -2,21 +2,22 @@
 title: tmin.xyz
 ---
 
-# tmin.xyz
+# [tmin.xyz](https://tmin.xyz)
 
 aqzもといtamainaのサイト
 
 なんかブログみたいなの作ってるから待ってて
 
 **[ここのれぽじとりぃ](https://github.com/tamaina/tamaina.github.io)**
+↑中身やばいことなってる
 
 - [kogasa(コードネーム)](https://github.com/tamaina/kogasa)
   - waifu2x のcaffeとかconverter-cppをMaterial DesignなGUIでいじくれるやつ
 - [pak.nippon+ (tamaina版)](https://github.com/tamaina/pak-nippon/releases)
   - **Simutrans**のpakセット。 pak.nipponオリジナルはかのwa氏が制作されています。
-- [The Japanese Web Fonts 源真ゴシックをサブセット化したWebフォントセット](https://github.com/tamaina/The-Japanese-Web-Fonts)
+- [The Japanese Web Fonts 色々なフォントをできるだけサブセット化したWebフォントセット](https://github.com/tamaina/The-Japanese-Web-Fonts)
 - [Chen - "bootstrap"日本語最適化テーマ](https://github.com/tamaina/Chen)
-  - **bootstrap**にThe Japanese Web Fontsを憑依させた、名前の割に重い</a></li>
+  - **bootstrap**にThe Japanese Web Fontsを憑依させた、名前の割に重い
   - 亜種がいくつかある
   - bootstrap v4を齧ってたり
 - [某高校の文化祭のホームページ](https://suiranfes.com)
