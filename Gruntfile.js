@@ -21,15 +21,15 @@ let src = {
    'js': ['theme/js/**/*.js'],
    'styl': ['theme/styl/**/*.styl', '!' + 'theme/styl/**/_*.styl'],
    'styl_all': ['theme/styl/**/*.styl'],
-   'static': ['theme/static/**/*.*'],
-   'files': ['files/**/*.*'],
+   'static': ['theme/static/**'],
+   'files': ['files/**'],
    'everystyl': ['theme/styl/**/*.styl'],
    'pages': config.sources
 }
 
 let dests = {
     'root': 'docs/',
-    'everything': 'docs/**/*.*',
+    'everything': 'docs/**',
     'info': 'docs/info.json'
 }
 module.exports = function(grunt){
@@ -37,7 +37,7 @@ module.exports = function(grunt){
     grunt.initConfig({
         clean: {
             temp: {
-                src: [`${temp_dir}/**/*.*`]
+                src: [`${temp_dir}/**`]
             },
             dest: {
                 src: [dests.everything]
@@ -125,7 +125,7 @@ module.exports = function(grunt){
                 tasks: ['build_style']
             },
             pages: {
-                files: [src.pages,'.config/default.json','theme/pug/**/*.*'],
+                files: [src.pages,'.config/default.json','theme/pug/**'],
                 tasks: ['clean', 'build_pages']
             },
             copy_static: {
@@ -157,15 +157,20 @@ module.exports = function(grunt){
             }
         },
         copy: {
-            static: {
-                expand: true,
-                src: src.static,
-                dest: "docs/"
-            },
-            files: {
-                expand: true,
-                src: src.files,
-                dest: "docs/files/"
+            main: {
+                files:[
+                    {
+                        expand: true,
+                        cwd: 'theme/static',
+                        src: '**',
+                        dest: "docs/"
+                    },
+                    {
+                        expand: true,
+                        src: src.files,
+                        dest: "docs/"
+                    }
+                ]
             }
         }
     })
@@ -267,6 +272,6 @@ function prepare_pages(){
         else if(grunt.file.exists(`theme/pug/templates/default.pug`)) template = fs.readFileSync( `theme/pug/templates/default.pug`, 'utf-8' )
         else throw Error
         outdata += `- const page_index_numer = ${i}\n${template}`
-        fs.writeFileSync( `${temp_dir}${page.attributes.permalink.replace( /.\//g , "_" )}.pug` , outdata )
+        grunt.file.write( `${temp_dir}${page.attributes.permalink.replace( /.\//g , "_" )}.pug` , outdata )
     }
 }
