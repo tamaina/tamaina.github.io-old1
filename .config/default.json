@@ -1,7 +1,7 @@
 {
     "name": "tamaina's website",
     "description": "tamainaことaqzのサイトです。",
-    "site_url": "https://tmin.xyz",
+    "site_url": "https://tmin.xyz/docs",
     "sources": [
         "pages/**/*.md",
         "pages/**/*.pug"
