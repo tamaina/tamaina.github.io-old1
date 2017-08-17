@@ -1,6 +1,6 @@
-var fs = require("fs");
-var kramed = require('kramed');
-var pugfilters = module.exports = {};
+const fs = require("fs");
+const kramed = require('kramed');
+const pugfilters = module.exports = {};
 
 pugfilters.md = function(str) {
     return kramed(str).replace(/\r?\n/g,"");
