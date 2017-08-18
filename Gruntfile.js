@@ -48,7 +48,12 @@ module.exports = function(grunt){
                 options: {
                     data: 
                         function(dest, src) {
-                            return extend(true,grunt.file.readJSON(dests.info),{ "require": require, "pug_api": require("pug") })
+                            return extend(
+                                true,grunt.file.readJSON(dests.info),
+                                {
+                                    "require": require
+                                }
+                            )
                         },
                     filters: require('./pugfilters.js'),
                     debug: false
