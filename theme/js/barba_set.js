@@ -8,7 +8,6 @@ var GreatBarba = Barba.BaseTransition.extend({
   },
  
   fadeOut: function() {
-    $('#navbar').collapse('hide')
     $(this.oldContainer).removeClass('animated fadeIn').removeClass('animated zoomOut');
     $(this.newContainer).removeClass('animated fadeIn').removeClass('animated zoomOut');
     return $(this.oldContainer).addClass('animated zoomOut').promise();
