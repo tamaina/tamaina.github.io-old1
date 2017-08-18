@@ -1,3 +1,3 @@
 window.jQuery = $ = require('jquery')
 
-require('./prism')
+require('./highlight.pack')
