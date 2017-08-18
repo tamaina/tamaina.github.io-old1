@@ -7,14 +7,14 @@ block _mixin
   include ../includes/_mixins.pug
 
 
-html(lang=config.locale)
+html(lang=site.locale)
   head
     block meta
       block must
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width")
         meta(name="x-ua-compatible", content="width=device-width")
-        title #{page.attributes.title} - #{config.name}
+        title #{page.attributes.title} - #{site.name}
       
       block thankyou_seeing_sourcecode
         //*
@@ -29,42 +29,42 @@ html(lang=config.locale)
         //- meta(name="keywords", content=page.tag)
 
       block icons
-        link(rel="shortcut icon", href=`${config.site_url}/favicon.ico`, type="image/vnd.microsoft.icon")
-        each icon in config.icons
-          link(rel="shortcut icon", href=`${config.site_url}${icon.path}`, sizes=icon.sizes, type=icon.type)
+        link(rel="shortcut icon", href=`${site.site_url}/favicon.ico`, type="image/vnd.microsoft.icon")
+        each icon in site.icons
+          link(rel="shortcut icon", href=`${site.site_url}${icon.path}`, sizes=icon.sizes, type=icon.type)
 
       block theme_color
-        meta(name="theme-color", content=config.theme_color)
+        meta(name="theme-color", content=site.theme_color)
         link(rel="manifest", href=`/manifest.json`)
-        link(rel="alternate", href=config.rss_url, type="application/atom+xml", title=config.name)
+        link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=site.name)
 
       block og
         meta(property="og:type", content="website")
-        meta(property="og:title", content=`${page.attributes.title} - ${config.name}`)
+        meta(property="og:title", content=`${page.attributes.title} - ${site.name}`)
         meta(property="og:description", content=page.attributes.description)
         if ( !page.thumbnail && page.thumbnail != "" )
-          meta(property="og:image", content=`${config.site_url}${page.attributes.thumbnail}`)
-        else if ( !config.site_card_path && config.site_card_path != "" )
-          meta(property="og:image", content=`${config.site_url}${config.site_card_path}`)
+          meta(property="og:image", content=`${site.site_url}${page.attributes.thumbnail}`)
+        else if ( !site.site_card_path && site.site_card_path != "" )
+          meta(property="og:image", content=`${site.site_url}${site.site_card_path}`)
         else
-          meta(property="og:image", content=`${config.site_url}/favicon.ico`)
+          meta(property="og:image", content=`${site.site_url}/favicon.ico`)
         if ( site_card_path )
-          meta(property="og:image", content=`${config.site_url}${config.site_card_path}`)
-        meta(property="og:url", content=`${config.site_url}${page.attributes.permalink}`)
-        meta(property="og:site_name", content=config.name)
+          meta(property="og:image", content=`${site.site_url}${site.site_card_path}`)
+        meta(property="og:url", content=`${site.site_url}${page.attributes.permalink}`)
+        meta(property="og:site_name", content=site.name)
 
       block twitter_card
         if ( !page.thumbnail && page.thumbnail != "" )
           meta(name="twitter:card", content="summary_large_image")
-          meta(name="twitter:image", content=`${config.site_url}${page.attributes.thumbnail}`)
-        else if ( !config.site_card_path && config.site_card_path != "" )
+          meta(name="twitter:image", content=`${site.site_url}${page.attributes.thumbnail}`)
+        else if ( !site.site_card_path && site.site_card_path != "" )
           meta(name="twitter:card", content="summary_large_image")
-          meta(name="twitter:image", content=`${config.site_url}${config.site_card_path}`)
+          meta(name="twitter:image", content=`${site.site_url}${site.site_card_path}`)
         else
           meta(name="twitter:card", content="summary")
-        meta(name="twitter:title", content=`${page.attributes.title} - ${config.name}`)
+        meta(name="twitter:title", content=`${page.attributes.title} - ${site.name}`)
         meta(name="twitter:description", content=page.attributes.description)
-        meta(name="twitter:site", content=config.twitter_screenname)
+        meta(name="twitter:site", content=site.twitter_screenname)
 
     include ../includes/_includes.pug
 
@@ -81,5 +81,5 @@ html(lang=config.locale)
 
     block footer
       footer
-        p Copyright: #{config.auther}
+        p Copyright: #{site.auther}
         p This site published by MarkDown Builder

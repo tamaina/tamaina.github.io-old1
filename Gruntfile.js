@@ -1,6 +1,6 @@
 // 設定
 const package = require('./package.json')
-const config = require('./.config/default.json')
+const site = require('./.config/default.json')
 
 // npm require
 const extend = require('extend')
@@ -24,7 +24,7 @@ let src = {
    'static': ['theme/static/**'],
    'files': ['files/**'],
    'everystyl': ['theme/styl/**/*.styl'],
-   'pages': config.sources
+   'pages': site.sources
 }
 
 let dests = {
@@ -219,7 +219,7 @@ function pugfiles() {
 }
 function make_config(){
     let resultObj = { options: "" },booksObj = new Array()
-    resultObj = extend(true,resultObj, { "config" : config })
+    resultObj = extend(true,resultObj, { "site" : site })
     resultObj = extend(true,resultObj, { "package" : package })
     resultObj = extend(true,resultObj, { "pages" : register_pages() })
     grunt.file.write( 'docs/info.json' , JSON.stringify( resultObj ) )
@@ -245,14 +245,18 @@ function register_pages(){
         page.stats = fs.statSync( abspath )
 
         if( page.attributes.title === undefined || page.attributes.title === null ) page.attributes.title = filename
-        if( page.attributes.discription === undefined || page.attributes.discription === null ) page.attributes.description = config.description
+        if( page.attributes.discription === undefined || page.attributes.discription === null ) page.attributes.description = site.description
         if( page.attributes.date === undefined || page.attributes.date === null ) page.attributes.date = page.stats.birthtime
         if( page.attributes.permalink === undefined || page.attributes.permalink == null ) {
-            if( config.page_namingrule == "birthtime" ) {
+            if( site.page_namingrule == "birthtime" ) {
                 let birthtime = new Date(page.attributes.date)
-                page.attributes.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
-            } else if( config.page_namingrule == "name" ) {
+                if(subdir) page.attributes.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
+                else page.attributes.permalink = `/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
+            } else if( site.page_namingrule == "name" ) {
                 if(subdir) page.attributes.permalink = `/${subdir}/${page.srcname}`
+                else page.attributes.permalink = `/${page.srcname}`
+            } else if( site.page_namingrule == "md5" ) {
+                if(subdir) page.attributes.permalink = `/${subdir}/${page.md5}`
                 else page.attributes.permalink = `/${page.srcname}`
             } else {
                 if(subdir) page.attributes.permalink = `/${subdir}/${page.srcname}`
@@ -274,7 +278,7 @@ function prepare_pages(){
         let outdata = ""
         let template
         if(grunt.file.exists(`theme/pug/templates/${layout}.pug`)) template = fs.readFileSync( `theme/pug/templates/${layout}.pug`, 'utf-8' )
-        else if(grunt.file.exists(`theme/pug/templates/default.pug`)) template = fs.readFileSync( `theme/pug/templates/default.pug`, 'utf-8' )
+        else if(grunt.file.exists(`theme/pug/templates/${site.default.template}.pug`)) template = fs.readFileSync( `theme/pug/templates/${site.default.template}.pug`, 'utf-8' )
         else throw Error
         outdata += `- const page_index_numer = ${i}\n${template}`
         grunt.file.write( `${temp_dir}${page.attributes.permalink.replace( /.\//g , "_" )}.pug` , outdata )

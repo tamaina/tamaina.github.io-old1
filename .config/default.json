@@ -43,6 +43,9 @@
         }
     ],
     "theme_color": "#ffffff",
+    "default": {
+        "template": "default"
+    },
     "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
     "twitter_screenname": "t_ma1n"
 }

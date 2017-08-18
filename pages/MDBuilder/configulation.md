@@ -14,7 +14,8 @@ description: 設定ファイルは基本だよね。
         "site_url": "https://tmin.xyz",
         "sources": [
             "pages/**/*.md",
-            "pages/**/*.pug"
+            "pages/**/*.pug",
+            "pages/**/*.html"
         ],
         "auther": "tamaina",
         "page_namingrule": "name",
@@ -32,53 +33,69 @@ description: 設定ファイルは基本だよね。
             }
         ],
         "theme_color": "#ffffff",
+        "default": {
+            "template": "default"
+        },
         "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
         "twitter_screenname": "t_ma1n"
     }
 ~~~
 
 ## name
-- **`String`**
+- ***`String`***
 - サイト全体の名前です。
 
 ## description
-- **`String`**
+- ***`String`***
 - サイトの説明です。
 
 ## site_url
-- **`String`**
+- ***`String`***
 - サイトのURLです。末尾のスラッシュは不要です。
 
 ## sources
-- **`Array`**
+- ***`Array`***
 - 読み込むファイルを指定します。
 
 ## auther
-- **`String`**
+- ***`String`***
 - 一般的には貴方のハンドルネームが入るでしょう。
 
 ## page_namingrule
-- **`String`**
+- ***`String`***
 - 命名規則です。nameにすると普通になります。
 - ディレクトリ構造はそのままです。htmlの名前だけが変わります。
-- 現在は元のファイル名を維持する`name`と、作成日時にする`birthtime`が利用可能です。
+- 以下の値を用意しています。
+  - **`name`:** 現在は元のファイル名を維持する
+  - **`birthtime`:** 作成日時 (YYYY-MM-DD-hh-mm-ss.msec)
+  - **`md5`:** 「md5ハッシュ」と呼ばれるランダムな英数字
+  - 文書内のリンク読み替える機能ありませんので、こだわりがなければnameを利用するべきです。
 
 ## locale
-- **`String`**
+- ***`String`***
 - html(lang=)に適用する言語です。
 
 ## icons
-- **`Array`**
+- ***`Array`***
 - アイコンを登録します。
 
 ## theme_color
-- **`String`** (Color)
+- ***`String`*** (Color)
 - テーマカラーを指定します。別の値に設定して、AndroidのChromeで見てみてください。
 
+## default
+- ***`Array`*** (連想配列)
+- デフォルト値を設定します。
+
+## default.template
+- ***`String`***
+- デフォルトで使用するテンプレートを指定します。
+- Front Matterのlayoutが指定されていなかったり、参照できなかったときに利用されます。
+
 ## rss_url
-- **`String`** (URL)
+- ***`String`*** (URL)
 - linkするRSSのURLを指定します。例ではgithubの更新情報を指定しています。
 
 ## twitter_screenname
-- **`String`**
+- ***`String`***
 - twitter cardに設定するtwitterアカウントを指定します。
