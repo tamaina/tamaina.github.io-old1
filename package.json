@@ -17,7 +17,6 @@
   },
   "homepage": "https://tmin.xyz",
   "devDependencies": {
-    "barba.js": "^1.0.0",
     "browserify": "^14.1.0",
     "chalk": "^1.1.3",
     "electron": "^1.6.8",
