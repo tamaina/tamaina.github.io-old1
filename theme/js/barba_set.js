@@ -1,27 +1,5 @@
 $(window).on('load',function(){
 
-var GreatBarba = Barba.BaseTransition.extend({
-  start: function() {
-    Promise
-    .all([this.newContainerLoading, this.fadeOut()])
-    .then(this.fadeIn.bind(this));
-  },
- 
-  fadeOut: function() {
-    $(this.oldContainer).removeClass('animated fadeIn').removeClass('animated zoomOut');
-    $(this.newContainer).removeClass('animated fadeIn').removeClass('animated zoomOut');
-    return $(this.oldContainer).addClass('animated zoomOut').promise();
-  },
- 
-  fadeIn: function() {
-    var _this = this;
-    var $el = $(this.newContainer);
-    $el.css({
-      visibility : 'visible'
-    }).addClass('animated fadeIn');
-    _this.done()
-  },
-});
 Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
     var $newPageHead = $( '<head />' ).html(
         $.parseHTML(
@@ -43,10 +21,6 @@ Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container
     Prism.highlightAll();
 });
 
-// returnに作ったトランジションを設定します。
-Barba.Pjax.getTransition = function() {
-  return GreatBarba;
-};
  
 Barba.Pjax.start();
 Barba.Prefetch.init();
