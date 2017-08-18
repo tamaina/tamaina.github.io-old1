@@ -1578,5 +1578,5 @@
   animation-name: slideOutUp;
 }
 
-html,body{line-height:1.6em;font-family:'mgenplus-c-w','GenShinGothic-w',sans-serif}h1{padding:2rem;background-color:#000;color:#fff}h1,h2,h3,h4,h5,h6{font-family:'mgenplus-p-w','GenShinGothic-w',sans-serif,}
-html,body{line-height:1.6em;font-family:'mgenplus-c-w','GenShinGothic-w',sans-serif}h1{padding:2rem;background-color:#000;color:#fff}h1,h2,h3,h4,h5,h6{font-family:'mgenplus-p-w','GenShinGothic-w',sans-serif,}
+html,body{line-height:1.6em;font-family:'mgenplus-c-w','GenShinGothic-w',sans-serif}h1{padding:2rem;background-color:#000;color:#fff}h1,h2,h3,h4,h5,h6{font-family:'mgenplus-p-w','GenShinGothic-w',sans-serif,code}pre{font-family:'mgenplus-mn-w',Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace}
+html,body{line-height:1.6em;font-family:'mgenplus-c-w','GenShinGothic-w',sans-serif}h1{padding:2rem;background-color:#000;color:#fff}h1,h2,h3,h4,h5,h6{font-family:'mgenplus-p-w','GenShinGothic-w',sans-serif,code}pre{font-family:'mgenplus-mn-w',Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace}
