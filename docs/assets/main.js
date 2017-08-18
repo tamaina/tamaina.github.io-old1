@@ -12007,6 +12007,7 @@ Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container
     $( 'head' ).find( headTags ).remove();
     $newPageHead.find( headTags ).appendTo( 'head' );
     document.body.scrollTop = 0;
+    Prism.highlightAll();
 });
 
 // returnに作ったトランジションを設定します。
