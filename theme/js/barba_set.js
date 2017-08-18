@@ -40,9 +40,7 @@ Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container
     ].join(',');
     $( 'head' ).find( headTags ).remove();
     $newPageHead.find( headTags ).appendTo( 'head' );
-
     document.body.scrollTop = 0;
-    ga('send', 'pageview', window.location.pathname.replace(/^\/?/, '/') + window.location.search);
 });
 
 // returnに作ったトランジションを設定します。
