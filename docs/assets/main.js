@@ -12009,7 +12009,6 @@ Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container
     $newPageHead.find( headTags ).appendTo( 'head' );
 
     document.body.scrollTop = 0;
-    if(vars.collapse){$(window).scrollTop( document.getElementById( vars.collapse ).getBoundingClientRect().top + window.pageYOffset - Number($('nav').height()) - 80 );}
     ga('send', 'pageview', window.location.pathname.replace(/^\/?/, '/') + window.location.search);
 });
 
