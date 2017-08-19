@@ -9,45 +9,62 @@ layout: article
 `./config/default.json`にあります。
 
 ~~~json
-    {
-        "name": "tamaina's website",
-        "description": "tamainaことaqzのサイトです。",
-        "sources": [
-            "pages/**/*.md",
-            "pages/**/*.pug",
-            "pages/**/*.html"
-        ],
-        "url":{
-            "path": "/docs",
-            "host": "tmin.xyz",
-            "scheme": "https",
+{
+    "name": "tamaina's website",
+    "short_name": "tmin.xyz",
+    "description": "tamainaことaqzのサイトです。",
+    "url":{
+        "path": "/docs",
+        "host": "tmin.xyz",
+        "scheme": "https"
+    },
+    "sources": [
+        "pages/**/*.md",
+        "pages/**/*.pug",
+        "pages/**/*.html"
+    ],
+    "auther": "tamaina",
+    "page_namingrule": "name",
+    "locale": "ja",
+    "icons": [
+        {
+            "path": "/assets/images/icons/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
         },
-        "auther": "tamaina",
-        "page_namingrule": "name",
-        "locale": "ja",
-        "icons": [
-            {
-                "path": "/images/icons/favicon-16x16.png",
-                "sizes": "16x16",
-                "type": "image/png"
-            },
-            {
-                "path": "/images/icons/favicon-196x196.png",
-                "sizes": "196x196",
-                "type": "image/png"
-            }
-        ],
-        "theme_color": "#ffffff",
-        "default": {
-            "template": "default"
-        },
-        "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
-        "twitter_screenname": "t_ma1n",
-        "worker": {
+        {
+            "path": "/assets/images/icons/favicon-600x600.png",
+            "sizes": "600x600",
+            "type": "image/png"
+        }
+    ],
+    "mstiles": {
+        "s70x70": {
+            "path": "/assets/images/icons/mstile-70x70.png"
+        },"w310x150": {
+            "path": "/assets/images/icons/mstile-310x150.png"
+        }
+    },
+    "theme_color": {
+        "primary": "#2d88ef",
+        "secondary": "#001c3d"
+    },
+    "default": {
+        "template": "default"
+    },
+    "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
+    "twitter_screenname": "t_ma1n",
+    "workers": [
+        {
             "srcpath": "theme/js/service_worker.js",
             "outname": "service_worker"
         }
+    ],
+    "manifest": {
+        "start_url": "/",
+        "display": "standalone"
     }
+}
 ~~~
 
 ## name
@@ -60,7 +77,7 @@ layout: article
 
 ## url
 - ***`Array`***
-- サイトのURLです。url.pathは末尾のスラッシュを含めない形で書きます。ドメイン直下にサイトを置くなら、空欄に。
+- サイトのURLです。url.pathは末尾のスラッシュを含めない形で書きます。ドメイン直下にサイトを置くなら、空欄。
 
 ## sources
 - ***`Array`***
@@ -87,10 +104,16 @@ layout: article
 ## icons
 - ***`Array`***
 - アイコンを登録します。
+- こんなになくても512x512以上のサイズが1つあれば良い気がする
+- ルートフォルダのfavicon.icoは固定してテーマに挿入済です。`theme/static`直下に入れておけば認識します。
 
 ## icons[*i*].path
 - ***`String`*** (URL)
 - **必ずスラッシュから始めます。**
+
+## mstiles
+- ***`Array`*** (連想配列)
+- browserconfig.ymlに利用します。考え方はiconsと同じです。
 
 ## theme_color
 - ***`String`*** (Color)
@@ -122,3 +145,9 @@ layout: article
 - Service Workerの出力時の名前を指定します。
 - Service Workerでは、package.versionの値を変数`version`として利用できます。
 - バックグラウンド同期のためのものですが、
+
+## manifest
+- ***`Array`*** (連想配列)
+- manifest.jsonに出力する内容です。
+- 既に挿入されているデータは、Gruntfile.jsの最後の方、`register_manifest()`の中をご覧ください。
+- 一応、manifest.jsonの全てのデータもpugに変数として流しています。

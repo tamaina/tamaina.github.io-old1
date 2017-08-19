@@ -27,6 +27,9 @@ layout: default
 [テーマについて](./theme)
 
 ## ファイル
+
+VS Codeではキレイに表示されるんですけどねぇ……。
+
 ```
 │ 
 │
@@ -68,7 +71,7 @@ layout: default
 │          │         │
 │          │
 │          ├─  files ┐   - files/はここにコピーされます。
-│          │         │
+│          │         │     .htaccessでキャッシュ時間を長くするのに別のディレクトリにしてたり。
 │          │         
 │          ├─  CNAME     - GitHub Pagesを利用すると自動的に生成されます。
 │          │
@@ -87,14 +90,21 @@ layout: default
 
 ## 足りない機能
 
+- なんやかやで自分の欲望を満たしたつもりです。
 - スタイル指定がほとんどありません。
   * スタイル指定はstylusで指定します。
+  * [tmin.xyz](//tmin.xyz)ではbootstrapを利用しているはずです。
 
 ## 余分な機能
 
-- barba.jsが標準で適用されています。
+- pjaxが標準で適用されています。
+- PWAに対応しているかもしれません。
+  * manifest.jsonを勝手に出力します。。
+  * Service Workerの自動更新に対応しています。
+- AMPにその気になれば対応しています。
+  * 作るとしたら多分、AMPのforkテーマを作ったほうが早い。
 - 日本語ウェブフォントが標準で適用されています。
-- browserify+uglifyです。
+- browserify+uglifyで纏めています。
 
 ## インストール
 
@@ -112,10 +122,12 @@ npm install
 grunt
 ```
 
-### ブラウザで確認してみる/変更したらすぐビルドする
+### ブラウザで確認してみる
 
 ```
 grunt server
 ```
 
-→正常に動作すれば、`localhost:3000`に接続すると見られます。
+正常に動作すれば、`localhost:3000`に接続すると見られます。
+
+debug_override.jsonの内容がdefault.jsonに上書きされます。
