@@ -1,7 +1,5 @@
-var info = require("info.json")
 var cachepages = [
     `info.json`,
-    `${info.manifest.start_url}`,
     "./",
     "assets/pjax-api.min.js",
     "assets/main.min.js",
@@ -59,3 +57,5 @@ this.addEventListener('fetch', function(event) {
 this.addEventListener('activate', function(event) {
     event.waitUntil(self.clients.claim());
 });
+
+// MDNより借用
