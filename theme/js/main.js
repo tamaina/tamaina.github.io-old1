@@ -5,6 +5,5 @@ window.jQuery = $ = require('jquery')
 Barba = require('barba.js')
 hljs = require('highlight.js')
 */
-require("./barba_set")
 require("./sw_register")
 require("./hljs_init")

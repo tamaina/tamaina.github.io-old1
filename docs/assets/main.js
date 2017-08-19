@@ -1,1717 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports={"options":"","site":{"name":"tamaina's website","short_name":"tmin.xyz","description":"tamainaことaqzのサイトです。","url":{"path":"/docs","host":"tmin.xyz","scheme":"https"},"sources":["pages/**/*.md","pages/**/*.pug","pages/**/*.html"],"auther":"tamaina","page_namingrule":"name","locale":"ja","icons":[{"path":"/assets/images/icons/favicon-16x16.png","sizes":"16x16","type":"image/png"},{"path":"/assets/images/icons/favicon-32x32.png","sizes":"32x32","type":"image/png"},{"path":"/assets/images/icons/favicon-36x36.png","sizes":"36x36","type":"image/png"},{"path":"/assets/images/icons/favicon-48x48.png","sizes":"48x48","type":"image/png"},{"path":"/assets/images/icons/favicon-57x57.png","sizes":"57x57","type":"image/png"},{"path":"/assets/images/icons/favicon-60x60.png","sizes":"60x60","type":"image/png"},{"path":"/assets/images/icons/favicon-72x72.png","sizes":"72x72","type":"image/png"},{"path":"/assets/images/icons/favicon-76x76.png","sizes":"76x76","type":"image/png"},{"path":"/assets/images/icons/favicon-96x96.png","sizes":"96x96","type":"image/png"},{"path":"/assets/images/icons/favicon-114x114.png","sizes":"114x114","type":"image/png"},{"path":"/assets/images/icons/favicon-120x120.png","sizes":"120x120","type":"image/png"},{"path":"/assets/images/icons/favicon-114x114.png","sizes":"114x114","type":"image/png"},{"path":"/assets/images/icons/favicon-152x152.png","sizes":"152x152","type":"image/png"},{"path":"/assets/images/icons/favicon-160x160.png","sizes":"160x160","type":"image/png"},{"path":"/assets/images/icons/favicon-180x180.png","sizes":"180x180","type":"image/png"},{"path":"/assets/images/icons/favicon-192x192.png","sizes":"192x192","type":"image/png"},{"path":"/assets/images/icons/favicon-196x196.png","sizes":"196x196","type":"image/png"}],"mstiles":{"s70x70":{"path":"/assets/images/icons/mstile-70x70.png"},"s144x144":{"path":"/assets/images/icons/mstile-144x144.png"},"s150x150":{"path":"/assets/images/icons/mstile-150x150.png"},"s310x310":{"path":"/assets/images/icons/mstile-310x310.png"},"w310x150":{"path":"/assets/images/icons/mstile-310x150.png"}},"theme_color":{"primary":"#2d88ef","secondary":"#001c3d"},"default":{"template":"default"},"rss_url":"https://github.com/tamaina/tamaina.github.io/commits/master.atom","twitter_screenname":"t_ma1n","workers":[{"srcpath":"theme/js/service_worker.js","outname":"service_worker"}],"manifest":{"start_url":"/","display":"standalone"}},"package":{"name":"tmin.xyz","version":"0.0.1","description":"tmin.xyz","main":"docs/index.html","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"git+https://github.com/tamaina/tamaina.github.io"},"author":"tamaina <tamaina@hotmail.co.jp> (https://tmin.xyz)","license":"MIT","bugs":{"url":"https://github.com/tamaina/tamaina.github.io/issues"},"homepage":"https://tmin.xyz","devDependencies":{"barba.js":"^1.0.0","browserify":"^14.1.0","chalk":"^2.1.0","electron":"^1.6.8","extend":"^3.0.1","fontmin":"^0.9.6","front-matter":"^2.1.2","grunt":"^1.0.1","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.0.0","grunt-contrib-connect":"^1.0.2","grunt-contrib-copy":"^1.0.0","grunt-contrib-cssmin":"^2.0.0","grunt-contrib-pug":"^1.0.0","grunt-contrib-stylus":"^1.2.0","grunt-contrib-uglify":"^3.0.0","grunt-contrib-watch":"^1.0.0","grunt-fontmin-ex":"^0.2.0","highlight.js":"^9.12.0","html-minifier":"^3.5.3","html-to-text":"^3.2.0","jquery":"^3.1.1","kramed":"^0.5.6","node-sfnt":"0.0.21","pako":"^1.0.5","pug":"^2.0.0-rc.3","pug-cli":"^1.0.0-alpha6","stylus":"^0.54.5","tether":"^1.4.0","ttf2woff2":"^2.0.3","ua-parser-js":"^0.7.12","uglify-js":"^3.0.0"},"dependencies":{}},"pages":[{"attributes":{"title":"404 Not Found","description":"tamainaことaqzのサイトです。","date":"2017-08-18T19:35:21.010Z","permalink":"/404","layout":"default","published":"true"},"body":"\r\nh1 404 Not Found\r\n\r\np (ページが)ないです\r\n\r\na(href=`${site.url.path}/`) トップページへ","frontmatter":"title: 404 Not Found\r\ndescription: お探しのページはありませんでした。","srcname":"404","srcext":".pug","subdir":"","md5":"0c86d430b7777bc78a527ca333cee024","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":2814749767140380,"size":201,"atimeMs":1503084921010,"mtimeMs":1503161625769.8127,"ctimeMs":1503161625769.8127,"birthtimeMs":1503084921010.212,"atime":"2017-08-18T19:35:21.010Z","mtime":"2017-08-19T16:53:45.770Z","ctime":"2017-08-19T16:53:45.770Z","birthtime":"2017-08-18T19:35:21.010Z"}},{"attributes":{"title":"トップ","description":"tamainaことaqzのサイトです。","date":"2017-08-16T17:47:31.647Z","permalink":"/index","layout":"default","published":"true"},"body":"h1 #{page.attributes.title}\r\n\r\np このサイトは、\r\n  a(href=\"./MDBuilder/\") オレオレ静的サイトビルダーMDBuilder\r\n  | によって作成されています。\r\n\r\nh2 ページ一覧\r\nul\r\n  each p in pages\r\n    li\r\n      a(href=`${site.url.path}${p.attributes.permalink}`) #{p.attributes.title} \r\n\r\n:md\r\n\r\n  aqzもといtamainaのサイト\r\n\r\n  **[ここのれぽじとりぃ](https://github.com/tamaina/tamaina.github.io)**\r\n\r\n  ↑中身やばいことなってる\r\n\r\n  - [kogasa(コードネーム)](https://github.com/tamaina/kogasa)\r\n    - waifu2x のcaffeとかconverter-cppをMaterial DesignなGUIでいじくれるやつ\r\n  - [pak.nippon+ (tamaina版)](https://github.com/tamaina/pak-nippon/releases)\r\n    - **Simutrans**のpakセット。 pak.nipponオリジナルはかのwa氏が制作されています。\r\n  - [The Japanese Web Fonts 色々なフォントをできるだけサブセット化したWebフォントセット](https://github.com/tamaina/The-Japanese-Web-Fonts)\r\n  - [Chen - \"bootstrap\"日本語最適化テーマ](https://github.com/tamaina/Chen)\r\n    - **bootstrap**にThe Japanese Web Fontsを憑依させた、名前の割に重い\r\n    - 亜種がいくつかある\r\n    - bootstrap v4を齧ってたり\r\n  - [某高校の文化祭のホームページ](https://suiranfes.com)\r\n    - 自分が作ったものの結構重い件……。\r\n  - [Misskey インスタンス misskey.tmin.cf](https://misskey.tmin.cf)\r\n    - ノートPCで起動してるし普段も使ってるPCなので開設するのは不定期。\r\n\r\n  ### aqz=tamaina social accounts\r\n\r\n  - [Twitter @t_ma1n](https://twitter.com/t_ma1n)\r\n  - [GitHub @tamaina](https://github.com/tamaina)\r\n  - [Misskey @aqz](https://misskey.xyz/aqz)\r\n  - [Qiita @aqz](https://qiita.com/aqz)\r\n  - マストドンインスタンスいくつか @aqz\r\n","frontmatter":"title: トップ\r\ndescription: トップページです","srcname":"index","srcext":".pug","subdir":"","md5":"3fe0a933ca5af56b6dbfec3d6785e1f8","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":1970324836999424,"size":1908,"atimeMs":1502996131124,"mtimeMs":1503156857536.672,"ctimeMs":1503156857536.672,"birthtimeMs":1502905651647.0088,"atime":"2017-08-17T18:55:31.124Z","mtime":"2017-08-19T15:34:17.537Z","ctime":"2017-08-19T15:34:17.537Z","birthtime":"2017-08-16T17:47:31.647Z"}},{"attributes":{"title":"default.jsonの書き方","description":"tamainaことaqzのサイトです。","date":"2017-08-16T19:43:12.118Z","permalink":"/MDBuilder/configulation","layout":"default","published":"true"},"body":"\r\n# default.jsonの書き方\r\n\r\n`./config/default.json`にあります。\r\n\r\n~~~json\r\n    {\r\n        \"name\": \"tamaina's website\",\r\n        \"description\": \"tamainaことaqzのサイトです。\",\r\n        \"sources\": [\r\n            \"pages/**/*.md\",\r\n            \"pages/**/*.pug\",\r\n            \"pages/**/*.html\"\r\n        ],\r\n        \"url\":{\r\n            \"path\": \"/docs\",\r\n            \"host\": \"tmin.xyz\",\r\n            \"scheme\": \"https\",\r\n        },\r\n        \"auther\": \"tamaina\",\r\n        \"page_namingrule\": \"name\",\r\n        \"locale\": \"ja\",\r\n        \"icons\": [\r\n            {\r\n                \"path\": \"/images/icons/favicon-16x16.png\",\r\n                \"sizes\": \"16x16\",\r\n                \"type\": \"image/png\"\r\n            },\r\n            {\r\n                \"path\": \"/images/icons/favicon-196x196.png\",\r\n                \"sizes\": \"196x196\",\r\n                \"type\": \"image/png\"\r\n            }\r\n        ],\r\n        \"theme_color\": \"#ffffff\",\r\n        \"default\": {\r\n            \"template\": \"default\"\r\n        },\r\n        \"rss_url\": \"https://github.com/tamaina/tamaina.github.io/commits/master.atom\",\r\n        \"twitter_screenname\": \"t_ma1n\",\r\n        \"worker\": {\r\n            \"srcpath\": \"theme/js/service_worker.js\",\r\n            \"outname\": \"service_worker\"\r\n        }\r\n    }\r\n~~~\r\n\r\n## name\r\n- ***`String`***\r\n- サイト全体の名前です。\r\n\r\n## description\r\n- ***`String`***\r\n- サイトの説明です。\r\n\r\n## url\r\n- ***`Array`***\r\n- サイトのURLです。url.pathは末尾のスラッシュを含めない形で書きます。ドメイン直下にサイトを置くなら、空欄に。\r\n\r\n## sources\r\n- ***`Array`***\r\n- 読み込むファイルを指定します。\r\n\r\n## auther\r\n- ***`String`***\r\n- 一般的には貴方のハンドルネームが入るでしょう。\r\n\r\n## page_namingrule\r\n- ***`String`***\r\n- 命名規則です。nameにすると普通になります。\r\n- ディレクトリ構造はそのままです。htmlの名前だけが変わります。\r\n- 以下の値を用意しています。\r\n  - **`name`:** 現在は元のファイル名を維持する\r\n  - **`birthtime`:** 作成日時 (YYYY-MM-DD-hh-mm-ss.msec)\r\n  - **`md5`:** 「md5ハッシュ」と呼ばれるランダムな英数字\r\n  - 文書内のリンク読み替える機能ありませんので、こだわりがなければnameを利用するべきです。\r\n\r\n## locale\r\n- ***`String`***\r\n- html(lang=)に適用する言語です。\r\n\r\n## icons\r\n- ***`Array`***\r\n- アイコンを登録します。\r\n\r\n## icons[*i*].path\r\n- ***`String`*** (URL)\r\n- **必ずスラッシュから始めます。**\r\n\r\n## theme_color\r\n- ***`String`*** (Color)\r\n- テーマカラーを指定します。別の値に設定して、AndroidのChromeで見てみてください。\r\n\r\n## default\r\n- ***`Array`*** (連想配列)\r\n- デフォルト値を設定します。\r\n\r\n## default.template\r\n- ***`String`***\r\n- デフォルトで使用するテンプレートを指定します。\r\n- Front Matterのlayoutが指定されていなかったり、参照できなかったときに利用されます。\r\n\r\n## rss_url\r\n- ***`String`*** (URL)\r\n- linkするRSSのURLを指定します。例ではgithubの更新情報を指定しています。\r\n\r\n## twitter_screenname\r\n- ***`String`***\r\n- twitter cardに設定するtwitterアカウントを指定します。\r\n\r\n## worker.srcpath\r\n- ***`String`***\r\n- Service Workerのソースファイルのパスを指定します。\r\n\r\n## worker.outname\r\n- ***`String`***\r\n- Service Workerの出力時の名前を指定します。\r\n- Service Workerでは、package.versionの値を変数`version`として利用できます。\r\n- バックグラウンド同期のためのものですが、","frontmatter":"title: default.jsonの書き方\r\ndescription: 設定ファイルは基本だよね。","srcname":"configulation","srcext":".md","subdir":"MDBuilder","md5":"5e8ab64a1c5cbec12e68b327a92dc625","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":3096224743852012,"size":3788,"atimeMs":1502912592118,"mtimeMs":1503156680470.0156,"ctimeMs":1503156680470.0156,"birthtimeMs":1502912592118.3513,"atime":"2017-08-16T19:43:12.118Z","mtime":"2017-08-19T15:31:20.470Z","ctime":"2017-08-19T15:31:20.470Z","birthtime":"2017-08-16T19:43:12.118Z"}},{"attributes":{"title":"文書の書き方","description":"tamainaことaqzのサイトです。","date":"2017-08-17T20:11:52.499Z","permalink":"/MDBuilder/howtowrite","layout":"default","published":"true"},"body":"\r\n# 文書の書き方\r\n\r\nMarkDownかPugで書くことができます。難しいことはありません。難しいことを極力しないように作ったのですから。\r\n\r\nMarkDownに関して言えば、扱い方は**jekyllと全く同じ**と言っていいでしょう。\r\n\r\nまた、PugもMarkDownとそんなに変わりありません。ただし、凝った装飾をするには、テンプレートを弄っていく必要が出てくるでしょう。\r\n\r\n## 雛形\r\n\r\n### MarkDown\r\n\r\n```markdown\r\n---\r\ntitle: タイトル\r\ndescription: 説明\r\nlayout: default\r\n# permalink: hoge/foooo\r\n---\r\n# タイトル\r\n\r\n本文\r\n\r\nkramdownでhtmlに変換します！\r\n\r\n```\r\n\r\n### Pug\r\n\r\n```pug\r\n---\r\ntitle: タイトル\r\ndescription: 説明\r\nlayout: default\r\n# permalink: hoge/foooo\r\n---\r\nh1 #{page.attributes.title}\r\np #{page.attribute.description}\r\np page.attributeからFront Matterの設定値を参照できます!\r\np docs/info.jsonの内容を全て参照できます。記事一覧を作ったり、サイトの情報を変数に置き換えられます。\r\n```\r\n\r\n## 簡単な説明\r\n\r\n`---～---`をFront Matterと呼びます。YML形式で情報を書いてもらうことで、情報を的確にテンプレートに流し込めます。\r\n- layoutの設定値は`theme/pug/templates`のpugファイルの名前と一致します。\r\n  * 書かれていなかったり一致しなかった場合、`default.pug`を利用します。\r\n- permalinkは、強制的にURLを変更します。末尾にスラッシュがあると正しく機能しません。\r\n- pugからは、[テンプレート](./templates#theme)と同じように`docs/info.json`の内容を利用できます。\r\n\r\n## 画像を挿入する\r\n\r\n### MarkDownの場合\r\n\r\n通常通り、`[説明](URL)`と書きます。\r\n\r\nURLは、事故を防ぐために、スラッシュから始めて書くことをお勧めします。\r\n\r\nただし、スラッシュから始めると、ドメインのすぐ次からのURLを書く必要があります。\r\n\r\n例えば、サイトのトップページが`https://tmin.xyz/docs`で、`files/image.png`という画像を挿入する場合、`/docs/files/image.png`と書くとよいです。\r\n\r\nたぶん将来VS Codeの画面にドラッグ・アンド・ドロップすれば自動で挿入してくれる拡張機能を誰か作ってくれると思う。\r\n\r\n### pugの場合\r\n\r\n`${site.site_url}`を利用します。サイトのURLの変化にも対応できます。\r\n\r\n例えば、`files/image.png`という画像を挿入する場合、~a(href=`${site.site_url}/files/image.png`~と書くとよいです。","frontmatter":"title: 文書の書き方\r\ndescription: 難しいことはありません。jekyllと同じだし。","srcname":"howtowrite","srcext":".md","subdir":"MDBuilder","md5":"9b6fa9c2ab5aefc1d7c953938f7e74d0","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":14355223812270612,"size":2749,"atimeMs":1503000712498.8123,"mtimeMs":1503146264303.743,"ctimeMs":1503146264303.743,"birthtimeMs":1503000712498.8123,"atime":"2017-08-17T20:11:52.499Z","mtime":"2017-08-19T12:37:44.304Z","ctime":"2017-08-19T12:37:44.304Z","birthtime":"2017-08-17T20:11:52.499Z"}},{"attributes":{"title":"About MDBuilder","description":"tamainaことaqzのサイトです。","layout":"default","date":"2017-08-17T19:22:33.335Z","permalink":"/MDBuilder/index","published":"true"},"body":"# About MDBuilder\r\n\r\nオレオレ静的サイトビルダーです。\r\n\r\n核となる機能は、文書のMarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。\r\n\r\nビルドにはタスク自動化ツールGruntを利用しています。\r\n\r\n[GitHub](https://github.com/tamaina/tamaina.github.io)\r\n\r\n\r\n## Configulation\r\n\r\n[default.jsonの書き方](./configulation)\r\n\r\n## How to add a page\r\n\r\n[文書の書き方](./howtowrite)\r\n\r\n## How to change looks\r\n\r\n[テーマについて](./theme)\r\n\r\n## ファイル\r\n```\r\n│ \r\n│\r\n├─.config/default.json - サイトの大体の設定はここで行います。\r\n├─────────────   pages - 基本的に文書はすべてここに格納します。\r\n├─────────────   files - 添付ファイルはここに格納します。\r\n│\r\n├─── theme ┐           - スタイルやレイアウト、スクリプトが格納されています。\r\n│          │\r\n│          ├─  pug ┐   - htmlの素となるpugが保存されています。\r\n│          │       │\r\n│          │       ├── templates - レイアウトが格納されています。\r\n│          │       │               default.pugを消してはいけません。\r\n│          │       ├──     temp  - ビルドの際中間生成されるpugが格納されます。\r\n│          │       └── includes  - 細かいファイルが格納されています。\r\n│          │\r\n│          ├─ styl ┐   - cssの素となるstylusが保存されています。\r\n│          │       │\r\n│          │\r\n│          ├─ fonts┐   - サブセット前のフォントを格納しています。\r\n│          │       │\r\n│          │\r\n│          ├─  js  ┐   - jsファイルが保存されています。\r\n│          │       │\r\n│          │       ├── main.js   - このファイルで一旦jsファイルを纏めています。\r\n│          │       │               これをbrowserifyとuglifyに通してjsファイルを生成します。\r\n│          │       │\r\n│          │\r\n│          └─ static ┐ - 変更が要らない静的なファイルを格納するフォルダです。\r\n│                    │   ビルド時にdocs/にそのままコピーされます。\r\n│                    │\r\n│\r\n├─── docs  ┐           - 出来上がったサイトです。これをデプロイしてください。\r\n│          │             GitHub Pagesでは、設定でここをサイトにできます。\r\n│          │             ※ただし、ユーザーページでは不可\r\n│          │             ビルドするごとに消去されます。\r\n│          │\r\n│          ├─ assets ┐   - theme/static/からのコピーとビルドしたcss/jsを格納します。\r\n│          │         │\r\n│          │\r\n│          ├─  files ┐   - files/はここにコピーされます。\r\n│          │         │\r\n│          │         \r\n│          ├─  CNAME     - GitHub Pagesを利用すると自動的に生成されます。\r\n│          │\r\n│\r\n├────────   .gitignore  ┐\r\n├──────    .travis.yml  │\r\n├─────    Gruntfile.js  │\r\n├─────────     LICENSE  │  配布に際して必要なファイルです。\r\n├─────    package.json  │\r\n├─   package-lock.json  │\r\n├────    pugfilters.js  ┘\r\n├────────   index.html  ┐  GitHub Pagesのユーザーページがmasterしか参照できない仕様\r\n│────────     404.html  ┘  のためdocs/にリダイレクトします。\r\n└────────    readme.md   - サイトと併せてお読みください。\r\n```\r\n\r\n## 足りない機能\r\n\r\n- スタイル指定がほとんどありません。\r\n  * スタイル指定はstylusで指定します。\r\n\r\n## 余分な機能\r\n\r\n- barba.jsが標準で適用されています。\r\n- 日本語ウェブフォントが標準で適用されています。\r\n- browserify+uglifyです。\r\n\r\n## インストール\r\n\r\n```\r\nnpm install -g node-gyp\r\nnpm install -g grunt\r\nnpm install\r\n```\r\n\r\n## ビルド\r\n\r\n### ただビルドする\r\n\r\n```\r\ngrunt\r\n```\r\n\r\n### ブラウザで確認してみる/変更したらすぐビルドする\r\n\r\n```\r\ngrunt server\r\n```\r\n\r\n→正常に動作すれば、`localhost:3000`に接続すると見られます。\r\n","frontmatter":"title: About MDBuilder\r\ndescription: 静的サイトビルダー MarkDown Builderについて\r\nlayout: default","srcname":"index","srcext":".md","subdir":"MDBuilder","md5":"b9225697a32affb3817a8c764f9a9741","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":5066549580819059,"size":4711,"atimeMs":1503085186479,"mtimeMs":1503085348732.0344,"ctimeMs":1503085348732.0344,"birthtimeMs":1502997753334.8596,"atime":"2017-08-18T19:39:46.479Z","mtime":"2017-08-18T19:42:28.732Z","ctime":"2017-08-18T19:42:28.732Z","birthtime":"2017-08-17T19:22:33.335Z"}},{"attributes":{"title":"テーマ","description":"tamainaことaqzのサイトです。","date":"2017-08-18T18:37:57.811Z","permalink":"/MDBuilder/theme","layout":"default","published":"true"},"body":"\r\nテーマファイルのソースは、themeフォルダに格納されています。\r\n\r\nhtmlの素のpugを**テンプレート**、cssの素のstylus(.styl)やcssファイルを**スタイル**と呼称します。\r\n\r\nまた、jsフォルダのjsファイルはスクリプトと呼称します。\r\n\r\n# テンプレート\r\n\r\n各文書のFront Matterの、layout:の値が、適用するテンプレートのファイル名です。\r\n\r\n何も指定がなければdefault.pugを読みます。\r\n\r\n## 書き方\r\n\r\npugの書き方に関しては、[pugjs.org](https://pugjs.org)を参照してください。\r\n\r\n変数として`docs/info.json`の内容が利用可能です。[様々な配列操作](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array)を利用してページ一覧や検索機能を作成できます。\r\n\r\nこれは、テンプレートだけでなくpug形式の個々の文書でも利用できます。\r\n\r\nさらに他になにか利用したい変数がある場合は、`Gruntfile.js`のオプションに書き足してください。\r\n\r\n## テンプレートからページを書き出すしくみ\r\n\r\nビルドの様子をよく見ているとわかりますが、一時ファイルが`pug/templates`以下に書き出されます。\r\n\r\n一時ファイルは、先頭に`pages`配列の要素の番号を代入するプログラムが1行書き加わってテンプレートがコピーされたものです。\r\n\r\n`theme/pug/includes/_script.pug`の先頭で、`pages`配列のその番号の要素を参照し、その内容を`page`に代入しています。\r\n\r\n# スタイル\r\n\r\nmain.stylファイルをコンパイルしてcssを出力しています。\r\n\r\nstylusの書き方に関しては、[stylus-lang.com](http://stylus-lang.com/)を参照してください。\r\n\r\ncssやstylusを追加するには、どこかにcss/stylファイルを作成・コピーし、それに応じて`@import`をmain.stylに追加します。\r\n","frontmatter":"title: テーマ\r\ndescription: テーマの編集方法","srcname":"theme","srcext":".md","subdir":"MDBuilder","md5":"f6e952127f26f88fda4b6edd89c16169","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":21673573206747496,"size":2057,"atimeMs":1503081477811.0002,"mtimeMs":1503084657481.6145,"ctimeMs":1503084657481.6145,"birthtimeMs":1503081477811.2764,"atime":"2017-08-18T18:37:57.811Z","mtime":"2017-08-18T19:30:57.482Z","ctime":"2017-08-18T19:30:57.482Z","birthtime":"2017-08-18T18:37:57.811Z"}}],"manifest":{"name":"tamaina's website","short_name":"tmin.xyz","icons":[{"sizes":"16x16","type":"image/png","src":"/docs/assets/images/icons/favicon-16x16.png"},{"sizes":"32x32","type":"image/png","src":"/docs/assets/images/icons/favicon-32x32.png"},{"sizes":"36x36","type":"image/png","src":"/docs/assets/images/icons/favicon-36x36.png"},{"sizes":"48x48","type":"image/png","src":"/docs/assets/images/icons/favicon-48x48.png"},{"sizes":"57x57","type":"image/png","src":"/docs/assets/images/icons/favicon-57x57.png"},{"sizes":"60x60","type":"image/png","src":"/docs/assets/images/icons/favicon-60x60.png"},{"sizes":"72x72","type":"image/png","src":"/docs/assets/images/icons/favicon-72x72.png"},{"sizes":"76x76","type":"image/png","src":"/docs/assets/images/icons/favicon-76x76.png"},{"sizes":"96x96","type":"image/png","src":"/docs/assets/images/icons/favicon-96x96.png"},{"sizes":"114x114","type":"image/png","src":"/docs/assets/images/icons/favicon-114x114.png"},{"sizes":"120x120","type":"image/png","src":"/docs/assets/images/icons/favicon-120x120.png"},{"sizes":"114x114","type":"image/png","src":"/docs/assets/images/icons/favicon-114x114.png"},{"sizes":"152x152","type":"image/png","src":"/docs/assets/images/icons/favicon-152x152.png"},{"sizes":"160x160","type":"image/png","src":"/docs/assets/images/icons/favicon-160x160.png"},{"sizes":"180x180","type":"image/png","src":"/docs/assets/images/icons/favicon-180x180.png"},{"sizes":"192x192","type":"image/png","src":"/docs/assets/images/icons/favicon-192x192.png"},{"sizes":"196x196","type":"image/png","src":"/docs/assets/images/icons/favicon-196x196.png"}],"start_url":"/","theme_color":"#2d88ef","background_color":"#001c3d","display":"standalone"}}
+module.exports={"options":"","site":{"name":"tamaina's website","short_name":"tmin.xyz","description":"tamainaことaqzのサイトです。","url":{"path":"/docs","host":"tmin.xyz","scheme":"https"},"sources":["pages/**/*.md","pages/**/*.pug","pages/**/*.html"],"auther":"tamaina","page_namingrule":"name","locale":"ja","icons":[{"path":"/assets/images/icons/favicon-16x16.png","sizes":"16x16","type":"image/png"},{"path":"/assets/images/icons/favicon-32x32.png","sizes":"32x32","type":"image/png"},{"path":"/assets/images/icons/favicon-36x36.png","sizes":"36x36","type":"image/png"},{"path":"/assets/images/icons/favicon-48x48.png","sizes":"48x48","type":"image/png"},{"path":"/assets/images/icons/favicon-57x57.png","sizes":"57x57","type":"image/png"},{"path":"/assets/images/icons/favicon-60x60.png","sizes":"60x60","type":"image/png"},{"path":"/assets/images/icons/favicon-72x72.png","sizes":"72x72","type":"image/png"},{"path":"/assets/images/icons/favicon-76x76.png","sizes":"76x76","type":"image/png"},{"path":"/assets/images/icons/favicon-96x96.png","sizes":"96x96","type":"image/png"},{"path":"/assets/images/icons/favicon-114x114.png","sizes":"114x114","type":"image/png"},{"path":"/assets/images/icons/favicon-120x120.png","sizes":"120x120","type":"image/png"},{"path":"/assets/images/icons/favicon-114x114.png","sizes":"114x114","type":"image/png"},{"path":"/assets/images/icons/favicon-152x152.png","sizes":"152x152","type":"image/png"},{"path":"/assets/images/icons/favicon-160x160.png","sizes":"160x160","type":"image/png"},{"path":"/assets/images/icons/favicon-180x180.png","sizes":"180x180","type":"image/png"},{"path":"/assets/images/icons/favicon-192x192.png","sizes":"192x192","type":"image/png"},{"path":"/assets/images/icons/favicon-196x196.png","sizes":"196x196","type":"image/png"}],"mstiles":{"s70x70":{"path":"/assets/images/icons/mstile-70x70.png"},"s144x144":{"path":"/assets/images/icons/mstile-144x144.png"},"s150x150":{"path":"/assets/images/icons/mstile-150x150.png"},"s310x310":{"path":"/assets/images/icons/mstile-310x310.png"},"w310x150":{"path":"/assets/images/icons/mstile-310x150.png"}},"theme_color":{"primary":"#2d88ef","secondary":"#001c3d"},"default":{"template":"default"},"rss_url":"https://github.com/tamaina/tamaina.github.io/commits/master.atom","twitter_screenname":"t_ma1n","workers":[{"srcpath":"theme/js/service_worker.js","outname":"service_worker"}],"manifest":{"start_url":"/","display":"standalone"}},"package":{"name":"tmin.xyz","version":"0.0.1","description":"tmin.xyz","main":"docs/index.html","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"git+https://github.com/tamaina/tamaina.github.io"},"author":"tamaina <tamaina@hotmail.co.jp> (https://tmin.xyz)","license":"MIT","bugs":{"url":"https://github.com/tamaina/tamaina.github.io/issues"},"homepage":"https://tmin.xyz","devDependencies":{"browserify":"^14.1.0","chalk":"^2.1.0","electron":"^1.6.8","extend":"^3.0.1","fontmin":"^0.9.6","front-matter":"^2.1.2","grunt":"^1.0.1","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.0.0","grunt-contrib-connect":"^1.0.2","grunt-contrib-copy":"^1.0.0","grunt-contrib-cssmin":"^2.0.0","grunt-contrib-pug":"^1.0.0","grunt-contrib-stylus":"^1.2.0","grunt-contrib-uglify":"^3.0.0","grunt-contrib-watch":"^1.0.0","grunt-fontmin-ex":"^0.2.0","highlight.js":"^9.12.0","html-minifier":"^3.5.3","html-to-text":"^3.2.0","jquery":"^3.1.1","kramed":"^0.5.6","node-sfnt":"0.0.21","pako":"^1.0.5","pug":"^2.0.0-rc.3","pug-cli":"^1.0.0-alpha6","spica":"0.0.101","stylus":"^0.54.5","tether":"^1.4.0","ttf2woff2":"^2.0.3","ua-parser-js":"^0.7.12","uglify-js":"^3.0.0"},"dependencies":{}},"pages":[{"attributes":{"title":"404 Not Found","description":"tamainaことaqzのサイトです。","date":"2017-08-18T19:35:21.010Z","permalink":"/404","layout":"default","published":"true"},"body":"\r\nh1 404 Not Found\r\n\r\np (ページが)ないです\r\n\r\na(href=`${site.url.path}/`) トップページへ","frontmatter":"title: 404 Not Found\r\ndescription: お探しのページはありませんでした。","srcname":"404","srcext":".pug","subdir":"","md5":"0c86d430b7777bc78a527ca333cee024","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":2814749767140380,"size":201,"atimeMs":1503084921010,"mtimeMs":1503161625769.8127,"ctimeMs":1503161625769.8127,"birthtimeMs":1503084921010.212,"atime":"2017-08-18T19:35:21.010Z","mtime":"2017-08-19T16:53:45.770Z","ctime":"2017-08-19T16:53:45.770Z","birthtime":"2017-08-18T19:35:21.010Z"}},{"attributes":{"title":"トップ","description":"tamainaことaqzのサイトです。","date":"2017-08-16T17:47:31.647Z","permalink":"/index","layout":"default","published":"true"},"body":"h1 #{page.attributes.title}\r\n\r\np このサイトは、\r\n  a(href=\"./MDBuilder/\") オレオレ静的サイトビルダーMDBuilder\r\n  | によって作成されています。\r\n\r\nh2 ページ一覧\r\nul\r\n  each p in pages\r\n    li\r\n      a(href=`${p.attributes.permalink}`) #{p.attributes.title} \r\n\r\n:md\r\n\r\n  aqzもといtamainaのサイト\r\n\r\n  **[ここのれぽじとりぃ](https://github.com/tamaina/tamaina.github.io)**\r\n\r\n  ↑中身やばいことなってる\r\n\r\n  - [kogasa(コードネーム)](https://github.com/tamaina/kogasa)\r\n    - waifu2x のcaffeとかconverter-cppをMaterial DesignなGUIでいじくれるやつ\r\n  - [pak.nippon+ (tamaina版)](https://github.com/tamaina/pak-nippon/releases)\r\n    - **Simutrans**のpakセット。 pak.nipponオリジナルはかのwa氏が制作されています。\r\n  - [The Japanese Web Fonts 色々なフォントをできるだけサブセット化したWebフォントセット](https://github.com/tamaina/The-Japanese-Web-Fonts)\r\n  - [Chen - \"bootstrap\"日本語最適化テーマ](https://github.com/tamaina/Chen)\r\n    - **bootstrap**にThe Japanese Web Fontsを憑依させた、名前の割に重い\r\n    - 亜種がいくつかある\r\n    - bootstrap v4を齧ってたり\r\n  - [某高校の文化祭のホームページ](https://suiranfes.com)\r\n    - 自分が作ったものの結構重い件……。\r\n  - [Misskey インスタンス misskey.tmin.cf](https://misskey.tmin.cf)\r\n    - ノートPCで起動してるし普段も使ってるPCなので開設するのは不定期。\r\n\r\n  ### aqz=tamaina social accounts\r\n\r\n  - [Twitter @t_ma1n](https://twitter.com/t_ma1n)\r\n  - [GitHub @tamaina](https://github.com/tamaina)\r\n  - [Misskey @aqz](https://misskey.xyz/aqz)\r\n  - [Qiita @aqz](https://qiita.com/aqz)\r\n  - マストドンインスタンスいくつか @aqz\r\n","frontmatter":"title: トップ\r\ndescription: トップページです","srcname":"index","srcext":".pug","subdir":"","md5":"ed17752b95032beb2bbe8fd1e1c1ec21","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":1970324836999424,"size":1892,"atimeMs":1502996131124,"mtimeMs":1503164564181.332,"ctimeMs":1503164564181.332,"birthtimeMs":1502905651647.0088,"atime":"2017-08-17T18:55:31.124Z","mtime":"2017-08-19T17:42:44.181Z","ctime":"2017-08-19T17:42:44.181Z","birthtime":"2017-08-16T17:47:31.647Z"}},{"attributes":{"title":"default.jsonの書き方","description":"tamainaことaqzのサイトです。","date":"2017-08-16T19:43:12.118Z","permalink":"/MDBuilder/configulation","layout":"default","published":"true"},"body":"\r\n# default.jsonの書き方\r\n\r\n`./config/default.json`にあります。\r\n\r\n~~~json\r\n    {\r\n        \"name\": \"tamaina's website\",\r\n        \"description\": \"tamainaことaqzのサイトです。\",\r\n        \"sources\": [\r\n            \"pages/**/*.md\",\r\n            \"pages/**/*.pug\",\r\n            \"pages/**/*.html\"\r\n        ],\r\n        \"url\":{\r\n            \"path\": \"/docs\",\r\n            \"host\": \"tmin.xyz\",\r\n            \"scheme\": \"https\",\r\n        },\r\n        \"auther\": \"tamaina\",\r\n        \"page_namingrule\": \"name\",\r\n        \"locale\": \"ja\",\r\n        \"icons\": [\r\n            {\r\n                \"path\": \"/images/icons/favicon-16x16.png\",\r\n                \"sizes\": \"16x16\",\r\n                \"type\": \"image/png\"\r\n            },\r\n            {\r\n                \"path\": \"/images/icons/favicon-196x196.png\",\r\n                \"sizes\": \"196x196\",\r\n                \"type\": \"image/png\"\r\n            }\r\n        ],\r\n        \"theme_color\": \"#ffffff\",\r\n        \"default\": {\r\n            \"template\": \"default\"\r\n        },\r\n        \"rss_url\": \"https://github.com/tamaina/tamaina.github.io/commits/master.atom\",\r\n        \"twitter_screenname\": \"t_ma1n\",\r\n        \"worker\": {\r\n            \"srcpath\": \"theme/js/service_worker.js\",\r\n            \"outname\": \"service_worker\"\r\n        }\r\n    }\r\n~~~\r\n\r\n## name\r\n- ***`String`***\r\n- サイト全体の名前です。\r\n\r\n## description\r\n- ***`String`***\r\n- サイトの説明です。\r\n\r\n## url\r\n- ***`Array`***\r\n- サイトのURLです。url.pathは末尾のスラッシュを含めない形で書きます。ドメイン直下にサイトを置くなら、空欄に。\r\n\r\n## sources\r\n- ***`Array`***\r\n- 読み込むファイルを指定します。\r\n\r\n## auther\r\n- ***`String`***\r\n- 一般的には貴方のハンドルネームが入るでしょう。\r\n\r\n## page_namingrule\r\n- ***`String`***\r\n- 命名規則です。nameにすると普通になります。\r\n- ディレクトリ構造はそのままです。htmlの名前だけが変わります。\r\n- 以下の値を用意しています。\r\n  - **`name`:** 現在は元のファイル名を維持する\r\n  - **`birthtime`:** 作成日時 (YYYY-MM-DD-hh-mm-ss.msec)\r\n  - **`md5`:** 「md5ハッシュ」と呼ばれるランダムな英数字\r\n  - 文書内のリンク読み替える機能ありませんので、こだわりがなければnameを利用するべきです。\r\n\r\n## locale\r\n- ***`String`***\r\n- html(lang=)に適用する言語です。\r\n\r\n## icons\r\n- ***`Array`***\r\n- アイコンを登録します。\r\n\r\n## icons[*i*].path\r\n- ***`String`*** (URL)\r\n- **必ずスラッシュから始めます。**\r\n\r\n## theme_color\r\n- ***`String`*** (Color)\r\n- テーマカラーを指定します。別の値に設定して、AndroidのChromeで見てみてください。\r\n\r\n## default\r\n- ***`Array`*** (連想配列)\r\n- デフォルト値を設定します。\r\n\r\n## default.template\r\n- ***`String`***\r\n- デフォルトで使用するテンプレートを指定します。\r\n- Front Matterのlayoutが指定されていなかったり、参照できなかったときに利用されます。\r\n\r\n## rss_url\r\n- ***`String`*** (URL)\r\n- linkするRSSのURLを指定します。例ではgithubの更新情報を指定しています。\r\n\r\n## twitter_screenname\r\n- ***`String`***\r\n- twitter cardに設定するtwitterアカウントを指定します。\r\n\r\n## worker.srcpath\r\n- ***`String`***\r\n- Service Workerのソースファイルのパスを指定します。\r\n\r\n## worker.outname\r\n- ***`String`***\r\n- Service Workerの出力時の名前を指定します。\r\n- Service Workerでは、package.versionの値を変数`version`として利用できます。\r\n- バックグラウンド同期のためのものですが、","frontmatter":"title: default.jsonの書き方\r\ndescription: 設定ファイルは基本だよね。","srcname":"configulation","srcext":".md","subdir":"MDBuilder","md5":"5e8ab64a1c5cbec12e68b327a92dc625","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":3096224743852012,"size":3788,"atimeMs":1502912592118,"mtimeMs":1503156680470.0156,"ctimeMs":1503156680470.0156,"birthtimeMs":1502912592118.3513,"atime":"2017-08-16T19:43:12.118Z","mtime":"2017-08-19T15:31:20.470Z","ctime":"2017-08-19T15:31:20.470Z","birthtime":"2017-08-16T19:43:12.118Z"}},{"attributes":{"title":"文書の書き方","description":"tamainaことaqzのサイトです。","date":"2017-08-17T20:11:52.499Z","permalink":"/MDBuilder/howtowrite","layout":"default","published":"true"},"body":"\r\n# 文書の書き方\r\n\r\nMarkDownかPugで書くことができます。難しいことはありません。難しいことを極力しないように作ったのですから。\r\n\r\nMarkDownに関して言えば、扱い方は**jekyllと全く同じ**と言っていいでしょう。\r\n\r\nまた、PugもMarkDownとそんなに変わりありません。ただし、凝った装飾をするには、テンプレートを弄っていく必要が出てくるでしょう。\r\n\r\n## 雛形\r\n\r\n### MarkDown\r\n\r\n```markdown\r\n---\r\ntitle: タイトル\r\ndescription: 説明\r\nlayout: default\r\n# permalink: hoge/foooo\r\n---\r\n# タイトル\r\n\r\n本文\r\n\r\nkramdownでhtmlに変換します！\r\n\r\n```\r\n\r\n### Pug\r\n\r\n```pug\r\n---\r\ntitle: タイトル\r\ndescription: 説明\r\nlayout: default\r\n# permalink: hoge/foooo\r\n---\r\nh1 #{page.attributes.title}\r\np #{page.attribute.description}\r\np page.attributeからFront Matterの設定値を参照できます!\r\np docs/info.jsonの内容を全て参照できます。記事一覧を作ったり、サイトの情報を変数に置き換えられます。\r\n```\r\n\r\n## 簡単な説明\r\n\r\n`---～---`をFront Matterと呼びます。YML形式で情報を書いてもらうことで、情報を的確にテンプレートに流し込めます。\r\n- layoutの設定値は`theme/pug/templates`のpugファイルの名前と一致します。\r\n  * 書かれていなかったり一致しなかった場合、`default.pug`を利用します。\r\n- permalinkは、強制的にURLを変更します。末尾にスラッシュがあると正しく機能しません。\r\n- pugからは、[テンプレート](./templates#theme)と同じように`docs/info.json`の内容を利用できます。\r\n\r\n## 画像を挿入する\r\n\r\n### MarkDownの場合\r\n\r\n通常通り、`[説明](URL)`と書きます。\r\n\r\nURLは、事故を防ぐために、スラッシュから始めて書くことをお勧めします。\r\n\r\nただし、スラッシュから始めると、ドメインのすぐ次からのURLを書く必要があります。\r\n\r\n例えば、サイトのトップページが`https://tmin.xyz/docs`で、`files/image.png`という画像を挿入する場合、`/docs/files/image.png`と書くとよいです。\r\n\r\nたぶん将来VS Codeの画面にドラッグ・アンド・ドロップすれば自動で挿入してくれる拡張機能を誰か作ってくれると思う。\r\n\r\n### pugの場合\r\n\r\n`${site.site_url}`を利用します。サイトのURLの変化にも対応できます。\r\n\r\n例えば、`files/image.png`という画像を挿入する場合、~a(href=`${site.site_url}/files/image.png`~と書くとよいです。","frontmatter":"title: 文書の書き方\r\ndescription: 難しいことはありません。jekyllと同じだし。","srcname":"howtowrite","srcext":".md","subdir":"MDBuilder","md5":"9b6fa9c2ab5aefc1d7c953938f7e74d0","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":14355223812270612,"size":2749,"atimeMs":1503000712498.8123,"mtimeMs":1503146264303.743,"ctimeMs":1503146264303.743,"birthtimeMs":1503000712498.8123,"atime":"2017-08-17T20:11:52.499Z","mtime":"2017-08-19T12:37:44.304Z","ctime":"2017-08-19T12:37:44.304Z","birthtime":"2017-08-17T20:11:52.499Z"}},{"attributes":{"title":"About MDBuilder","description":"tamainaことaqzのサイトです。","layout":"default","date":"2017-08-17T19:22:33.335Z","permalink":"/MDBuilder/index","published":"true"},"body":"# About MDBuilder\r\n\r\nオレオレ静的サイトビルダーです。\r\n\r\n核となる機能は、文書のMarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。\r\n\r\nビルドにはタスク自動化ツールGruntを利用しています。\r\n\r\n[GitHub](https://github.com/tamaina/tamaina.github.io)\r\n\r\n\r\n## Configulation\r\n\r\n[default.jsonの書き方](./configulation)\r\n\r\n## How to add a page\r\n\r\n[文書の書き方](./howtowrite)\r\n\r\n## How to change looks\r\n\r\n[テーマについて](./theme)\r\n\r\n## ファイル\r\n```\r\n│ \r\n│\r\n├─.config/default.json - サイトの大体の設定はここで行います。\r\n├─────────────   pages - 基本的に文書はすべてここに格納します。\r\n├─────────────   files - 添付ファイルはここに格納します。\r\n│\r\n├─── theme ┐           - スタイルやレイアウト、スクリプトが格納されています。\r\n│          │\r\n│          ├─  pug ┐   - htmlの素となるpugが保存されています。\r\n│          │       │\r\n│          │       ├── templates - レイアウトが格納されています。\r\n│          │       │               default.pugを消してはいけません。\r\n│          │       ├──     temp  - ビルドの際中間生成されるpugが格納されます。\r\n│          │       └── includes  - 細かいファイルが格納されています。\r\n│          │\r\n│          ├─ styl ┐   - cssの素となるstylusが保存されています。\r\n│          │       │\r\n│          │\r\n│          ├─ fonts┐   - サブセット前のフォントを格納しています。\r\n│          │       │\r\n│          │\r\n│          ├─  js  ┐   - jsファイルが保存されています。\r\n│          │       │\r\n│          │       ├── main.js   - このファイルで一旦jsファイルを纏めています。\r\n│          │       │               これをbrowserifyとuglifyに通してjsファイルを生成します。\r\n│          │       │\r\n│          │\r\n│          └─ static ┐ - 変更が要らない静的なファイルを格納するフォルダです。\r\n│                    │   ビルド時にdocs/にそのままコピーされます。\r\n│                    │\r\n│\r\n├─── docs  ┐           - 出来上がったサイトです。これをデプロイしてください。\r\n│          │             GitHub Pagesでは、設定でここをサイトにできます。\r\n│          │             ※ただし、ユーザーページでは不可\r\n│          │             ビルドするごとに消去されます。\r\n│          │\r\n│          ├─ assets ┐   - theme/static/からのコピーとビルドしたcss/jsを格納します。\r\n│          │         │\r\n│          │\r\n│          ├─  files ┐   - files/はここにコピーされます。\r\n│          │         │\r\n│          │         \r\n│          ├─  CNAME     - GitHub Pagesを利用すると自動的に生成されます。\r\n│          │\r\n│\r\n├────────   .gitignore  ┐\r\n├──────    .travis.yml  │\r\n├─────    Gruntfile.js  │\r\n├─────────     LICENSE  │  配布に際して必要なファイルです。\r\n├─────    package.json  │\r\n├─   package-lock.json  │\r\n├────    pugfilters.js  ┘\r\n├────────   index.html  ┐  GitHub Pagesのユーザーページがmasterしか参照できない仕様\r\n│────────     404.html  ┘  のためdocs/にリダイレクトします。\r\n└────────    readme.md   - サイトと併せてお読みください。\r\n```\r\n\r\n## 足りない機能\r\n\r\n- スタイル指定がほとんどありません。\r\n  * スタイル指定はstylusで指定します。\r\n\r\n## 余分な機能\r\n\r\n- barba.jsが標準で適用されています。\r\n- 日本語ウェブフォントが標準で適用されています。\r\n- browserify+uglifyです。\r\n\r\n## インストール\r\n\r\n```\r\nnpm install -g node-gyp\r\nnpm install -g grunt\r\nnpm install\r\n```\r\n\r\n## ビルド\r\n\r\n### ただビルドする\r\n\r\n```\r\ngrunt\r\n```\r\n\r\n### ブラウザで確認してみる/変更したらすぐビルドする\r\n\r\n```\r\ngrunt server\r\n```\r\n\r\n→正常に動作すれば、`localhost:3000`に接続すると見られます。\r\n","frontmatter":"title: About MDBuilder\r\ndescription: 静的サイトビルダー MarkDown Builderについて\r\nlayout: default","srcname":"index","srcext":".md","subdir":"MDBuilder","md5":"b9225697a32affb3817a8c764f9a9741","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":5066549580819059,"size":4711,"atimeMs":1503085186479,"mtimeMs":1503085348732.0344,"ctimeMs":1503085348732.0344,"birthtimeMs":1502997753334.8596,"atime":"2017-08-18T19:39:46.479Z","mtime":"2017-08-18T19:42:28.732Z","ctime":"2017-08-18T19:42:28.732Z","birthtime":"2017-08-17T19:22:33.335Z"}},{"attributes":{"title":"テーマ","description":"tamainaことaqzのサイトです。","date":"2017-08-18T18:37:57.811Z","permalink":"/MDBuilder/theme","layout":"default","published":"true"},"body":"\r\nテーマファイルのソースは、themeフォルダに格納されています。\r\n\r\nhtmlの素のpugを**テンプレート**、cssの素のstylus(.styl)やcssファイルを**スタイル**と呼称します。\r\n\r\nまた、jsフォルダのjsファイルはスクリプトと呼称します。\r\n\r\n# テンプレート\r\n\r\n各文書のFront Matterの、layout:の値が、適用するテンプレートのファイル名です。\r\n\r\n何も指定がなければdefault.pugを読みます。\r\n\r\n## 書き方\r\n\r\npugの書き方に関しては、[pugjs.org](https://pugjs.org)を参照してください。\r\n\r\n変数として`docs/info.json`の内容が利用可能です。[様々な配列操作](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array)を利用してページ一覧や検索機能を作成できます。\r\n\r\nこれは、テンプレートだけでなくpug形式の個々の文書でも利用できます。\r\n\r\nさらに他になにか利用したい変数がある場合は、`Gruntfile.js`のオプションに書き足してください。\r\n\r\n## テンプレートからページを書き出すしくみ\r\n\r\nビルドの様子をよく見ているとわかりますが、一時ファイルが`pug/templates`以下に書き出されます。\r\n\r\n一時ファイルは、先頭に`pages`配列の要素の番号を代入するプログラムが1行書き加わってテンプレートがコピーされたものです。\r\n\r\n`theme/pug/includes/_script.pug`の先頭で、`pages`配列のその番号の要素を参照し、その内容を`page`に代入しています。\r\n\r\n# スタイル\r\n\r\nmain.stylファイルをコンパイルしてcssを出力しています。\r\n\r\nstylusの書き方に関しては、[stylus-lang.com](http://stylus-lang.com/)を参照してください。\r\n\r\ncssやstylusを追加するには、どこかにcss/stylファイルを作成・コピーし、それに応じて`@import`をmain.stylに追加します。\r\n","frontmatter":"title: テーマ\r\ndescription: テーマの編集方法","srcname":"theme","srcext":".md","subdir":"MDBuilder","md5":"f6e952127f26f88fda4b6edd89c16169","stats":{"dev":3807904075,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":21673573206747496,"size":2057,"atimeMs":1503081477811.0002,"mtimeMs":1503084657481.6145,"ctimeMs":1503084657481.6145,"birthtimeMs":1503081477811.2764,"atime":"2017-08-18T18:37:57.811Z","mtime":"2017-08-18T19:30:57.482Z","ctime":"2017-08-18T19:30:57.482Z","birthtime":"2017-08-18T18:37:57.811Z"}}],"manifest":{"name":"tamaina's website","short_name":"tmin.xyz","icons":[{"sizes":"16x16","type":"image/png","src":"/docs/assets/images/icons/favicon-16x16.png"},{"sizes":"32x32","type":"image/png","src":"/docs/assets/images/icons/favicon-32x32.png"},{"sizes":"36x36","type":"image/png","src":"/docs/assets/images/icons/favicon-36x36.png"},{"sizes":"48x48","type":"image/png","src":"/docs/assets/images/icons/favicon-48x48.png"},{"sizes":"57x57","type":"image/png","src":"/docs/assets/images/icons/favicon-57x57.png"},{"sizes":"60x60","type":"image/png","src":"/docs/assets/images/icons/favicon-60x60.png"},{"sizes":"72x72","type":"image/png","src":"/docs/assets/images/icons/favicon-72x72.png"},{"sizes":"76x76","type":"image/png","src":"/docs/assets/images/icons/favicon-76x76.png"},{"sizes":"96x96","type":"image/png","src":"/docs/assets/images/icons/favicon-96x96.png"},{"sizes":"114x114","type":"image/png","src":"/docs/assets/images/icons/favicon-114x114.png"},{"sizes":"120x120","type":"image/png","src":"/docs/assets/images/icons/favicon-120x120.png"},{"sizes":"114x114","type":"image/png","src":"/docs/assets/images/icons/favicon-114x114.png"},{"sizes":"152x152","type":"image/png","src":"/docs/assets/images/icons/favicon-152x152.png"},{"sizes":"160x160","type":"image/png","src":"/docs/assets/images/icons/favicon-160x160.png"},{"sizes":"180x180","type":"image/png","src":"/docs/assets/images/icons/favicon-180x180.png"},{"sizes":"192x192","type":"image/png","src":"/docs/assets/images/icons/favicon-192x192.png"},{"sizes":"196x196","type":"image/png","src":"/docs/assets/images/icons/favicon-196x196.png"}],"start_url":"/","theme_color":"#2d88ef","background_color":"#001c3d","display":"standalone"}}
 },{}],2:[function(require,module,exports){
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define("Barba", [], factory);
-	else if(typeof exports === 'object')
-		exports["Barba"] = factory();
-	else
-		root["Barba"] = factory();
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:8080/dist";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-	//Promise polyfill https://github.com/taylorhakes/promise-polyfill
-	
-	if (typeof Promise !== 'function') {
-	 window.Promise = __webpack_require__(1);
-	}
-	
-	var Barba = {
-	  version: '1.0.0',
-	  BaseTransition: __webpack_require__(4),
-	  BaseView: __webpack_require__(6),
-	  BaseCache: __webpack_require__(8),
-	  Dispatcher: __webpack_require__(7),
-	  HistoryManager: __webpack_require__(9),
-	  Pjax: __webpack_require__(10),
-	  Prefetch: __webpack_require__(13),
-	  Utils: __webpack_require__(5)
-	};
-	
-	module.exports = Barba;
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(setImmediate) {(function (root) {
-	
-	  // Store setTimeout reference so promise-polyfill will be unaffected by
-	  // other code modifying setTimeout (like sinon.useFakeTimers())
-	  var setTimeoutFunc = setTimeout;
-	
-	  function noop() {
-	  }
-	
-	  // Use polyfill for setImmediate for performance gains
-	  var asap = (typeof setImmediate === 'function' && setImmediate) ||
-	    function (fn) {
-	      setTimeoutFunc(fn, 0);
-	    };
-	
-	  var onUnhandledRejection = function onUnhandledRejection(err) {
-	    if (typeof console !== 'undefined' && console) {
-	      console.warn('Possible Unhandled Promise Rejection:', err); // eslint-disable-line no-console
-	    }
-	  };
-	
-	  // Polyfill for Function.prototype.bind
-	  function bind(fn, thisArg) {
-	    return function () {
-	      fn.apply(thisArg, arguments);
-	    };
-	  }
-	
-	  function Promise(fn) {
-	    if (typeof this !== 'object') throw new TypeError('Promises must be constructed via new');
-	    if (typeof fn !== 'function') throw new TypeError('not a function');
-	    this._state = 0;
-	    this._handled = false;
-	    this._value = undefined;
-	    this._deferreds = [];
-	
-	    doResolve(fn, this);
-	  }
-	
-	  function handle(self, deferred) {
-	    while (self._state === 3) {
-	      self = self._value;
-	    }
-	    if (self._state === 0) {
-	      self._deferreds.push(deferred);
-	      return;
-	    }
-	    self._handled = true;
-	    asap(function () {
-	      var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
-	      if (cb === null) {
-	        (self._state === 1 ? resolve : reject)(deferred.promise, self._value);
-	        return;
-	      }
-	      var ret;
-	      try {
-	        ret = cb(self._value);
-	      } catch (e) {
-	        reject(deferred.promise, e);
-	        return;
-	      }
-	      resolve(deferred.promise, ret);
-	    });
-	  }
-	
-	  function resolve(self, newValue) {
-	    try {
-	      // Promise Resolution Procedure: https://github.com/promises-aplus/promises-spec#the-promise-resolution-procedure
-	      if (newValue === self) throw new TypeError('A promise cannot be resolved with itself.');
-	      if (newValue && (typeof newValue === 'object' || typeof newValue === 'function')) {
-	        var then = newValue.then;
-	        if (newValue instanceof Promise) {
-	          self._state = 3;
-	          self._value = newValue;
-	          finale(self);
-	          return;
-	        } else if (typeof then === 'function') {
-	          doResolve(bind(then, newValue), self);
-	          return;
-	        }
-	      }
-	      self._state = 1;
-	      self._value = newValue;
-	      finale(self);
-	    } catch (e) {
-	      reject(self, e);
-	    }
-	  }
-	
-	  function reject(self, newValue) {
-	    self._state = 2;
-	    self._value = newValue;
-	    finale(self);
-	  }
-	
-	  function finale(self) {
-	    if (self._state === 2 && self._deferreds.length === 0) {
-	      asap(function() {
-	        if (!self._handled) {
-	          onUnhandledRejection(self._value);
-	        }
-	      });
-	    }
-	
-	    for (var i = 0, len = self._deferreds.length; i < len; i++) {
-	      handle(self, self._deferreds[i]);
-	    }
-	    self._deferreds = null;
-	  }
-	
-	  function Handler(onFulfilled, onRejected, promise) {
-	    this.onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : null;
-	    this.onRejected = typeof onRejected === 'function' ? onRejected : null;
-	    this.promise = promise;
-	  }
-	
-	  /**
-	   * Take a potentially misbehaving resolver function and make sure
-	   * onFulfilled and onRejected are only called once.
-	   *
-	   * Makes no guarantees about asynchrony.
-	   */
-	  function doResolve(fn, self) {
-	    var done = false;
-	    try {
-	      fn(function (value) {
-	        if (done) return;
-	        done = true;
-	        resolve(self, value);
-	      }, function (reason) {
-	        if (done) return;
-	        done = true;
-	        reject(self, reason);
-	      });
-	    } catch (ex) {
-	      if (done) return;
-	      done = true;
-	      reject(self, ex);
-	    }
-	  }
-	
-	  Promise.prototype['catch'] = function (onRejected) {
-	    return this.then(null, onRejected);
-	  };
-	
-	  Promise.prototype.then = function (onFulfilled, onRejected) {
-	    var prom = new (this.constructor)(noop);
-	
-	    handle(this, new Handler(onFulfilled, onRejected, prom));
-	    return prom;
-	  };
-	
-	  Promise.all = function (arr) {
-	    var args = Array.prototype.slice.call(arr);
-	
-	    return new Promise(function (resolve, reject) {
-	      if (args.length === 0) return resolve([]);
-	      var remaining = args.length;
-	
-	      function res(i, val) {
-	        try {
-	          if (val && (typeof val === 'object' || typeof val === 'function')) {
-	            var then = val.then;
-	            if (typeof then === 'function') {
-	              then.call(val, function (val) {
-	                res(i, val);
-	              }, reject);
-	              return;
-	            }
-	          }
-	          args[i] = val;
-	          if (--remaining === 0) {
-	            resolve(args);
-	          }
-	        } catch (ex) {
-	          reject(ex);
-	        }
-	      }
-	
-	      for (var i = 0; i < args.length; i++) {
-	        res(i, args[i]);
-	      }
-	    });
-	  };
-	
-	  Promise.resolve = function (value) {
-	    if (value && typeof value === 'object' && value.constructor === Promise) {
-	      return value;
-	    }
-	
-	    return new Promise(function (resolve) {
-	      resolve(value);
-	    });
-	  };
-	
-	  Promise.reject = function (value) {
-	    return new Promise(function (resolve, reject) {
-	      reject(value);
-	    });
-	  };
-	
-	  Promise.race = function (values) {
-	    return new Promise(function (resolve, reject) {
-	      for (var i = 0, len = values.length; i < len; i++) {
-	        values[i].then(resolve, reject);
-	      }
-	    });
-	  };
-	
-	  /**
-	   * Set the immediate function to execute callbacks
-	   * @param fn {function} Function to execute
-	   * @private
-	   */
-	  Promise._setImmediateFn = function _setImmediateFn(fn) {
-	    asap = fn;
-	  };
-	
-	  Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
-	    onUnhandledRejection = fn;
-	  };
-	
-	  if (typeof module !== 'undefined' && module.exports) {
-	    module.exports = Promise;
-	  } else if (!root.Promise) {
-	    root.Promise = Promise;
-	  }
-	
-	})(this);
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).setImmediate))
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(3).nextTick;
-	var apply = Function.prototype.apply;
-	var slice = Array.prototype.slice;
-	var immediateIds = {};
-	var nextImmediateId = 0;
-	
-	// DOM APIs, for completeness
-	
-	exports.setTimeout = function() {
-	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
-	};
-	exports.setInterval = function() {
-	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
-	};
-	exports.clearTimeout =
-	exports.clearInterval = function(timeout) { timeout.close(); };
-	
-	function Timeout(id, clearFn) {
-	  this._id = id;
-	  this._clearFn = clearFn;
-	}
-	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-	Timeout.prototype.close = function() {
-	  this._clearFn.call(window, this._id);
-	};
-	
-	// Does not start the time, just sets up the members needed.
-	exports.enroll = function(item, msecs) {
-	  clearTimeout(item._idleTimeoutId);
-	  item._idleTimeout = msecs;
-	};
-	
-	exports.unenroll = function(item) {
-	  clearTimeout(item._idleTimeoutId);
-	  item._idleTimeout = -1;
-	};
-	
-	exports._unrefActive = exports.active = function(item) {
-	  clearTimeout(item._idleTimeoutId);
-	
-	  var msecs = item._idleTimeout;
-	  if (msecs >= 0) {
-	    item._idleTimeoutId = setTimeout(function onTimeout() {
-	      if (item._onTimeout)
-	        item._onTimeout();
-	    }, msecs);
-	  }
-	};
-	
-	// That's not how node.js implements it but the exposed api is the same.
-	exports.setImmediate = typeof setImmediate === "function" ? setImmediate : function(fn) {
-	  var id = nextImmediateId++;
-	  var args = arguments.length < 2 ? false : slice.call(arguments, 1);
-	
-	  immediateIds[id] = true;
-	
-	  nextTick(function onNextTick() {
-	    if (immediateIds[id]) {
-	      // fn.call() is faster so we optimize for the common use-case
-	      // @see http://jsperf.com/call-apply-segu
-	      if (args) {
-	        fn.apply(null, args);
-	      } else {
-	        fn.call(null);
-	      }
-	      // Prevent ids from leaking
-	      exports.clearImmediate(id);
-	    }
-	  });
-	
-	  return id;
-	};
-	
-	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
-	  delete immediateIds[id];
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).setImmediate, __webpack_require__(2).clearImmediate))
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	// shim for using process in browser
-	
-	var process = module.exports = {};
-	
-	// cached from whatever global is present so that test runners that stub it
-	// don't break things.  But we need to wrap it in a try catch in case it is
-	// wrapped in strict mode code which doesn't define any globals.  It's inside a
-	// function because try/catches deoptimize in certain engines.
-	
-	var cachedSetTimeout;
-	var cachedClearTimeout;
-	
-	(function () {
-	  try {
-	    cachedSetTimeout = setTimeout;
-	  } catch (e) {
-	    cachedSetTimeout = function () {
-	      throw new Error('setTimeout is not defined');
-	    }
-	  }
-	  try {
-	    cachedClearTimeout = clearTimeout;
-	  } catch (e) {
-	    cachedClearTimeout = function () {
-	      throw new Error('clearTimeout is not defined');
-	    }
-	  }
-	} ())
-	var queue = [];
-	var draining = false;
-	var currentQueue;
-	var queueIndex = -1;
-	
-	function cleanUpNextTick() {
-	    if (!draining || !currentQueue) {
-	        return;
-	    }
-	    draining = false;
-	    if (currentQueue.length) {
-	        queue = currentQueue.concat(queue);
-	    } else {
-	        queueIndex = -1;
-	    }
-	    if (queue.length) {
-	        drainQueue();
-	    }
-	}
-	
-	function drainQueue() {
-	    if (draining) {
-	        return;
-	    }
-	    var timeout = cachedSetTimeout(cleanUpNextTick);
-	    draining = true;
-	
-	    var len = queue.length;
-	    while(len) {
-	        currentQueue = queue;
-	        queue = [];
-	        while (++queueIndex < len) {
-	            if (currentQueue) {
-	                currentQueue[queueIndex].run();
-	            }
-	        }
-	        queueIndex = -1;
-	        len = queue.length;
-	    }
-	    currentQueue = null;
-	    draining = false;
-	    cachedClearTimeout(timeout);
-	}
-	
-	process.nextTick = function (fun) {
-	    var args = new Array(arguments.length - 1);
-	    if (arguments.length > 1) {
-	        for (var i = 1; i < arguments.length; i++) {
-	            args[i - 1] = arguments[i];
-	        }
-	    }
-	    queue.push(new Item(fun, args));
-	    if (queue.length === 1 && !draining) {
-	        cachedSetTimeout(drainQueue, 0);
-	    }
-	};
-	
-	// v8 likes predictible objects
-	function Item(fun, array) {
-	    this.fun = fun;
-	    this.array = array;
-	}
-	Item.prototype.run = function () {
-	    this.fun.apply(null, this.array);
-	};
-	process.title = 'browser';
-	process.browser = true;
-	process.env = {};
-	process.argv = [];
-	process.version = ''; // empty string to avoid regexp issues
-	process.versions = {};
-	
-	function noop() {}
-	
-	process.on = noop;
-	process.addListener = noop;
-	process.once = noop;
-	process.off = noop;
-	process.removeListener = noop;
-	process.removeAllListeners = noop;
-	process.emit = noop;
-	
-	process.binding = function (name) {
-	    throw new Error('process.binding is not supported');
-	};
-	
-	process.cwd = function () { return '/' };
-	process.chdir = function (dir) {
-	    throw new Error('process.chdir is not supported');
-	};
-	process.umask = function() { return 0; };
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Utils = __webpack_require__(5);
-	
-	/**
-	 * BaseTransition to extend
-	 *
-	 * @namespace Barba.BaseTransition
-	 * @type {Object}
-	 */
-	var BaseTransition = {
-	  /**
-	   * @memberOf Barba.BaseTransition
-	   * @type {HTMLElement}
-	   */
-	  oldContainer: undefined,
-	
-	  /**
-	   * @memberOf Barba.BaseTransition
-	   * @type {HTMLElement}
-	   */
-	  newContainer: undefined,
-	
-	  /**
-	   * @memberOf Barba.BaseTransition
-	   * @type {Promise}
-	   */
-	  newContainerLoading: undefined,
-	
-	  /**
-	   * Helper to extend the object
-	   *
-	   * @memberOf Barba.BaseTransition
-	   * @param  {Object} newObject
-	   * @return {Object} newInheritObject
-	   */
-	  extend: function(obj){
-	    return Utils.extend(this, obj);
-	  },
-	
-	  /**
-	   * This function is called from Pjax module to initialize
-	   * the transition.
-	   *
-	   * @memberOf Barba.BaseTransition
-	   * @private
-	   * @param  {HTMLElement} oldContainer
-	   * @param  {Promise} newContainer
-	   * @return {Promise}
-	   */
-	  init: function(oldContainer, newContainer) {
-	    var _this = this;
-	
-	    this.oldContainer = oldContainer;
-	    this._newContainerPromise = newContainer;
-	
-	    this.deferred = Utils.deferred();
-	    this.newContainerReady = Utils.deferred();
-	    this.newContainerLoading = this.newContainerReady.promise;
-	
-	    this.start();
-	
-	    this._newContainerPromise.then(function(newContainer) {
-	      _this.newContainer = newContainer;
-	      _this.newContainerReady.resolve();
-	    });
-	
-	    return this.deferred.promise;
-	  },
-	
-	  /**
-	   * This function needs to be called as soon the Transition is finished
-	   *
-	   * @memberOf Barba.BaseTransition
-	   */
-	  done: function() {
-	    this.oldContainer.parentNode.removeChild(this.oldContainer);
-	    this.newContainer.style.visibility = 'visible';
-	    this.deferred.resolve();
-	  },
-	
-	  /**
-	   * Constructor for your Transition
-	   *
-	   * @memberOf Barba.BaseTransition
-	   * @abstract
-	   */
-	  start: function() {},
-	};
-	
-	module.exports = BaseTransition;
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	/**
-	 * Just an object with some helpful functions
-	 *
-	 * @type {Object}
-	 * @namespace Barba.Utils
-	 */
-	var Utils = {
-	  /**
-	   * Return the current url
-	   *
-	   * @memberOf Barba.Utils
-	   * @return {String} currentUrl
-	   */
-	  getCurrentUrl: function() {
-	    return window.location.protocol + '//' +
-	           window.location.host +
-	           window.location.pathname +
-	           window.location.search;
-	  },
-	
-	  /**
-	   * Given an url, return it without the hash
-	   *
-	   * @memberOf Barba.Utils
-	   * @private
-	   * @param  {String} url
-	   * @return {String} newCleanUrl
-	   */
-	  cleanLink: function(url) {
-	    return url.replace(/#.*/, '');
-	  },
-	
-	  /**
-	   * Time in millisecond after the xhr request goes in timeout
-	   *
-	   * @memberOf Barba.Utils
-	   * @type {Number}
-	   * @default
-	   */
-	  xhrTimeout: 5000,
-	
-	  /**
-	   * Start an XMLHttpRequest() and return a Promise
-	   *
-	   * @memberOf Barba.Utils
-	   * @param  {String} url
-	   * @return {Promise}
-	   */
-	  xhr: function(url) {
-	    var deferred = this.deferred();
-	    var req = new XMLHttpRequest();
-	
-	    req.onreadystatechange = function() {
-	      if (req.readyState === 4) {
-	        if (req.status === 200) {
-	          return deferred.resolve(req.responseText);
-	        } else {
-	          return deferred.reject(new Error('xhr: HTTP code is not 200'));
-	        }
-	      }
-	    };
-	
-	    req.ontimeout = function() {
-	      return deferred.reject(new Error('xhr: Timeout exceeded'));
-	    };
-	
-	    req.open('GET', url);
-	    req.timeout = this.xhrTimeout;
-	    req.setRequestHeader('x-barba', 'yes');
-	    req.send();
-	
-	    return deferred.promise;
-	  },
-	
-	  /**
-	   * Get obj and props and return a new object with the property merged
-	   *
-	   * @memberOf Barba.Utils
-	   * @param  {object} obj
-	   * @param  {object} props
-	   * @return {object}
-	   */
-	  extend: function(obj, props) {
-	    var newObj = Object.create(obj);
-	
-	    for(var prop in props) {
-	      if(props.hasOwnProperty(prop)) {
-	        newObj[prop] = props[prop];
-	      }
-	    }
-	
-	    return newObj;
-	  },
-	
-	  /**
-	   * Return a new "Deferred" object
-	   * https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Deferred
-	   *
-	   * @memberOf Barba.Utils
-	   * @return {Deferred}
-	   */
-	  deferred: function() {
-	    return new function() {
-	      this.resolve = null;
-	      this.reject = null;
-	
-	      this.promise = new Promise(function(resolve, reject) {
-	        this.resolve = resolve;
-	        this.reject = reject;
-	      }.bind(this));
-	    };
-	  },
-	
-	  /**
-	   * Return the port number normalized, eventually you can pass a string to be normalized.
-	   *
-	   * @memberOf Barba.Utils
-	   * @private
-	   * @param  {String} p
-	   * @return {Int} port
-	   */
-	  getPort: function(p) {
-	    var port = typeof p !== 'undefined' ? p : window.location.port;
-	    var protocol = window.location.protocol;
-	
-	    if (port != '')
-	      return parseInt(port);
-	
-	    if (protocol === 'http:')
-	      return 80;
-	
-	    if (protocol === 'https:')
-	      return 443;
-	  }
-	};
-	
-	module.exports = Utils;
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(7);
-	var Utils = __webpack_require__(5);
-	
-	/**
-	 * BaseView to be extended
-	 *
-	 * @namespace Barba.BaseView
-	 * @type {Object}
-	 */
-	var BaseView  = {
-	  /**
-	   * Namespace of the view.
-	   * (need to be associated with the data-namespace of the container)
-	   *
-	   * @memberOf Barba.BaseView
-	   * @type {String}
-	   */
-	  namespace: null,
-	
-	  /**
-	   * Helper to extend the object
-	   *
-	   * @memberOf Barba.BaseView
-	   * @param  {Object} newObject
-	   * @return {Object} newInheritObject
-	   */
-	  extend: function(obj){
-	    return Utils.extend(this, obj);
-	  },
-	
-	  /**
-	   * Init the view.
-	   * P.S. Is suggested to init the view before starting Barba.Pjax.start(),
-	   * in this way .onEnter() and .onEnterCompleted() will be fired for the current
-	   * container when the page is loaded.
-	   *
-	   * @memberOf Barba.BaseView
-	   */
-	  init: function() {
-	    var _this = this;
-	
-	    Dispatcher.on('initStateChange',
-	      function(newStatus, oldStatus) {
-	        if (oldStatus && oldStatus.namespace === _this.namespace)
-	          _this.onLeave();
-	      }
-	    );
-	
-	    Dispatcher.on('newPageReady',
-	      function(newStatus, oldStatus, container) {
-	        _this.container = container;
-	
-	        if (newStatus.namespace === _this.namespace)
-	          _this.onEnter();
-	      }
-	    );
-	
-	    Dispatcher.on('transitionCompleted',
-	      function(newStatus, oldStatus) {
-	        if (newStatus.namespace === _this.namespace)
-	          _this.onEnterCompleted();
-	
-	        if (oldStatus && oldStatus.namespace === _this.namespace)
-	          _this.onLeaveCompleted();
-	      }
-	    );
-	  },
-	
-	 /**
-	  * This function will be fired when the container
-	  * is ready and attached to the DOM.
-	  *
-	  * @memberOf Barba.BaseView
-	  * @abstract
-	  */
-	  onEnter: function() {},
-	
-	  /**
-	   * This function will be fired when the transition
-	   * to this container has just finished.
-	   *
-	   * @memberOf Barba.BaseView
-	   * @abstract
-	   */
-	  onEnterCompleted: function() {},
-	
-	  /**
-	   * This function will be fired when the transition
-	   * to a new container has just started.
-	   *
-	   * @memberOf Barba.BaseView
-	   * @abstract
-	   */
-	  onLeave: function() {},
-	
-	  /**
-	   * This function will be fired when the container
-	   * has just been removed from the DOM.
-	   *
-	   * @memberOf Barba.BaseView
-	   * @abstract
-	   */
-	  onLeaveCompleted: function() {}
-	}
-	
-	module.exports = BaseView;
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	/**
-	 * Little Dispatcher inspired by MicroEvent.js
-	 *
-	 * @namespace Barba.Dispatcher
-	 * @type {Object}
-	 */
-	var Dispatcher = {
-	  /**
-	   * Object that keeps all the events
-	   *
-	   * @memberOf Barba.Dispatcher
-	   * @readOnly
-	   * @type {Object}
-	   */
-	  events: {},
-	
-	  /**
-	   * Bind a callback to an event
-	   *
-	   * @memberOf Barba.Dispatcher
-	   * @param  {String} eventName
-	   * @param  {Function} function
-	   */
-	  on: function(e, f) {
-	    this.events[e] = this.events[e] || [];
-	    this.events[e].push(f);
-	  },
-	
-	  /**
-	   * Unbind event
-	   *
-	   * @memberOf Barba.Dispatcher
-	   * @param  {String} eventName
-	   * @param  {Function} function
-	   */
-	  off: function(e, f) {
-	    if(e in this.events === false)
-	      return;
-	
-	    this.events[e].splice(this.events[e].indexOf(f), 1);
-	  },
-	
-	  /**
-	   * Fire the event running all the event associated to it
-	   *
-	   * @memberOf Barba.Dispatcher
-	   * @param  {String} eventName
-	   * @param  {...*} args
-	   */
-	  trigger: function(e) {//e, ...args
-	    if (e in this.events === false)
-	      return;
-	
-	    for(var i = 0; i < this.events[e].length; i++){
-	      this.events[e][i].apply(this, Array.prototype.slice.call(arguments, 1));
-	    }
-	  }
-	};
-	
-	module.exports = Dispatcher;
-
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Utils = __webpack_require__(5);
-	
-	/**
-	 * BaseCache it's a simple static cache
-	 *
-	 * @namespace Barba.BaseCache
-	 * @type {Object}
-	 */
-	var BaseCache = {
-	  /**
-	   * The Object that keeps all the key value information
-	   *
-	   * @memberOf Barba.BaseCache
-	   * @type {Object}
-	   */
-	  data: {},
-	
-	  /**
-	   * Helper to extend this object
-	   *
-	   * @memberOf Barba.BaseCache
-	   * @private
-	   * @param  {Object} newObject
-	   * @return {Object} newInheritObject
-	   */
-	  extend: function(obj) {
-	    return Utils.extend(this, obj);
-	  },
-	
-	  /**
-	   * Set a key and value data, mainly Barba is going to save promises
-	   *
-	   * @memberOf Barba.BaseCache
-	   * @param {String} key
-	   * @param {*} value
-	   */
-	  set: function(key, val) {
-	    this.data[key] = val;
-	  },
-	
-	  /**
-	   * Retrieve the data using the key
-	   *
-	   * @memberOf Barba.BaseCache
-	   * @param  {String} key
-	   * @return {*}
-	   */
-	  get: function(key) {
-	    return this.data[key];
-	  },
-	
-	  /**
-	   * Flush the cache
-	   *
-	   * @memberOf Barba.BaseCache
-	   */
-	  reset: function() {
-	    this.data = {};
-	  }
-	};
-	
-	module.exports = BaseCache;
-
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	/**
-	 * HistoryManager helps to keep track of the navigation
-	 *
-	 * @namespace Barba.HistoryManager
-	 * @type {Object}
-	 */
-	var HistoryManager = {
-	  /**
-	   * Keep track of the status in historic order
-	   *
-	   * @memberOf Barba.HistoryManager
-	   * @readOnly
-	   * @type {Array}
-	   */
-	  history: [],
-	
-	  /**
-	   * Add a new set of url and namespace
-	   *
-	   * @memberOf Barba.HistoryManager
-	   * @param {String} url
-	   * @param {String} namespace
-	   * @private
-	   */
-	  add: function(url, namespace) {
-	    if (!namespace)
-	      namespace = undefined;
-	
-	    this.history.push({
-	      url: url,
-	      namespace: namespace
-	    });
-	  },
-	
-	  /**
-	   * Return information about the current status
-	   *
-	   * @memberOf Barba.HistoryManager
-	   * @return {Object}
-	   */
-	  currentStatus: function() {
-	    return this.history[this.history.length - 1];
-	  },
-	
-	  /**
-	   * Return information about the previous status
-	   *
-	   * @memberOf Barba.HistoryManager
-	   * @return {Object}
-	   */
-	  prevStatus: function() {
-	    var history = this.history;
-	
-	    if (history.length < 2)
-	      return null;
-	
-	    return history[history.length - 2];
-	  }
-	};
-	
-	module.exports = HistoryManager;
-
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Utils = __webpack_require__(5);
-	var Dispatcher = __webpack_require__(7);
-	var HideShowTransition = __webpack_require__(11);
-	var BaseCache = __webpack_require__(8);
-	
-	var HistoryManager = __webpack_require__(9);
-	var Dom = __webpack_require__(12);
-	
-	/**
-	 * Pjax is a static object with main function
-	 *
-	 * @namespace Barba.Pjax
-	 * @borrows Dom as Dom
-	 * @type {Object}
-	 */
-	var Pjax = {
-	  Dom: Dom,
-	  History: HistoryManager,
-	  Cache: BaseCache,
-	
-	  /**
-	   * Indicate wether or not use the cache
-	   *
-	   * @memberOf Barba.Pjax
-	   * @type {Boolean}
-	   * @default
-	   */
-	  cacheEnabled: true,
-	
-	  /**
-	   * Indicate if there is an animation in progress
-	   *
-	   * @memberOf Barba.Pjax
-	   * @readOnly
-	   * @type {Boolean}
-	   */
-	  transitionProgress: false,
-	
-	  /**
-	   * Class name used to ignore links
-	   *
-	   * @memberOf Barba.Pjax
-	   * @type {String}
-	   * @default
-	   */
-	  ignoreClassLink: 'no-barba',
-	
-	  /**
-	   * Function to be called to start Pjax
-	   *
-	   * @memberOf Barba.Pjax
-	   */
-	  start: function() {
-	    this.init();
-	  },
-	
-	  /**
-	   * Init the events
-	   *
-	   * @memberOf Barba.Pjax
-	   * @private
-	   */
-	  init: function() {
-	    var container = this.Dom.getContainer();
-	    var wrapper = this.Dom.getWrapper();
-	
-	    wrapper.setAttribute('aria-live', 'polite');
-	
-	    this.History.add(
-	      this.getCurrentUrl(),
-	      this.Dom.getNamespace(container)
-	    );
-	
-	    //Fire for the current view.
-	    Dispatcher.trigger('initStateChange', this.History.currentStatus());
-	    Dispatcher.trigger('newPageReady',
-	      this.History.currentStatus(),
-	      {},
-	      container,
-	      this.Dom.currentHTML
-	    );
-	    Dispatcher.trigger('transitionCompleted', this.History.currentStatus());
-	
-	    this.bindEvents();
-	  },
-	
-	  /**
-	   * Attach the eventlisteners
-	   *
-	   * @memberOf Barba.Pjax
-	   * @private
-	   */
-	  bindEvents: function() {
-	    document.addEventListener('click',
-	      this.onLinkClick.bind(this)
-	    );
-	
-	    window.addEventListener('popstate',
-	      this.onStateChange.bind(this)
-	    );
-	  },
-	
-	  /**
-	   * Return the currentURL cleaned
-	   *
-	   * @memberOf Barba.Pjax
-	   * @return {String} currentUrl
-	   */
-	  getCurrentUrl: function() {
-	    return Utils.cleanLink(
-	      Utils.getCurrentUrl()
-	    );
-	  },
-	
-	  /**
-	   * Change the URL with pushstate and trigger the state change
-	   *
-	   * @memberOf Barba.Pjax
-	   * @param {String} newUrl
-	   */
-	  goTo: function(url) {
-	    window.history.pushState(null, null, url);
-	    this.onStateChange();
-	  },
-	
-	  /**
-	   * Force the browser to go to a certain url
-	   *
-	   * @memberOf Barba.Pjax
-	   * @param {String} url
-	   * @private
-	   */
-	  forceGoTo: function(url) {
-	    window.location = url;
-	  },
-	
-	  /**
-	   * Load an url, will start an xhr request or load from the cache
-	   *
-	   * @memberOf Barba.Pjax
-	   * @private
-	   * @param  {String} url
-	   * @return {Promise}
-	   */
-	  load: function(url) {
-	    var deferred = Utils.deferred();
-	    var _this = this;
-	    var xhr;
-	
-	    xhr = this.Cache.get(url);
-	
-	    if (!xhr) {
-	      xhr = Utils.xhr(url);
-	      this.Cache.set(url, xhr);
-	    }
-	
-	    xhr.then(
-	      function(data) {
-	        var container = _this.Dom.parseResponse(data);
-	
-	        _this.Dom.putContainer(container);
-	
-	        if (!_this.cacheEnabled)
-	          _this.Cache.reset();
-	
-	        deferred.resolve(container);
-	      },
-	      function() {
-	        //Something went wrong (timeout, 404, 505...)
-	        _this.forceGoTo(url);
-	
-	        deferred.reject();
-	      }
-	    );
-	
-	    return deferred.promise;
-	  },
-	
-	  /**
-	   * Get the .href parameter out of an element
-	   * and handle special cases (like xlink:href)
-	   *
-	   * @private
-	   * @memberOf Barba.Pjax
-	   * @param  {HTMLElement} el
-	   * @return {String} href
-	   */
-	  getHref: function(el) {
-	    if (!el) {
-	      return undefined;
-	    }
-	
-	    if (el.getAttribute && typeof el.getAttribute('xlink:href') === 'string') {
-	      return el.getAttribute('xlink:href');
-	    }
-	
-	    if (typeof el.href === 'string') {
-	      return el.href;
-	    }
-	
-	    return undefined;
-	  },
-	
-	  /**
-	   * Callback called from click event
-	   *
-	   * @memberOf Barba.Pjax
-	   * @private
-	   * @param {MouseEvent} evt
-	   */
-	  onLinkClick: function(evt) {
-	    var el = evt.target;
-	
-	    //Go up in the nodelist until we
-	    //find something with an href
-	    while (el && !this.getHref(el)) {
-	      el = el.parentNode;
-	    }
-	
-	    if (this.preventCheck(evt, el)) {
-	      evt.stopPropagation();
-	      evt.preventDefault();
-	
-	      Dispatcher.trigger('linkClicked', el, evt);
-	
-	      var href = this.getHref(el);
-	      this.goTo(href);
-	    }
-	  },
-	
-	  /**
-	   * Determine if the link should be followed
-	   *
-	   * @memberOf Barba.Pjax
-	   * @param  {MouseEvent} evt
-	   * @param  {HTMLElement} element
-	   * @return {Boolean}
-	   */
-	  preventCheck: function(evt, element) {
-	    if (!window.history.pushState)
-	      return false;
-	
-	    var href = this.getHref(element);
-	
-	    //User
-	    if (!element || !href)
-	      return false;
-	
-	    //Middle click, cmd click, and ctrl click
-	    if (evt.which > 1 || evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.altKey)
-	      return false;
-	
-	    //Ignore target with _blank target
-	    if (element.target && element.target === '_blank')
-	      return false;
-	
-	    //Check if it's the same domain
-	    if (window.location.protocol !== element.protocol || window.location.hostname !== element.hostname)
-	      return false;
-	
-	    //Check if the port is the same
-	    if (Utils.getPort() !== Utils.getPort(element.port))
-	      return false;
-	
-	    //Ignore case when a hash is being tacked on the current URL
-	    if (href.indexOf('#') > -1)
-	      return false;
-	
-	    //Ignore case where there is download attribute
-	    if (element.getAttribute && typeof element.getAttribute('download') === 'string')
-	      return false;
-	
-	    //In case you're trying to load the same page
-	    if (Utils.cleanLink(href) == Utils.cleanLink(location.href))
-	      return false;
-	
-	    if (element.classList.contains(this.ignoreClassLink))
-	      return false;
-	
-	    return true;
-	  },
-	
-	  /**
-	   * Return a transition object
-	   *
-	   * @memberOf Barba.Pjax
-	   * @return {Barba.Transition} Transition object
-	   */
-	  getTransition: function() {
-	    //User customizable
-	    return HideShowTransition;
-	  },
-	
-	  /**
-	   * Method called after a 'popstate' or from .goTo()
-	   *
-	   * @memberOf Barba.Pjax
-	   * @private
-	   */
-	  onStateChange: function() {
-	    var newUrl = this.getCurrentUrl();
-	
-	    if (this.transitionProgress)
-	      this.forceGoTo(newUrl);
-	
-	    if (this.History.currentStatus().url === newUrl)
-	      return false;
-	
-	    this.History.add(newUrl);
-	
-	    var newContainer = this.load(newUrl);
-	    var transition = Object.create(this.getTransition());
-	
-	    this.transitionProgress = true;
-	
-	    Dispatcher.trigger('initStateChange',
-	      this.History.currentStatus(),
-	      this.History.prevStatus()
-	    );
-	
-	    var transitionInstance = transition.init(
-	      this.Dom.getContainer(),
-	      newContainer
-	    );
-	
-	    newContainer.then(
-	      this.onNewContainerLoaded.bind(this)
-	    );
-	
-	    transitionInstance.then(
-	      this.onTransitionEnd.bind(this)
-	    );
-	  },
-	
-	  /**
-	   * Function called as soon the new container is ready
-	   *
-	   * @memberOf Barba.Pjax
-	   * @private
-	   * @param {HTMLElement} container
-	   */
-	  onNewContainerLoaded: function(container) {
-	    var currentStatus = this.History.currentStatus();
-	    currentStatus.namespace = this.Dom.getNamespace(container);
-	
-	    Dispatcher.trigger('newPageReady',
-	      this.History.currentStatus(),
-	      this.History.prevStatus(),
-	      container,
-	      this.Dom.currentHTML
-	    );
-	  },
-	
-	  /**
-	   * Function called as soon the transition is finished
-	   *
-	   * @memberOf Barba.Pjax
-	   * @private
-	   */
-	  onTransitionEnd: function() {
-	    this.transitionProgress = false;
-	
-	    Dispatcher.trigger('transitionCompleted',
-	      this.History.currentStatus(),
-	      this.History.prevStatus()
-	    );
-	  }
-	};
-	
-	module.exports = Pjax;
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var BaseTransition = __webpack_require__(4);
-	
-	/**
-	 * Basic Transition object, wait for the new Container to be ready,
-	 * scroll top, and finish the transition (removing the old container and displaying the new one)
-	 *
-	 * @private
-	 * @namespace Barba.HideShowTransition
-	 * @augments Barba.BaseTransition
-	 */
-	var HideShowTransition = BaseTransition.extend({
-	  start: function() {
-	    this.newContainerLoading.then(this.finish.bind(this));
-	  },
-	
-	  finish: function() {
-	    document.body.scrollTop = 0;
-	    this.done();
-	  }
-	});
-	
-	module.exports = HideShowTransition;
-
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	/**
-	 * Object that is going to deal with DOM parsing/manipulation
-	 *
-	 * @namespace Barba.Pjax.Dom
-	 * @type {Object}
-	 */
-	var Dom = {
-	  /**
-	   * The name of the data attribute on the container
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @type {String}
-	   * @default
-	   */
-	  dataNamespace: 'namespace',
-	
-	  /**
-	   * Id of the main wrapper
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @type {String}
-	   * @default
-	   */
-	  wrapperId: 'barba-wrapper',
-	
-	  /**
-	   * Class name used to identify the containers
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @type {String}
-	   * @default
-	   */
-	  containerClass: 'barba-container',
-	
-	  /**
-	   * Full HTML String of the current page.
-	   * By default is the innerHTML of the initial loaded page.
-	   *
-	   * Each time a new page is loaded, the value is the response of the xhr call.
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @type {String}
-	   */
-	  currentHTML: document.documentElement.innerHTML,
-	
-	  /**
-	   * Parse the responseText obtained from the xhr call
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @private
-	   * @param  {String} responseText
-	   * @return {HTMLElement}
-	   */
-	  parseResponse: function(responseText) {
-	    this.currentHTML = responseText;
-	
-	    var wrapper = document.createElement('div');
-	    wrapper.innerHTML = responseText;
-	
-	    var titleEl = wrapper.querySelector('title');
-	
-	    if (titleEl)
-	      document.title = titleEl.textContent;
-	
-	    return this.getContainer(wrapper);
-	  },
-	
-	  /**
-	   * Get the main barba wrapper by the ID `wrapperId`
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @return {HTMLElement} element
-	   */
-	  getWrapper: function() {
-	    var wrapper = document.getElementById(this.wrapperId);
-	
-	    if (!wrapper)
-	      throw new Error('Barba.js: wrapper not found!');
-	
-	    return wrapper;
-	  },
-	
-	  /**
-	   * Get the container on the current DOM,
-	   * or from an HTMLElement passed via argument
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @private
-	   * @param  {HTMLElement} element
-	   * @return {HTMLElement}
-	   */
-	  getContainer: function(element) {
-	    if (!element)
-	      element = document.body;
-	
-	    if (!element)
-	      throw new Error('Barba.js: DOM not ready!');
-	
-	    var container = this.parseContainer(element);
-	
-	    if (container && container.jquery)
-	      container = container[0];
-	
-	    if (!container)
-	      throw new Error('Barba.js: no container found');
-	
-	    return container;
-	  },
-	
-	  /**
-	   * Get the namespace of the container
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @private
-	   * @param  {HTMLElement} element
-	   * @return {String}
-	   */
-	  getNamespace: function(element) {
-	    if (element && element.dataset) {
-	      return element.dataset[this.dataNamespace];
-	    } else if (element) {
-	      return element.getAttribute('data-' + this.dataNamespace);
-	    }
-	
-	    return null;
-	  },
-	
-	  /**
-	   * Put the container on the page
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @private
-	   * @param  {HTMLElement} element
-	   */
-	  putContainer: function(element) {
-	    element.style.visibility = 'hidden';
-	
-	    var wrapper = this.getWrapper();
-	    wrapper.appendChild(element);
-	  },
-	
-	  /**
-	   * Get container selector
-	   *
-	   * @memberOf Barba.Pjax.Dom
-	   * @private
-	   * @param  {HTMLElement} element
-	   * @return {HTMLElement} element
-	   */
-	  parseContainer: function(element) {
-	    return element.querySelector('.' + this.containerClass);
-	  }
-	};
-	
-	module.exports = Dom;
-
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Utils = __webpack_require__(5);
-	var Pjax = __webpack_require__(10);
-	
-	/**
-	 * Prefetch
-	 *
-	 * @namespace Barba.Prefetch
-	 * @type {Object}
-	 */
-	var Prefetch = {
-	  /**
-	   * Class name used to ignore prefetch on links
-	   *
-	   * @memberOf Barba.Prefetch
-	   * @type {String}
-	   * @default
-	   */
-	  ignoreClassLink: 'no-barba-prefetch',
-	
-	  /**
-	   * Init the event listener on mouseover and touchstart
-	   * for the prefetch
-	   *
-	   * @memberOf Barba.Prefetch
-	   */
-	  init: function() {
-	    if (!window.history.pushState) {
-	      return false;
-	    }
-	
-	    document.body.addEventListener('mouseover', this.onLinkEnter.bind(this));
-	    document.body.addEventListener('touchstart', this.onLinkEnter.bind(this));
-	  },
-	
-	  /**
-	   * Callback for the mousehover/touchstart
-	   *
-	   * @memberOf Barba.Prefetch
-	   * @private
-	   * @param  {Object} evt
-	   */
-	  onLinkEnter: function(evt) {
-	    var el = evt.target;
-	
-	    while (el && !Pjax.getHref(el)) {
-	      el = el.parentNode;
-	    }
-	
-	    if (!el || el.classList.contains(this.ignoreClassLink)) {
-	      return;
-	    }
-	
-	    var url = Pjax.getHref(el);
-	
-	    //Check if the link is elegible for Pjax
-	    if (Pjax.preventCheck(evt, el) && !Pjax.Cache.get(url)) {
-	      var xhr = Utils.xhr(url);
-	      Pjax.Cache.set(url, xhr);
-	    }
-	  }
-	};
-	
-	module.exports = Prefetch;
-
-
-/***/ }
-/******/ ])
-});
-;
-
-},{}],3:[function(require,module,exports){
 /*
 Syntax highlighting with language autodetection.
 https://highlightjs.org/
@@ -2529,7 +818,7 @@ https://highlightjs.org/
   return hljs;
 }));
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 var hljs = require('./highlight');
 
 hljs.registerLanguage('1c', require('./languages/1c'));
@@ -2710,7 +999,7 @@ hljs.registerLanguage('xquery', require('./languages/xquery'));
 hljs.registerLanguage('zephir', require('./languages/zephir'));
 
 module.exports = hljs;
-},{"./highlight":3,"./languages/1c":5,"./languages/abnf":6,"./languages/accesslog":7,"./languages/actionscript":8,"./languages/ada":9,"./languages/apache":10,"./languages/applescript":11,"./languages/arduino":12,"./languages/armasm":13,"./languages/asciidoc":14,"./languages/aspectj":15,"./languages/autohotkey":16,"./languages/autoit":17,"./languages/avrasm":18,"./languages/awk":19,"./languages/axapta":20,"./languages/bash":21,"./languages/basic":22,"./languages/bnf":23,"./languages/brainfuck":24,"./languages/cal":25,"./languages/capnproto":26,"./languages/ceylon":27,"./languages/clean":28,"./languages/clojure":30,"./languages/clojure-repl":29,"./languages/cmake":31,"./languages/coffeescript":32,"./languages/coq":33,"./languages/cos":34,"./languages/cpp":35,"./languages/crmsh":36,"./languages/crystal":37,"./languages/cs":38,"./languages/csp":39,"./languages/css":40,"./languages/d":41,"./languages/dart":42,"./languages/delphi":43,"./languages/diff":44,"./languages/django":45,"./languages/dns":46,"./languages/dockerfile":47,"./languages/dos":48,"./languages/dsconfig":49,"./languages/dts":50,"./languages/dust":51,"./languages/ebnf":52,"./languages/elixir":53,"./languages/elm":54,"./languages/erb":55,"./languages/erlang":57,"./languages/erlang-repl":56,"./languages/excel":58,"./languages/fix":59,"./languages/flix":60,"./languages/fortran":61,"./languages/fsharp":62,"./languages/gams":63,"./languages/gauss":64,"./languages/gcode":65,"./languages/gherkin":66,"./languages/glsl":67,"./languages/go":68,"./languages/golo":69,"./languages/gradle":70,"./languages/groovy":71,"./languages/haml":72,"./languages/handlebars":73,"./languages/haskell":74,"./languages/haxe":75,"./languages/hsp":76,"./languages/htmlbars":77,"./languages/http":78,"./languages/hy":79,"./languages/inform7":80,"./languages/ini":81,"./languages/irpf90":82,"./languages/java":83,"./languages/javascript":84,"./languages/jboss-cli":85,"./languages/json":86,"./languages/julia":88,"./languages/julia-repl":87,"./languages/kotlin":89,"./languages/lasso":90,"./languages/ldif":91,"./languages/leaf":92,"./languages/less":93,"./languages/lisp":94,"./languages/livecodeserver":95,"./languages/livescript":96,"./languages/llvm":97,"./languages/lsl":98,"./languages/lua":99,"./languages/makefile":100,"./languages/markdown":101,"./languages/mathematica":102,"./languages/matlab":103,"./languages/maxima":104,"./languages/mel":105,"./languages/mercury":106,"./languages/mipsasm":107,"./languages/mizar":108,"./languages/mojolicious":109,"./languages/monkey":110,"./languages/moonscript":111,"./languages/n1ql":112,"./languages/nginx":113,"./languages/nimrod":114,"./languages/nix":115,"./languages/nsis":116,"./languages/objectivec":117,"./languages/ocaml":118,"./languages/openscad":119,"./languages/oxygene":120,"./languages/parser3":121,"./languages/perl":122,"./languages/pf":123,"./languages/php":124,"./languages/pony":125,"./languages/powershell":126,"./languages/processing":127,"./languages/profile":128,"./languages/prolog":129,"./languages/protobuf":130,"./languages/puppet":131,"./languages/purebasic":132,"./languages/python":133,"./languages/q":134,"./languages/qml":135,"./languages/r":136,"./languages/rib":137,"./languages/roboconf":138,"./languages/routeros":139,"./languages/rsl":140,"./languages/ruby":141,"./languages/ruleslanguage":142,"./languages/rust":143,"./languages/scala":144,"./languages/scheme":145,"./languages/scilab":146,"./languages/scss":147,"./languages/shell":148,"./languages/smali":149,"./languages/smalltalk":150,"./languages/sml":151,"./languages/sqf":152,"./languages/sql":153,"./languages/stan":154,"./languages/stata":155,"./languages/step21":156,"./languages/stylus":157,"./languages/subunit":158,"./languages/swift":159,"./languages/taggerscript":160,"./languages/tap":161,"./languages/tcl":162,"./languages/tex":163,"./languages/thrift":164,"./languages/tp":165,"./languages/twig":166,"./languages/typescript":167,"./languages/vala":168,"./languages/vbnet":169,"./languages/vbscript":171,"./languages/vbscript-html":170,"./languages/verilog":172,"./languages/vhdl":173,"./languages/vim":174,"./languages/x86asm":175,"./languages/xl":176,"./languages/xml":177,"./languages/xquery":178,"./languages/yaml":179,"./languages/zephir":180}],5:[function(require,module,exports){
+},{"./highlight":2,"./languages/1c":4,"./languages/abnf":5,"./languages/accesslog":6,"./languages/actionscript":7,"./languages/ada":8,"./languages/apache":9,"./languages/applescript":10,"./languages/arduino":11,"./languages/armasm":12,"./languages/asciidoc":13,"./languages/aspectj":14,"./languages/autohotkey":15,"./languages/autoit":16,"./languages/avrasm":17,"./languages/awk":18,"./languages/axapta":19,"./languages/bash":20,"./languages/basic":21,"./languages/bnf":22,"./languages/brainfuck":23,"./languages/cal":24,"./languages/capnproto":25,"./languages/ceylon":26,"./languages/clean":27,"./languages/clojure":29,"./languages/clojure-repl":28,"./languages/cmake":30,"./languages/coffeescript":31,"./languages/coq":32,"./languages/cos":33,"./languages/cpp":34,"./languages/crmsh":35,"./languages/crystal":36,"./languages/cs":37,"./languages/csp":38,"./languages/css":39,"./languages/d":40,"./languages/dart":41,"./languages/delphi":42,"./languages/diff":43,"./languages/django":44,"./languages/dns":45,"./languages/dockerfile":46,"./languages/dos":47,"./languages/dsconfig":48,"./languages/dts":49,"./languages/dust":50,"./languages/ebnf":51,"./languages/elixir":52,"./languages/elm":53,"./languages/erb":54,"./languages/erlang":56,"./languages/erlang-repl":55,"./languages/excel":57,"./languages/fix":58,"./languages/flix":59,"./languages/fortran":60,"./languages/fsharp":61,"./languages/gams":62,"./languages/gauss":63,"./languages/gcode":64,"./languages/gherkin":65,"./languages/glsl":66,"./languages/go":67,"./languages/golo":68,"./languages/gradle":69,"./languages/groovy":70,"./languages/haml":71,"./languages/handlebars":72,"./languages/haskell":73,"./languages/haxe":74,"./languages/hsp":75,"./languages/htmlbars":76,"./languages/http":77,"./languages/hy":78,"./languages/inform7":79,"./languages/ini":80,"./languages/irpf90":81,"./languages/java":82,"./languages/javascript":83,"./languages/jboss-cli":84,"./languages/json":85,"./languages/julia":87,"./languages/julia-repl":86,"./languages/kotlin":88,"./languages/lasso":89,"./languages/ldif":90,"./languages/leaf":91,"./languages/less":92,"./languages/lisp":93,"./languages/livecodeserver":94,"./languages/livescript":95,"./languages/llvm":96,"./languages/lsl":97,"./languages/lua":98,"./languages/makefile":99,"./languages/markdown":100,"./languages/mathematica":101,"./languages/matlab":102,"./languages/maxima":103,"./languages/mel":104,"./languages/mercury":105,"./languages/mipsasm":106,"./languages/mizar":107,"./languages/mojolicious":108,"./languages/monkey":109,"./languages/moonscript":110,"./languages/n1ql":111,"./languages/nginx":112,"./languages/nimrod":113,"./languages/nix":114,"./languages/nsis":115,"./languages/objectivec":116,"./languages/ocaml":117,"./languages/openscad":118,"./languages/oxygene":119,"./languages/parser3":120,"./languages/perl":121,"./languages/pf":122,"./languages/php":123,"./languages/pony":124,"./languages/powershell":125,"./languages/processing":126,"./languages/profile":127,"./languages/prolog":128,"./languages/protobuf":129,"./languages/puppet":130,"./languages/purebasic":131,"./languages/python":132,"./languages/q":133,"./languages/qml":134,"./languages/r":135,"./languages/rib":136,"./languages/roboconf":137,"./languages/routeros":138,"./languages/rsl":139,"./languages/ruby":140,"./languages/ruleslanguage":141,"./languages/rust":142,"./languages/scala":143,"./languages/scheme":144,"./languages/scilab":145,"./languages/scss":146,"./languages/shell":147,"./languages/smali":148,"./languages/smalltalk":149,"./languages/sml":150,"./languages/sqf":151,"./languages/sql":152,"./languages/stan":153,"./languages/stata":154,"./languages/step21":155,"./languages/stylus":156,"./languages/subunit":157,"./languages/swift":158,"./languages/taggerscript":159,"./languages/tap":160,"./languages/tcl":161,"./languages/tex":162,"./languages/thrift":163,"./languages/tp":164,"./languages/twig":165,"./languages/typescript":166,"./languages/vala":167,"./languages/vbnet":168,"./languages/vbscript":170,"./languages/vbscript-html":169,"./languages/verilog":171,"./languages/vhdl":172,"./languages/vim":173,"./languages/x86asm":174,"./languages/xl":175,"./languages/xml":176,"./languages/xquery":177,"./languages/yaml":178,"./languages/zephir":179}],4:[function(require,module,exports){
 module.exports = function(hljs){
 
   // общий паттерн для определения идентификаторов
@@ -3220,7 +1509,7 @@ module.exports = function(hljs){
     ]  
   }
 };
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function(hljs) {
     var regexes = {
         ruleDeclaration: "^[a-zA-Z][a-zA-Z0-9-]*",
@@ -3291,7 +1580,7 @@ module.exports = function(hljs) {
       ]
     };
 };
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     contains: [
@@ -3329,7 +1618,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
   var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
@@ -3403,7 +1692,7 @@ module.exports = function(hljs) {
     illegal: /#/
   };
 };
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = // We try to support full Ada2012
 //
 // We highlight all appearances of types, keywords, literals (string, char, number, bool)
@@ -3576,7 +1865,7 @@ function(hljs) {
         ]
     };
 };
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function(hljs) {
   var NUMBER = {className: 'number', begin: '[\\$%]\\d+'};
   return {
@@ -3622,7 +1911,7 @@ module.exports = function(hljs) {
     illegal: /\S/
   };
 };
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function(hljs) {
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''});
   var PARAMS = {
@@ -3708,7 +1997,7 @@ module.exports = function(hljs) {
     illegal: '//|->|=>|\\[\\['
   };
 };
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function(hljs) {
   var CPP = hljs.getLanguage('cpp').exports;
 	return {
@@ -3808,7 +2097,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
@@ -3900,7 +2189,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['adoc'],
@@ -4088,7 +2377,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function (hljs) {
   var KEYWORDS =
     'false synchronized int abstract float private char boolean static null if const ' +
@@ -4233,7 +2522,7 @@ module.exports = function (hljs) {
     ]
   };
 };
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function(hljs) {
   var BACKTICK_ESCAPE = {
     begin: '`[\\s\\S]'
@@ -4292,7 +2581,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = function(hljs) {
     var KEYWORDS = 'ByRef Case Const ContinueCase ContinueLoop ' +
         'Default Dim Do Else ElseIf EndFunc EndIf EndSelect ' +
@@ -4428,7 +2717,7 @@ module.exports = function(hljs) {
         ]
     }
 };
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: true,
@@ -4490,7 +2779,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function(hljs) {
   var VARIABLE = {
     className: 'variable',
@@ -4543,7 +2832,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: 'false int abstract private char boolean static null if for true ' +
@@ -4574,7 +2863,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function(hljs) {
   var VAR = {
     className: 'variable',
@@ -4649,7 +2938,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: true,
@@ -4700,7 +2989,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function(hljs){
   return {
     contains: [
@@ -4729,7 +3018,7 @@ module.exports = function(hljs){
     ]
   };
 };
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function(hljs){
   var LITERAL = {
     className: 'literal',
@@ -4766,7 +3055,7 @@ module.exports = function(hljs){
     ]
   };
 };
-},{}],25:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS =
     'div mod in and or not xor asserterror begin case do downto else end exit for if of repeat then to ' +
@@ -4846,7 +3135,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],26:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['capnp'],
@@ -4895,7 +3184,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = function(hljs) {
   // 2.3. Identifiers and keywords
   var KEYWORDS =
@@ -4962,7 +3251,7 @@ module.exports = function(hljs) {
     ].concat(EXPRESSIONS)
   };
 };
-},{}],28:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['clean','icl','dcl'],
@@ -4987,7 +3276,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],29:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     contains: [
@@ -5002,7 +3291,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],30:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = function(hljs) {
   var keywords = {
     'builtin-name':
@@ -5098,7 +3387,7 @@ module.exports = function(hljs) {
     contains: [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
   }
 };
-},{}],31:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['cmake.in'],
@@ -5136,7 +3425,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],32:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -5282,7 +3571,7 @@ module.exports = function(hljs) {
     ])
   };
 };
-},{}],33:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -5349,7 +3638,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],34:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 module.exports = function cos (hljs) {
 
   var STRINGS = {
@@ -5473,7 +3762,7 @@ module.exports = function cos (hljs) {
     ]
   };
 };
-},{}],35:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 module.exports = function(hljs) {
   var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
@@ -5648,7 +3937,7 @@ module.exports = function(hljs) {
     }
   };
 };
-},{}],36:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports = function(hljs) {
   var RESOURCES = 'primitive rsc_template';
 
@@ -5742,7 +4031,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],37:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 module.exports = function(hljs) {
   var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
@@ -5936,7 +4225,7 @@ module.exports = function(hljs) {
     contains: CRYSTAL_DEFAULT_CONTAINS
   };
 };
-},{}],38:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -6113,7 +4402,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],39:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: false,
@@ -6135,7 +4424,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],40:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var RULE = {
@@ -6240,7 +4529,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],41:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 module.exports = /**
  * Known issues:
  *
@@ -6498,7 +4787,7 @@ function(hljs) {
     ]
   };
 };
-},{}],42:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 module.exports = function (hljs) {
   var SUBST = {
     className: 'subst',
@@ -6599,7 +4888,7 @@ module.exports = function (hljs) {
     ]
   }
 };
-},{}],43:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS =
     'exports register file shl array record property for mod while set ally label uses raise not ' +
@@ -6668,7 +4957,7 @@ module.exports = function(hljs) {
     ].concat(COMMENT_MODES)
   };
 };
-},{}],44:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['patch'],
@@ -6708,7 +4997,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],45:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 module.exports = function(hljs) {
   var FILTER = {
     begin: /\|[A-Za-z]+:?/,
@@ -6772,7 +5061,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],46:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['bind', 'zone'],
@@ -6801,7 +5090,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],47:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['docker'],
@@ -6823,7 +5112,7 @@ module.exports = function(hljs) {
     illegal: '</'
   }
 };
-},{}],48:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 module.exports = function(hljs) {
   var COMMENT = hljs.COMMENT(
     /^\s*@?rem\b/, /$/,
@@ -6875,7 +5164,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],49:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 module.exports = function(hljs) {
   var QUOTED_PROPERTY = {
     className: 'string',
@@ -6922,7 +5211,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],50:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 module.exports = function(hljs) {
   var STRINGS = {
     className: 'string',
@@ -7046,7 +5335,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],51:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 module.exports = function(hljs) {
   var EXPRESSION_KEYWORDS = 'if eq ne lt lte gt gte select default math sep';
   return {
@@ -7078,7 +5367,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],52:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 module.exports = function(hljs) {
     var commentMode = hljs.COMMENT(/\(\*/, /\*\)/);
 
@@ -7111,7 +5400,7 @@ module.exports = function(hljs) {
         ]
     };
 };
-},{}],53:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 module.exports = function(hljs) {
   var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?';
   var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
@@ -7208,7 +5497,7 @@ module.exports = function(hljs) {
     contains: ELIXIR_DEFAULT_CONTAINS
   };
 };
-},{}],54:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 module.exports = function(hljs) {
   var COMMENT = {
     variants: [
@@ -7292,7 +5581,7 @@ module.exports = function(hljs) {
     illegal: /;/
   };
 };
-},{}],55:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     subLanguage: 'xml',
@@ -7307,7 +5596,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],56:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -7353,7 +5642,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],57:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 module.exports = function(hljs) {
   var BASIC_ATOM_RE = '[a-z\'][a-zA-Z0-9_\']*';
   var FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
@@ -7499,7 +5788,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],58:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['xlsx', 'xls'],
@@ -7547,7 +5836,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],59:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     contains: [
@@ -7576,7 +5865,7 @@ module.exports = function(hljs) {
     case_insensitive: true
   };
 };
-},{}],60:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports = function (hljs) {
 
     var CHAR = {
@@ -7621,7 +5910,7 @@ module.exports = function (hljs) {
         ]
     };
 };
-},{}],61:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module.exports = function(hljs) {
   var PARAMS = {
     className: 'params',
@@ -7692,7 +5981,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],62:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 module.exports = function(hljs) {
   var TYPEPARAM = {
     begin: '<', end: '>',
@@ -7751,7 +6040,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],63:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 module.exports = function (hljs) {
   var KEYWORDS = {
     'keyword':
@@ -7905,7 +6194,7 @@ module.exports = function (hljs) {
     ]
   };
 };
-},{}],64:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword: 'and bool break call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
@@ -8129,7 +6418,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],65:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 module.exports = function(hljs) {
     var GCODE_IDENT_RE = '[A-Z_][A-Z0-9_.]*';
     var GCODE_CLOSE_RE = '\\%';
@@ -8196,7 +6485,7 @@ module.exports = function(hljs) {
         ].concat(GCODE_CODE)
     };
 };
-},{}],66:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 module.exports = function (hljs) {
   return {
     aliases: ['feature'],
@@ -8233,7 +6522,7 @@ module.exports = function (hljs) {
     ]
   };
 };
-},{}],67:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -8350,7 +6639,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],68:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 module.exports = function(hljs) {
   var GO_KEYWORDS = {
     keyword:
@@ -8404,7 +6693,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],69:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 module.exports = function(hljs) {
     return {
       keywords: {
@@ -8427,7 +6716,7 @@ module.exports = function(hljs) {
       ]
     }
 };
-},{}],70:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: true,
@@ -8462,7 +6751,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],71:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 module.exports = function(hljs) {
     return {
         keywords: {
@@ -8556,7 +6845,7 @@ module.exports = function(hljs) {
         illegal: /#|<\//
     }
 };
-},{}],72:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports = // TODO support filter tags like :javascript, support inline HTML
 function(hljs) {
   return {
@@ -8663,7 +6952,7 @@ function(hljs) {
     ]
   };
 };
-},{}],73:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 module.exports = function(hljs) {
   var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view yield'};
   return {
@@ -8697,7 +6986,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],74:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 module.exports = function(hljs) {
   var COMMENT = {
     variants: [
@@ -8819,7 +7108,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],75:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
   var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
@@ -8931,7 +7220,7 @@ module.exports = function(hljs) {
     illegal: /<\//
   };
 };
-},{}],76:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: true,
@@ -8977,7 +7266,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],77:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 module.exports = function(hljs) {
   var BUILT_INS = 'action collection component concat debugger each each-in else get hash if input link-to loc log mut outlet partial query-params render textarea unbound unless with yield view';
 
@@ -9048,7 +7337,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],78:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 module.exports = function(hljs) {
   var VERSION = 'HTTP/[0-9\\.]+';
   return {
@@ -9089,7 +7378,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],79:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 module.exports = function(hljs) {
   var keywords = {
     'builtin-name':
@@ -9191,7 +7480,7 @@ module.exports = function(hljs) {
     contains: [SHEBANG, LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
   }
 };
-},{}],80:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 module.exports = function(hljs) {
   var START_BRACKET = '\\[';
   var END_BRACKET = '\\]';
@@ -9248,7 +7537,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],81:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 module.exports = function(hljs) {
   var STRING = {
     className: "string",
@@ -9314,7 +7603,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],82:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 module.exports = function(hljs) {
   var PARAMS = {
     className: 'params',
@@ -9390,7 +7679,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],83:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 module.exports = function(hljs) {
   var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   var GENERIC_IDENT_RE = JAVA_IDENT_RE + '(<' + JAVA_IDENT_RE + '(\\s*,\\s*' + JAVA_IDENT_RE + ')*>)?';
@@ -9498,7 +7787,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],84:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var KEYWORDS = {
@@ -9669,7 +7958,7 @@ module.exports = function(hljs) {
     illegal: /#(?!!)/
   };
 };
-},{}],85:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 module.exports = function (hljs) {
   var PARAM = {
     begin: /[\w-]+ *=/, returnBegin: true,
@@ -9716,7 +8005,7 @@ module.exports = function (hljs) {
     ]
   }
 };
-},{}],86:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 module.exports = function(hljs) {
   var LITERALS = {literal: 'true false null'};
   var TYPES = [
@@ -9753,7 +8042,7 @@ module.exports = function(hljs) {
     illegal: '\\S'
   };
 };
-},{}],87:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     contains: [
@@ -9777,7 +8066,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],88:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 module.exports = function(hljs) {
   // Since there are numerous special names in Julia, it is too much trouble
   // to maintain them by hand. Hence these names (i.e. keywords, literals and
@@ -9939,7 +8228,7 @@ module.exports = function(hljs) {
 
   return DEFAULT;
 };
-},{}],89:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -10113,7 +8402,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],90:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 module.exports = function(hljs) {
   var LASSO_IDENT_RE = '[a-zA-Z_][\\w.]*';
   var LASSO_ANGLE_RE = '<\\?(lasso(script)?|=)';
@@ -10276,7 +8565,7 @@ module.exports = function(hljs) {
     ].concat(LASSO_CODE)
   };
 };
-},{}],91:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     contains: [
@@ -10299,7 +8588,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],92:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 module.exports = function (hljs) {
   return {
     contains: [
@@ -10339,7 +8628,7 @@ module.exports = function (hljs) {
     ]
   };
 };
-},{}],93:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
   var INTERP_IDENT_RE = '(' + IDENT_RE + '|@{' + IDENT_RE + '})';
@@ -10479,7 +8768,7 @@ module.exports = function(hljs) {
     contains: RULES
   };
 };
-},{}],94:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 module.exports = function(hljs) {
   var LISP_IDENT_RE = '[a-zA-Z_\\-\\+\\*\\/\\<\\=\\>\\&\\#][a-zA-Z0-9_\\-\\+\\*\\/\\<\\=\\>\\&\\#!]*';
   var MEC_RE = '\\|[^]*?\\|';
@@ -10582,7 +8871,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],95:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 module.exports = function(hljs) {
   var VARIABLE = {
     begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
@@ -10739,7 +9028,7 @@ module.exports = function(hljs) {
     illegal: ';$|^\\[|^=|&|{'
   };
 };
-},{}],96:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -10888,7 +9177,7 @@ module.exports = function(hljs) {
     ])
   };
 };
-},{}],97:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 module.exports = function(hljs) {
   var identifier = '([-a-zA-Z$._][\\w\\-$.]*)';
   return {
@@ -10977,7 +9266,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],98:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 module.exports = function(hljs) {
 
     var LSL_STRING_ESCAPE_CHARS = {
@@ -11060,7 +9349,7 @@ module.exports = function(hljs) {
         ]
     };
 };
-},{}],99:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 module.exports = function(hljs) {
   var OPENING_LONG_BRACKET = '\\[=*\\[';
   var CLOSING_LONG_BRACKET = '\\]=*\\]';
@@ -11126,7 +9415,7 @@ module.exports = function(hljs) {
     ])
   };
 };
-},{}],100:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 module.exports = function(hljs) {
   /* Variables: simple (eg $(var)) and special (eg $@) */
   var VARIABLE = {
@@ -11207,7 +9496,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],101:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['md', 'mkdown', 'mkd'],
@@ -11315,7 +9604,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],102:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['mma'],
@@ -11373,7 +9662,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],103:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 module.exports = function(hljs) {
   var COMMON_CONTAINS = [
     hljs.C_NUMBER_MODE,
@@ -11461,7 +9750,7 @@ module.exports = function(hljs) {
     ].concat(COMMON_CONTAINS)
   };
 };
-},{}],104:[function(require,module,exports){
+},{}],103:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = 'if then else elseif for thru do while unless step in and or not';
   var LITERALS = 'true false unknown inf minf ind und %e %i %pi %phi %gamma';
@@ -11867,7 +10156,7 @@ module.exports = function(hljs) {
     illegal: /@/
   }
 };
-},{}],105:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords:
@@ -12092,7 +10381,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],106:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -12174,7 +10463,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],107:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 module.exports = function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
@@ -12260,7 +10549,7 @@ module.exports = function(hljs) {
     illegal: '\/'
   };
 };
-},{}],108:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords:
@@ -12279,7 +10568,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],109:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     subLanguage: 'xml',
@@ -12304,7 +10593,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],110:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 module.exports = function(hljs) {
   var NUMBER = {
     className: 'number', relevance: 0,
@@ -12379,7 +10668,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],111:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -12491,7 +10780,7 @@ module.exports = function(hljs) {
     ])
   };
 };
-},{}],112:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: true,
@@ -12560,7 +10849,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],113:[function(require,module,exports){
+},{}],112:[function(require,module,exports){
 module.exports = function(hljs) {
   var VAR = {
     className: 'variable',
@@ -12653,7 +10942,7 @@ module.exports = function(hljs) {
     illegal: '[^\\s\\}]'
   };
 };
-},{}],114:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['nim'],
@@ -12708,7 +10997,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],115:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 module.exports = function(hljs) {
   var NIX_KEYWORDS = {
     keyword:
@@ -12757,7 +11046,7 @@ module.exports = function(hljs) {
     contains: EXPRESSIONS
   };
 };
-},{}],116:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 module.exports = function(hljs) {
   var CONSTANTS = {
     className: 'variable',
@@ -12863,7 +11152,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],117:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 module.exports = function(hljs) {
   var API_CLASS = {
     className: 'built_in',
@@ -12954,7 +11243,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],118:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 module.exports = function(hljs) {
   /* missing support for heredoc-like string (OCaml 4.0.2+) */
   return {
@@ -13025,7 +11314,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],119:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 module.exports = function(hljs) {
 	var SPECIAL_VARS = {
 		className: 'keyword',
@@ -13082,7 +11371,7 @@ module.exports = function(hljs) {
 		]
 	}
 };
-},{}],120:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 module.exports = function(hljs) {
   var OXYGENE_KEYWORDS = 'abstract add and array as asc aspect assembly async begin break block by case class concat const copy constructor continue '+
     'create default delegate desc distinct div do downto dynamic each else empty end ensure enum equals event except exit extension external false '+
@@ -13152,7 +11441,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],121:[function(require,module,exports){
+},{}],120:[function(require,module,exports){
 module.exports = function(hljs) {
   var CURLY_SUBCOMMENT = hljs.COMMENT(
     '{',
@@ -13200,7 +11489,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],122:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 module.exports = function(hljs) {
   var PERL_KEYWORDS = 'getpwent getservent quotemeta msgrcv scalar kill dbmclose undef lc ' +
     'ma syswrite tr send umask sysopen shmwrite vec qx utime local oct semctl localtime ' +
@@ -13357,7 +11646,7 @@ module.exports = function(hljs) {
     contains: PERL_DEFAULT_CONTAINS
   };
 };
-},{}],123:[function(require,module,exports){
+},{}],122:[function(require,module,exports){
 module.exports = function(hljs) {
   var MACRO = {
     className: 'variable',
@@ -13409,7 +11698,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],124:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 module.exports = function(hljs) {
   var VARIABLE = {
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
@@ -13536,7 +11825,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],125:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -13627,7 +11916,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],126:[function(require,module,exports){
+},{}],125:[function(require,module,exports){
 module.exports = function(hljs) {
   var BACKTICK_ESCAPE = {
     begin: '`[\\s\\S]',
@@ -13708,7 +11997,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],127:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -13756,7 +12045,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],128:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     contains: [
@@ -13786,7 +12075,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],129:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 module.exports = function(hljs) {
 
   var ATOM = {
@@ -13874,7 +12163,7 @@ module.exports = function(hljs) {
     ])
   };
 };
-},{}],130:[function(require,module,exports){
+},{}],129:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -13910,7 +12199,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],131:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 module.exports = function(hljs) {
 
   var PUPPET_KEYWORDS = {
@@ -14025,7 +12314,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],132:[function(require,module,exports){
+},{}],131:[function(require,module,exports){
 module.exports = // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
 
 function(hljs) {
@@ -14083,7 +12372,7 @@ function(hljs) {
     ]
   };
 };
-},{}],133:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -14199,7 +12488,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],134:[function(require,module,exports){
+},{}],133:[function(require,module,exports){
 module.exports = function(hljs) {
   var Q_KEYWORDS = {
   keyword:
@@ -14222,7 +12511,7 @@ module.exports = function(hljs) {
      ]
   };
 };
-},{}],135:[function(require,module,exports){
+},{}],134:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
       keyword:
@@ -14391,7 +12680,7 @@ module.exports = function(hljs) {
     illegal: /#/
   };
 };
-},{}],136:[function(require,module,exports){
+},{}],135:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENT_RE = '([a-zA-Z]|\\.[a-zA-Z.])[a-zA-Z0-9._]*';
 
@@ -14461,7 +12750,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],137:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords:
@@ -14488,7 +12777,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],138:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENTIFIER = '[a-zA-Z-_][^\\n{]+\\{';
 
@@ -14555,7 +12844,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],139:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 module.exports = // Colors from RouterOS terminal:
 //   green        - #0E9A00
 //   teal         - #0C9A9A
@@ -14714,7 +13003,7 @@ function(hljs) {
     ]
   };
 };
-},{}],140:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -14750,7 +13039,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],141:[function(require,module,exports){
+},{}],140:[function(require,module,exports){
 module.exports = function(hljs) {
   var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var RUBY_KEYWORDS = {
@@ -14927,7 +13216,7 @@ module.exports = function(hljs) {
     contains: COMMENT_MODES.concat(IRB_DEFAULT).concat(RUBY_DEFAULT_CONTAINS)
   };
 };
-},{}],142:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -14988,7 +13277,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],143:[function(require,module,exports){
+},{}],142:[function(require,module,exports){
 module.exports = function(hljs) {
   var NUM_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
   var KEYWORDS =
@@ -15096,7 +13385,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],144:[function(require,module,exports){
+},{}],143:[function(require,module,exports){
 module.exports = function(hljs) {
 
   var ANNOTATION = { className: 'meta', begin: '@[A-Za-z]+' };
@@ -15211,7 +13500,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],145:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 module.exports = function(hljs) {
   var SCHEME_IDENT_RE = '[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+';
   var SCHEME_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+([./]\\d+)?';
@@ -15355,7 +13644,7 @@ module.exports = function(hljs) {
     contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
   };
 };
-},{}],146:[function(require,module,exports){
+},{}],145:[function(require,module,exports){
 module.exports = function(hljs) {
 
   var COMMON_CONTAINS = [
@@ -15409,7 +13698,7 @@ module.exports = function(hljs) {
     ].concat(COMMON_CONTAINS)
   };
 };
-},{}],147:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
 module.exports = function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var VARIABLE = {
@@ -15507,7 +13796,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],148:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['console'],
@@ -15522,7 +13811,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],149:[function(require,module,exports){
+},{}],148:[function(require,module,exports){
 module.exports = function(hljs) {
   var smali_instr_low_prio = ['add', 'and', 'cmp', 'cmpg', 'cmpl', 'const', 'div', 'double', 'float', 'goto', 'if', 'int', 'long', 'move', 'mul', 'neg', 'new', 'nop', 'not', 'or', 'rem', 'return', 'shl', 'shr', 'sput', 'sub', 'throw', 'ushr', 'xor'];
   var smali_instr_high_prio = ['aget', 'aput', 'array', 'check', 'execute', 'fill', 'filled', 'goto/16', 'goto/32', 'iget', 'instance', 'invoke', 'iput', 'monitor', 'packed', 'sget', 'sparse'];
@@ -15578,7 +13867,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],150:[function(require,module,exports){
+},{}],149:[function(require,module,exports){
 module.exports = function(hljs) {
   var VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
   var CHAR = {
@@ -15628,7 +13917,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],151:[function(require,module,exports){
+},{}],150:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['ml'],
@@ -15694,7 +13983,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],152:[function(require,module,exports){
+},{}],151:[function(require,module,exports){
 module.exports = function(hljs) {
   var CPP = hljs.getLanguage('cpp').exports;
 
@@ -16065,7 +14354,7 @@ module.exports = function(hljs) {
     illegal: /#/
   };
 };
-},{}],153:[function(require,module,exports){
+},{}],152:[function(require,module,exports){
 module.exports = function(hljs) {
   var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
@@ -16225,7 +14514,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],154:[function(require,module,exports){
+},{}],153:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     contains: [
@@ -16308,7 +14597,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],155:[function(require,module,exports){
+},{}],154:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['do', 'ado'],
@@ -16346,7 +14635,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],156:[function(require,module,exports){
+},{}],155:[function(require,module,exports){
 module.exports = function(hljs) {
   var STEP21_IDENT_RE = '[A-Z_][A-Z0-9_.]*';
   var STEP21_KEYWORDS = {
@@ -16393,7 +14682,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],157:[function(require,module,exports){
+},{}],156:[function(require,module,exports){
 module.exports = function(hljs) {
 
   var VARIABLE = {
@@ -16847,7 +15136,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],158:[function(require,module,exports){
+},{}],157:[function(require,module,exports){
 module.exports = function(hljs) {
   var DETAILS = {
     className: 'string',
@@ -16881,7 +15170,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],159:[function(require,module,exports){
+},{}],158:[function(require,module,exports){
 module.exports = function(hljs) {
   var SWIFT_KEYWORDS = {
       keyword: '__COLUMN__ __FILE__ __FUNCTION__ __LINE__ as as! as? associativity ' +
@@ -16998,7 +15287,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],160:[function(require,module,exports){
+},{}],159:[function(require,module,exports){
 module.exports = function(hljs) {
 
   var COMMENT = {
@@ -17042,7 +15331,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],161:[function(require,module,exports){
+},{}],160:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: true,
@@ -17078,7 +15367,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],162:[function(require,module,exports){
+},{}],161:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['tk'],
@@ -17139,7 +15428,7 @@ module.exports = function(hljs) {
     ]
   }
 };
-},{}],163:[function(require,module,exports){
+},{}],162:[function(require,module,exports){
 module.exports = function(hljs) {
   var COMMAND = {
     className: 'tag',
@@ -17201,7 +15490,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],164:[function(require,module,exports){
+},{}],163:[function(require,module,exports){
 module.exports = function(hljs) {
   var BUILT_IN_TYPES = 'bool byte i16 i32 i64 double string binary';
   return {
@@ -17236,7 +15525,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],165:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 module.exports = function(hljs) {
   var TPID = {
     className: 'number',
@@ -17320,7 +15609,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],166:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 module.exports = function(hljs) {
   var PARAMS = {
     className: 'params',
@@ -17386,7 +15675,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],167:[function(require,module,exports){
+},{}],166:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -17542,7 +15831,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],168:[function(require,module,exports){
+},{}],167:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     keywords: {
@@ -17592,7 +15881,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],169:[function(require,module,exports){
+},{}],168:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['vb'],
@@ -17648,7 +15937,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],170:[function(require,module,exports){
+},{}],169:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     subLanguage: 'xml',
@@ -17660,7 +15949,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],171:[function(require,module,exports){
+},{}],170:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     aliases: ['vbs'],
@@ -17699,7 +15988,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],172:[function(require,module,exports){
+},{}],171:[function(require,module,exports){
 module.exports = function(hljs) {
   var SV_KEYWORDS = {
     keyword:
@@ -17798,7 +16087,7 @@ module.exports = function(hljs) {
     ]
   }; // return
 };
-},{}],173:[function(require,module,exports){
+},{}],172:[function(require,module,exports){
 module.exports = function(hljs) {
   // Regular expression for VHDL numeric literals.
 
@@ -17859,7 +16148,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],174:[function(require,module,exports){
+},{}],173:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     lexemes: /[!#@\w]+/,
@@ -17965,7 +16254,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],175:[function(require,module,exports){
+},{}],174:[function(require,module,exports){
 module.exports = function(hljs) {
   return {
     case_insensitive: true,
@@ -18101,7 +16390,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],176:[function(require,module,exports){
+},{}],175:[function(require,module,exports){
 module.exports = function(hljs) {
   var BUILTIN_MODULES =
     'ObjectLoader Animate MovieCredits Slides Filters Shading Materials LensFlare Mapping VLCAudioVideo ' +
@@ -18174,7 +16463,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],177:[function(require,module,exports){
+},{}],176:[function(require,module,exports){
 module.exports = function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var TAG_INTERNALS = {
@@ -18277,7 +16566,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],178:[function(require,module,exports){
+},{}],177:[function(require,module,exports){
 module.exports = function(hljs) {
   var KEYWORDS = 'for let if while then else return where group by xquery encoding version' +
     'module namespace boundary-space preserve strip default collation base-uri ordering' +
@@ -18348,7 +16637,7 @@ module.exports = function(hljs) {
     contains: CONTAINS
   };
 };
-},{}],179:[function(require,module,exports){
+},{}],178:[function(require,module,exports){
 module.exports = function(hljs) {
   var LITERALS = 'true false yes no null';
 
@@ -18436,7 +16725,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],180:[function(require,module,exports){
+},{}],179:[function(require,module,exports){
 module.exports = function(hljs) {
   var STRING = {
     className: 'string',
@@ -18543,7 +16832,7 @@ module.exports = function(hljs) {
     ]
   };
 };
-},{}],181:[function(require,module,exports){
+},{}],180:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.2.1
  * https://jquery.com/
@@ -28798,46 +27087,13 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],182:[function(require,module,exports){
-var info = require("../../docs/info")
-window.jQuery = $ = require('jquery')
-Barba = require('barba.js')
-hljs = require('highlight.js')
-
-$(window).on('load',function(){
-    
-    Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
-        var $newPageHead = $( '<head />' ).html(
-            $.parseHTML(
-                newPageRawHTML.match(/<head[^>]*>([\s\S.]*)<\/head>/i)[0]
-              , document
-              , true
-            )
-        );
-        var headTags = [
-            "meta[name='keywords']"
-          , "meta[name='description']"
-          , "meta[property^='og']"
-          , "meta[name^='twitter']"
-          , "title"
-        ].join(',');
-        $( 'head' ).find( headTags ).remove();
-        $newPageHead.find( headTags ).appendTo( 'head' );
-        document.body.scrollTop = 0;
-        hljs.initHighlightingOnLoad();
-    });
-    
-     
-    Barba.Pjax.start();
-    Barba.Prefetch.init();
-    });
-},{"../../docs/info":1,"barba.js":2,"highlight.js":4,"jquery":181}],183:[function(require,module,exports){
+},{}],181:[function(require,module,exports){
 window.jQuery = $ = require('jquery')
 hljs = require('highlight.js')
 $('window').on('load',function(){
     hljs.initHighlightingOnLoad();
 })
-},{"highlight.js":4,"jquery":181}],184:[function(require,module,exports){
+},{"highlight.js":3,"jquery":180}],182:[function(require,module,exports){
 /*
 var info = require("../../docs/info.json")
 
@@ -28845,10 +27101,9 @@ window.jQuery = $ = require('jquery')
 Barba = require('barba.js')
 hljs = require('highlight.js')
 */
-require("./barba_set")
 require("./sw_register")
 require("./hljs_init")
-},{"./barba_set":182,"./hljs_init":183,"./sw_register":185}],185:[function(require,module,exports){
+},{"./hljs_init":181,"./sw_register":183}],183:[function(require,module,exports){
 var info = require("../../docs/info")
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/'+info.site.url.path+'/'+info.site.workers[0].outname+'.js').then(function(registration) {
@@ -28859,4 +27114,4 @@ if ('serviceWorker' in navigator) {
         console.log('ServiceWorker registration failed: ', err);
     });
 }
-},{"../../docs/info":1}]},{},[184]);
+},{"../../docs/info":1}]},{},[182]);

@@ -175,12 +175,22 @@ module.exports = function(grunt){
                         expand: true,
                         cwd: 'theme/static',
                         src: '**',
-                        dest: "docs/"
+                        dest: 'docs/'
                     },
                     {
                         expand: true,
                         src: src.files,
                         dest: "docs/"
+                    }
+                ]
+            },
+            wtfpjax: {
+                files:[
+                    {
+                        expand: true,
+                        cwd:'node_modules/pjax/dest',
+                        src: 'pjax.min.js',
+                        dest: 'docs/assets/'
                     }
                 ]
             }

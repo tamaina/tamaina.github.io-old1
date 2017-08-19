@@ -17,7 +17,6 @@
   },
   "homepage": "https://tmin.xyz",
   "devDependencies": {
-    "barba.js": "^1.0.0",
     "browserify": "^14.1.0",
     "chalk": "^2.1.0",
     "electron": "^1.6.8",
@@ -45,6 +44,7 @@
     "pako": "^1.0.5",
     "pug": "^2.0.0-rc.3",
     "pug-cli": "^1.0.0-alpha6",
+    "spica": "0.0.101",
     "stylus": "^0.54.5",
     "tether": "^1.4.0",
     "ttf2woff2": "^2.0.3",

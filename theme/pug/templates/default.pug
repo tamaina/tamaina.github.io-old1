@@ -15,6 +15,7 @@ html(lang=site.locale)
         meta(name="viewport", content="width=device-width")
         meta(name="x-ua-compatible", content="width=device-width")
         title #{page.attributes.title} - #{site.name}
+        base(href=`${site.url.scheme}//${site.url.host}${site.url.path}/`)
       
       block thankyou_seeing_sourcecode
         //*
@@ -29,12 +30,16 @@ html(lang=site.locale)
         //- meta(name="keywords", content=page.tag)
 
       block icons
-        link(rel="shortcut icon", href=`${site.url.path}/favicon.ico`, type="image/vnd.microsoft.icon")
+        link(rel="shortcut icon", href=`/favicon.ico`, type="image/vnd.microsoft.icon")
         each icon in site.icons
-          link(rel="shortcut icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes, type=icon.type)
+          link(rel="apple-touch-icon", href=`${icon.path}`, sizes=icon.sizes)
+          link(rel="shortcut icon", href=`${icon.path}`, sizes=icon.sizes, type=icon.type)
+      
+      block includes
+        include ../includes/_includes.pug
 
       block theme_color
-        meta(name="theme-color", content=site.theme_color)
+        meta(name="theme-color", content=site.theme_color.primary)
         link(rel="manifest", href=`/manifest.json`)
         link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=site.name)
 
@@ -43,41 +48,40 @@ html(lang=site.locale)
         meta(property="og:title", content=`${page.attributes.title} - ${site.name}`)
         meta(property="og:description", content=page.attributes.description)
         if ( !!page.thumbnail || page.thumbnail != "" )
-          meta(property="og:image", content=`//${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
+          meta(property="og:image", content=`${site.url.scheme}//${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
         else if ( !!site.site_card_path || site.site_card_path != "" )
-          meta(property="og:image", content=`//${site.url.host}${site.url.path}${site.site_card_path}`)
+          meta(property="og:image", content=`${site.url.scheme}//${site.url.host}${site.url.path}${site.site_card_path}`)
         else
-          meta(property="og:image", content=`//${site.url.host}${site.url.path}/favicon.ico`)
-        if ( site_card_path )
-          meta(property="og:image", content=`//${site.url.host}${site.url.path}${site.site_card_path}`)
-        meta(property="og:url", content=`//${site.url.host}${site.url.path}${page.attributes.permalink}`)
+          meta(property="og:image", content=`/favicon.ico`)
+        if ( !!site_card_path )
+          meta(property="og:image", content=`${site.url.scheme}//${site.url.host}${site.url.path}${site.site_card_path}`)
+        meta(property="og:url", content=`${site.url.scheme}//${site.url.host}${site.url.path}${page.attributes.permalink}`)
         meta(property="og:site_name", content=site.name)
 
       block twitter_card
         if ( !!page.thumbnail || page.thumbnail != "" )
           meta(name="twitter:card", content="summary_large_image")
-          meta(name="twitter:image", content=`//${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
+          meta(name="twitter:image", content=`${site.url.scheme}//${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
         else if ( !!site.site_card_path || site.site_card_path != "" )
           meta(name="twitter:card", content="summary_large_image")
-          meta(name="twitter:image", content=`//${site.url.host}${site.url.path}${site.site_card_path}`)
+          meta(name="twitter:image", content=`${site.url.scheme}//${site.url.host}${site.url.path}${site.site_card_path}`)
         else
           meta(name="twitter:card", content="summary")
         meta(name="twitter:title", content=`${page.attributes.title} - ${site.name}`)
         meta(name="twitter:description", content=page.attributes.description)
         meta(name="twitter:site", content=site.twitter_screenname)
-
-    include ../includes/_includes.pug
+      
+      block js
+        script
+          | var Pjax = require('pjax-api').Pjax; new Pjax({  areas: ['#main'], update: { head: 'meta, link' }  })
 
   body
     block nav
       include ../includes/_nav.pug
 
-    block main_outof_barba
-      .barba-container
-        #barba-wrapper
-          block main_in_barba
-            #main
-              != main_html
+    block main
+      #main
+        != main_html
 
     block footer
       footer
