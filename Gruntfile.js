@@ -215,7 +215,8 @@ module.exports = function(grunt){
     grunt.task.registerTask( 'debug_override' , 'Debug' , () => {
         site = extend(true,site,require('./.config/debug_override.json'))
     })
-
+    grunt.task.registerTask( 'sw' , 'Write service worker' , serviceWokerJses_VerUp )
+    
     // 以下はmake_config実行時に自動実行
     // コマンドで動かす用に一応登録
     grunt.task.registerTask( 'register_pages' , 'Register Pages' , register_pages )
@@ -223,7 +224,7 @@ module.exports = function(grunt){
     grunt.task.registerTask( 'make_browserconfig' , 'Make Browserconfig' , make_browserconfig )
 
   //タスクの登録
-    grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'clean:temp'])
+    grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'sw', 'clean:temp'])
     grunt.registerTask('build_script', ['browserify', 'uglify'])
     grunt.registerTask('build_style', ['stylus', 'cssmin'])
     grunt.registerTask('build_pages', ['before_build', 'pug', 'fontmin'])
@@ -318,9 +319,9 @@ function serviceWokerJses_VerUp(){
     for (let i = 0 ; i < site.workers.length ; i++) {
         let swi = site.workers[i]
         let swbody = ""
-        if(!grunt.file.exists(swi.worker_path)) return false
+        if(!grunt.file.exists(swi.srcpath)) return false
         swbody = `var version = ${package.version};
-${fs.readFileSync( swi.worker_path, 'utf-8' )}`
+${fs.readFileSync( swi.srcpath, 'utf-8' )}`
         grunt.file.write( `docs/${swi.outname}.js` , swbody )
     }
 }
