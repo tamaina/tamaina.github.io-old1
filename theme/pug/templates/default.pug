@@ -15,7 +15,7 @@ html(lang=site.locale)
         meta(name="viewport", content="width=device-width")
         meta(name="x-ua-compatible", content="width=device-width")
         title #{page.attributes.title} - #{site.name}
-        base(href=`${site.url.scheme}//${site.url.host}${site.url.path}/`)
+        base(href=`${site.url.scheme}://${site.url.host}${site.url.path}/`)
       
       block thankyou_seeing_sourcecode
         //*
