@@ -320,7 +320,7 @@ function serviceWokerJses_VerUp(){
         let swi = site.workers[i]
         let swbody = ""
         if(!grunt.file.exists(swi.srcpath)) return false
-        swbody = `var version = ${package.version};
+        swbody = `var version = '${package.version}';
 ${fs.readFileSync( swi.srcpath, 'utf-8' )}`
         grunt.file.write( `docs/${swi.outname}.js` , swbody )
     }
