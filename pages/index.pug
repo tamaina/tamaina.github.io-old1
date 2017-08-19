@@ -12,7 +12,7 @@ h2 ページ一覧
 ul
   each p in pages
     li
-      a(href=`${p.attributes.permalink}`) #{p.attributes.title} 
+      a(href=`${site.url.path}${p.attributes.permalink}`) #{p.attributes.title} 
 
 :md
 

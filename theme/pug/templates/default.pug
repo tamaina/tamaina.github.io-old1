@@ -30,17 +30,17 @@ html(lang=site.locale)
         //- meta(name="keywords", content=page.tag)
 
       block icons
-        link(rel="shortcut icon", href=`./favicon.ico`, type="image/vnd.microsoft.icon")
+        link(rel="shortcut icon", href=`${site.url.path}/favicon.ico`, type="image/vnd.microsoft.icon")
         each icon in site.icons
-          link(rel="apple-touch-icon", href=`.${icon.path}`, sizes=icon.sizes)
-          link(rel="shortcut icon", href=`.${icon.path}`, sizes=icon.sizes, type=icon.type)
+          link(rel="apple-touch-icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes)
+          link(rel="shortcut icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes, type=icon.type)
       
       block includes
         include ../includes/_includes.pug
 
       block theme_color
         meta(name="theme-color", content=site.theme_color.primary)
-        link(rel="manifest", href=`./manifest.json`)
+        link(rel="manifest", href=`${site.url.path}/manifest.json`)
         link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=site.name)
 
       block og
