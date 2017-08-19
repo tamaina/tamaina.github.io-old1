@@ -188,8 +188,8 @@ module.exports = function(grunt){
                 files:[
                     {
                         expand: true,
-                        cwd:'node_modules/pjax-api/dest',
-                        src: '*',
+                        cwd:'node_modules/pjax-api/dist',
+                        src: '**',
                         dest: 'docs/assets/'
                     }
                 ]
