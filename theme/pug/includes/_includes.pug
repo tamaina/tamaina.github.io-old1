@@ -1,8 +1,6 @@
-link(href=`${site.site_url}/files/font-awesome/4.7.0/css/font-awesome.min.css`, rel="preload", as="style")
-link(href=`${site.site_url}/assets/style.min.css`, rel="stylesheet")
+link(rel="manifest" href=`${site.url.path}/manifest.json`)
 
-script(src=`${site.site_url}/assets/main.min.js`)
+link(href=`${site.url.path}/files/font-awesome/4.7.0/css/font-awesome.min.css`, rel="preload", as="style")
+link(href=`${site.url.path}/assets/style.min.css`, rel="stylesheet")
 
-
-link(href=`//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css`, rel="stylesheet")
-script(src=`//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js`)
+script(src=`${site.url.path}/assets/main.min.js`)

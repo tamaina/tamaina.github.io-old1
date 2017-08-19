@@ -1,6 +1,10 @@
+/*
+var info = require("../../docs/info.json")
+
 window.jQuery = $ = require('jquery')
-
-
+Barba = require('barba.js')
+hljs = require('highlight.js')
+*/
 require("./barba_set")
-
-hljs.initHighlightingOnLoad();
+require("./sw_register")
+require("./hljs_init")

@@ -1,7 +1,12 @@
 {
     "name": "tamaina's website",
+    "short_name": "tmin.xyz",
     "description": "tamainaことaqzのサイトです。",
-    "site_url": "//tmin.xyz/docs",
+    "url":{
+        "path": "/docs",
+        "host": "tmin.xyz",
+        "scheme": "https"
+    },
     "sources": [
         "pages/**/*.md",
         "pages/**/*.pug",
@@ -22,8 +27,33 @@
             "type": "image/png"
         },
         {
+            "path": "/assets/images/icons/favicon-36x36.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
             "path": "/assets/images/icons/favicon-48x48.png",
             "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-57x57.png",
+            "sizes": "57x57",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-60x60.png",
+            "sizes": "60x60",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-76x76.png",
+            "sizes": "76x76",
             "type": "image/png"
         },
         {
@@ -32,8 +62,38 @@
             "type": "image/png"
         },
         {
+            "path": "/assets/images/icons/favicon-114x114.png",
+            "sizes": "114x114",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-120x120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-114x114.png",
+            "sizes": "114x114",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-152x152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
             "path": "/assets/images/icons/favicon-160x160.png",
             "sizes": "160x160",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "path": "/assets/images/icons/favicon-192x192.png",
+            "sizes": "192x192",
             "type": "image/png"
         },
         {
@@ -42,10 +102,36 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
+    "mstiles": {
+        "s70x70": {
+            "path": "/assets/images/icons/mstile-70x70.png"
+        },"s144x144": {
+            "path": "/assets/images/icons/mstile-144x144.png"
+        },"s150x150": {
+            "path": "/assets/images/icons/mstile-150x150.png"
+        },"s310x310": {
+            "path": "/assets/images/icons/mstile-310x310.png"
+        },"w310x150": {
+            "path": "/assets/images/icons/mstile-310x150.png"
+        }
+    },
+    "theme_color": {
+        "primary": "#2d88ef",
+        "secondary": "#001c3d"
+    },
     "default": {
         "template": "default"
     },
     "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
-    "twitter_screenname": "t_ma1n"
+    "twitter_screenname": "t_ma1n",
+    "workers": [
+        {
+            "srcpath": "theme/js/service_worker.js",
+            "outname": "service_worker"
+        }
+    ],
+    "manifest": {
+        "start_url": "/",
+        "display": "standalone"
+    }
 }

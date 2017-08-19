@@ -1,3 +1,8 @@
+var info = require("../../docs/info")
+window.jQuery = $ = require('jquery')
+Barba = require('barba.js')
+hljs = require('highlight.js')
+
 $(window).on('load',function(){
     
     Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
@@ -18,7 +23,7 @@ $(window).on('load',function(){
         $( 'head' ).find( headTags ).remove();
         $newPageHead.find( headTags ).appendTo( 'head' );
         document.body.scrollTop = 0;
-        Prism.highlightAll();
+        hljs.initHighlightingOnLoad();
     });
     
      

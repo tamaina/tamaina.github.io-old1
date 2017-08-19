@@ -1,18 +1,20 @@
-// 設定
-const package = require('./package.json')
-const site = require('./.config/default.json')
-
 // npm require
+const grunt = require('grunt')
 const extend = require('extend')
 const fs = require('fs')
-const grunt = require('grunt')
 const fm = require('front-matter')
 const crypto = require('crypto')
 const join = require('path').join
 
+// debug
+const DEBUG = !!grunt.option('debug')
+
 // グローバル気味変数
 let pages = []
 let info = {}
+let manifest = {}
+let package = require('./package.json')
+let site = require('./.config/default.json')
 let temp_dir = 'theme/pug/temp' // 末尾のスラッシュ不要
 
 let src = {
@@ -51,7 +53,8 @@ module.exports = function(grunt){
                             return extend(
                                 true,grunt.file.readJSON(dests.info),
                                 {
-                                    "require": require
+                                    "require": require,
+                                    "DEBUG": DEBUG
                                 }
                             )
                         },
@@ -129,9 +132,13 @@ module.exports = function(grunt){
                 files: [src.styl_all],
                 tasks: ['build_style']
             },
+            settings: {
+                files: ['.config/**'],
+                tasks: ['default']
+            },
             pages: {
-                files: [src.pages,'.config/default.json','theme/pug/**'],
-                tasks: ['clean', 'build_pages']
+                files: [src.pages,'theme/pug/**'],
+                tasks: ['build_pages']
             },
             copy_static: {
                 files: [src.static],
@@ -194,16 +201,24 @@ module.exports = function(grunt){
 
 
     grunt.task.registerTask( 'make_config' , 'Merge all config files' , make_config )
-    grunt.task.registerTask( 'register_pages' , 'Register Pages' , register_pages )
     grunt.task.registerTask( 'prepare_pages' , 'Prepare Pages' , prepare_pages )
+    grunt.task.registerTask( 'debug_override' , 'Debug' , () => {
+        site = extend(true,site,require('./.config/debug_override.json'))
+    })
+
+    // 以下はmake_config実行時に自動実行
+    // コマンドで動かす用に一応登録
+    grunt.task.registerTask( 'register_pages' , 'Register Pages' , register_pages )
+    grunt.task.registerTask( 'register_manifest' , 'Register and write out manifest.json' , register_manifest )
+    grunt.task.registerTask( 'make_browserconfig' , 'Make Browserconfig' , make_browserconfig )
 
   //タスクの登録
     grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'clean:temp'])
     grunt.registerTask('build_script', ['browserify', 'uglify'])
     grunt.registerTask('build_style', ['stylus', 'cssmin'])
     grunt.registerTask('build_pages', ['before_build', 'pug', 'fontmin'])
-    grunt.registerTask('before_build', ['make_config', 'register_pages', 'prepare_pages'])
-    grunt.registerTask('server', ['default', 'connect', 'watch'])
+    grunt.registerTask('before_build', ['make_config', 'prepare_pages'])
+    grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
 
 }
 function pugfiles() {
@@ -222,8 +237,12 @@ function make_config(){
     resultObj = extend(true,resultObj, { "site" : site })
     resultObj = extend(true,resultObj, { "package" : package })
     resultObj = extend(true,resultObj, { "pages" : register_pages() })
+    resultObj = extend(true,resultObj, { "manifest" : register_manifest() })
     grunt.file.write( 'docs/info.json' , JSON.stringify( resultObj ) )
     info = resultObj
+
+    make_browserconfig()
+
     return info
 }
 
@@ -283,4 +302,53 @@ function prepare_pages(){
         outdata += `- const page_index_numer = ${i}\n${template}`
         grunt.file.write( `${temp_dir}${page.attributes.permalink.replace( /.\//g , "_" )}.pug` , outdata )
     }
+}
+
+function serviceWokerJses_VerUp(){
+    for (let i = 0 ; i < site.workers.length ; i++) {
+        let swi = site.workers[i]
+        let swbody = ""
+        if(!grunt.file.exists(swi.worker_path)) return false
+        swbody = `var version = ${package.version};
+${fs.readFileSync( swi.worker_path, 'utf-8' )}`
+        grunt.file.write( `docs/${swi.outname}.js` , swbody )
+    }
+}
+
+function register_manifest(){
+    let icons = []
+    for (let i = 0 ; i < site.icons.length ; i++) {
+        let icon = site.icons[i]
+        icon.src = site.url.path + icon.path
+        delete icon.path
+        icons.push(icon)
+    }
+    manifest = {
+        "name": site.name,
+        "short_name": site.short_name,
+        "icons": icons,
+        "start_url": site.url.path,
+        "theme_color": site.theme_color.primary,
+        "background_color": site.theme_color.secondary
+    }
+    manifest = extend(true,manifest,site.manifest)
+    grunt.file.write( `docs/manifest.json` , JSON.stringify(manifest) )
+    return manifest
+}
+
+function make_browserconfig(){
+    let bcbody = `<?xml version="1.0" encoding="utf-8"?>
+    <browserconfig>
+      <msapplication>
+        <tile>
+          <square70x70logo src="${site.url.path}${site.mstiles.s70x70.path}"/>
+          <square144x144logo src="${site.url.path}${site.mstiles.s144x144.path}"/>
+          <square150x150logo src="${site.url.path}${site.mstiles.s150x150.path}"/>
+          <square310x310logo src="${site.url.path}${site.mstiles.s310x310.path}"/>
+          <wide310x150logo src="${site.url.path}${site.mstiles.w310x150.path}"/>
+          <TileColor>${site.theme_color.secondary}</TileColor>
+        </tile>
+      </msapplication>
+    </browserconfig>`
+    grunt.file.write( `docs/browserconfig.xml` , bcbody )
 }

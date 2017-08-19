@@ -11,12 +11,16 @@ description: 設定ファイルは基本だよね。
     {
         "name": "tamaina's website",
         "description": "tamainaことaqzのサイトです。",
-        "site_url": "https://tmin.xyz",
         "sources": [
             "pages/**/*.md",
             "pages/**/*.pug",
             "pages/**/*.html"
         ],
+        "url":{
+            "path": "/docs",
+            "host": "tmin.xyz",
+            "scheme": "https",
+        },
         "auther": "tamaina",
         "page_namingrule": "name",
         "locale": "ja",
@@ -37,7 +41,11 @@ description: 設定ファイルは基本だよね。
             "template": "default"
         },
         "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
-        "twitter_screenname": "t_ma1n"
+        "twitter_screenname": "t_ma1n",
+        "worker": {
+            "srcpath": "theme/js/service_worker.js",
+            "outname": "service_worker"
+        }
     }
 ~~~
 
@@ -49,9 +57,9 @@ description: 設定ファイルは基本だよね。
 - ***`String`***
 - サイトの説明です。
 
-## site_url
-- ***`String`***
-- サイトのURLです。末尾のスラッシュは不要です。
+## url
+- ***`Array`***
+- サイトのURLです。url.pathは末尾のスラッシュを含めない形で書きます。ドメイン直下にサイトを置くなら、空欄に。
 
 ## sources
 - ***`Array`***
@@ -79,6 +87,10 @@ description: 設定ファイルは基本だよね。
 - ***`Array`***
 - アイコンを登録します。
 
+## icons[*i*].path
+- ***`String`*** (URL)
+- **必ずスラッシュから始めます。**
+
 ## theme_color
 - ***`String`*** (Color)
 - テーマカラーを指定します。別の値に設定して、AndroidのChromeで見てみてください。
@@ -99,3 +111,13 @@ description: 設定ファイルは基本だよね。
 ## twitter_screenname
 - ***`String`***
 - twitter cardに設定するtwitterアカウントを指定します。
+
+## worker.srcpath
+- ***`String`***
+- Service Workerのソースファイルのパスを指定します。
+
+## worker.outname
+- ***`String`***
+- Service Workerの出力時の名前を指定します。
+- Service Workerでは、package.versionの値を変数`version`として利用できます。
+- バックグラウンド同期のためのものですが、
