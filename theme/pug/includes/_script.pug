@@ -1,11 +1,12 @@
 //- javascript
-- const page = pages[page_index_numer]
-- const pug_api = require("pug")
-- const htmlmin = require("html-minifier").minify
-- const kramed = require("kramed")
-- let main_html
+-
+  const page = pages[page_index_numer]
+  const pug_api = require("pug")
+  const htmlmin = require("html-minifier").minify
+  const kramed = require("kramed")
+  let main_html
 
-//-
+//- make main html
 case page.srcext
   when '.md'
     - main_html = htmlmin(kramed(page.body),{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": true})
@@ -13,6 +14,7 @@ case page.srcext
   when '.htm'
     - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": true})
   when '.pug'
-    - let locals = {"site": site,"pages": pages,"page": page,"package": package,"option": option}
-    - let fn = pug_api.compile(page.body,{filters:require('./pugfilters.js')})
-    - main_html = fn(locals)
+    -
+      let locals = {"site": site,"pages": pages,"page": page,"package": package,"option": option}
+      let fn = pug_api.compile(page.body,{filters:require('./pugfilters.js')})
+      main_html = fn(locals)

@@ -306,11 +306,12 @@ function prepare_pages(){
         let page = pages[i]
         let layout = page.attributes.layout
         let outdata = ""
-        let template
-        if(grunt.file.exists(`theme/pug/templates/${layout}.pug`)) template = fs.readFileSync( `theme/pug/templates/${layout}.pug`, 'utf-8' )
-        else if(grunt.file.exists(`theme/pug/templates/${site.default.template}.pug`)) template = fs.readFileSync( `theme/pug/templates/${site.default.template}.pug`, 'utf-8' )
+        if(grunt.file.exists(`theme/pug/templates/${layout}.pug`)) outdata += `extends ../templates/${layout}.pug`
+        else if(grunt.file.exists(`theme/pug/templates/${site.default.template}.pug`)) outdata += `extends ../templates/${site.default.template}.pug`
         else throw Error
-        outdata += `- const page_index_numer = ${i}\n${template}`
+        outdata += `
+block constnum
+  - const page_index_numer = ${i}`
         grunt.file.write( `${temp_dir}${page.attributes.permalink.replace( /.\//g , "_" )}.pug` , outdata )
     }
 }
