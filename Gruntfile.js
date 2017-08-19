@@ -223,13 +223,15 @@ module.exports = function(grunt){
     grunt.task.registerTask( 'register_manifest' , 'Register and write out manifest.json' , register_manifest )
     grunt.task.registerTask( 'make_browserconfig' , 'Make Browserconfig' , make_browserconfig )
 
-  //タスクの登録
+    //タスクの登録
     grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'sw', 'clean:temp'])
+    grunt.registerTask('before_build', ['make_config', 'prepare_pages'])
+    grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
+
+    // 以下の3種類でデプロイとして供するときは、swも併せて実行すること。
     grunt.registerTask('build_script', ['browserify', 'uglify'])
     grunt.registerTask('build_style', ['stylus', 'cssmin'])
     grunt.registerTask('build_pages', ['before_build', 'pug', 'fontmin'])
-    grunt.registerTask('before_build', ['make_config', 'prepare_pages'])
-    grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
 
 }
 function pugfiles() {
