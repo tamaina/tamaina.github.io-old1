@@ -173,7 +173,7 @@ module.exports = function(grunt){
                 files:[
                     {
                         expand: true,
-                        cwd: 'theme/static',
+                        cwd: 'theme/static/',
                         src: '**',
                         dest: 'docs/'
                     },
@@ -188,7 +188,7 @@ module.exports = function(grunt){
                 files:[
                     {
                         expand: true,
-                        cwd:'node_modules/pjax-api/dist',
+                        cwd:'node_modules/pjax-api/dist/',
                         src: '**',
                         dest: 'docs/assets/'
                     }
