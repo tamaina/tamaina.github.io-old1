@@ -1,7 +1,6 @@
 var cachepages = [
     `info.json`,
     "./",
-    "assets/pjax-api.min.js",
     "assets/main.min.js",
     "assets/style.min.css"
 ];

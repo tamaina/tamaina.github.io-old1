@@ -2,8 +2,8 @@
 var info = require("../../docs/info.json")
 
 window.jQuery = $ = require('jquery')
-Barba = require('barba.js')
+Pjax = require('pjax-api.js')
 hljs = require('highlight.js')
 */
 require("./sw_register")
-require("./hljs_init")
+require("./scripts_init")

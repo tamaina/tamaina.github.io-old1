@@ -1,8 +1,7 @@
-var version = '0.0.3';
+var version = '0.0.4';
 var cachepages = [
     `info.json`,
     "./",
-    "assets/pjax-api.min.js",
     "assets/main.min.js",
     "assets/style.min.css"
 ];

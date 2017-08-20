@@ -1,6 +1,6 @@
 {
   "name": "tmin.xyz",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "tmin.xyz",
   "main": "docs/index.html",
   "scripts": {
@@ -15,9 +15,14 @@
   "bugs": {
     "url": "https://github.com/tamaina/tamaina.github.io/issues"
   },
+  "browserify-shim": {
+    "./node_modules/spica/dist/spica.min.js": "global:spica",
+    "./node_modules/localsocket/dist/localsocket.min.js": "global:localsocket"
+  },
   "homepage": "https://tmin.xyz",
   "devDependencies": {
     "browserify": "^14.1.0",
+    "browserify-shim": "^3.8.14",
     "chalk": "^2.1.0",
     "electron": "^1.6.8",
     "extend": "^3.0.1",
@@ -40,6 +45,7 @@
     "html-to-text": "^3.2.0",
     "jquery": "^3.1.1",
     "kramed": "^0.5.6",
+    "localsocket": "^0.8.0",
     "node-sfnt": "0.0.21",
     "pako": "^1.0.5",
     "pjax-api": "^3.15.0",
