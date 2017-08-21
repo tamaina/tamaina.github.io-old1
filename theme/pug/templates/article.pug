@@ -1,7 +1,7 @@
 extends ../templates/default.pug
 
-block footer
-  footer
-    p ANOTHER FOOTER! THIS IS ARTICLE LAYOUT!
-    p Copyright: #{site.auther}
-    p This site published by MarkDown Builder
+block main
+  #main.container.py-4
+    - let mtime = new Date(page.stats.mtime)
+    p 更新: #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日
+    != main_html

@@ -1,6 +1,7 @@
 ---
 title: テーマ
 description: テーマの編集方法
+layout: article
 ---
 
 テーマファイルのソースは、themeフォルダに格納されています。

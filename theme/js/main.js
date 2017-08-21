@@ -1,9 +1,6 @@
-/*
-var info = require("../../docs/info.json")
-
 window.jQuery = $ = require('jquery')
-Pjax = require('pjax-api.js')
 hljs = require('highlight.js')
-*/
+Popper = ("popper.js")
+require("./bootstrap")
 require("./sw_register")
 require("./scripts_init")

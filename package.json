@@ -1,6 +1,6 @@
 {
   "name": "tmin.xyz",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "tmin.xyz",
   "main": "docs/index.html",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://tmin.xyz",
   "devDependencies": {
+    "bootstrap": "^4.0.0-beta",
     "browserify": "^14.1.0",
     "browserify-shim": "^3.8.14",
     "chalk": "^2.1.0",
@@ -44,6 +45,7 @@
     "node-sfnt": "0.0.21",
     "pako": "^1.0.5",
     "pjax-api": "^3.15.0",
+    "popper.js": "^1.12.3",
     "pug": "^2.0.0-rc.3",
     "pug-cli": "^1.0.0-alpha6",
     "spica": "0.0.101",

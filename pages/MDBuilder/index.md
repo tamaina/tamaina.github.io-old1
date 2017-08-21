@@ -7,7 +7,7 @@ layout: default
 
 オレオレ静的サイトビルダーです。
 
-核となる機能は、文書のMarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。
+MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。
 
 ビルドにはタスク自動化ツールGruntを利用しています。
 
@@ -26,9 +26,57 @@ layout: default
 
 [テーマについて](./theme)
 
-## ファイル
+## 足りない機能
 
-VS Codeではキレイに表示されるんですけどねぇ……。
+- なんやかやで自分の欲望を満たしたつもりです。
+- スタイル指定がほとんどありません。
+  * スタイル指定はstylusで指定します。
+  * [tmin.xyz](//tmin.xyz)ではbootstrapを利用しているはずです。
+
+## 余分な機能
+
+- pjaxが標準で適用されています。
+- PWAに対応しているかもしれません。
+  * manifest.jsonを勝手に出力します。。
+  * Service Workerの自動更新に対応しています。
+- AMPにその気になれば対応しています。
+  * 作るとしたら多分、AMPのforkテーマを作ったほうが早い。
+- 日本語ウェブフォントが標準で適用されています。
+- browserify+uglifyで纏めています。
+
+## インストール
+
+```
+npm install -g node-gyp
+npm install -g grunt
+npm install
+grunt init
+```
+
+- **.config/default.json**を編集してください。
+
+## ビルド
+
+### ただビルドする
+
+```
+grunt
+```
+
+### ブラウザで確認してみる
+
+```
+grunt server
+```
+
+正常に動作すれば、`localhost:3000`に接続すると見られます。
+
+debug_override.jsonの内容がdefault.jsonに上書きされます。
+
+文書やテンプレートを更新すると、その都度ビルドします。
+
+
+## ファイル
 
 ```
 │ 
@@ -87,47 +135,3 @@ VS Codeではキレイに表示されるんですけどねぇ……。
 │────────     404.html  ┘  のためdocs/にリダイレクトします。
 └────────    readme.md   - サイトと併せてお読みください。
 ```
-
-## 足りない機能
-
-- なんやかやで自分の欲望を満たしたつもりです。
-- スタイル指定がほとんどありません。
-  * スタイル指定はstylusで指定します。
-  * [tmin.xyz](//tmin.xyz)ではbootstrapを利用しているはずです。
-
-## 余分な機能
-
-- pjaxが標準で適用されています。
-- PWAに対応しているかもしれません。
-  * manifest.jsonを勝手に出力します。。
-  * Service Workerの自動更新に対応しています。
-- AMPにその気になれば対応しています。
-  * 作るとしたら多分、AMPのforkテーマを作ったほうが早い。
-- 日本語ウェブフォントが標準で適用されています。
-- browserify+uglifyで纏めています。
-
-## インストール
-
-```
-npm install -g node-gyp
-npm install -g grunt
-npm install
-```
-
-## ビルド
-
-### ただビルドする
-
-```
-grunt
-```
-
-### ブラウザで確認してみる
-
-```
-grunt server
-```
-
-正常に動作すれば、`localhost:3000`に接続すると見られます。
-
-debug_override.jsonの内容がdefault.jsonに上書きされます。

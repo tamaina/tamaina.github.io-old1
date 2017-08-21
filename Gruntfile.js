@@ -125,28 +125,28 @@ module.exports = function(grunt){
         },
         watch: {
             js: {
-                files: [src.js],
-                tasks: ['build_script', 'sw']
+                files: [src.js,'package.json'],
+                tasks: ['debug_override','build_script', 'sw']
             },
             style: {
                 files: [src.styl_all],
-                tasks: ['build_style']
+                tasks: ['debug_override','build_style']
             },
             settings: {
                 files: ['.config/**'],
-                tasks: ['default']
+                tasks: ['debug_override','default']
             },
             pages: {
                 files: [src.pages,'theme/pug/**'],
-                tasks: ['build_pages']
+                tasks: ['debug_override','build_pages']
             },
             copy_static: {
                 files: [src.static],
-                tasks: ['copy:static']
+                tasks: ['debug_override','copy:static']
             },
             copy_files: {
                 files: [src.files],
-                tasks: ['copy:files']
+                tasks: ['debug_override','copy:files']
             }
         },
         connect: {
@@ -216,12 +216,16 @@ module.exports = function(grunt){
         site = extend(true,site,require('./.config/debug_override.json'))
     })
     grunt.task.registerTask( 'sw' , 'Write service worker' , serviceWokerJses_VerUp )
+    grunt.task.registerTask( 'copy_bootstrap' , 'Copy bootstrap from node_modules' , copy_bootstrap )
     
     // 以下はmake_config実行時に自動実行
     // コマンドで動かす用に一応登録
     grunt.task.registerTask( 'register_pages' , 'Register Pages' , register_pages )
     grunt.task.registerTask( 'register_manifest' , 'Register and write out manifest.json' , register_manifest )
     grunt.task.registerTask( 'make_browserconfig' , 'Make Browserconfig' , make_browserconfig )
+
+
+    grunt.registerTask('init', ['copy_bootstrap'])
 
     //タスクの登録
     grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'sw', 'clean:temp'])
@@ -365,4 +369,12 @@ function make_browserconfig(){
       </msapplication>
     </browserconfig>`
     grunt.file.write( `docs/browserconfig.xml` , bcbody )
+}
+
+function copy_bootstrap(){
+    let bootstrap = grunt.file.read('node_modules/bootstrap/dist/js/bootstrap.js')
+    let outbody = `window.jQuery = $ = require('jquery')
+Popper = ("popper.js")
+${bootstrap}`
+    grunt.file.write('theme/js/bootstrap.js', outbody)
 }

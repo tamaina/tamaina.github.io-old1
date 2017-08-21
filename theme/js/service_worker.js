@@ -53,8 +53,11 @@ this.addEventListener('fetch', function(event) {
   );
 });
 
+this.addEventListener('install', function(event) {
+  event.waitUntil(self.skipWaiting());
+});
 this.addEventListener('activate', function(event) {
-    event.waitUntil(self.clients.claim());
+  event.waitUntil(self.clients.claim());
 });
 
 // MDNより借用
