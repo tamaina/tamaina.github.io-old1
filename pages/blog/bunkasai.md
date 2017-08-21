@@ -166,17 +166,6 @@ VRを意欲的に取り入れています。
 
 
 
-
-### HOKURIKU
-
-#### 国立石川工業高等専門学校 : 紀友祭
-["未開墾地" https://fes.nitic.jp/](https://fes.nitic.jp/)
-
-未開墾地
-
-**Cloud Flare** ※Cloud Flareを利用しています。
-
-
 ### KANSAI
 
 
