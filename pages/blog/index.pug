@@ -1,0 +1,24 @@
+---
+title: ブログ
+description: 何か書いていきます。
+---
+
+h1 ブログ
+
+h2 記事一覧
+
+.d-flex.flex-row.row
+  - pages.sort(function(a,b) {
+  -   if(a.stats.mdate > b.stats.mdate) { return 1 } else { return -1 }
+  - });
+  each page in pages
+    if ( page.attributes.permalink.indexOf("/blog/") == 0 && page.attributes.permalink.indexOf("/blog/index") == -1 )
+      a(href=`${site.url.path}${page.attributes.permalink}`).col-xl-3.col-md-4.px-2
+        .card.w-100
+          if ( page.attributes.thumbnail )
+            img.card-img-top(alt="サムネイル", src=`${page.url.path}${page.attributes.thumbnail}`)
+          h4.card-title.px-2.pt-2 #{page.attributes.title}
+          p.card-text.px-2.mb-1 #{page.attributes.description}
+          - let mtime = new Date(page.stats.mtime)
+          p.card-text.px-2.mb-1
+            small #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 更新

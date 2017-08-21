@@ -2,6 +2,7 @@
 title: About MDBuilder
 description: 静的サイトビルダー MarkDown Builderについて
 layout: default
+permalink:
 ---
 # About MDBuilder
 
@@ -50,7 +51,6 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 npm install -g node-gyp
 npm install -g grunt
 npm install
-grunt init
 ```
 
 - **.config/default.json**を編集してください。

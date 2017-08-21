@@ -125,15 +125,19 @@ module.exports = function(grunt){
         },
         watch: {
             js: {
-                files: [src.js,'package.json'],
+                files: [src.js],
                 tasks: ['debug_override','build_script', 'sw']
+            },
+            sw: {
+                files: ['package.json'],
+                tasks: ['sw']
             },
             style: {
                 files: [src.styl_all],
                 tasks: ['debug_override','build_style']
             },
             settings: {
-                files: ['.config/**'],
+                files: ['.config/**','Gruntfile.js'],
                 tasks: ['debug_override','default']
             },
             pages: {
@@ -216,7 +220,6 @@ module.exports = function(grunt){
         site = extend(true,site,require('./.config/debug_override.json'))
     })
     grunt.task.registerTask( 'sw' , 'Write service worker' , serviceWokerJses_VerUp )
-    grunt.task.registerTask( 'copy_bootstrap' , 'Copy bootstrap from node_modules' , copy_bootstrap )
     
     // 以下はmake_config実行時に自動実行
     // コマンドで動かす用に一応登録
@@ -224,8 +227,6 @@ module.exports = function(grunt){
     grunt.task.registerTask( 'register_manifest' , 'Register and write out manifest.json' , register_manifest )
     grunt.task.registerTask( 'make_browserconfig' , 'Make Browserconfig' , make_browserconfig )
 
-
-    grunt.registerTask('init', ['copy_bootstrap'])
 
     //タスクの登録
     grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'sw', 'clean:temp'])
@@ -280,10 +281,10 @@ function register_pages(){
         page.md5 = md5hash.digest('hex')
         page.stats = fs.statSync( abspath )
 
-        if( page.attributes.title === undefined || page.attributes.title === null ) page.attributes.title = filename
-        if( page.attributes.discription === undefined || page.attributes.discription === null ) page.attributes.description = site.description
+        if( page.attributes.title === undefined || page.attributes.title === null ) page.attributes.title = page.srcname
+        if( page.attributes.description === undefined || page.attributes.description === null ) page.attributes.description = site.description
         if( page.attributes.date === undefined || page.attributes.date === null ) page.attributes.date = page.stats.birthtime
-        if( page.attributes.permalink === undefined || page.attributes.permalink == null ) {
+        if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
             if( site.page_namingrule == "birthtime" ) {
                 let birthtime = new Date(page.attributes.date)
                 if(subdir) page.attributes.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
@@ -369,12 +370,4 @@ function make_browserconfig(){
       </msapplication>
     </browserconfig>`
     grunt.file.write( `docs/browserconfig.xml` , bcbody )
-}
-
-function copy_bootstrap(){
-    let bootstrap = grunt.file.read('node_modules/bootstrap/dist/js/bootstrap.js')
-    let outbody = `window.jQuery = $ = require('jquery')
-Popper = ("popper.js")
-${bootstrap}`
-    grunt.file.write('theme/js/bootstrap.js', outbody)
 }

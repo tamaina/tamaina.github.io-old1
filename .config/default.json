@@ -1,7 +1,7 @@
 {
-    "name": "tamaina's website",
+    "name": "tmin.xyz",
     "short_name": "tmin.xyz",
-    "description": "tamainaことaqzのサイトです。",
+    "description": "aqzのサイト",
     "url":{
         "path": "/docs",
         "host": "tmin.xyz",
@@ -124,6 +124,7 @@
         "primary": "#2d88ef",
         "secondary": "#001c3d"
     },
+    "site_card_path": "/assets/images/icons/favicon-600x600.png",
     "default": {
         "template": "default"
     },

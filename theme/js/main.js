@@ -1,6 +1,6 @@
 window.jQuery = $ = require('jquery')
 hljs = require('highlight.js')
 Popper = ("popper.js")
-require("./bootstrap")
+require("../../node_modules/bootstrap/dist/js/bootstrap.js")
 require("./sw_register")
 require("./scripts_init")

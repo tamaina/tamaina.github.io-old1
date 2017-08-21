@@ -1,0 +1,7 @@
+extends ../templates/default.pug
+
+block main
+  #main.container.py-4
+    - let mtime = new Date(page.stats.mtime)
+    p 更新: #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日
+    != main_html
