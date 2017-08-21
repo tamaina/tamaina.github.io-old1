@@ -6,7 +6,7 @@
   const kramed = require("kramed")
   let main_html
   function md_better(body){
-    body = body.replace(/<h([1-6]) (.*?)>/g,"<h$1 class='pt-5' $2>")
+    body = body.replace(/<h([2-6]) (.*?)>/g,"<h$1 class='pt-5' $2>")
     return body
   }
 

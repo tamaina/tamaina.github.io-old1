@@ -323,14 +323,15 @@ Google SitesやJimdo、WordPressの既存テーマで作られたサイトです
 
 ####  立教新座中学校・高等学校 : St.Paul's Festival
 2014以前: 2012,2013  
-[**2014 S.P.F.** http://niiza.rikkyo.ac.jp/spf/2014/](http://niiza.rikkyo.ac.jp/spf/2014/)
-↓URL形式変更
+[**2014 S.P.F.** http://niiza.rikkyo.ac.jp/spf/2014/](http://niiza.rikkyo.ac.jp/spf/2014/)  
+↓URL形式変更  
 2017以前: 2015,2016  
 [**2017年立教新座文化祭** http://niiza.rikkyo.ac.jp/spf/2017/page/](http://niiza.rikkyo.ac.jp/spf/2017/page/)
+
 悪いコード使いまわしてる感
 
 **サーバー: niiza.ac.jp[立教大学 JNIC]**
-JNICのIPが割り当てられてるんだけど、ナニコレ？
+JNICのIPが割り当てられてるんだけど、ナニコレ？  
 大学のサーバーは特殊なので深入りはしないようにしましょうか。
 
 

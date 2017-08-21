@@ -8283,5 +8283,5 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: bold;
 }
 
-html,body{line-height:1.6em;font-family:mgenplus-c-w,GenShinGothic-w,sans-serif}h1,h2,h3,h4,h5,h6{font-family:mgenplus-p-w,GenShinGothic-w,sans-serif,pre}code{font-family:mgenplus-mn-w,Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace !important}
-html,body{line-height:1.6em;font-family:mgenplus-c-w,GenShinGothic-w,sans-serif}h1,h2,h3,h4,h5,h6{font-family:mgenplus-p-w,GenShinGothic-w,sans-serif,pre}code{font-family:mgenplus-mn-w,Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace !important}
+html,body{line-height:1.6em;font-family:mgenplus-c-w,GenShinGothic-w,sans-serif;font-display:fallback}h1,h2,h3,h4,h5,h6{font-family:mgenplus-p-w,GenShinGothic-w,sans-serif,pre}code{font-family:mgenplus-mn-w,Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace !important}
+html,body{line-height:1.6em;font-family:mgenplus-c-w,GenShinGothic-w,sans-serif;font-display:fallback}h1,h2,h3,h4,h5,h6{font-family:mgenplus-p-w,GenShinGothic-w,sans-serif,pre}code{font-family:mgenplus-mn-w,Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace !important}

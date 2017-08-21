@@ -1,13 +1,14 @@
 nav.navbar.navbar-light.bg-light.sticky-top.navbar-expand-lg
-  button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
-    span.navbar-toggler-icon
-  a(href=`${site.url.path}/`).navbar-brand
-    img(src=`${site.url.path}/files/images/icons/favicon-96x96.png` width="30" height="30" class="d-inline-block align-top")
-    | tmin.xyz
-  .collapse.navbar-collapse#navbarNav
-    .navbar-nav
-      a(href=`${site.url.path}/`).nav-item.nav-link Home
-      a(href=`${site.url.path}/MDBuilder/`).nav-item.nav-link MDBuilder
-      a(href=`${site.url.path}/blog/`).nav-item.nav-link ブログ
-      a(href=`https://github.com/tamaina/kogasa`, target="_blank").nav-item.nav-link kogasa
-      a(href=`http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md`, target="_blank").nav-item.nav-link 🇯🇵WebFont
+  .container
+    button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+    a(href=`${site.url.path}/`).navbar-brand
+      img(src=`${site.url.path}/files/images/icons/favicon-96x96.png` width="30" height="30" class="d-inline-block align-top")
+      | tmin.xyz
+    .collapse.navbar-collapse#navbarNav
+      .navbar-nav
+        a(href=`${site.url.path}/`).nav-item.nav-link Home
+        a(href=`${site.url.path}/MDBuilder/`).nav-item.nav-link MDBuilder
+        a(href=`${site.url.path}/blog/`).nav-item.nav-link ブログ
+        a(href=`https://github.com/tamaina/kogasa`, target="_blank").nav-item.nav-link kogasa
+        a(href=`http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md`, target="_blank").nav-item.nav-link 🇯🇵WebFont

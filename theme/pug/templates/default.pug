@@ -80,11 +80,11 @@ html(lang=site.locale)
       include ../includes/_nav.pug
 
     block main
-      #main.container.py-4
+      #main.container.pb-4
         != main_html
 
     block footer
-      footer.container
+      footer.container.py-3.bg-light
         p Copyright: #{site.auther}
         p This site published by MarkDown Builder
 
