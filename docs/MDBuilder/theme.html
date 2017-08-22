@@ -11,14 +11,14 @@
 <p>各文書のFront Matterの、layout:の値が、適用するテンプレートのファイル名です。</p>
 <p>何も指定がなければdefault.pugを読みます。</p>
 <h2 class="pt-5" id="%E6%9B%B8%E3%81%8D%E6%96%B9">書き方</h2>
-<p>pugの書き方に関しては、<a href="https:://pugjs.org" target="_blank" rel="noopener">pugjs.org</a>を参照してください。</p>
-<p>変数として<code>docs/info.json</code>の内容が利用可能です。<a href="https:://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">様々な配列操作</a>を利用してページ一覧や検索機能を作成できます。</p>
+<p>pugの書き方に関しては、<a href="//$2" target="_blank" rel="noopener">pugjs.org</a>を参照してください。</p>
+<p>変数として<code>docs/info.json</code>の内容が利用可能です。<a href="//$2" target="_blank" rel="noopener">様々な配列操作</a>を利用してページ一覧や検索機能を作成できます。</p>
 <p>これは、テンプレートだけでなくpug形式の個々の文書でも利用できます。</p>
 <p>さらに他になにか利用したい変数がある場合は、<code>Gruntfile.js</code>のオプションに書き足してください。</p>
 <h2 class="pt-5" id="%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%8B%E3%82%89%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E6%9B%B8%E3%81%8D%E5%87%BA%E3%81%99%E3%81%97%E3%81%8F%E3%81%BF">テンプレートからページを書き出すしくみ</h2>
 <p>ビルドの様子をよく見ているとわかりますが、一時ファイルが<code>pug/templates</code>以下に書き出されます。</p>
 <h1 id="%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB">スタイル</h1>
 <p>main.stylファイルをコンパイルしてcssを出力しています。</p>
-<p>stylusの書き方に関しては、<a href="http:://stylus-lang.com/" target="_blank" rel="noopener">stylus-lang.com</a>を参照してください。</p>
+<p>stylusの書き方に関しては、<a href="//$2" target="_blank" rel="noopener">stylus-lang.com</a>を参照してください。</p>
 <p>cssやstylusを追加するには、どこかにcss/stylファイルを作成・コピーし、それに応じて<code>@import</code>をmain.stylに追加します。</p>
 </div><footer class="container py-3 bg-light"><p>Copyright: tamaina</p><p>This site published by MarkDown Builder</p></footer><script src="/docs/assets/main.min.js"></script><script src="/docs/assets/pjax-api.min.js"></script><script>var Pjax = require('pjax-api').Pjax;new Pjax({  areas: ['#main'], update: { head: 'meta, link' }  });$(document).on('pjax:ready',function(){    hljs.initHighlighting.called = false;    hljs.initHighlighting();})</script></body></html>
