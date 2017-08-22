@@ -84,9 +84,10 @@ html(lang=site.locale)
         != main_html
 
     block footer
-      footer.container.py-3.bg-light
-        p Copyright: #{site.auther}
-        p This site published by MarkDown Builder
+      .py-3.bg-light
+        footer.container
+          p Copyright: #{site.auther}
+          p.p-0 Site published by MarkDown Builder
 
     block includes_foot
       include ../includes/_includes_foot.pug

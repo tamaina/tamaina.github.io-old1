@@ -7,7 +7,7 @@
   let main_html
   function md_better(body){
     body = body.replace(/<h([2-6]) (.*?)>/g,"<h$1 class='pt-5' $2>")
-    body = body.replace(/<a href=\"https?:\/\/(.*?)\">/g,"<a href=\"\/\/$2\" target='_blank' rel='noopener'>")
+    body = body.replace(/<a href=\"https?:\/\/(.*?)\">/g,"<a href=\"\/\/$1\" target='_blank' rel='noopener'>")
     return body
   }
 
