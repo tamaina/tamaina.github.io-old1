@@ -4,8 +4,6 @@ description: 難しいことはありません。jekyllと同じだし。
 layout: article
 ---
 
-# 文書の書き方
-
 MarkdownかPugで書くことができます。難しいことはありません。難しいことを極力しないように作ったのですから。
 
 Markdownに関して言えば、扱い方は**jekyllと全く同じ**と言っていいでしょう。

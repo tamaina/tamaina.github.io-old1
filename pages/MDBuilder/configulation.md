@@ -4,8 +4,6 @@ description: 設定ファイルは基本だよね。
 layout: article
 ---
 
-# default.jsonの書き方
-
 `./config/default.json`にあります。
 
 ~~~json

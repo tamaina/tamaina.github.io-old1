@@ -283,10 +283,12 @@ function register_pages(){
 
         if( page.attributes.title === undefined || page.attributes.title === null ) page.attributes.title = page.srcname
         if( page.attributes.description === undefined || page.attributes.description === null ) page.attributes.description = site.description
-        if( page.attributes.date === undefined || page.attributes.date === null ) page.attributes.date = page.stats.birthtime
+        if( page.attributes.date )  page.stats.mtime = page.attributes.date
+        if( page.attributes.birthtime ) page.stats.birthtime = page.attributes.birthtime
+        if( page.attributes.mtime ) page.stats.mtime = page.attributes.mtime
         if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
             if( site.page_namingrule == "birthtime" ) {
-                let birthtime = new Date(page.attributes.date)
+                let birthtime = new Date(page.stats.birthtime)
                 if(subdir) page.attributes.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
                 else page.attributes.permalink = `/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
             } else if( site.page_namingrule == "name" ) {
@@ -303,6 +305,14 @@ function register_pages(){
         if( page.attributes.layout === undefined || page.attributes.layout == null ) page.attributes.layout = "default"
         if( page.attributes.published === undefined || page.attributes.published == null ) page.attributes.published = "true"
         if( page.attributes.permalink.indexOf("/") != 0 ) page.attributes.permalink = "/" + page.attributes.permalink
+        if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(" ")
+        if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(" ")
+        if( typeof page.attributes.tag === 'string' )
+            page.attributes.tags = page.attributes.tag.split(" ")
+            delete page.attributes.tag
+        if( typeof page.attributes.category === 'string' )
+            page.attributes.categories = page.attributes.category.split(" ")
+            delete page.attributes.category
         pages.push(page)
     }
     return pages

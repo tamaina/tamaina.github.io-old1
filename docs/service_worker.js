@@ -1,9 +1,20 @@
-var version = '0.1.5';
+var version = '0.1.7';
 var cachepages = [
     `info.json`,
     "./",
     "assets/main.min.js",
-    "assets/style.min.css"
+    "assets/style.min.css",
+    "assets/fonts/GenShinGothic-Light.woff2",
+    "assets/fonts/GenShinGothic-Medium.woff2",
+    "assets/fonts/GenShinGothic-Heavy.woff2",
+    "files/fonts/mgenplus-p-light.woff2",
+    "files/fonts/mgenplus-p-medium.woff2",
+    "files/fonts/mgenplus-p-heavy.woff2",
+    "files/fonts/mgenplus-c-light.woff2",
+    "files/fonts/mgenplus-c-medium.woff2",
+    "files/fonts/mgenplus-c-heavy.woff2",
+    "files/fonts/mgenplus-mn-medium.woff2",
+    "files/fonts/mgenplus-mn-bold.woff2"
 ];
 this.addEventListener('install', function(event) {
   event.waitUntil(

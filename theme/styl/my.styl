@@ -2,7 +2,7 @@ html
 body
   line-height: 1.6em
   font-family: mgenplus-c-w, GenShinGothic-w, sans-serif
-  font-display: fallback
+  word-break: break-word
 
 h1
 h2
@@ -16,3 +16,31 @@ h6
 pre
 code
   font-family: mgenplus-mn-w, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important
+
+.card .card-footer
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+
+.navbar-brand
+  font-weight: 700
+
+#navbar_items
+  .nav-link
+    width: max-content
+    word-break: keep-all
+
+nav
+  overflow: auto
+
+.navbar-brand
+  img
+    filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff)
+  .navbar-brand-text
+    display: inline-block
+    margin: 1px 0 0 5px
+
+#main_header
+  background-size: cover
+  text-shadow: 0 0 1px #212121,0 0 2px #212121

@@ -1,10 +1,8 @@
 ---
 title: About MDBuilder
 description: 静的サイトビルダー MarkDown Builderについて
-layout: default
-permalink:
+layout: article
 ---
-# About MDBuilder
 
 オレオレ静的サイトビルダーです。
 

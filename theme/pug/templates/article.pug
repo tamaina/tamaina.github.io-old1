@@ -1,7 +1,10 @@
 extends ../templates/default.pug
 
 block main
-  #main.container.py-4
+  #main.container.py-5
     - let mtime = new Date(page.stats.mtime)
-    p 更新: #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日
+    h1= page.attributes.title
+    p.mb-4
+      +fa("clock-o")
+      | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{mtime.getHours()}:#{mtime.getMinutes()}
     != main_html

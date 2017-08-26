@@ -84,10 +84,26 @@ html(lang=site.locale)
         != main_html
 
     block footer
-      .py-3.bg-light
+      if( site.disqus )
+        .container.py-5#disqus_wrap
+          #disqus_thread
+          | <script>
+          |   var disqus_config = function () {
+          |     this.page.url = "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
+          |     this.page.identifier = "#{page.attributes.permalink}";
+          |   };
+          |   (function() { // DON'T EDIT BELOW THIS LINE
+          |     var d = document, s = d.createElement('script');
+          |     s.src = 'https://#{site.disqus}.disqus.com/embed.js';
+          |     s.setAttribute('data-timestamp', +new Date());
+          |     (d.head || d.body).appendChild(s);
+          |   })();
+          | </script>
+
+      #footer_wrap.py-3.bg-light
         footer.container
           p Copyright: #{site.auther}
-          p.p-0 Site published by MarkDown Builder
+          p.m-0 Site published by MarkDown Builder
 
     block includes_foot
       include ../includes/_includes_foot.pug

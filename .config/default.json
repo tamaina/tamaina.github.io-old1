@@ -139,5 +139,6 @@
     "manifest": {
         "start_url": "./",
         "display": "standalone"
-    }
+    },
+    "disqus": "tminxyz"
 }

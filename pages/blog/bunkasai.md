@@ -2,11 +2,9 @@
 title: 各高校の文化祭のWebサイトまとめ
 description: 気になってまとめてしまった。
 layout: blog
+category: 学校
+tag: 文化祭
 ---
-
-# 各高校の文化祭のWebサイトまとめ
-
-気になってまとめてしまった。
 
 ## まとめと感想
 
@@ -73,7 +71,7 @@ JsRenderは、RiotやReact,Polymarの仲間。だけれど、日本だと人気�
 
 #### 聖光学院中学校・高等学校 : 聖光祭
 [**聖光祭公式サイト** http://seikofesta.official.jp](http://seikofesta.official.jp)  
-[**聖光祭58th -公式アプリ-** AppStoreでダウンロード] (https://itunes.apple.com/us/app/%E8%81%96%E5%85%89%E7%A5%AD58th-%E5%85%AC%E5%BC%8F%E3%82%A2%E3%83%97%E3%83%AA/id1227008252) 
+[**聖光祭58th 公式アプリ** AppStoreでダウンロード](https://itunes.apple.com/us/app/%E8%81%96%E5%85%89%E7%A5%AD58th-%E5%85%AC%E5%BC%8F%E3%82%A2%E3%83%97%E3%83%AA/id1227008252) 
 
 **すっごーい！**
 え？なにこれ？力の入れ方すごくない？どんな暇人が作ったらこうなるの？？？？  

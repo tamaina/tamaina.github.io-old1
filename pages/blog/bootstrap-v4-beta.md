@@ -2,8 +2,9 @@
 title: bootstrap v4について
 description: いよいよbetaになりました。
 layout: blog
+category: WEB
+tag: bootstrap
 ---
-# bootstrap v4について
 
 長い年月をかけて、bootstrap v4がいよいよbetaになりました。
 
