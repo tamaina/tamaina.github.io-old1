@@ -6,5 +6,5 @@ block main
     h1= page.attributes.title
     p.mb-4
       +fa("clock-o")
-      | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{mtime.getHours()}:#{mtime.getMinutes()}
+      | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
     != main_html

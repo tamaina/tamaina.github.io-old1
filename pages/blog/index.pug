@@ -26,7 +26,7 @@ h2.text-center 記事一覧
           .card-footer
             p.mb-1
               +fa("clock-o")
-              | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{mtime.getHours()}:#{mtime.getMinutes()}
+              | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
             p.mb-0
               +fa("folder-open")
               if(page.attributes.categories)

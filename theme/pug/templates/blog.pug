@@ -13,10 +13,10 @@ block main
     #main_header(style= bg).py-5.text-light
       .container
         - let mtime = new Date(page.stats.mtime)
-        h1= page.attributes.title
+        h1.mt-5= page.attributes.title
         p.mb-1
           +fa("clock-o")
-          | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{mtime.getHours()}:#{mtime.getMinutes()}
+          | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
         p
           +fa("folder-open")
           if(page.attributes.categories)
@@ -33,7 +33,7 @@ block main
               |  
           else
             | なし
-        p.mb-4= page.attributes.discription
+        p= page.attributes.description
 
-    .container
+    .container.pt-3
       != main_html
