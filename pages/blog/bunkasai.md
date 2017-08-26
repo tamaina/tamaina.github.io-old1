@@ -172,8 +172,11 @@ VRを意欲的に取り入れています。
 
 未開墾地
 
-**サーバー: ConoHa**  ※製作者の方から教えていただきました。
-CloudFlare ※CloudFlareを利用しています。
+**サーバー: ConoHa**  ※製作者の方から教えていただきました。  
+※直接教えてもらうまでわかりませんでした。CloudFlareを利用しているからです。
+
+
+
 
 
 ### KANSAI
@@ -218,6 +221,15 @@ HTMLが**pug**なわりに、インストールやビルドには**yarn**を利�
 
 
 
+### KYUSHU
+
+#### 学校法人久留米大学附設高校 : 男く祭
+[**男く祭公式ホームページ** http://otokokusai.info/](http://otokokusai.info/)
+さわらびが効いてる。
+色使いが古いのと、スペーシングが(気に入らないのと、個人的にはさわらびが嫌い。
+しかしなにより、**HTML5の仕様書をきちんと理解し、マークアップを適切にしています。**
+
+**サーバー: 不明** IPひろばでDIXって出たけどDIX自体は提供してなくてこれなに
 
 
 
@@ -275,6 +287,12 @@ Google SitesやJimdo、WordPressの既存テーマで作られたサイトです
 
 
 
+#### 埼玉県立浦和第一女子高校 : 一女祭
+[**一女祭 2017** https://ichijo-fes-2017.wixsite.com/have-a-nice-torip]
+
+**サービス: Wix**
+
+
 
 
 
@@ -302,13 +320,18 @@ Google SitesやJimdo、WordPressの既存テーマで作られたサイトです
 
 
 ## そこまで？
-
-
-
-
-
-
 **ハッキリ言って… まだキミはダサい！**(Splatoon チュートリアルから引用)
+
+
+
+
+
+
+
+
+
+
+
 
 #### 埼玉県立川越高校 : くすのき祭
 [**埼玉県立川越高校 くすのき祭** http://kusunoki-fes.com/](http://kusunoki-fes.com/index.html)
@@ -320,6 +343,14 @@ Google SitesやJimdo、WordPressの既存テーマで作られたサイトです
 てかあったわ、**誰でも参加できるフォークダンス的なの。**
 
 **サーバー： XSERVER**
+
+
+
+
+
+
+
+
 
 
 ####  立教新座中学校・高等学校 : St.Paul's Festival
@@ -334,6 +365,21 @@ Google SitesやJimdo、WordPressの既存テーマで作られたサイトです
 **サーバー: niiza.ac.jp[立教大学 JNIC]**
 JNICのIPが割り当てられてるんだけど、ナニコレ？  
 大学のサーバーは特殊なので深入りはしないようにしましょうか。
+
+
+
+
+
+#### 東大寺学園 : 菁々祭
+[**東大寺学園 菁々祭公式サイト** http://tdjschoolfes.sakura.ne.jp/](http://tdjschoolfes.sakura.ne.jp/)
+
+うーん、いや、なんかほらね？
+
+**サーバー: さくらのレンタルサーバー**
+
+
+
+
 
 
 ## 時代を超えて……

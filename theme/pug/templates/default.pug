@@ -90,7 +90,7 @@ html(lang=site.locale)
           | <script>
           |   var disqus_config = function () {
           |     this.page.url = "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
-          |     this.page.identifier = "#{page.attributes.permalink}";
+          |     this.page.identifier = "#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
           |   };
           |   if (window.DISQUS) {
           |     DISQUS.reset({
