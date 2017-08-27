@@ -1,0 +1,53 @@
+#head {
+  position: relative
+  height: 70vh
+  min-height: 20rem
+  width: 100%
+  padding-top: auto
+}
+#headgo
+  position: absolute
+  top:0
+  left: 0
+  right: 0
+  bottom: 0
+  height: 70vh
+  min-height: 20rem
+  width: 100%
+  display: flex
+  z-index: 10
+
+#headwrp
+  width: 100%
+  margin: auto
+  color: #f0f0f0
+  text-shadow: 0 0 4px #212121,0 0 3px #212121,0 0 3px #212121,0 0 3px #212121,0 0 2px rgba(255,255,255,0.2),0 0 1px #212121
+  z-index: 11
+
+  .btn
+    text-shadow: none
+    white-space: initial
+
+#headimgwrp
+  position: relative
+  height: 70vh
+  min-height: 20rem
+  overflow: hidden
+  z-index: 5
+
+  div
+    display: block
+    position: absolute
+    background-size: cover
+    height: 70vh
+    min-height: 20rem
+    width: 100%
+    animation: i_scroll 22s linear infinite alternate
+    z-index: 6
+
+#headimg0
+  display: block !important
+
+@keyframes i_scroll
+  0% {background-position: left bottom}
+  100% {background-position: right top}

@@ -6,40 +6,42 @@ description: 何か書いていきます。
 mixin fa( $icon )
   i(class=`fa fa-${$icon} fa-fw`, aria-hidden="true")
 
-h1.pt-4.pb-2 ブログ
+.container
 
-h2.text-center 記事一覧
+  h1.pt-4.pb-2 ブログ
 
-.d-flex.flex-row.row
-  - pages.sort(function(a,b) {
-  -   if( a.stats.mtime < b.stats.mtime ) { return 1 } else { return -1 }
-  - });
-  each page in pages
-    if ( page.attributes.permalink.indexOf("/blog/") == 0 && page.attributes.permalink.indexOf("/blog/index") == -1 )
-      a(href=`${site.url.path}${page.attributes.permalink}`).col-xl-4.col-md-6.p-2
-        .card.w-100.h-100.border-dark.pb-5
-          if ( page.attributes.thumbnail )
-            img.card-img-top(alt="サムネイル", src=`${site.url.path}${page.attributes.thumbnail}`)
-          h4.card-title.blog-title.my-4.px-3 #{page.attributes.title}
-          p.card-text.mb-5.px-3 #{page.attributes.description}
-          - let mtime = new Date(page.stats.mtime)
-          .card-footer
-            p.mb-1
-              +fa("clock-o")
-              | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
-            p.mb-0
-              +fa("folder-open")
-              if(page.attributes.categories)
-                each category in page.attributes.categories
-                  span.badge.badge-success= category
-                  |  
-              else
-                | なし
-              | &emsp;
-              +fa("tags")
-              if(page.attributes.tags)
-                each tag in page.attributes.tags
-                  span.badge.badge-secondary= tag
-                  |  
-              else
-                | なし
+  h2.text-center 記事一覧
+
+  .d-flex.flex-row.row
+    - pages.sort(function(a,b) {
+    -   if( a.stats.mtime < b.stats.mtime ) { return 1 } else { return -1 }
+    - });
+    each page in pages
+      if ( page.attributes.permalink.indexOf("/blog/") == 0 && page.attributes.permalink.indexOf("/blog/index") == -1 )
+        a(href=`${site.url.path}${page.attributes.permalink}`).col-xl-4.col-md-6.p-2
+          .card.w-100.h-100.border-dark.pb-5
+            if ( page.attributes.thumbnail )
+              img.card-img-top(alt="サムネイル", src=`${site.url.path}${page.attributes.thumbnail}`)
+            h4.card-title.blog-title.my-4.px-3 #{page.attributes.title}
+            p.card-text.mb-5.px-3 #{page.attributes.description}
+            - let mtime = new Date(page.stats.mtime)
+            .card-footer
+              p.mb-1
+                +fa("clock-o")
+                | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
+              p.mb-0
+                +fa("folder-open")
+                if(page.attributes.categories)
+                  each category in page.attributes.categories
+                    span.badge.badge-success= category
+                    |  
+                else
+                  | なし
+                | &emsp;
+                +fa("tags")
+                if(page.attributes.tags)
+                  each tag in page.attributes.tags
+                    span.badge.badge-secondary= tag
+                    |  
+                else
+                  | なし
