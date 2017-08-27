@@ -12,9 +12,7 @@ var cachepages = [
     "files/fonts/mgenplus-p-heavy.woff2",
     "files/fonts/mgenplus-c-light.woff2",
     "files/fonts/mgenplus-c-medium.woff2",
-    "files/fonts/mgenplus-c-heavy.woff2",
-    "files/fonts/mgenplus-mn-medium.woff2",
-    "files/fonts/mgenplus-mn-bold.woff2"
+    "files/fonts/mgenplus-c-heavy.woff2"
 ];
 this.addEventListener('install', function(event) {
   event.waitUntil(
