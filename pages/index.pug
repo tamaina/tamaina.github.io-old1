@@ -7,6 +7,10 @@ layout: index
 mixin fa( $icon )
   i(class=`fa fa-${$icon} fa-fw`, aria-hidden="true")
 
+mixin social_circle( $url, $fa, $title )
+  a(href=$url, target='_blank', rel='noopener', title=$title).rounded-circle.bg-light.text-dark.social-circle.m-2
+    +fa($fa)
+
 #head.text-center
   #headimgwrp
     #headimg0(style=`background-image:url("${site.url.path}/files/top/1st/0.jpeg")`, data-imgnum="0")
@@ -17,23 +21,21 @@ mixin fa( $icon )
 
 #intro.bg-light.text-center.py-5
   .container
-    h2.mb-3 Introduce
-    .d-flex.flex-wrap.flex-lg-row.justify-content-center.align-self-center
-      img(src=`${site.url.path}/files/images/icons/favicon-600x600.png`, width="100", height="100").mx-lg-5.mx-auto.my-3
-      .mx-lg-5.mx-auto.my-3
+    h2.mb-3 Introduction
+    .row
+      .col-lg-4.d-flex.h-100.py-4.px-md-2
+        img(src=`${site.url.path}/files/images/icons/favicon-600x600.png`, width="100", height="100").m-auto
+      .col-lg-8.py-4.px-md-2
         h3.mb-3 aqz = tamaina
         p.mb-2 両方の名前を使います。別にどちらで呼んでもかまいません。
         p.mb-2 Web系をうろついています。
         p 趣味は、鉄道だったり、写真だったり。
-        a(href=`${site.url.path}/blog/about_me`).btn.btn-primary.btn-block 私について
+        a(href=`${site.url.path}/blog/about_me`).btn.btn-primary.btn-block 詳しく知る
 
 #socials.bg-danger.text-center.py-5
   .container.text-light
-    h2 Socials
+    h2 Social Accounts
     .py-3.d-flex.flex-wrap.justify-content-center
-      a(href="https://twitter.com/t_ma1n", target='_blank', rel='noopener', title="twitter @t_ma1n").rounded-circle.bg-light.text-dark.social-circle.m-2
-        +fa("twitter")
-      a(href="https://www.flickr.com/people/150974953@N07/", target='_blank', rel='noopener', title="flickr").rounded-circle.bg-light.text-dark.social-circle.m-2
-        +fa("flickr")
-      a(href="https://github.com/tamaina", target='_blank', rel='noopener', title="github @tamaina").rounded-circle.bg-light.text-dark.social-circle.m-2
-        +fa("github")
+      +social_circle( "https://twitter.com/t_ma1n", "twitter", "twitter @t_ma1n" )
+      +social_circle( "https://www.flickr.com/people/150974953@N07/", "flickr", "flickr" )
+      +social_circle( "https://github.com/tamaina", "github", "github @tamaina" )
