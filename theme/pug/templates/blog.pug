@@ -3,17 +3,63 @@ extends ../templates/default.pug
 
 block main
   - 
-    let bg = ""
+    let main_header_style = ""
     if(page.attributes.thumbnail) {
-      bg = `background-image: url("${site.url.path}${page.attributes.thumbnail}")`
+      main_header_style = `background-image: url("${site.url.path}${page.attributes.thumbnail}");`
     } else {
-      bg = `background-color: #212121`
+      main_header_style = `background-color: #212121;`
     }
+
+    let pagesPast = pages.filter(
+          function(el, i, array){
+            let elem_mtime = new Date(el.stats.mtime)
+            let page_mtime = new Date(page.stats.mtime)
+
+            return ( elem_mtime.getTime() < page_mtime.getTime() && el.attributes.layout == page.attributes.layout )
+          })
+      , pagesFuture = pages.filter(
+          function(el, i, array){
+            let elem_mtime = new Date(el.stats.mtime)
+            let page_mtime = new Date(page.stats.mtime)
+
+            return (elem_mtime.getTime() > page_mtime.getTime() && el.attributes.layout == page.attributes.layout )
+          })
+    
+    let pagePrev_mTime = Math.max.apply(null,pagesPast.map(
+          function(el, index, array){
+            let elem_mdate = new Date(el.stats.mtime) 
+            return elem_mdate.getTime()
+          }
+        ))
+      , pageNext_mTime = Math.min.apply(null,pagesFuture.map(
+          function(el, index, array){
+            let elem_mdate = new Date(el.stats.mtime) 
+            return elem_mdate.getTime()
+          }
+        ))
+
+    let pagesPrev = pagesPast.filter(
+          function(el, i, array){
+            let elem_mtime = new Date(el.stats.mtime)
+
+            return (elem_mtime.getTime() == pagePrev_mTime)
+          }
+        )
+      , pagesNext = pagesFuture.filter(
+          function(el, i, array){
+            let elem_mtime = new Date(el.stats.mtime)
+
+            return (elem_mtime.getTime() == pageNext_mTime)
+          }
+        )
+    let pagePrev = pagesPrev[0],
+        pageNext = pagesNext[0]
+
   #main.pb-5.pt-0
-    #main_header(style= bg).py-5.text-light
+    #main_header(style= main_header_style).text-light
       .container
         - let mtime = new Date(page.stats.mtime)
-        h1.mt-5= page.attributes.title
+        h1#blogheader_top= page.attributes.title
         p.mb-1
           +fa("clock-o")
           | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
@@ -33,7 +79,16 @@ block main
               |  
           else
             | なし
-        p= page.attributes.description
+        p#blogheader_description= page.attributes.description
+        
+      #blogheader_footer.d-flex.flex-wrap
+
+        if(pagePrev)
+          a(href=`${site.url.path}${pagePrev.attributes.permalink}`)#blogheader_prev.py-3.text-light
+            .container 前: #{pagePrev.attributes.title}
+        if(pageNext) 
+          a(href=`${site.url.path}${pageNext.attributes.permalink}`)#blogheader_next.py-3.text-light
+            .container 次: #{pageNext.attributes.title}
 
     .container.pt-3
       != main_html
