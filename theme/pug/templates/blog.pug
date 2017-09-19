@@ -24,19 +24,13 @@ block main
 
             return (elem_mtime.getTime() > page_mtime.getTime() && el.attributes.layout == page.attributes.layout )
           })
-    
-    let pagePrev_mTime = Math.max.apply(null,pagesPast.map(
-          function(el, index, array){
-            let elem_mdate = new Date(el.stats.mtime) 
-            return elem_mdate.getTime()
-          }
-        ))
-      , pageNext_mTime = Math.min.apply(null,pagesFuture.map(
-          function(el, index, array){
-            let elem_mdate = new Date(el.stats.mtime) 
-            return elem_mdate.getTime()
-          }
-        ))
+    function mapping_pages_mtime(el, index, array){
+      let elem_mdate = new Date(el.stats.mtime) 
+      return elem_mdate.getTime()
+    }
+
+    let pagePrev_mTime = Math.max.apply(null,pagesPast.map(mapping_pages_mtime))
+      , pageNext_mTime = Math.min.apply(null,pagesFuture.map(mapping_pages_mtime))
 
     let pagesPrev = pagesPast.filter(
           function(el, i, array){

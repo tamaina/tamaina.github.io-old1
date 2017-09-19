@@ -76,12 +76,14 @@ html(lang=site.locale)
       block js_head
 
   body
-    block nav
-      include ../includes/_nav.pug
 
-    block main
-      #main
-        != main_html
+    block wo_footer
+      block nav
+        include ../includes/_nav.pug
+
+      block main
+        #main
+          != main_html
 
     block footer
       if( site.disqus )
