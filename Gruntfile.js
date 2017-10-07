@@ -256,7 +256,7 @@ function make_config(){
     resultObj = extend(true,resultObj, { "package" : package })
     resultObj = extend(true,resultObj, { "pages" : register_pages() })
     resultObj = extend(true,resultObj, { "manifest" : register_manifest() })
-    grunt.file.write( 'docs/info.json' , JSON.stringify( resultObj ) )
+    grunt.file.write( dests.info , JSON.stringify( resultObj ) )
     info = resultObj
 
     make_browserconfig()
