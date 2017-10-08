@@ -201,10 +201,14 @@ JNICのIPが割り当てられてるんだけど、ナニコレ？<br>大学の�
       config: disqus_config
     });
   } else { (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://tminxyz.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
+      var d = document, s = d.createElement('script');
+      s.src = 'https://tminxyz.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    });
   }
 </script></div><div class="py-3 bg-light" id="footer_wrap"><footer class="container"><p>Copyright: tamaina</p><p class="m-0">Site published by MarkDown Builder</p></footer></div><script src="/docs/assets/main.min.js"></script><script src="/docs/assets/pjax-api.min.js"></script><script>var Pjax = require('pjax-api').Pjax;new Pjax({  areas: ['#main, #disqus_wrap'], update: { head: 'meta, link' }  });$(document).on('pjax:ready',function(){    hljs.initHighlighting.called = false;    hljs.initHighlighting();    $('#navbarNav').collapse('hide')})</script></body></html>

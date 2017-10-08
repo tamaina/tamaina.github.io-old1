@@ -100,11 +100,15 @@ html(lang=site.locale)
           |       config: disqus_config
           |     });
           |   } else { (function() {
-          |     var d = document, s = d.createElement('script');
-          |     s.src = 'https://#{site.disqus}.disqus.com/embed.js';
-          |     s.setAttribute('data-timestamp', +new Date());
-          |     (d.head || d.body).appendChild(s);
-          |   })();
+          |       var d = document, s = d.createElement('script');
+          |       s.src = 'https://#{site.disqus}.disqus.com/embed.js';
+          |       s.setAttribute('data-timestamp', +new Date());
+          |       (d.head || d.body).appendChild(s);
+          |     })();
+          |     DISQUS.reset({
+          |       reload: true,
+          |       config: disqus_config
+          |     });
           |   }
           | </script>
 
