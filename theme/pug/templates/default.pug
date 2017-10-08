@@ -75,6 +75,16 @@ html(lang=site.locale)
       
       block js_head
 
+      block ga
+        | <script async src="https://www.googletagmanager.com/gtag/js?id=#{site.ga}"></script>
+        | <script>
+        |   window.dataLayer = window.dataLayer || [];
+        |   function gtag(){dataLayer.push(arguments);}
+        |   gtag('js', new Date());
+        |   gtag('config', '#{site.ga}', { 'send_page_view': false });
+        |   
+        | </script>
+
   body
 
     block wo_footer
@@ -87,30 +97,27 @@ html(lang=site.locale)
 
     block footer
       if( site.disqus )
-        .container.py-5#disqus_wrap
-          #disqus_thread
-          | <script>
-          |   var disqus_config = function () {
-          |     this.page.url = "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
-          |     this.page.identifier = "#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
-          |   };
-          |   if (window.DISQUS) {
-          |     DISQUS.reset({
-          |       reload: true,
-          |       config: disqus_config
-          |     });
-          |   } else { (function() {
-          |       var d = document, s = d.createElement('script');
-          |       s.src = 'https://#{site.disqus}.disqus.com/embed.js';
-          |       s.setAttribute('data-timestamp', +new Date());
-          |       (d.head || d.body).appendChild(s);
-          |     })();
-          |     DISQUS.reset({
-          |       reload: true,
-          |       config: disqus_config
-          |     });
-          |   }
-          | </script>
+        .container.py-5
+          #disqus_wrap
+            #disqus_thread
+            | <script>
+            |   var disqus_config = function () {
+            |     this.page.url = "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
+            |     this.page.identifier = "#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
+            |   };
+            |   $(document).on('pjax:ready',function(){
+            |     DISQUS.reset({
+            |       reload: true,
+            |       config: disqus_config
+            |     });
+            |   });
+            |   (function(){
+            |     var d = document, s = d.createElement('script');
+            |     s.src = 'https://#{site.disqus}.disqus.com/embed.js';
+            |     s.setAttribute('data-timestamp', +new Date());
+            |     (d.head || d.body).appendChild(s);
+            |   })();
+            | </script>
 
       #footer_wrap.py-3.bg-light
         footer.container

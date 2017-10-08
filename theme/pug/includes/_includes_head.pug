@@ -2,3 +2,8 @@ link(rel="manifest" href=`${site.url.path}/manifest.json`)
 
 link(href=`${site.url.path}/assets/style.min.css`, rel="stylesheet")
 link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet")
+
+script(src=`${site.url.path}/assets/main.min.js` async defer)
+script(src=`${site.url.path}/assets/pjax-api.min.js` async defer)
+script
+  include:oneline ../../js/pjax_init.js
