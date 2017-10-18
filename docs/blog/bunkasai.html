@@ -197,10 +197,6 @@ JNICのIPが割り当てられてるんだけど、ナニコレ？<br>大学の�
     this.page.url = "https://tmin.xyz/docs/blog/bunkasai";
     this.page.identifier = "tmin.xyz/docs/blog/bunkasai";
   };
-  DISQUS.reset({
-    reload: true,
-    config: disqus_config
-  });
   $(document).on('pjax:ready',function(){
     DISQUS.reset({
       reload: true,

@@ -59,10 +59,6 @@ p docs/info.jsonの内容を全て参照できます。記事一覧を作った�
     this.page.url = "https://tmin.xyz/docs/MDBuilder/howtowrite";
     this.page.identifier = "tmin.xyz/docs/MDBuilder/howtowrite";
   };
-  DISQUS.reset({
-    reload: true,
-    config: disqus_config
-  });
   $(document).on('pjax:ready',function(){
     DISQUS.reset({
       reload: true,

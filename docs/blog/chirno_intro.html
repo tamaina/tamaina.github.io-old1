@@ -25,10 +25,6 @@
     this.page.url = "https://tmin.xyz/docs/blog/chirno_intro";
     this.page.identifier = "tmin.xyz/docs/blog/chirno_intro";
   };
-  DISQUS.reset({
-    reload: true,
-    config: disqus_config
-  });
   $(document).on('pjax:ready',function(){
     DISQUS.reset({
       reload: true,

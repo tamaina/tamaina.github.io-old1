@@ -98,10 +98,6 @@ html(lang=site.locale)
             |     this.page.url = "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
             |     this.page.identifier = "#{site.url.host}#{site.url.path}#{page.attributes.permalink}";
             |   };
-            |   DISQUS.reset({
-            |     reload: true,
-            |     config: disqus_config
-            |   });
             |   $(document).on('pjax:ready',function(){
             |     DISQUS.reset({
             |       reload: true,

@@ -97,10 +97,6 @@
     this.page.url = "https://tmin.xyz/docs/blog/about_me";
     this.page.identifier = "tmin.xyz/docs/blog/about_me";
   };
-  DISQUS.reset({
-    reload: true,
-    config: disqus_config
-  });
   $(document).on('pjax:ready',function(){
     DISQUS.reset({
       reload: true,

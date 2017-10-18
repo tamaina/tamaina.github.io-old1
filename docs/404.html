@@ -9,10 +9,6 @@
     this.page.url = "https://tmin.xyz/docs/404";
     this.page.identifier = "tmin.xyz/docs/404";
   };
-  DISQUS.reset({
-    reload: true,
-    config: disqus_config
-  });
   $(document).on('pjax:ready',function(){
     DISQUS.reset({
       reload: true,

@@ -114,10 +114,6 @@ npm install
     this.page.url = "https://tmin.xyz/docs/MDBuilder/index";
     this.page.identifier = "tmin.xyz/docs/MDBuilder/index";
   };
-  DISQUS.reset({
-    reload: true,
-    config: disqus_config
-  });
   $(document).on('pjax:ready',function(){
     DISQUS.reset({
       reload: true,
