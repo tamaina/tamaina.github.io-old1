@@ -1,8 +1,7 @@
-window.jQuery = $ = require('jquery')
-hljs = require('highlight.js')
-Popper = ("popper.js")
-info = require("../../docs/info")
-require("../../node_modules/bootstrap/dist/js/bootstrap.js")
-require("./sw_register")
-require("./scripts_init")
-require("./index_header")
+window.jQuery = $ = require('jquery');
+hljs = require('highlight.js');
+Popper = ("popper.js");
+require("../../node_modules/chirno/dist/js/bootstrap.js");
+require("./scripts_init");
+require("./index_header");
+require("./brand_showhide");

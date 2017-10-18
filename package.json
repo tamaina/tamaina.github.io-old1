@@ -1,6 +1,6 @@
 {
   "name": "tmin.xyz",
-  "version": "0.6.0",
+  "version": "0.8.0f",
   "description": "tmin.xyz",
   "main": "docs/index.html",
   "scripts": {
@@ -17,10 +17,10 @@
   },
   "homepage": "https://tmin.xyz",
   "devDependencies": {
-    "bootstrap": "^4.0.0-beta",
     "browserify": "^14.1.0",
     "browserify-shim": "^3.8.14",
     "chalk": "^2.1.0",
+    "chirno": "^4.0.0-beta-chirno17033",
     "electron": "^1.6.8",
     "extend": "^3.0.1",
     "fontmin": "^0.9.6",

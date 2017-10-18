@@ -22,11 +22,11 @@ mixin fa( $icon )
         a(href=`${site.url.path}${page.attributes.permalink}`).col-xl-4.col-md-6.p-2
           .card.w-100.h-100.border-dark.pb-5
             if ( page.attributes.thumbnail )
-              img.card-img-top(alt="サムネイル", src=`${site.url.path}${page.attributes.thumbnail}`)
-            h4.card-title.blog-title.my-4.px-3 #{page.attributes.title}
-            p.card-text.mb-5.px-3 #{page.attributes.description}
+              img.card-img-top.blog-indexthumb.bg-dark(alt="サムネイル", src=`${site.url.path}${page.attributes.thumbnail}`)
+            h4.card-title.blog-title.my-md-4.mb-2.mt-3.px-3 #{page.attributes.title}
+            p.card-text.mb-md-5.mb-4.px-3 #{page.attributes.description}
             - let mtime = new Date(page.stats.mtime)
-            .card-footer
+            .card-footer.py-md-2.py-1
               p.mb-1
                 +fa("clock-o")
                 | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}

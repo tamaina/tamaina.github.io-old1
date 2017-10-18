@@ -1,3 +1,5 @@
+window.jQuery = $ = require('jquery');
+
 headwriter_flag = false;
 
 function top_img_chg(){
@@ -10,7 +12,7 @@ function top_img_chg(){
 }
 function register_imgs(){
     for(var i = 1; i < 36; i++){
-        $("#headimgwrp").append("<div style='background-image:url(\"" + info.site.url.path+ "/files/top/1st/" + i + ".jpeg\")' alt='' id='headimg" + i + "' data-imgnum='" + i + "'></div>");
+        $("#headimgwrp").append("<div style='background-image:url(\"../files/top/1st/" + i + ".jpeg\")' alt='' id='headimg" + i + "' data-imgnum='" + i + "'></div>");
         $("#headimg" + i ).css('display', 'none');
     }
 }
@@ -26,4 +28,4 @@ $(document).on('pjax:ready',function(){
     if( !headwriter_flag ){
         setTimeout(top_img_chg,17500);
     }
-})
+});

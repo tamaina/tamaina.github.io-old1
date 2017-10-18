@@ -146,11 +146,11 @@ module.exports = function(grunt){
             },
             copy_static: {
                 files: [src.static],
-                tasks: ['debug_override','copy:static']
+                tasks: ['debug_override','copy:main']
             },
             copy_files: {
                 files: [src.files],
-                tasks: ['debug_override','copy:files']
+                tasks: ['debug_override','copy:main']
             }
         },
         connect: {
