@@ -76,7 +76,7 @@ p docs/info.jsonの内容を全て参照できます。記事一覧を作った�
     (d.head || d.body).appendChild(s);
   })();
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('https://tmin.xyz{site.url.path}/service_worker.js').then(function(registration) {
+    navigator.serviceWorker.register('https://tmin.xyz/docs/service_worker.js').then(function(registration) {
       console.log('Service Workerは正常に登録されました: ', registration.scope);
     }).catch(function(err) {
       console.log('Service Workerを登録できませんでした: ', err);

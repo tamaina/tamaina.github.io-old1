@@ -214,7 +214,7 @@ JNICのIPが割り当てられてるんだけど、ナニコレ？<br>大学の�
     (d.head || d.body).appendChild(s);
   })();
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('https://tmin.xyz{site.url.path}/service_worker.js').then(function(registration) {
+    navigator.serviceWorker.register('https://tmin.xyz/docs/service_worker.js').then(function(registration) {
       console.log('Service Workerは正常に登録されました: ', registration.scope);
     }).catch(function(err) {
       console.log('Service Workerを登録できませんでした: ', err);
