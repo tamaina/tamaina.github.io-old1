@@ -1,4 +1,30 @@
-//- pug mixinz
+//- pug mixins
 
 mixin fa( $icon )
   i(class=`fa fa-${$icon} fa-fw`, aria-hidden="true")
+
+mixin toc( headings, n, tag, cl )
+  -
+    let lv = function(a, b, ht){
+      let r = a - b
+      for(let j=0; r > j; j++){
+        o += ht
+      }
+    }
+    let o = `<${tag} class="${cl}">`
+    for(let i = 0; headings.length > i; i++){
+      let now = headings[i], prev
+      if (now.number < n)
+        continue
+      if (i == 0)
+        prev = {number: n}
+      else
+        prev = headings[i - 1]
+      if ( i == 0 || now.number > prev.number )
+        lv(now.number, prev.number, `<${tag} class="${cl}">`)
+      else if ( now.number < prev.number )
+        lv(prev.number, now.number, `</${tag}>`)
+      o += `<li><a href="#${now.id}">${now.text}</a></li>`
+    }
+    o += `</${tag}>`
+  != o
