@@ -6,8 +6,14 @@
   const kramed = require("kramed")
   let main_html
   function md_better(body){
-    body = body.replace(/<h([2-6])(.*?)>/g,"<h$1 class='pt-5'$2>")
-    body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/g,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class='fa fa-external-link fa-fw' aria-hidden='true'></i><\/a>")
+    // headingにpt-5を指定
+    body = body.replace(/<h([2-6])(.*?)>/gi,"<h$1 class=\"pt-5\"$2>")
+
+    // httpsのつくa要素に
+    body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/gi,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class='fa fa-external-link fa-fw' aria-hidden='true'></i><\/a>")
+
+    // "/"から始まる画像srcはその前にsite.url.pathを付加、およびimg-fluid付加
+    body = body.replace(/<img(.*?)src=\"\/(.*?)\"(.*?)>/gi,"<img$1src=\"" + site.url.path + "\/$2\"$3 class=\"img-fluid\">")
     return body
   }
 

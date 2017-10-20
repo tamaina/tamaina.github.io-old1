@@ -6,7 +6,7 @@ category: WEB
 tag: bootstrap
 ---
 
-[Bootstrap Chirno サイトはこちら](https://chirno.tmin.xyz/)
+[![イメージ](/files/blog/chirno/scnsht_001.png)Bootstrap Chirno](https://chirno.tmin.xyz/)
 
 ## もしかして: Cirno
 
