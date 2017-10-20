@@ -50,39 +50,39 @@ block main
         pageNext = pagesNext[0]
 
   #main.pb-5.pt-0
-    #main_header(style= main_header_style).text-light
-      .container
-        - let mtime = new Date(page.stats.mtime)
-        h1#blogheader_top= page.attributes.title
-        p.mb-1
-          +fa("clock-o")
-          | #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
-        p
-          +fa("folder-open")
-          if(page.attributes.categories)
-            each category in page.attributes.categories
-              span.badge.badge-success= category
-              |  
-          else
-            | なし
-          | &emsp;
-          +fa("tags")
-          if(page.attributes.tags)
-            each tag in page.attributes.tags
-              span.badge.badge-secondary= tag
-              |  
-          else
-            | なし
-        p#blogheader_description= page.attributes.description
-        
-      #blogheader_footer.d-flex.flex-wrap
+    article
+      header#main_header(style= main_header_style).text-light
+        .container
+          - let mtime = new Date(page.stats.mtime)
+          h1#blogheader_top= page.attributes.title
+          p.mb-1
+            +fa("clock-o")
+            time(datetime=page.stats.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
+          p
+            +fa("folder-open")
+            if(page.attributes.categories)
+              each category in page.attributes.categories
+                span.badge.badge-success= category
+                |  
+            else
+              | なし
+            | &emsp;
+            +fa("tags")
+            if(page.attributes.tags)
+              each tag in page.attributes.tags
+                span.badge.badge-secondary= tag
+                |  
+            else
+              | なし
+          p#blogheader_description= page.attributes.description
+          
+        #blogheader_footer.d-flex.flex-wrap
 
-        if(pagePrev)
-          a(href=`${site.url.path}${pagePrev.attributes.permalink}`)#blogheader_prev.py-3.text-light
-            .container 前: #{pagePrev.attributes.title}
-        if(pageNext) 
-          a(href=`${site.url.path}${pageNext.attributes.permalink}`)#blogheader_next.py-3.text-light
-            .container 次: #{pageNext.attributes.title}
-
-    .container.pt-3
-      != main_html
+          if(pagePrev)
+            a(href=`${site.url.path}${pagePrev.attributes.permalink}`)#blogheader_prev.py-3.text-light
+              .container 前: #{pagePrev.attributes.title}
+          if(pageNext) 
+            a(href=`${site.url.path}${pageNext.attributes.permalink}`)#blogheader_next.py-3.text-light
+              .container 次: #{pageNext.attributes.title}
+      section.container.pt-3
+        != main_html
