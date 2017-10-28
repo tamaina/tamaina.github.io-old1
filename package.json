@@ -26,7 +26,6 @@
     "fontmin": "^0.9.6",
     "front-matter": "^2.1.2",
     "grunt": "^1.0.1",
-    "grunt-browserify": "^5.0.0",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-connect": "^1.0.2",
@@ -37,6 +36,7 @@
     "grunt-contrib-uglify": "^3.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-fontmin-ex": "^0.2.0",
+    "grunt-webpack": "^3.0.2",
     "highlight.js": "^9.12.0",
     "html-minifier": "^3.5.3",
     "html-to-text": "^3.2.0",
@@ -54,7 +54,8 @@
     "tether": "^1.4.0",
     "ttf2woff2": "^2.0.3",
     "ua-parser-js": "^0.7.12",
-    "uglify-js": "^3.0.0"
+    "uglify-js": "^3.0.0",
+    "webpack": "^3.8.1"
   },
   "dependencies": {}
 }

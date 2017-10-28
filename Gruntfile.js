@@ -16,6 +16,7 @@ let manifest = {}
 let package = require('./package.json')
 let site = require('./.config/default.json')
 let temp_dir = 'theme/pug/temp' // 末尾のスラッシュ不要
+const webpackConfig = require('./webpack.config');
 
 let src = {
    'everypug': ['theme/pug/**/*.pug','./.temp/**/*.pug'],
@@ -87,12 +88,12 @@ module.exports = function(grunt){
                 }
             }
         },
-        browserify: {
-            bundle: {
-                files: {
-                    'docs/assets/main.js' : 'theme/js/main.js'
-                }
-            }
+        webpack: {
+          options: {
+            stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+          },
+          prod: webpackConfig,
+          dev: Object.assign({ watch: true }, webpackConfig)
         },
         uglify: {
             compress: {
@@ -209,7 +210,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-clean')
     grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-contrib-watch')
-    grunt.loadNpmTasks('grunt-browserify')
+    grunt.loadNpmTasks('grunt-webpack')
     grunt.loadNpmTasks('grunt-contrib-uglify')
     grunt.loadNpmTasks('grunt-fontmin-ex')
 
@@ -234,7 +235,7 @@ module.exports = function(grunt){
     grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
 
     // 以下の3種類でデプロイとして供するときは、swも併せて実行すること。
-    grunt.registerTask('build_script', ['browserify', 'uglify'])
+    grunt.registerTask('build_script', ['webpack:prod', 'uglify'])
     grunt.registerTask('build_style', ['stylus', 'cssmin'])
     grunt.registerTask('build_pages', ['before_build', 'pug', 'fontmin'])
 

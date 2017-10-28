@@ -4,13 +4,21 @@
   const pug_api = require("pug")
   const htmlmin = require("html-minifier").minify
   const kramed = require("kramed")
+  const hljs = require('highlight.js')
   let main_html
+
+  kramed.setOptions({
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
+  });
+
   function md_better(body){
     // headingにpt-5を指定
     body = body.replace(/<h([2-6])(.*?)>/gi,"<h$1 class=\"pt-5\"$2>")
 
-    // httpsのつくa要素に
-    body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/gi,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class='fa fa-external-link fa-fw' aria-hidden='true'></i><\/a>")
+    // https?のつくa要素に
+    body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/gi,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class=\"fa fa-external-link fa-fw\" aria-hidden=\"true\"></i><\/a>")
 
     // "/"から始まる画像srcはその前にsite.url.pathを付加、およびimg-fluid付加
     body = body.replace(/<img(.*?)src=\"\/(.*?)\"(.*?)>/gi,"<img$1src=\"" + site.url.path + "\/$2\"$3 class=\"img-fluid\">")
@@ -31,9 +39,18 @@ case page.srcext
       main_html = fn(locals)
 
 -
-  let re = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi,
-      heading_html, headings = []
-  while((heading_html = re.exec(main_html)) !== null){
+  main_html = main_html.replace(/<pre><code>(.*?)<\/code><\/pre>/gi,function(a,b){
+    let result = hljs.highlightAuto(b)
+    return '<pre><code class="hljs ' + result.language + '">' + result.value + '</code></pre>'
+  })
+  main_html = main_html.replace(/<pre><code class="lang-(.*?)">(.*?)<\/code><\/pre>/gi,function(a,b,c){
+    let result = hljs.highlightAuto(c)
+    return '<pre><code class="hljs ' + result.language + '">' + result.value + '</code></pre>'
+  })
+
+-
+  let heading_html, headings = []
+  while((heading_html = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi.exec(main_html)) !== null){
     let heading = {},
         idmatch = []
     idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)

@@ -1,13 +1,12 @@
 extends ../templates/default.pug
 
-
-block main
+block preset
   - 
-    let main_header_style = ""
+    let mainHeaderStyle = ""
     if(page.attributes.thumbnail) {
-      main_header_style = `background-image: url("${site.url.path}${page.attributes.thumbnail}");`
+      mainHeaderStyle = `background-image: url("${site.url.path}${page.attributes.thumbnail}");`
     } else {
-      main_header_style = `background-color: #212121;`
+      mainHeaderStyle = `background-color: #212121;`
     }
 
     let pagesPast = pages.filter(
@@ -46,19 +45,20 @@ block main
             return (elem_mtime.getTime() == pageNext_mTime)
           }
         )
-    let pagePrev = pagesPrev[0],
-        pageNext = pagesNext[0]
+    const pagePrev = pagesPrev[0]
+    const pageNext = pagesNext[0]
 
+block main
   #main.pb-5.pt-0
     article
-      header#main_header(style= main_header_style).text-light
+      header#main_header(style= mainHeaderStyle).text-light
         .container
           - let mtime = new Date(page.stats.mtime)
           h1#blogheader_top= page.attributes.title
-          p.mb-1
+          div.mb-1
             +fa("clock-o")
             time(datetime=page.stats.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
-          p
+          div.mb-3
             +fa("folder-open")
             if(page.attributes.categories)
               each category in page.attributes.categories
@@ -74,15 +74,15 @@ block main
                 |  
             else
               | なし
-          p#blogheader_description= page.attributes.description
+          div.mb-3#blogheader_description= page.attributes.description
           
         #blogheader_footer.d-flex.flex-wrap
-
           if(pagePrev)
             a(href=`${site.url.path}${pagePrev.attributes.permalink}`)#blogheader_prev.py-3.text-light
               .container 前: #{pagePrev.attributes.title}
           if(pageNext) 
             a(href=`${site.url.path}${pageNext.attributes.permalink}`)#blogheader_next.py-3.text-light
               .container 次: #{pageNext.attributes.title}
-      section.container.pt-3
+
+      .container.pt-3
         != main_html
