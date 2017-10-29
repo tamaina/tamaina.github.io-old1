@@ -1,4 +1,4 @@
-var version = '0.11.0';
+var version = '0.12.0';
 var cachepages = [
     `info.json`,
     "./",
