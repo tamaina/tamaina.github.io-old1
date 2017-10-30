@@ -59,7 +59,7 @@ layout: article
         }
     ],
     "manifest": {
-        "start_url": "/",
+        "start_url": "/docs/",
         "display": "standalone"
     }
 }

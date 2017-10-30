@@ -143,7 +143,7 @@ module.exports = function(grunt){
             },
             pages: {
                 files: [src.pages,'theme/pug/**'],
-                tasks: ['debug_override','build_pages']
+                tasks: ['debug_override','before_build','build_pages']
             },
             copy_static: {
                 files: [src.static],
@@ -240,19 +240,9 @@ module.exports = function(grunt){
     grunt.registerTask('build_pages', ['before_build', 'pug', 'fontmin'])
 
 }
-function pugfiles() {
-    register_pages()
-    let out = '{'
-    for (let i = 0; i < pages.length; i++) {
-        let page = pages[i]
-        out += `"docs/${page.attributes.permalink}.html" : "${temp_dir}${page.attributes.permalink.replace( /.\//g , "_" ) }.pug",`
-    }
-    out = out.substr( 0, out.length - 1 ) 
-    out += "}"
-    return JSON.parse(out)
-}
 function make_config(){
-    let resultObj = { options: "" },booksObj = new Array()
+    let resultObj = { options: "" }
+    resultObj.timestamp = (new Date()).toJSON()
     resultObj = extend(true,resultObj, { "site" : site })
     resultObj = extend(true,resultObj, { "package" : package })
     resultObj = extend(true,resultObj, { "pages" : register_pages() })
@@ -265,47 +255,64 @@ function make_config(){
     return info
 }
 
+function getHash(data, a, b, c){
+    const hashv = crypto.createHash(a)
+    hashv.update(data, b)
+    return hashv.digest(c)
+}
+
 function register_pages(){
     pages = []
     grunt.file.recurse('./pages/', process )
     function process(abspath, rootdir, subdir, filename){
         if ( filename == "template.pug" ) return false
         let page = {}
+        page.meta = {}
         if ( !subdir ) subdir = ""
         let file = fs.readFileSync( abspath, 'utf-8' )
         page = extend(true,page,fm(file))
-        page.srcname = filename.slice(0,filename.lastIndexOf("."))
-        page.srcext = filename.substr(filename.lastIndexOf("."))
-        page.subdir = subdir
+        page.meta.srcname = filename.slice(0,filename.lastIndexOf("."))
+        page.meta.srcext = filename.substr(filename.lastIndexOf("."))
+        page.meta.subdir = subdir
         let md5hash = crypto.createHash('md5')
         md5hash.update(file, 'binary')
-        page.md5 = md5hash.digest('hex')
+        page.meta.md5 = getHash(file, 'md5', 'binary', 'hex')
+        page.meta.sha384 = getHash(file, 'sha384', 'binary', 'base64')
         page.stats = fs.statSync( abspath )
 
-        if( page.attributes.title === undefined || page.attributes.title === null ) page.attributes.title = page.srcname
+
+        if( page.attributes.title === undefined || page.attributes.title === null ) page.attributes.title = page.meta.srcname
+
         if( page.attributes.description === undefined || page.attributes.description === null ) page.attributes.description = site.description
-        if( page.attributes.date )  page.stats.mtime = page.attributes.date
-        if( page.attributes.birthtime ) page.stats.birthtime = page.attributes.birthtime
-        if( page.attributes.mtime ) page.stats.mtime = page.attributes.mtime
+
+        if( page.attributes.date )  page.meta.mtime = page.attributes.date
+        else if( page.attributes.mtime ) page.meta.mtime = page.attributes.mtime
+        else page.meta.mtime = page.stats.mtime
+
+        if( page.attributes.birthtime ) page.birthtime = page.attributes.birthtime
+        else page.meta.birthtime = page.stats.birthtime
+
+        page.meta.mtime = (new Date(page.meta.mtime)).toJSON()
+        page.meta.birthtime = (new Date(page.meta.birthtime)).toJSON()
+
         if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
             if( site.page_namingrule == "birthtime" ) {
                 let birthtime = new Date(page.stats.birthtime)
-                if(subdir) page.attributes.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
-                else page.attributes.permalink = `/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
-            } else if( site.page_namingrule == "name" ) {
-                if(subdir) page.attributes.permalink = `/${subdir}/${page.srcname}`
-                else page.attributes.permalink = `/${page.srcname}`
+                if(subdir) page.meta.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
+                else page.meta.permalink = `/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
             } else if( site.page_namingrule == "md5" ) {
-                if(subdir) page.attributes.permalink = `/${subdir}/${page.md5}`
-                else page.attributes.permalink = `/${page.srcname}`
+                if(subdir) page.meta.permalink = `/${subdir}/${page.meta.md5}`
+                else page.meta.permalink = `/${page.meta.srcname}`
             } else {
-                if(subdir) page.attributes.permalink = `/${subdir}/${page.srcname}`
-                else page.attributes.permalink = `/${page.srcname}`
+                if(subdir) page.meta.permalink = `/${subdir}/${page.meta.srcname}`
+                else page.meta.permalink = `/${page.meta.srcname}`
             }
-        }
+        } else { page.meta.permalink = page.attributes.permalink }
         if( page.attributes.layout === undefined || page.attributes.layout == null ) page.attributes.layout = "default"
         if( page.attributes.published === undefined || page.attributes.published == null ) page.attributes.published = "true"
-        if( page.attributes.permalink.indexOf("/") != 0 ) page.attributes.permalink = "/" + page.attributes.permalink
+        if( page.meta.permalink.indexOf("/") != 0 ) page.meta.permalink = "/" + page.meta.permalink
+        page.meta.path = page.meta.permalink
+        if( page.meta.permalink.indexOf("index") == page.meta.permalink.length - 5 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
         if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(" ")
         if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(" ")
         if( typeof page.attributes.tag === 'string' )
@@ -319,6 +326,10 @@ function register_pages(){
     return pages
 }
 
+function temppath(page, temp_dir){
+    return `${temp_dir}/${page.meta.subdir.replace( /\//g , "_" )}_${page.meta.srcname}.pug`
+}
+
 function prepare_pages(){
     for (let i = 0 ; i < pages.length ; i++) {
         let page = pages[i]
@@ -330,8 +341,19 @@ function prepare_pages(){
         outdata += `
 block constnum
   - const page_index_numer = ${i}`
-        grunt.file.write( `${temp_dir}${page.attributes.permalink.replace( /.\//g , "_" )}.pug` , outdata )
+        grunt.file.write( temppath(page, temp_dir) , outdata )
     }
+}
+function pugfiles() {
+    register_pages()
+    let out = '{'
+    for (let i = 0; i < pages.length; i++) {
+        let page = pages[i]
+        out += `"docs/${page.meta.path}.html" : "${temppath(page, temp_dir)}",`
+    }
+    out = out.substr( 0, out.length - 1 ) 
+    out += "}"
+    return JSON.parse(out)
 }
 
 function serviceWokerJses_VerUp(){
@@ -339,7 +361,7 @@ function serviceWokerJses_VerUp(){
         let swi = site.workers[i]
         let swbody = ""
         if(!grunt.file.exists(swi.srcpath)) return false
-        swbody = `var version = '${package.version}';
+        swbody = `var version = 'build-${info.timestamp}';
 ${fs.readFileSync( swi.srcpath, 'utf-8' )}`
         grunt.file.write( `docs/${swi.outname}.js` , swbody )
     }

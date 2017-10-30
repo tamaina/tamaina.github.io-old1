@@ -15,17 +15,17 @@ mixin fa( $icon )
 
   .d-flex.flex-row.row
     - pages.sort(function(a,b) {
-    -   if( a.stats.mtime < b.stats.mtime ) { return 1 } else { return -1 }
+    -   if( a.meta.mtime < b.meta.mtime ) { return 1 } else { return -1 }
     - });
     each page in pages
-      if ( page.attributes.permalink.indexOf("/blog/") == 0 && page.attributes.permalink.indexOf("/blog/index") == -1 )
-        a(href=`${site.url.path}${page.attributes.permalink}`).col-xl-4.col-md-6.p-2
+      if ( page.meta.permalink.indexOf("/blog/") == 0 && page.meta.permalink.indexOf("/blog/index") == -1 )
+        a(href=`${site.url.path}${page.meta.permalink}`).col-xl-4.col-md-6.p-2
           .card.w-100.h-100.border-dark.pb-5
             if ( page.attributes.thumbnail )
               img.card-img-top.blog-indexthumb.bg-dark(alt="サムネイル", src=`${site.url.path}${page.attributes.thumbnail}`)
             h4.card-title.blog-title.my-md-4.mb-2.mt-3.px-3 #{page.attributes.title}
             p.card-text.mb-md-5.mb-4.px-3 #{page.attributes.description}
-            - let mtime = new Date(page.stats.mtime)
+            - let mtime = new Date(page.meta.mtime)
             .card-footer.py-md-2.py-1
               p.mb-1
                 +fa("clock-o")
