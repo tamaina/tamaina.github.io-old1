@@ -10,13 +10,16 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 
 ビルドにはタスク自動化ツールGruntを利用しています。
 
+つまり、大して自分でコードは書いてないです。
+
 [GitHub](https://github.com/tamaina/tamaina.github.io)
 
 ## 説明書
 
-- [default.jsonの書き方](./configulation)
-- [文書の書き方](./howtowrite)
-- [テーマについて](./theme)
+- **[default.jsonの書き方](./configulation)**
+- **[文書の書き方](./howtowrite)**
+- **[ページ情報の使い方](./pages)**
+- **[テーマについて](./theme)**
 
 ## 足りない機能
 
@@ -24,6 +27,9 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 - スタイル指定がほとんどありません。
   * スタイル指定はstylusで指定します。
   * [tmin.xyz](//tmin.xyz)ではbootstrapを利用しているはずです。
+  * scss面倒い……
+- linterが全く整備されていません。
+  * 面倒臭いし。動けばよかろうなのだ。
 
 ## 余分な機能
 
@@ -34,13 +40,17 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 - AMPにその気になれば対応しています。
   * 作るとしたら多分、AMPのforkテーマを作ったほうが早い。
 - 日本語ウェブフォントが標準で適用されています。
-- browserify+uglifyで纏めています。
+- ~browserify+uglify~**webpack**でjavascriptを纏めています。
 
 ## インストール
 
+node.jsをインストールしてください。
+
+**woff2ファイル(日本語Webフォント)を出力する場合はPythonが必要です。**
+
 ```
 npm install -g node-gyp
-npm install -g grunt
+npm install -g grunt-cli
 npm install
 ```
 
@@ -122,6 +132,7 @@ debug_override.jsonの内容がdefault.jsonに上書きされます。
 ├─────    package.json  │
 ├─   package-lock.json  │
 ├────    pugfilters.js  ┘
+├──  webpack.config.js   - webpack設定ファイル。
 ├────────   index.html  ┐  GitHub Pagesのユーザーページがmasterしか参照できない仕様
 │────────     404.html  ┘  のためdocs/にリダイレクトします。
 └────────    readme.md   - サイトと併せてお読みください。

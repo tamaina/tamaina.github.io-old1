@@ -10,9 +10,11 @@ pugfilters.md = function(str) {
 pugfilters.oneline = function(str) {
     return str.replace(/\r?\n/g,"")
 }
+/*
 pugfilters.uglifyjs = function(str) {
     return str.uglifyjs()
 }
 pugfilters.highlight = function(str) {
     return hljs.highlightAuto(str)
 }
+*/

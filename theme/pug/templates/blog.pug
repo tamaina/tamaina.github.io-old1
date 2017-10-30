@@ -78,10 +78,10 @@ block main
           
         #blogheader_footer.d-flex.flex-wrap
           if(pagePrev)
-            a(href=`${site.url.path}${pagePrev.attributes.permalink}`)#blogheader_prev.py-3.text-light
+            a(href=`${site.url.path}${pagePrev.meta.permalink}`)#blogheader_prev.py-3.text-light
               .container 前: #{pagePrev.attributes.title}
           if(pageNext) 
-            a(href=`${site.url.path}${pageNext.attributes.permalink}`)#blogheader_next.py-3.text-light
+            a(href=`${site.url.path}${pageNext.meta.permalink}`)#blogheader_next.py-3.text-light
               .container 次: #{pageNext.attributes.title}
 
       .container.pt-3

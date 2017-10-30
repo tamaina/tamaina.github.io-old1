@@ -143,7 +143,7 @@ module.exports = function(grunt){
             },
             pages: {
                 files: [src.pages,'theme/pug/**'],
-                tasks: ['debug_override','before_build','build_pages']
+                tasks: ['debug_override','build_pages','sw']
             },
             copy_static: {
                 files: [src.static],
@@ -312,7 +312,7 @@ function register_pages(){
         if( page.attributes.published === undefined || page.attributes.published == null ) page.attributes.published = "true"
         if( page.meta.permalink.indexOf("/") != 0 ) page.meta.permalink = "/" + page.meta.permalink
         page.meta.path = page.meta.permalink
-        if( page.meta.permalink.indexOf("index") == page.meta.permalink.length - 5 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
+        if( page.meta.permalink.indexOf("index") == page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
         if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(" ")
         if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(" ")
         if( typeof page.attributes.tag === 'string' )

@@ -23,14 +23,14 @@
  function gtag(){dataLayer.push(arguments);}
  gtag('js', new Date());
  gtag('config', 'UA-107753466-1');
-</script></head><body><nav class="navbar navbar-dark bg-dark sticky-top flex-row"><a class="navbar-brand" href="/docs/" id="navbar_brand"><img class="d-inline-block align-top" src="/docs/files/images/icons/favicon-96x96.png" width="30" height="30" alt="ICON"><div class="navbar-brand-text">tmin.xyz</div></a><div id="navbar_items"><div class="navbar-nav flex-row justify-content-center"><a class="nav-item nav-link px-3" href="/docs/">Home</a><a class="nav-item nav-link px-3" href="/docs/MDBuilder/">MDBuilder</a><a class="nav-item nav-link px-3" href="/docs/blog/">ブログ</a><a class="nav-item nav-link px-3" href="https://chirno.tmin.xyz/" target="_blank">Chirno<i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a><a class="nav-item nav-link px-3" href="http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md" target="_blank">🇯🇵WebFont<i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a></div></div></nav><div class="container py-5" id="main"><article class="row" id="article_maincontent"><header class="w-100 order-1 p-2"><h1>About MDBuilder</h1><p class="mb-4"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><time datetime="2017-10-29T03:36:54.396Z">2017年10月29日 12:36</time></p></header><div class="my-2 p-3 col-lg-3 col-12 order-lg-3 order-2 bg-light" id="article_sidenav"><ul class="list-unstyled ml-3"><li><a href="#%E8%AA%AC%E6%98%8E%E6%9B%B8">説明書</a></li><li><a href="#%E8%B6%B3%E3%82%8A%E3%81%AA%E3%81%84%E6%A9%9F%E8%83%BD">足りない機能</a></li><li><a href="#%E4%BD%99%E5%88%86%E3%81%AA%E6%A9%9F%E8%83%BD">余分な機能</a></li><li><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</a></li><li><a href="#%E3%83%93%E3%83%AB%E3%83%89">ビルド</a></li><ul class="list-unstyled ml-3"><li><a href="#%E3%81%9F%E3%81%A0%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B">ただビルドする</a></li><li><a href="#%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B">ブラウザで確認してみる</a></li></ul><li><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">ファイル</a></li></ul></div><section class="py-2 col-lg-9 col-12 order-lg-2 order-3"><p>オレオレ静的サイトビルダーです。</p><p>MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。</p><p>ビルドにはタスク自動化ツールGruntを利用しています。</p><p><a href="https://github.com/tamaina/tamaina.github.io" target="_blank" rel="noopener">GitHub</a></p><h2 class="pt-5" id="%E8%AA%AC%E6%98%8E%E6%9B%B8">説明書</h2><ul><li><a href="./configulation">default.jsonの書き方</a></li><li><a href="./howtowrite">文書の書き方</a></li><li><a href="./theme">テーマについて</a></li></ul><h2 class="pt-5" id="%E8%B6%B3%E3%82%8A%E3%81%AA%E3%81%84%E6%A9%9F%E8%83%BD">足りない機能</h2><ul><li>なんやかやで自分の欲望を満たしたつもりです。</li><li>スタイル指定がほとんどありません。<ul><li>スタイル指定はstylusで指定します。</li><li><a href="//tmin.xyz">tmin.xyz</a>ではbootstrapを利用しているはずです。</li></ul></li></ul><h2 class="pt-5" id="%E4%BD%99%E5%88%86%E3%81%AA%E6%A9%9F%E8%83%BD">余分な機能</h2><ul><li>pjaxが標準で適用されています。</li><li>PWAに対応しているかもしれません。<ul><li>manifest.jsonを勝手に出力します。。</li><li>Service Workerの自動更新に対応しています。</li></ul></li><li>AMPにその気になれば対応しています。<ul><li>作るとしたら多分、AMPのforkテーマを作ったほうが早い。</li></ul></li><li>日本語ウェブフォントが標準で適用されています。</li><li>browserify+uglifyで纏めています。</li></ul><h2 class="pt-5" id="%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</h2><pre><code>npm install -g node-gyp
-npm install -g grunt
+</script></head><body><nav class="navbar navbar-dark bg-dark sticky-top flex-row"><a class="navbar-brand" href="/docs/" id="navbar_brand"><img class="d-inline-block align-top" src="/docs/files/images/icons/favicon-96x96.png" width="30" height="30" alt="ICON"><div class="navbar-brand-text">tmin.xyz</div></a><div id="navbar_items"><div class="navbar-nav flex-row justify-content-center"><a class="nav-item nav-link px-3" href="/docs/">Home</a><a class="nav-item nav-link px-3" href="/docs/MDBuilder/">MDBuilder</a><a class="nav-item nav-link px-3" href="/docs/blog/">ブログ</a><a class="nav-item nav-link px-3" href="https://chirno.tmin.xyz/" target="_blank">Chirno<i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a><a class="nav-item nav-link px-3" href="http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md" target="_blank">🇯🇵WebFont<i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a></div></div></nav><div class="container py-5" id="main"><article class="row" id="article_maincontent"><header class="w-100 order-1 p-2"><h1>About MDBuilder</h1><p class="mb-4"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><time datetime="2017-10-30T14:53:13.076Z">2017年10月30日 23:53</time></p></header><div class="my-2 p-3 col-lg-3 col-12 order-lg-3 order-2 bg-light" id="article_sidenav"><ul class="list-unstyled ml-3"><li><a href="#%E8%AA%AC%E6%98%8E%E6%9B%B8">説明書</a></li><li><a href="#%E8%B6%B3%E3%82%8A%E3%81%AA%E3%81%84%E6%A9%9F%E8%83%BD">足りない機能</a></li><li><a href="#%E4%BD%99%E5%88%86%E3%81%AA%E6%A9%9F%E8%83%BD">余分な機能</a></li><li><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</a></li><li><a href="#%E3%83%93%E3%83%AB%E3%83%89">ビルド</a></li><ul class="list-unstyled ml-3"><li><a href="#%E3%81%9F%E3%81%A0%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B">ただビルドする</a></li><li><a href="#%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B">ブラウザで確認してみる</a></li></ul><li><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">ファイル</a></li></ul></div><section class="py-2 col-lg-9 col-12 order-lg-2 order-3"><p>オレオレ静的サイトビルダーです。</p><p>MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。</p><p>ビルドにはタスク自動化ツールGruntを利用しています。</p><p>つまり、大して自分でコードは書いてないです。</p><p><a href="https://github.com/tamaina/tamaina.github.io" target="_blank" rel="noopener">GitHub</a></p><h2 class="pt-5" id="%E8%AA%AC%E6%98%8E%E6%9B%B8">説明書</h2><ul><li><strong><a href="./configulation">default.jsonの書き方</a></strong></li><li><strong><a href="./howtowrite">文書の書き方</a></strong></li><li><strong><a href="./pages">ページ情報の使い方</a></strong></li><li><strong><a href="./theme">テーマについて</a></strong></li></ul><h2 class="pt-5" id="%E8%B6%B3%E3%82%8A%E3%81%AA%E3%81%84%E6%A9%9F%E8%83%BD">足りない機能</h2><ul><li>なんやかやで自分の欲望を満たしたつもりです。</li><li>スタイル指定がほとんどありません。<ul><li>スタイル指定はstylusで指定します。</li><li><a href="//tmin.xyz">tmin.xyz</a>ではbootstrapを利用しているはずです。</li><li>scss面倒い……</li></ul></li><li>linterが全く整備されていません。<ul><li>面倒臭いし。動けばよかろうなのだ。</li></ul></li></ul><h2 class="pt-5" id="%E4%BD%99%E5%88%86%E3%81%AA%E6%A9%9F%E8%83%BD">余分な機能</h2><ul><li>pjaxが標準で適用されています。</li><li>PWAに対応しているかもしれません。<ul><li>manifest.jsonを勝手に出力します。。</li><li>Service Workerの自動更新に対応しています。</li></ul></li><li>AMPにその気になれば対応しています。<ul><li>作るとしたら多分、AMPのforkテーマを作ったほうが早い。</li></ul></li><li>日本語ウェブフォントが標準で適用されています。</li><li>~browserify+uglify~<strong>webpack</strong>でjavascriptを纏めています。</li></ul><h2 class="pt-5" id="%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</h2><p>node.jsをインストールしてください。</p><p><strong>woff2ファイル(日本語Webフォント)を出力する場合はPythonが必要です。</strong></p><pre><code class="crmsh">npm install -g <span class="hljs-keyword">node</span><span class="hljs-title">-gyp</span>
+npm install -g grunt-cli
 npm install
-</code></pre><ul><li><strong>.config/default.json</strong>を編集してください。</li></ul><h2 class="pt-5" id="%E3%83%93%E3%83%AB%E3%83%89">ビルド</h2><h3 class="pt-5" id="%E3%81%9F%E3%81%A0%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B">ただビルドする</h3><pre><code>grunt
-</code></pre><h3 class="pt-5" id="%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B">ブラウザで確認してみる</h3><pre><code>grunt server
-</code></pre><p>正常に動作すれば、<code>localhost:3000</code>に接続すると見られます。</p><p>debug_override.jsonの内容がdefault.jsonに上書きされます。</p><p>文書やテンプレートを更新すると、その都度ビルドします。</p><h2 class="pt-5" id="%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">ファイル</h2><pre><code>│ 
+</code></pre><ul><li><strong>.config/default.json</strong>を編集してください。</li></ul><h2 class="pt-5" id="%E3%83%93%E3%83%AB%E3%83%89">ビルド</h2><h3 class="pt-5" id="%E3%81%9F%E3%81%A0%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B">ただビルドする</h3><pre><code class="ebnf"><span class="hljs-attribute">grunt</span>
+</code></pre><h3 class="pt-5" id="%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B">ブラウザで確認してみる</h3><pre><code class="routeros">grunt<span class="hljs-built_in"> server
+</span></code></pre><p>正常に動作すれば、<code>localhost:3000</code>に接続すると見られます。</p><p>debug_override.jsonの内容がdefault.jsonに上書きされます。</p><p>文書やテンプレートを更新すると、その都度ビルドします。</p><h2 class="pt-5" id="%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">ファイル</h2><pre><code class="stylus">│ 
 │
-├─.config/default.json - サイトの大体の設定はここで行います。
+├─.config/default<span class="hljs-selector-class">.json</span> - サイトの大体の設定はここで行います。
 ├─────────────   pages - 基本的に文書はすべてここに格納します。
 ├─────────────   files - 添付ファイルはここに格納します。
 │
@@ -51,7 +51,7 @@ npm install
 │          │
 │          ├─  js  ┐   - jsファイルが保存されています。
 │          │       │
-│          │       ├── main.js   - このファイルで一旦jsファイルを纏めています。
+│          │       ├── main<span class="hljs-selector-class">.js</span>   - このファイルで一旦jsファイルを纏めています。
 │          │       │               これをbrowserifyとuglifyに通してjsファイルを生成します。
 │          │       │
 │          │
@@ -73,14 +73,15 @@ npm install
 │          ├─  CNAME     - GitHub Pagesを利用すると自動的に生成されます。
 │          │
 │
-├────────   .gitignore  ┐
-├──────    .travis.yml  │
-├─────    Gruntfile.js  │
+├────────   <span class="hljs-selector-class">.gitignore</span>  ┐
+├──────    <span class="hljs-selector-class">.travis</span><span class="hljs-selector-class">.yml</span>  │
+├─────    Gruntfile<span class="hljs-selector-class">.js</span>  │
 ├─────────     LICENSE  │  配布に際して必要なファイルです。
-├─────    package.json  │
-├─   package-lock.json  │
-├────    pugfilters.js  ┘
-├────────   index.html  ┐  GitHub Pagesのユーザーページがmasterしか参照できない仕様
-│────────     404.html  ┘  のためdocs/にリダイレクトします。
-└────────    readme.md   - サイトと併せてお読みください。
+├─────    package<span class="hljs-selector-class">.json</span>  │
+├─   package-lock<span class="hljs-selector-class">.json</span>  │
+├────    pugfilters<span class="hljs-selector-class">.js</span>  ┘
+├──  webpack<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span>   - webpack設定ファイル。
+├────────   index<span class="hljs-selector-class">.html</span>  ┐  GitHub Pagesのユーザーページがmasterしか参照できない仕様
+│────────     <span class="hljs-number">404</span><span class="hljs-selector-class">.html</span>  ┘  のためdocs/にリダイレクトします。
+└────────    readme<span class="hljs-selector-class">.md</span>   - サイトと併せてお読みください。
 </code></pre></section></article></div><div class="container py-5"><div id="disqus_wrap"><div id="disqus_thread"></div></div></div><div class="py-3 bg-light" id="footer_wrap"><footer class="container"><p>Copyright: tamaina</p><p class="m-0">Site published by MarkDown Builder</p></footer></div><!--WE'RE SUPER CREW--></body></html>

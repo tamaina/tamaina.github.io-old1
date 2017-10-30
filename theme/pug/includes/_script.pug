@@ -7,12 +7,6 @@
   const hljs = require('highlight.js')
   let main_html
 
-  kramed.setOptions({
-    highlight: function (code) {
-      return hljs.highlightAuto(code).value;
-    }
-  });
-
   function md_better(body){
     
     //- headingにpt-5を指定
@@ -38,6 +32,47 @@ case page.meta.srcext
       let locals = {"site": site,"pages": pages,"page": page,"package": package,"option": option}
       let fn = pug_api.compile(page.body,{filters:require('./pugfilters.js')})
       main_html = fn(locals)
+
+-
+  function highl(htm){
+    htm = htm.replace(/<pre><code class="(.*?)">([\s\S]*?)<\/code><\/pre>/gi, function(a, l, b){
+      b = b.replace(/&amp;/g, "&")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&#39;/g, "'")
+            .replace(/&quot;/g, "\"")
+      b = b.replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&#39;/g, "'")
+            .replace(/&quot;/g, "\"")
+      if(l.indexOf("lang-") == 0) l = l.slice(5)
+      try {
+        const hled = hljs.highlight(l, b)
+        return `<pre><code class="${l}">${hled.value}</code></pre>`
+      } catch(e) {
+        console.log("\nhighlight処理中にエラーが発生しました。\nおそらく、markdownで未知の言語が指定されている場合にこのメッセージが表示されているはずです。\nhighlightAuto APIを利用してやりなおします。\n以下にエラーの内容を示します。\n")
+        console.log(e)
+        console.log("\nエラーは以上です。既知のエラーであるため、処理を正常に続行します。\n")
+        const hled = hljs.highlightAuto(b)
+        return `<pre><code class="${hled.language}">${hled.value}</code></pre>`
+      }
+    } )
+    htm = htm.replace(/<pre>\s*?<code>([\s\S]*?)<\/code>\s*?<\/pre>/gi, function(a, b){
+      b = b.replace(/&amp;/g, "&")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&#39;/g, "'")
+            .replace(/&quot;/g, "\"")
+      b = b.replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&#39;/g, "'")
+            .replace(/&quot;/g, "\"")
+      const hled = hljs.highlightAuto(b)
+      return `<pre><code class="${hled.language}">${hled.value}</code></pre>`
+    } )
+    return htm
+  }
+  main_html = highl(main_html)
 
 -
   let heading_html, headings = []
