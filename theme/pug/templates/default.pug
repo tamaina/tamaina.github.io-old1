@@ -26,7 +26,7 @@ html(lang=site.locale)
           *
 
       block seo
-        link(rel="canonical", href=`${site.url.scheme}://${site.url.host}${site.url.path}${page.attributes.permalink}`)
+        link(rel="canonical", href=`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)
       
       block description
         meta(name="description", content=page.attributes.description)
@@ -58,7 +58,7 @@ html(lang=site.locale)
           meta(property="og:image", content=`/favicon.ico`)
         if ( !!site.site_card_path )
           meta(property="og:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${site.site_card_path}`)
-        meta(property="og:url", content=`${site.url.scheme}://${site.url.host}${site.url.path}${page.attributes.permalink}`)
+        meta(property="og:url", content=`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)
         meta(property="og:site_name", content=site.name)
 
       block twitter_card

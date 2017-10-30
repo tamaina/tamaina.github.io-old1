@@ -4,18 +4,30 @@
   const pug_api = require("pug")
   const htmlmin = require("html-minifier").minify
   const kramed = require("kramed")
+  const hljs = require('highlight.js')
   let main_html
+
+  kramed.setOptions({
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
+  });
+
   function md_better(body){
-    // headingにpt-5を指定
+    
+    //- headingにpt-5を指定
     body = body.replace(/<h([2-6])(.*?)>/gi,"<h$1 class=\"pt-5\"$2>")
-    // httpsのつくa要素に
-    body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/gi,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class='fa fa-external-link fa-fw' aria-hidden='true'></i><\/a>")
-    // "/"から始まる画像srcはその前にsite.url.pathを付加、およびimg-fluid付加
+
+    //- https?のつくa要素に
+    body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/gi,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class=\"fa fa-external-link fa-fw\" aria-hidden=\"true\"></i><\/a>")
+
+    //- "/"から始まる画像srcはその前にsite.url.pathを付加、およびimg-fluid付加
     body = body.replace(/<img(.*?)src=\"\/(.*?)\"(.*?)>/gi,"<img$1src=\"" + site.url.path + "\/$2\"$3 class=\"img-fluid\">")
     return body
   }
+
 //- make main html
-case page.srcext
+case page.meta.srcext
   when '.md'
     - main_html = htmlmin(md_better(kramed(page.body)),{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": true})
   when '.html'
@@ -26,10 +38,11 @@ case page.srcext
       let locals = {"site": site,"pages": pages,"page": page,"package": package,"option": option}
       let fn = pug_api.compile(page.body,{filters:require('./pugfilters.js')})
       main_html = fn(locals)
+
 -
-  let re = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi,
-      heading_html, headings = []
-  while((heading_html = re.exec(main_html)) !== null){
+  let heading_html, headings = []
+  const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
+  while((heading_html = reg_heading.exec(main_html)) !== null){
     let heading = {},
         idmatch = []
     idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)

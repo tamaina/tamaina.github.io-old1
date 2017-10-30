@@ -1,4 +1,4 @@
-var version = '0.12.0';
+var version = 'build-2017-10-30T07:50:52.653Z';
 var cachepages = [
     `info.json`,
     "./",

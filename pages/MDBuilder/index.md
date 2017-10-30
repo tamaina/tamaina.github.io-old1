@@ -12,18 +12,11 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 
 [GitHub](https://github.com/tamaina/tamaina.github.io)
 
+## 説明書
 
-## Configulation
-
-[default.jsonの書き方](./configulation)
-
-## How to add a page
-
-[文書の書き方](./howtowrite)
-
-## How to change looks
-
-[テーマについて](./theme)
+- [default.jsonの書き方](./configulation)
+- [文書の書き方](./howtowrite)
+- [テーマについて](./theme)
 
 ## 足りない機能
 
