@@ -17,6 +17,8 @@
 
     //- "/"から始まる画像srcはその前にsite.url.pathを付加、およびimg-fluid付加
     body = body.replace(/<img(.*?)src=\"\/(.*?)\"(.*?)>/gi,"<img$1src=\"" + site.url.path + "\/$2\"$3 class=\"img-fluid\">")
+
+    body = body.replace(/<table>/gi, "<table class=\"table table-sm table-bordered\">")
     return body
   }
 
