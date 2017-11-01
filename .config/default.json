@@ -130,12 +130,6 @@
     },
     "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
     "twitter_screenname": "t_ma1n",
-    "workers": [
-        {
-            "srcpath": "theme/js/service_worker.js",
-            "outname": "service_worker"
-        }
-    ],
     "manifest": {
         "start_url": "./",
         "display": "standalone"

@@ -4,7 +4,9 @@ const extend = require('extend')
 const fs = require('fs')
 const fm = require('front-matter')
 const crypto = require('crypto')
-const join = require('path').join
+const path = require('path')
+const join = path.join
+const swBuild = require('workbox-build')
 
 // debug
 const DEBUG = !!grunt.option('debug')
@@ -129,10 +131,6 @@ module.exports = function(grunt){
                 files: [src.js],
                 tasks: ['debug_override','build_script', 'sw']
             },
-            sw: {
-                files: ['package.json'],
-                tasks: ['sw']
-            },
             style: {
                 files: [src.styl_all],
                 tasks: ['debug_override','build_style']
@@ -220,8 +218,8 @@ module.exports = function(grunt){
     grunt.task.registerTask( 'debug_override' , 'Debug' , () => {
         site = extend(true,site,require('./.config/debug_override.json'))
     })
-    grunt.task.registerTask( 'sw' , 'Write service worker' , serviceWokerJses_VerUp )
-    
+    grunt.task.registerTask( 'sw' , 'Write service worker' , workboxer )
+
     // 以下はmake_config実行時に自動実行
     // コマンドで動かす用に一応登録
     grunt.task.registerTask( 'register_pages' , 'Register Pages' , register_pages )
@@ -356,15 +354,51 @@ function pugfiles() {
     return JSON.parse(out)
 }
 
-function serviceWokerJses_VerUp(){
-    for (let i = 0 ; i < site.workers.length ; i++) {
-        let swi = site.workers[i]
-        let swbody = ""
-        if(!grunt.file.exists(swi.srcpath)) return false
-        swbody = `var version = 'build-${info.timestamp}';
-${fs.readFileSync( swi.srcpath, 'utf-8' )}`
-        grunt.file.write( `docs/${swi.outname}.js` , swbody )
+function workboxer(){
+
+    // code from twbs/bootstrap
+
+    const buildPrefix = 'docs/'
+    const config = {
+        "globDirectory": "./",
+        "globPatterns": [
+          "docs/**/*.{html,css,js,json,png,jpg}"
+        ],
+        "swSrc": "theme/js/sw.js",
+        "swDest": "docs/service_worker.js"
+     }
+
+    const workboxSWSrcPath = require.resolve('workbox-sw')
+    const wbFileName = path.basename(workboxSWSrcPath)
+    const workboxSWDestPath = `${buildPrefix}assets/${wbFileName}`
+    const workboxSWSrcMapPath = `${workboxSWSrcPath}.map`
+    const workboxSWDestMapPath = `${workboxSWDestPath}.map`
+
+    fs.createReadStream(workboxSWSrcPath).pipe(fs.createWriteStream(workboxSWDestPath))
+    fs.createReadStream(workboxSWSrcMapPath).pipe(fs.createWriteStream(workboxSWDestMapPath))
+
+    const updateUrl = (manifestEntries) => manifestEntries.map((entry) => {
+    if (entry.url.startsWith(buildPrefix)) {
+        const regex = new RegExp(buildPrefix, 'g')
+        entry.url = entry.url.replace(regex, '')
     }
+    return entry
+    })
+
+    config.manifestTransforms = [updateUrl]
+
+    swBuild.injectManifest(config).then(() => {
+    const wbSwRegex = /{fileName}/g
+    fs.readFile(config.swDest, 'utf8', (err, data) => {
+        if (err) {
+        throw err
+        }
+        const swFileContents = data.replace(wbSwRegex, wbFileName)
+        fs.writeFile(config.swDest, swFileContents, () => {
+        console.log('Pre-cache Manifest generated.')
+        })
+    })
+    })
 }
 
 function register_manifest(){
