@@ -5,14 +5,21 @@
   const htmlmin = require("html-minifier").minify
   const kramed = require("kramed")
   const hljs = require('highlight.js')
+  const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
   let main_html
+
+  function pugit(val){
+    return pug_api.render(val, pug_o)
+  }
 
   function md_better(body){
     
-    //- headingにpt-5を指定
-    body = body.replace(/<h([2-6])(.*?)>/gi,"<h$1 class=\"pt-5\"$2>")
+    //- h2にpt-5を指定
+    body = body.replace(/<h2(.*?)>/gi,"<h2 class=\"pt-5\"$1>")
+    //- h3以下にpt-4を指定
+    body = body.replace(/<h([3-6])(.*?)>/gi,"<h$1 class=\"pt-5\"$2>")
 
-    //- https?のつくa要素に
+    //- https?のつくa要素にあーだこーだする
     body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/gi,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class=\"fa fa-external-link fa-fw\" aria-hidden=\"true\"></i><\/a>")
 
     //- "/"から始まる画像srcはその前にsite.url.pathを付加、およびimg-fluid付加
@@ -20,6 +27,12 @@
 
     body = body.replace(/<table>/gi, "<table class=\"table table-sm table-bordered\">")
     return body
+  }
+
+  function getTL(val){
+    let result
+    eval("result = `" + val + "`")
+    return result
   }
 
 //- make main html
@@ -31,9 +44,7 @@ case page.meta.srcext
     - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": true})
   when '.pug'
     -
-      let locals = {"site": site,"pages": pages,"page": page,"package": package,"option": option}
-      let fn = pug_api.compile(page.body,{filters:require('./pugfilters.js')})
-      main_html = fn(locals)
+      main_html = pugit(page.body)
 
 -
   function highl(htm){

@@ -16,10 +16,11 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 
 ## 説明書
 
-- **[default.jsonの書き方](./configulation)**
-- **[文書の書き方](./howtowrite)**
-- **[ページ情報の使い方](./pages)**
-- **[テーマについて](./theme)**
+- **[default.jsonの書き方](configulation)**
+- **[文書の書き方](howtowrite)**
+- **[ページ情報の使い方](pages)**
+- **[テーマについて](theme)**
+
 
 ## 足りない機能
 
@@ -40,7 +41,7 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 - AMPにその気になれば対応しています。
   * 作るとしたら多分、AMPのforkテーマを作ったほうが早い。
 - 日本語ウェブフォントが標準で適用されています。
-- ~browserify+uglify~**webpack**でjavascriptを纏めています。
+- ~~browserify+uglify~~**webpack**でjavascriptを纏めています。
 
 ## インストール
 
