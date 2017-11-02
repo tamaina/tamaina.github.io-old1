@@ -4,7 +4,11 @@ link(href=`${site.url.path}/assets/style.min.css`, rel="stylesheet")
 link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", crossorigin="anonymous")
 link(href="https://cdn.jsdelivr.net/npm/yakuhanjp/dist/css/yakuhanjp.min.css", rel="stylesheet", crossorigin="anonymous")
 
-| <script>
+script(src=`${site.url.path}/assets/main.min.js` defer)
+script(src=`${site.url.path}/assets/pjax-api.min.js` defer)
+script(src=`${site.url.path}/assets/pjax-init.js` defer)
+
+| <script class='pjax-reload'>
 |   var disqus_config = function () {
 |     this.page.url = "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.meta.permalink}";
 |     this.page.identifier = "#{site.url.host}#{site.url.path}#{page.meta.permalink}";
@@ -33,9 +37,3 @@ link(href="https://cdn.jsdelivr.net/npm/yakuhanjp/dist/css/yakuhanjp.min.css", r
 |   }
 | // twbs/bootstrap build/sw.jsより借用
 | </script>
-
-script(src=`${site.url.path}/assets/main.min.js` defer)
-script(src=`${site.url.path}/assets/pjax-api.min.js` defer)
-if(site.disqus)
-  script(src=`https://${site.disqus}.disqus.com/embed.js` defer)
-script(src=`${site.url.path}/assets/pjax-init.js` defer)

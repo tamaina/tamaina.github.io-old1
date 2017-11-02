@@ -1,4 +1,4 @@
-$(document).on('pjax:ready',function(){
+$(window).on('pjax:load',function(){
   // gtagでpage_viewを送信します。
   gtag('event', 'page_view');
   // DISQUSでresetを送信します。

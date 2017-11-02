@@ -10329,6 +10329,7 @@ return jQuery;
 
 window.jQuery = $ = __webpack_require__(0);
 Popper = ("popper.js");
+
 __webpack_require__(2);
 __webpack_require__(3);
 __webpack_require__(4);
