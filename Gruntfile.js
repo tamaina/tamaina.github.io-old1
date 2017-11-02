@@ -149,7 +149,7 @@ module.exports = function(grunt){
             },
             copy_files: {
                 files: [src.files],
-                tasks: ['debug_override','copy:main']
+                tasks: ['debug_override','copy:main','image:files']
             }
         },
         connect: {
@@ -197,10 +197,31 @@ module.exports = function(grunt){
                     }
                 ]
             }
+        },
+        image: {
+            files: {
+                options: {
+                    optipng: false,
+                    pngquant: true,
+                    zopflipng: true,
+                    jpegRecompress: true,
+                    mozjpeg: true,
+                    guetzli: false,
+                    gifsicle: true,
+                    svgo: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'files/',
+                    src: ['**/*.{png,jpg,jpeg,gif,svg}'],
+                    dest: 'docs/files/'
+                }]
+            }
         }
     })
+}
 
-    
+
     grunt.loadNpmTasks('grunt-contrib-pug')
     grunt.loadNpmTasks('grunt-contrib-stylus')
     grunt.loadNpmTasks('grunt-contrib-connect')
@@ -209,6 +230,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-contrib-watch')
     grunt.loadNpmTasks('grunt-webpack')
+    grunt.loadNpmTasks('grunt-image')
     grunt.loadNpmTasks('grunt-contrib-uglify')
     grunt.loadNpmTasks('grunt-fontmin-ex')
 
@@ -228,7 +250,7 @@ module.exports = function(grunt){
 
 
     //タスクの登録
-    grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'sw', 'clean:temp'])
+    grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'image', 'sw', 'clean:temp'])
     grunt.registerTask('before_build', ['make_config', 'prepare_pages'])
     grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
 
@@ -237,7 +259,6 @@ module.exports = function(grunt){
     grunt.registerTask('build_style', ['stylus', 'cssmin'])
     grunt.registerTask('build_pages', ['before_build', 'pug', 'fontmin'])
 
-}
 function make_config(){
     let resultObj = { options: "" }
     resultObj.timestamp = (new Date()).toJSON()

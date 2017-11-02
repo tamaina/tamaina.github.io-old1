@@ -4,7 +4,7 @@ const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
   {
     "url": "404.html",
-    "revision": "344fc1f5190a733f880afa796d5d3907"
+    "revision": "f3d4e851a280c75b394db7808d353b8a"
   },
   {
     "url": "assets/main.js",
@@ -40,111 +40,115 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me.html",
-    "revision": "b8b9618b3e050de77f514cd56a0ef56f"
+    "revision": "43b1af66bc35e2b27fe915bb5eb89c6e"
   },
   {
     "url": "blog/bootstrap-v4-beta.html",
-    "revision": "808cb9d1723bb83d35915963757195cc"
+    "revision": "00ac3c59ebac743e803bf5231300b027"
   },
   {
     "url": "blog/bunkasai.html",
-    "revision": "eb88bf24c893aa5e872229d51b3298f8"
+    "revision": "8f1cb793f6ebb6d0f670c4c669917ef3"
   },
   {
     "url": "blog/chirno_intro.html",
-    "revision": "d8fad18ff350be66ac4ea0b1f05cbdf5"
+    "revision": "54e050686de04c445adcfa95cead6df2"
   },
   {
     "url": "blog/getval_test.html",
-    "revision": "db78986699c6160e42ab7b25ab16899b"
+    "revision": "20af17e74a3865b9075a0b770c6206d4"
   },
   {
     "url": "blog/hachikou.html",
-    "revision": "bca60655b140d4563eedd4152c3d784b"
+    "revision": "55b4ad10d61be12f541df9778975f034"
   },
   {
     "url": "blog/index.html",
-    "revision": "1f857496710ca68e3dc8f21f0db7b268"
+    "revision": "31c422911c9e970f709ae7babe513041"
+  },
+  {
+    "url": "blog/maqz001400.html",
+    "revision": "e8f0c0c4a992723020815dce905cba03"
   },
   {
     "url": "blog/suiranfes2017.html",
-    "revision": "91a0fdd5d705879356ac5df8a584f9f0"
+    "revision": "4660ce829ebfa8d023f28b1eedb15093"
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
-    "revision": "d3d3edc83c1715aa521442858b28f14f"
+    "revision": "c41b9d2de7c2601c0d9f65c170e54ca2"
   },
   {
     "url": "files/images/icons/favicon-114x114.png",
-    "revision": "48886e3e80bd7bc04317746ef2c1784b"
+    "revision": "2da1aa02208aa84efb2f463f53f05374"
   },
   {
     "url": "files/images/icons/favicon-120x120.png",
-    "revision": "26464843b4d11a101f3235885cb2480b"
+    "revision": "eae344aa4a5232c440cc3c9ef1725657"
   },
   {
     "url": "files/images/icons/favicon-144x144.png",
-    "revision": "5c93c44802d5167e7f6ecf22b3aa2d50"
+    "revision": "0544e3e7e0d8cb30e3df7bc990d2482c"
   },
   {
     "url": "files/images/icons/favicon-152x152.png",
-    "revision": "4186931bb3cd918a2d899649110da2e0"
+    "revision": "130045d6240266643d7b1c459c11a9ea"
   },
   {
     "url": "files/images/icons/favicon-160x160.png",
-    "revision": "7b81d873eabdd02ccc5ca53b385bc481"
+    "revision": "d07f170971a08f614bf3dcb74f007834"
   },
   {
     "url": "files/images/icons/favicon-16x16.png",
-    "revision": "307d271bdb043db13ded6cfd748ad54e"
+    "revision": "e86ff4950a80c004210ebffded337366"
   },
   {
     "url": "files/images/icons/favicon-180x180.png",
-    "revision": "b196facf589645bab2c072584a4d2f0d"
+    "revision": "f413f9af305b0259ae4b4f1334559ab2"
   },
   {
     "url": "files/images/icons/favicon-192x192.png",
-    "revision": "5e69d704dc8fb8b5709a688e3ff7709a"
+    "revision": "b059f61906827d9d3e4adf9f6e6f9559"
   },
   {
     "url": "files/images/icons/favicon-196x196.png",
-    "revision": "bea16697b253342b460d36113e9d9783"
+    "revision": "8a18b13354f6a977b00db14dc37f5f56"
   },
   {
     "url": "files/images/icons/favicon-32x32.png",
-    "revision": "aac4482c3fc8a01c796ed1555cbe4ec6"
+    "revision": "c46f98703e06a363acb8555f917a581b"
   },
   {
     "url": "files/images/icons/favicon-36x36.png",
-    "revision": "f38caf79988f68516b05e4372009a1e8"
+    "revision": "db00958713a5b755fd4541ee9c60439a"
   },
   {
     "url": "files/images/icons/favicon-48x48.png",
-    "revision": "cb1dfbf5b62c0b63af3655a11280a2b7"
+    "revision": "69caa05367fe7197c0a58f0a17719504"
   },
   {
     "url": "files/images/icons/favicon-57x57.png",
-    "revision": "98bdb92317a39a8571b7f0d8ad39db05"
+    "revision": "a27d2eda64840e9ec681346c77dfa483"
   },
   {
     "url": "files/images/icons/favicon-600x600.png",
-    "revision": "d7d83d1c31adcf8259168b261b9a86af"
+    "revision": "1e836f72df0ac99e6036dd6ccc54015a"
   },
   {
     "url": "files/images/icons/favicon-60x60.png",
-    "revision": "d9ba45754911712bc6ff040ab2cbd38a"
+    "revision": "da66caee37838c3763e52a36ce9e6f94"
   },
   {
     "url": "files/images/icons/favicon-72x72.png",
-    "revision": "974e7b89b6cb0353e7fdadb124eb3f2f"
+    "revision": "a3b4488f479c2830b29f5d1d39a591d3"
   },
   {
     "url": "files/images/icons/favicon-76x76.png",
-    "revision": "903ea958bb7e662544be7e6958099440"
+    "revision": "8d654039b5d6aa88153fda80439225a7"
   },
   {
     "url": "files/images/icons/favicon-96x96.png",
-    "revision": "0d6bde099f876de468a0a146c2e1e0c9"
+    "revision": "ba2d21e480e1c4bbb2cd33abdaab8b09"
   },
   {
     "url": "files/images/icons/manifest.json",
@@ -152,23 +156,23 @@ workboxSW.precache([
   },
   {
     "url": "files/images/icons/mstile-144x144.png",
-    "revision": "5c93c44802d5167e7f6ecf22b3aa2d50"
+    "revision": "0544e3e7e0d8cb30e3df7bc990d2482c"
   },
   {
     "url": "files/images/icons/mstile-150x150.png",
-    "revision": "344960beceae94bc4afb3c4d5893686c"
+    "revision": "71d949d563dacd95538c2f1ec8785084"
   },
   {
     "url": "files/images/icons/mstile-310x150.png",
-    "revision": "1241b704d1c4c90e7ce394e3f1683a7b"
+    "revision": "a6b01b9fad7fb78e0750c9bdec9beb3e"
   },
   {
     "url": "files/images/icons/mstile-310x310.png",
-    "revision": "9581ae2894fa9b0c2ae677832d0d7b62"
+    "revision": "efd1506ce64a67379da4cdff9b247d71"
   },
   {
     "url": "files/images/icons/mstile-70x70.png",
-    "revision": "f7f2ae12d1b92ad986f2a088d9af67bc"
+    "revision": "c8fbfa1151c81d999f5f089d03348219"
   },
   {
     "url": "files/index_old.html",
@@ -176,34 +180,34 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "a6d0b0ef213f126b89c9085923a1e02b"
+    "revision": "b5746e95a00e80f4b319582b99d028da"
   },
   {
     "url": "info.json",
-    "revision": "962e343d7e7c427c9e64b4a7eeb25e62"
+    "revision": "561e582924fe7bba7384b40754eb2762"
   },
   {
     "url": "manifest.json",
-    "revision": "a0f350a1972395d8cbab2d3a5c542c78"
+    "revision": "bbbfc29d79b4e4b4acb9e868998ba80e"
   },
   {
     "url": "MDBuilder/configulation.html",
-    "revision": "143f6019a63d9313556cfafe64e65473"
+    "revision": "0e182ba549c420672883e39dbbd8f8bc"
   },
   {
     "url": "MDBuilder/howtowrite.html",
-    "revision": "824903ce6f3529487dd3fc2bb7cbb7e8"
+    "revision": "3c1eab0fa76e83139a281dbd65279ab8"
   },
   {
     "url": "MDBuilder/index.html",
-    "revision": "917dd9efb4f22f54421ddffd582975c4"
+    "revision": "a4449f5746978b8fe6822c256fbad209"
   },
   {
     "url": "MDBuilder/pages.html",
-    "revision": "dc336b16624851e492c7fc0250297fa6"
+    "revision": "755885f099da7dbf0a9b93b894deeaa7"
   },
   {
     "url": "MDBuilder/theme.html",
-    "revision": "90f132549ff0a305b64a3d95b3ea3d9e"
+    "revision": "7e815f94cafb83c0a75e8a5c22365f8d"
   }
 ])

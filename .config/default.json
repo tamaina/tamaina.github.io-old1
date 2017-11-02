@@ -72,11 +72,6 @@
             "type": "image/png"
         },
         {
-            "path": "/files/images/icons/favicon-114x114.png",
-            "sizes": "114x114",
-            "type": "image/png"
-        },
-        {
             "path": "/files/images/icons/favicon-152x152.png",
             "sizes": "152x152",
             "type": "image/png"
