@@ -370,7 +370,9 @@ function workboxer(){
 
     const workboxSWSrcPath = require.resolve('workbox-sw')
     const wbFileName = path.basename(workboxSWSrcPath)
-    const workboxSWDestPath = `${buildPrefix}assets/${wbFileName}`
+    const workboxSWDestDir = `${buildPrefix}assets/`
+    const workboxSWDestPath = `${workboxSWDestDir}${wbFileName}`
+    const workboxSWWrite = `${site.url.path}/assets/${wbFileName}`
     const workboxSWSrcMapPath = `${workboxSWSrcPath}.map`
     const workboxSWDestMapPath = `${workboxSWDestPath}.map`
 
@@ -388,12 +390,12 @@ function workboxer(){
     config.manifestTransforms = [updateUrl]
 
     swBuild.injectManifest(config).then(() => {
-    const wbSwRegex = /{fileName}/g
+    const wbSwRegex = /{path}/g
     fs.readFile(config.swDest, 'utf8', (err, data) => {
         if (err) {
         throw err
         }
-        const swFileContents = data.replace(wbSwRegex, wbFileName)
+        const swFileContents = data.replace(wbSwRegex, workboxSWWrite)
         fs.writeFile(config.swDest, swFileContents, () => {
         console.log('Pre-cache Manifest generated.')
         })

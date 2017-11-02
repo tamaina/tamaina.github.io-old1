@@ -9,7 +9,7 @@ self.addEventListener('fetch', function(event) {
     )
 })
 
-self.importScripts('/assets/{fileName}')
+self.importScripts('{path}')
 
 const workboxSW = new self.WorkboxSW()
 workboxSW.precache([])

@@ -9,7 +9,7 @@ self.addEventListener('fetch', function(event) {
     )
 })
 
-self.importScripts('/assets/workbox-sw.prod.v2.1.0.js')
+self.importScripts('/docs/assets/workbox-sw.prod.v2.1.0.js')
 
 const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
@@ -191,7 +191,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "6168f6f3a5b61858fe4245fb4b9174d6"
+    "revision": "d5d24f11e8e1f7822f3908328e87dd74"
   },
   {
     "url": "manifest.json",
