@@ -1,6 +1,6 @@
 {
   "name": "tmin.xyz",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "description": "tmin.xyz",
   "main": "docs/index.html",
   "scripts": {
@@ -33,7 +33,6 @@
     "grunt-contrib-stylus": "^1.2.0",
     "grunt-contrib-uglify": "^3.1.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-fontmin-ex": "^0.2.1",
     "grunt-image": "^4.0.0",
     "grunt-webpack": "^3.0.2",
     "highlight.js": "^9.12.0",

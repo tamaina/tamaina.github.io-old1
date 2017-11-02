@@ -161,16 +161,6 @@ module.exports = function(grunt){
                 }
             }
         },
-        fontmin: {
-            options: {
-                dest: 'docs/assets/fonts/',
-                basedir: 'theme/fonts/'
-            },
-            '**/*.ttf':{
-                getText: "getBody",
-                src: "docs/**/*.html",
-            }
-        },
         copy: {
             main: {
                 files:[
@@ -232,7 +222,6 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-webpack')
     grunt.loadNpmTasks('grunt-image')
     grunt.loadNpmTasks('grunt-contrib-uglify')
-    grunt.loadNpmTasks('grunt-fontmin-ex')
 
 
     grunt.task.registerTask( 'make_config' , 'Merge all config files' , make_config )
@@ -250,14 +239,14 @@ module.exports = function(grunt){
 
 
     //タスクの登録
-    grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'fontmin', 'copy', 'image', 'sw', 'clean:temp'])
+    grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'copy', 'image', 'sw', 'clean:temp'])
     grunt.registerTask('before_build', ['make_config', 'prepare_pages'])
     grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
 
     // 以下の3種類でデプロイとして供するときは、swも併せて実行すること。
     grunt.registerTask('build_script', ['webpack:prod', 'uglify'])
     grunt.registerTask('build_style', ['stylus', 'cssmin'])
-    grunt.registerTask('build_pages', ['before_build', 'pug', 'fontmin'])
+    grunt.registerTask('build_pages', ['before_build', 'pug'])
 
 function make_config(){
     let resultObj = { options: "" }

@@ -40,14 +40,12 @@ MarkDown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
   * Service Workerの自動更新に対応しています。
 - AMPにその気になれば対応しています。
   * 作るとしたら多分、AMPのforkテーマを作ったほうが早い。
-- 日本語ウェブフォントが標準で適用されています。
-- ~~browserify+uglify~~**webpack**でjavascriptを纏めています。
+- ~~日本語ウェブフォントが標準で適用されています。~~ **v0.16.0以降はウェブフォントが無効になっています。**
+- ~~browserify+uglify~~ **webpack**でjavascriptを纏めています。
 
 ## インストール
 
 node.jsをインストールしてください。
-
-**woff2ファイル(日本語Webフォント)を出力する場合はPythonが必要です。**
 
 ```
 npm install -g node-gyp

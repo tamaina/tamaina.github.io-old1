@@ -12,8 +12,7 @@ License: MIT License
 ## How to Build
 
 1. [node.js](https://nodejs.org/ja/)をインストールします
-2. [Python](https://www.python.org/downloads/)をインストールします
-3. リポジトリをダウンロードします
+2. リポジトリをダウンロードします
 
 ```
 npm i

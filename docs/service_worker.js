@@ -28,11 +28,11 @@ workboxSW.precache([
   },
   {
     "url": "assets/style.css",
-    "revision": "09ec172e50984fc6dae50dba94da7cb7"
+    "revision": "e0bd1f410d5b9e26739bf7f463008ce3"
   },
   {
     "url": "assets/style.min.css",
-    "revision": "fd42ceb1bd7da44a745e310fbf87f05c"
+    "revision": "9bcbd90a064a6b64f480265ef593cb15"
   },
   {
     "url": "assets/workbox-sw.prod.v2.1.0.js",
@@ -184,7 +184,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "50dff4b9e5285524572a74d30b3fc580"
+    "revision": "1b450304926cb8c5efe74d4de93bd8f1"
   },
   {
     "url": "manifest.json",
@@ -200,7 +200,7 @@ workboxSW.precache([
   },
   {
     "url": "MDBuilder/index.html",
-    "revision": "b458b4d4157f77cffd751c4c890b4a83"
+    "revision": "87e7c53617b04c137ffcf661f1387f86"
   },
   {
     "url": "MDBuilder/pages.html",
