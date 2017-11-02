@@ -356,7 +356,7 @@ function pugfiles() {
 
 function workboxer(){
 
-    // code from twbs/bootstrap
+    // twbs/bootstrapより借用
 
     const buildPrefix = 'docs/'
     const config = {

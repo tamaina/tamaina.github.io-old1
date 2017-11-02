@@ -1,14 +1,3 @@
-
-self.addEventListener('fetch', function(event) {
-    event.waitUntil(
-      caches.keys().then(function(keyList) {
-        return Promise.all(keyList.map(function(key) {
-            return caches.delete(key)
-        }))
-      })
-    )
-})
-
 self.importScripts('/docs/assets/workbox-sw.prod.v2.1.0.js')
 
 const workboxSW = new self.WorkboxSW()
@@ -191,7 +180,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "d5d24f11e8e1f7822f3908328e87dd74"
+    "revision": "962e343d7e7c427c9e64b4a7eeb25e62"
   },
   {
     "url": "manifest.json",
