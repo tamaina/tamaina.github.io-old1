@@ -293,7 +293,7 @@ function register_pages(){
 
         if( page.attributes.description === undefined || page.attributes.description === null ) page.attributes.description = site.description
 
-        if( page.attributes.date )  page.meta.mtime = page.attributes.date
+        if( page.attributes.date )  page.meta.birthtime = page.attributes.date
         else if( page.attributes.mtime ) page.meta.mtime = page.attributes.mtime
         else page.meta.mtime = page.stats.mtime
 
@@ -319,8 +319,8 @@ function register_pages(){
         if( page.attributes.layout === undefined || page.attributes.layout == null ) page.attributes.layout = "default"
         if( page.attributes.published === undefined || page.attributes.published == null ) page.attributes.published = "true"
         if( page.meta.permalink.indexOf("/") != 0 ) page.meta.permalink = "/" + page.meta.permalink
-        page.meta.path = page.meta.permalink
-        if( page.meta.permalink.indexOf("index") == page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
+        if( page.meta.permalink.lastIndexOf("index") == page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
+        else if( page.meta.permalink.lastIndexOf("/") != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + "/"
         if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(" ")
         if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(" ")
         if( typeof page.attributes.tag === 'string' )
@@ -357,7 +357,7 @@ function pugfiles() {
     let out = '{'
     for (let i = 0; i < pages.length; i++) {
         let page = pages[i]
-        out += `"docs/${page.meta.path}.html" : "${temppath(page, temp_dir)}",`
+        out += `"docs/${page.meta.permalink}index.html" : "${temppath(page, temp_dir)}",`
     }
     out = out.substr( 0, out.length - 1 ) 
     out += "}"

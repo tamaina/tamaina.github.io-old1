@@ -11,38 +11,38 @@ block preset
 
     let pagesPast = pages.filter(
           function(el, i, array){
-            let elem_mtime = new Date(el.meta.mtime)
-            let page_mtime = new Date(page.meta.mtime)
+            let elem_time = new Date(el.meta.birthtime)
+            let page_time = new Date(page.meta.birthtime)
 
-            return ( elem_mtime.getTime() < page_mtime.getTime() && el.attributes.layout == page.attributes.layout )
+            return ( elem_time.getTime() < page_time.getTime() && el.attributes.layout == page.attributes.layout )
           })
       , pagesFuture = pages.filter(
           function(el, i, array){
-            let elem_mtime = new Date(el.meta.mtime)
-            let page_mtime = new Date(page.meta.mtime)
+            let elem_time = new Date(el.meta.birthtime)
+            let page_time = new Date(page.meta.birthtime)
 
-            return (elem_mtime.getTime() > page_mtime.getTime() && el.attributes.layout == page.attributes.layout )
+            return (elem_time.getTime() > page_time.getTime() && el.attributes.layout == page.attributes.layout )
           })
-    function mapping_pages_mtime(el, index, array){
-      let elem_mdate = new Date(el.meta.mtime) 
-      return elem_mdate.getTime()
+    function mapping_pages_time(el, index, array){
+      let eltime = new Date(el.meta.birthtime) 
+      return eltime.getTime()
     }
 
-    let pagePrev_mTime = Math.max.apply(null,pagesPast.map(mapping_pages_mtime))
-      , pageNext_mTime = Math.min.apply(null,pagesFuture.map(mapping_pages_mtime))
+    let pagePrev_mTime = Math.max.apply(null,pagesPast.map(mapping_pages_time))
+      , pageNext_mTime = Math.min.apply(null,pagesFuture.map(mapping_pages_time))
 
     let pagesPrev = pagesPast.filter(
           function(el, i, array){
-            let elem_mtime = new Date(el.meta.mtime)
+            let elem_time = new Date(el.meta.birthtime)
 
-            return (elem_mtime.getTime() == pagePrev_mTime)
+            return (elem_time.getTime() == pagePrev_mTime)
           }
         )
       , pagesNext = pagesFuture.filter(
           function(el, i, array){
-            let elem_mtime = new Date(el.meta.mtime)
+            let elem_time = new Date(el.meta.birthtime)
 
-            return (elem_mtime.getTime() == pageNext_mTime)
+            return (elem_time.getTime() == pageNext_mTime)
           }
         )
     const pagePrev = pagesPrev[0]
@@ -53,11 +53,11 @@ block main
     article
       header#main_header(style= mainHeaderStyle).text-light
         .container
-          - let mtime = new Date(page.meta.mtime)
+          - let birthtime = new Date(page.meta.birthtime)
           h1#blogheader_top= page.attributes.title
           div.mb-1
             +fa("clock-o")
-            time(datetime=page.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
+            time(datetime=page.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}
           div.mb-3
             +fa("folder-open")
             if(page.attributes.categories)

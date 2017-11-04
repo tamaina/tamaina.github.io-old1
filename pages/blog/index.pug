@@ -18,7 +18,7 @@ mixin fa( $icon )
     -   if( a.meta.mtime < b.meta.mtime ) { return 1 } else { return -1 }
     - });
     each page in pages
-      if ( page.meta.permalink.indexOf("/blog/") == 0 && page.meta.path != "/blog/index" )
+      if ( page.meta.permalink.indexOf("/blog/") == 0 )
         a(href=`${site.url.path}${page.meta.permalink}`).col-xl-4.col-md-6.p-2
           .card.w-100.h-100.border-dark.pb-5
             if ( page.attributes.thumbnail )

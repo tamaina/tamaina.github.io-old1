@@ -24,8 +24,7 @@ layout: article
                 "sha384": "OAZAV1YnEdrl6phd0dJT1rFBgkKTe3rYhCEbccJV4nzcrm/xoS5SN2OmfjsZkTZk",
                 "mtime": "2100-12-26T09:13:20.778Z",
                 "birthtime": "2017-08-18T19:35:21.010Z",
-                "permalink": "/foo/bar/hoge",
-                "path": "/foo/bar/hoge"
+                "permalink": "/foo/bar/hoge/"
             },
             "attributes": {
                 "title": "ほげほげ",
@@ -69,7 +68,7 @@ metaにはビルド時に必要と思われる情報をまとめて記述して�
 
 `srcname` `srcext`はそれぞれソースの名前と拡張子が挿入されています。  
 `subdir`にはソースディレクトリ以下のサブディレクトリの情報が挿入されています。
-通常は、`/srcdir/srcname`が,meta.pathになるはずです。
+通常は、`/srcdir/srcname/`が,meta.permalinkになるはずです。
 
 #### `.meta.md5`, `.meta.sha384`
 
@@ -81,14 +80,9 @@ metaにはビルド時に必要と思われる情報をまとめて記述して�
 
 通常は`stats`の値がそのまま挿入されますが、yaml front-matterで各値を書き換えるとここに反映されます。
 
-#### `.meta.premalink`, `.meta.path`
+#### `.meta.premalink`
 
-`permalink`と`path`の違いは、そのファイル名がindexであるときに発揮されます。`permalink`は`path`の最後のindexを消したものです。
-
-|キー|値|
-|----|--|
-|`page.meta.permalink`|`/foo/bar/`|
-|`page.meta.path`|`/foo/bar/index`|
+必ず`/`から始まり`/`で終わるリンクが格納されています。
 
 ### `.attributes`
 

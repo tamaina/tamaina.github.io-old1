@@ -3,8 +3,8 @@ self.importScripts('/docs/assets/workbox-sw.prod.v2.1.0.js')
 const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
   {
-    "url": "404.html",
-    "revision": "36c2d9643410121cfe201ac91e0d1ea8"
+    "url": "404/index.html",
+    "revision": "40b4b71f17b4e4113fa8d37c3496f336"
   },
   {
     "url": "assets/main.js",
@@ -39,40 +39,40 @@ workboxSW.precache([
     "revision": "d41d8cd98f00b204e9800998ecf8427e"
   },
   {
-    "url": "blog/about_me.html",
-    "revision": "16085635133ca2bdc44e1bf0b947f228"
+    "url": "blog/about_me/index.html",
+    "revision": "bb5b089ea255ead536f9411998b1e604"
   },
   {
-    "url": "blog/bootstrap-v4-beta.html",
-    "revision": "c12510ac4c69e89a2a2e88740e0b964c"
+    "url": "blog/bootstrap-v4-beta/index.html",
+    "revision": "51602c6ee98ea65f03bbfa58091a9ada"
   },
   {
-    "url": "blog/bunkasai.html",
-    "revision": "659c4b8532a3ffbb3913a6fa324c8079"
+    "url": "blog/bunkasai/index.html",
+    "revision": "6e4b46ce8c1b650422dfb666137ee7d4"
   },
   {
-    "url": "blog/chirno_intro.html",
-    "revision": "4a77a2fe5176d7de065feaaa4f69b938"
+    "url": "blog/chirno_intro/index.html",
+    "revision": "2ff516a34faa248a05b87f1e89be3837"
   },
   {
-    "url": "blog/getval_test.html",
-    "revision": "325696c4937e96347c411eeb11396cd1"
+    "url": "blog/getval_test/index.html",
+    "revision": "b7748d8b858206ecac92fc8b491c277c"
   },
   {
-    "url": "blog/hachikou.html",
-    "revision": "1dbd89138abdce2a5278d320d2c77067"
+    "url": "blog/hachikou/index.html",
+    "revision": "7a07acaf25cd033f5473718afa813831"
   },
   {
     "url": "blog/index.html",
-    "revision": "979359174ca2e64d8a59a07f2836fb3b"
+    "revision": "9cb6db8d2fe9ffd5c99157aaa22a956c"
   },
   {
-    "url": "blog/maqz001400.html",
-    "revision": "1299d539f3f0c82a77d68fb6e85e9522"
+    "url": "blog/maqz001400/index.html",
+    "revision": "9978f4f41108617722a47a9239ce61d4"
   },
   {
-    "url": "blog/suiranfes2017.html",
-    "revision": "6810d7970572701b61ec2ae4904ce99b"
+    "url": "blog/suiranfes2017/index.html",
+    "revision": "cc80ac87f334950d9c6941d41eb217b9"
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
@@ -184,30 +184,30 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "1b450304926cb8c5efe74d4de93bd8f1"
+    "revision": "b10ca267cef0d5a80a81806a35ea06d2"
   },
   {
     "url": "manifest.json",
     "revision": "bbbfc29d79b4e4b4acb9e868998ba80e"
   },
   {
-    "url": "MDBuilder/configulation.html",
-    "revision": "d1855a2e9a5a0d184bc92cc75fcd600e"
+    "url": "MDBuilder/configulation/index.html",
+    "revision": "5d4cba6f0c6e4c73ffaf6bfccdad0219"
   },
   {
-    "url": "MDBuilder/howtowrite.html",
-    "revision": "eae81d0e4351d3e15b6b489ccc7bb9ad"
+    "url": "MDBuilder/howtowrite/index.html",
+    "revision": "72a9d5a36baeb86243e53233576cb8a7"
   },
   {
     "url": "MDBuilder/index.html",
-    "revision": "87e7c53617b04c137ffcf661f1387f86"
+    "revision": "30201cbeebab794078560e26ea056b37"
   },
   {
-    "url": "MDBuilder/pages.html",
-    "revision": "078f12845fcd0974cbc559168df29b87"
+    "url": "MDBuilder/pages/index.html",
+    "revision": "beb44cb1949bf7ff010a89ca21e7cf5c"
   },
   {
-    "url": "MDBuilder/theme.html",
-    "revision": "6e18b4d2f9751401f2c53fa82a699fb0"
+    "url": "MDBuilder/theme/index.html",
+    "revision": "6c86cb93c26b5e45f4a2e1da34fedb90"
   }
 ])
