@@ -426,7 +426,7 @@ function register_manifest(){
         "icons": icons,
         "start_url": site.url.path,
         "theme_color": site.theme_color.primary,
-        "background_color": site.theme_color.secondary
+        "background_color": site.theme_color.primary
     }
     manifest = extend(true,manifest,site.manifest)
     grunt.file.write( `docs/manifest.json` , JSON.stringify(manifest) )

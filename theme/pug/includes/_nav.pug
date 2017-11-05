@@ -1,13 +1,39 @@
-nav.navbar.navbar-dark.bg-dark.sticky-top.flex-row
+nav#mainnav.navbar.navbar-dark.bg-dark.sticky-top.flex-row
   a(href=`${site.url.path}/`).navbar-brand#navbar_brand
     img(src=`${site.url.path}/files/images/icons/favicon-96x96.png` width="30" height="30" class="d-inline-block align-top" alt="ICON")
     .navbar-brand-text tmin.xyz
   #navbar_items
     .navbar-nav.flex-row.justify-content-center
-      a(href=`${site.url.path}/`).nav-item.nav-link.px-3 Home
-      a(href=`${site.url.path}/MDBuilder/`).nav-item.nav-link.px-3 MDBuilder
-      a(href=`${site.url.path}/blog/`).nav-item.nav-link.px-3 ブログ
-      a(href=`https://chirno.tmin.xyz/`, target="_blank").nav-item.nav-link.px-3 Chirno
+      a(href=`${site.url.path}/`).text-light.nav-item.nav-link.px-3 Home
+      a(href=`${site.url.path}/MDBuilder/`).text-light.nav-item.nav-link.px-3 MDBuilder
+      a(href=`${site.url.path}/blog/`).text-light.nav-item.nav-link.px-3 ブログ
+      a(href=`https://chirno.tmin.xyz/`, target="_blank", rel="noopener").text-light.nav-item.nav-link.px-3 Chirno
         +fa("external-link")
-      a(href=`http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md`, target="_blank").nav-item.nav-link.px-3 🇯🇵WebFont
+      a(href=`http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md`, target="_blank", rel="noopener").text-light.nav-item.nav-link.px-3 🇯🇵WebFont
         +fa("external-link")
+nav(aria-label="breadcrumb")#breadcrumb.bg-light
+  .container
+    ol.breadcrumb.bg-light.m-0.px-0.py-2
+      - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""]
+      if( dirs.length > 2 )
+        li.breadcrumb-item
+          a(href=`${site.url.path}/`).py-2 Home
+        - let dirpl = "/"
+        - for( let i = 1; i < dirs.length - 1; i++){                // i = 3
+        -   let nowdir = dirs[i]                                // "bar"
+        -   dirpl = `${dirpl}${nowdir}/`                            // /foo/bar/
+        -   let indexPage = pages.find(e => e.meta.permalink === dirpl)
+        -   if( indexPage != undefined && i != dirs.length - 2 ){
+          li.breadcrumb-item
+            a(href=`${site.url.path}${dirpl}`).py-2 #{indexPage.attributes.title}
+        -   } else if( indexPage == undefined && i != dirs.length - 2 ){
+          li.breadcrumb-item
+            a(href=`${site.url.path}${dirpl}`).py-2 #{nowdir}
+        -   } else if( indexPage != undefined && i == dirs.length - 2 ){
+          li.breadcrumb-item(aria-current="page") #{indexPage.attributes.title}
+        -   } else if( indexPage == undefined && i == dirs.length - 2 ){
+          li.breadcrumb-item(aria-current="page") #{nowdir}
+        -   }
+        - }
+      else
+        li.breadcrumb-item(aria-current="page") Home
