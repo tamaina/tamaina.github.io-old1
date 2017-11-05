@@ -293,12 +293,11 @@ function register_pages(){
 
         if( page.attributes.description === undefined || page.attributes.description === null ) page.attributes.description = site.description
 
+        page.meta.mtime = page.stats.mtime
+        page.meta.birthtime = page.stats.birthtime
         if( page.attributes.date )  page.meta.birthtime = page.attributes.date
-        else if( page.attributes.mtime ) page.meta.mtime = page.attributes.mtime
-        else page.meta.mtime = page.stats.mtime
-
-        if( page.attributes.birthtime ) page.birthtime = page.attributes.birthtime
-        else page.meta.birthtime = page.stats.birthtime
+        if( page.attributes.mtime ) page.meta.mtime = page.attributes.mtime
+        if( page.attributes.birthtime ) page.meta.birthtime = page.attributes.birthtime
 
         page.meta.mtime = (new Date(page.meta.mtime)).toJSON()
         page.meta.birthtime = (new Date(page.meta.birthtime)).toJSON()
