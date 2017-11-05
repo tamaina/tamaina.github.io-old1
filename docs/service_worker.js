@@ -4,15 +4,15 @@ const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
   {
     "url": "404/index.html",
-    "revision": "40b4b71f17b4e4113fa8d37c3496f336"
+    "revision": "3a6d250a08a90a965aa796c3db2df2fc"
   },
   {
     "url": "assets/main.js",
-    "revision": "0c617978e7de55dbf78d7a56028e1dad"
+    "revision": "59c3904db4bd14923671b89ad6e9bc06"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "a1b6263ed753cd90d8da01172324dd63"
+    "revision": "0849ba1cccd09a507014cfffb7455dd7"
   },
   {
     "url": "assets/pjax-api.js",
@@ -28,11 +28,11 @@ workboxSW.precache([
   },
   {
     "url": "assets/style.css",
-    "revision": "e0bd1f410d5b9e26739bf7f463008ce3"
+    "revision": "2d90e08aa18365ffa05c551e2ad6f1d8"
   },
   {
     "url": "assets/style.min.css",
-    "revision": "9bcbd90a064a6b64f480265ef593cb15"
+    "revision": "29e112eb76fd3f8d2903e33da1501789"
   },
   {
     "url": "assets/workbox-sw.prod.v2.1.0.js",
@@ -64,7 +64,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/index.html",
-    "revision": "9cb6db8d2fe9ffd5c99157aaa22a956c"
+    "revision": "9f9f596196cbeda3244e28c2eb340201"
   },
   {
     "url": "blog/maqz001400/index.html",
@@ -184,7 +184,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "b10ca267cef0d5a80a81806a35ea06d2"
+    "revision": "364fe61c0420626fb6eb14c8809a7dd2"
   },
   {
     "url": "manifest.json",
@@ -192,22 +192,22 @@ workboxSW.precache([
   },
   {
     "url": "MDBuilder/configulation/index.html",
-    "revision": "5d4cba6f0c6e4c73ffaf6bfccdad0219"
+    "revision": "eef58645d5ee35d27b7a560ad571c721"
   },
   {
     "url": "MDBuilder/howtowrite/index.html",
-    "revision": "72a9d5a36baeb86243e53233576cb8a7"
+    "revision": "483bc79a16788b0c01687e796d975d92"
   },
   {
     "url": "MDBuilder/index.html",
-    "revision": "30201cbeebab794078560e26ea056b37"
+    "revision": "a324baf8e0e84cda1fa9b9b1934d980c"
   },
   {
     "url": "MDBuilder/pages/index.html",
-    "revision": "beb44cb1949bf7ff010a89ca21e7cf5c"
+    "revision": "4685d8e4fe2b211cac3f18c4886eb3ce"
   },
   {
     "url": "MDBuilder/theme/index.html",
-    "revision": "6c86cb93c26b5e45f4a2e1da34fedb90"
+    "revision": "faf0dd7b07617d0ed4f1ec975701282e"
   }
 ])

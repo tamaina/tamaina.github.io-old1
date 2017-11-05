@@ -1,8 +1,8 @@
 {
   "name": "tmin.xyz",
   "version": "0.17.0",
-  "description": "tmin.xyz",
   "main": "docs/index.html",
+  "description": "tmin.xyz",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +18,7 @@
   "homepage": "https://tmin.xyz",
   "devDependencies": {
     "chalk": "^2.3.0",
-    "chirno": "^4.0.0-beta-chirno17033",
+    "chirno": "^4.0.0-beta.2-chirno17277",
     "electron": "^1.8.1",
     "extend": "^3.0.1",
     "fontmin": "^0.9.6",
@@ -33,7 +33,7 @@
     "grunt-contrib-stylus": "^1.2.0",
     "grunt-contrib-uglify": "^3.1.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-image": "^4.0.0",
+    "grunt-image": "^4.1.0",
     "grunt-webpack": "^3.0.2",
     "highlight.js": "^9.12.0",
     "html-minifier": "^3.5.6",
@@ -49,7 +49,7 @@
     "popper.js": "^1.12.6",
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6",
-    "spica": "^0.0.116",
+    "spica": "^0.0.127",
     "stylus": "^0.54.5",
     "tether": "^1.4.0",
     "ttf2woff2": "^2.0.3",
@@ -57,7 +57,7 @@
     "uglify-js": "^3.1.6",
     "webpack": "^3.8.1",
     "workbox-build": "^2.1.0",
-    "workbox-sw": "2.1.0"
+    "workbox-sw": "2.1.1"
   },
   "dependencies": {}
 }

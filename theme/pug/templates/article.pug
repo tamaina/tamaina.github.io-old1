@@ -2,19 +2,19 @@ extends ../templates/default.pug
 
 block main
   #main.container.py-5
-    - let birthtime = new Date(page.meta.birthime)
+    - let birthtime = new Date(page.meta.birthtime)
     - let mtime = new Date(page.meta.mtime)
     article#article_maincontent.row
       header.w-100.order-1.p-2
         h1= page.attributes.title
-        ul.fa-ul
+        ul.list-unstyled
           li
-            +fa_li("file-text-o")
-            time(datetime=page.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}}
+            +fa("file-text-o")
+            time(datetime=page.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}
             |  作成
           li
-            +fa_li("clock-o")
-            time(datetime=page.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}}
+            +fa("clock-o")
+            time(datetime=page.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
             |  更新
       #article_sidenav.my-2.p-3.col-lg-3.col-12.order-lg-3.order-2.bg-light
         +toc( headings, 2, "ul", "list-unstyled ml-3")
