@@ -64,7 +64,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/index.html",
-    "revision": "c4a378442517a3898d0c46ee25bd4924"
+    "revision": "30509b3528387bbc5f1ad9513dcbc9cd"
   },
   {
     "url": "blog/maqz001400/index.html",
@@ -184,7 +184,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "c9b7dda1a8f10f3356cf7c74bff27231"
+    "revision": "091297f6cb0dedd279e7474de486a7ab"
   },
   {
     "url": "manifest.json",
