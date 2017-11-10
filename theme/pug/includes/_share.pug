@@ -24,7 +24,7 @@
           div(class="line-it-button", style="display: none;", data-lang="ja", data-type="share-a", data-url=encodeURIComponent(pm))
         if(site.social_media.facebook.share)
           br
-          div(class="fb-share-button", data-href="https://developers.facebook.com/docs/plugins/", data-layout="button_count", data-size="small", data-mobile-iframe="true")
+          div(class="fb-share-button", data-href=pm, data-layout="button_count", data-size="small", data-mobile-iframe="true")
             a(class="fb-xfbml-parse-ignore", target="_blank", href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pm)}`) シェア
         script.
           if(window.FB) FB.XFBML.parse()
