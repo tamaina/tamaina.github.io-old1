@@ -1,6 +1,6 @@
 #share_modal_open_button
   .container
-    button(type="button", data-toggle="modal", data-target="#share_modal").btn.btn-primary.rounded-circle.mb-2
+    button(type="button", data-toggle="modal", data-target="#share_modal").btn.btn-primary.rounded-circle.my-4
       +fa("share-alt")
 
 #share_modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="share_modal_label", aria-hidden="true")
@@ -15,11 +15,15 @@
         p 「#{page.attributes.title}」をSNSで共有
         if(site.social_media.twitter.share)
           a(href="https://twitter.com/share?ref_src=twsrc%5Etfw", class="twitter-share-button", data-show-count="true") Tweet
+          |  
         if(site.social_media.twitter.stalk)
           a(href=`https://twitter.com/${site.social_media.twitter.stalk}?ref_src=twsrc%5Etfw` class="twitter-follow-button" data-show-count="false") Follow @#{site.social_media.twitter.stalk}
+          |  
         if(site.social_media.LINE.share)
+          br
           div(class="line-it-button", style="display: none;", data-lang="ja", data-type="share-a", data-url=encodeURIComponent(pm))
         if(site.social_media.facebook.share)
+          br
           div(class="fb-share-button", data-href="https://developers.facebook.com/docs/plugins/", data-layout="button_count", data-size="small", data-mobile-iframe="true")
             a(class="fb-xfbml-parse-ignore", target="_blank", href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pm)}`) シェア
         script.
