@@ -184,4 +184,4 @@ class WorkboxSW$1{constructor({cacheId:a,skipWaiting:b,clientsClaim:c,handleFetc
 return WorkboxSW$1;
 
 }());
-//# sourceMappingURL=workbox-sw.prod.v2.1.0.js.map
+//# sourceMappingURL=workbox-sw.prod.v2.1.1.js.map

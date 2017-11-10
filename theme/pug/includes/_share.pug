@@ -1,0 +1,41 @@
+#share_modal_open_button
+  .container
+    button(type="button", data-toggle="modal", data-target="#share_modal").btn.btn-primary.rounded-circle.mb-2
+      +fa("share-alt")
+
+#share_modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="share_modal_label", aria-hidden="true")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        h5.modal-title#share_modal_label シェア
+        button(type="button", class="close", data-dismiss="modal", aria-label="Close")
+          span(aria-hidden="true") &times;
+      .modal-body#share_modal_body
+        - let pm = `${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`
+        p 「#{page.attributes.title}」をSNSで共有
+        if(site.social_media.twitter.share)
+          a(href="https://twitter.com/share?ref_src=twsrc%5Etfw", class="twitter-share-button", data-show-count="true") Tweet
+        if(site.social_media.twitter.stalk)
+          a(href=`https://twitter.com/${site.social_media.twitter.stalk}?ref_src=twsrc%5Etfw` class="twitter-follow-button" data-show-count="false") Follow @#{site.social_media.twitter.stalk}
+        if(site.social_media.LINE.share)
+          div(class="line-it-button", style="display: none;", data-lang="ja", data-type="share-a", data-url=encodeURIComponent(pm))
+        if(site.social_media.facebook.share)
+          div(class="fb-share-button", data-href="https://developers.facebook.com/docs/plugins/", data-layout="button_count", data-size="small", data-mobile-iframe="true")
+            a(class="fb-xfbml-parse-ignore", target="_blank", href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pm)}`) シェア
+        script.
+          if(window.FB) FB.XFBML.parse()
+          if(window.twttr) twttr.widgets.load()
+          if(window.gapi) gapi.plusone.go()
+          if(window.LineIt) LineIt.loadButton()
+
+.
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.11&appId=#{site.social_media.facebook.appId}';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>

@@ -62,26 +62,28 @@ html(lang=site.locale)
         meta(property="og:site_name", content=site.name)
 
       block twitter_card
-        if ( !!page.attributes.thumbnail )
-          meta(name="twitter:card", content="summary_large_image")
-          meta(name="twitter:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
-        else if ( !!site.site_card_path )
-          meta(name="twitter:card", content="summary_large_image")
-          meta(name="twitter:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${site.site_card_path}`)
-        else
-          meta(name="twitter:card", content="summary")
-        meta(name="twitter:title", content=`${page.attributes.title} - ${site.name}`)
-        meta(name="twitter:description", content=page.attributes.description)
-        meta(name="twitter:site", content=site.twitter_screenname)
+        if ( site.social_media.twitter.card )
+          if ( !!page.attributes.thumbnail )
+            meta(name="twitter:card", content="summary_large_image")
+            meta(name="twitter:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
+          else if ( !!site.site_card_path )
+            meta(name="twitter:card", content="summary_large_image")
+            meta(name="twitter:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${site.site_card_path}`)
+          else
+            meta(name="twitter:card", content="summary")
+          meta(name="twitter:title", content=`${page.attributes.title} - ${site.name}`)
+          meta(name="twitter:description", content=page.attributes.description)
+          meta(name="twitter:site", content=site.social_media.twitter.stalk)
 
       block gtag
-        | <script async src="https://www.googletagmanager.com/gtag/js?id=#{site.ga}"></script>
-        | <script>
-        |  window.dataLayer = window.dataLayer || [];
-        |  function gtag(){dataLayer.push(arguments);}
-        |  gtag('js', new Date());
-        |  gtag('config', '#{site.ga}');
-        | </script>
+        .
+          <script async src="https://www.googletagmanager.com/gtag/js?id=#{site.ga}"></script>
+          <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '#{site.ga}');
+          </script>
 
       block js_head
 
@@ -105,6 +107,9 @@ html(lang=site.locale)
         footer.container
           p Copyright: #{site.auther}
           p.m-0 Site published by MarkDown Builder
+
+      if ( site.social_media.share_button )
+        include ../includes/_share.pug
 
     block includes_foot
       include ../includes/_includes_foot.pug

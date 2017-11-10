@@ -16,7 +16,7 @@ let pages = []
 let info = {}
 let manifest = {}
 let package = require('./package.json')
-let site = require('./.config/default.json')
+let site = extend(true,require('./.config/default.json'),require('./.config/own.json'))
 let temp_dir = 'theme/pug/temp' // 末尾のスラッシュ不要
 const webpackConfig = require('./webpack.config');
 
@@ -133,7 +133,7 @@ module.exports = function(grunt){
             },
             style: {
                 files: [src.styl_all],
-                tasks: ['debug_override','build_style']
+                tasks: ['debug_override','build_style','sw']
             },
             settings: {
                 files: ['.config/**','Gruntfile.js'],
@@ -145,11 +145,11 @@ module.exports = function(grunt){
             },
             copy_static: {
                 files: [src.static],
-                tasks: ['debug_override','copy:main']
+                tasks: ['debug_override','copy:main','sw']
             },
             copy_files: {
                 files: [src.files],
-                tasks: ['debug_override','copy:main','image:files']
+                tasks: ['debug_override','copy:main','image:files','sw']
             }
         },
         connect: {
@@ -351,6 +351,7 @@ block constnum
         grunt.file.write( temppath(page, temp_dir) , outdata )
     }
 }
+
 function pugfiles() {
     register_pages()
     let out = '{'

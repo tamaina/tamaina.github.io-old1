@@ -24,7 +24,7 @@ mixin fa( $icon )
             if ( page.attributes.thumbnail )
               img.card-img-top.blog-indexthumb.bg-dark(alt="サムネイル", src=`${site.url.path}${page.attributes.thumbnail}`)
             h4.card-title.blog-title.my-md-4.mb-2.mt-3.px-3 #{page.attributes.title}
-            p.card-text.mb-md-5.mb-4.px-3.pb-4 #{page.attributes.description}
+            p.card-text.mb-5.px-3.pb-4 #{page.attributes.description}
             - let birthtime = new Date(page.meta.birthtime)
             - let mtime = new Date(page.meta.mtime)
             .card-footer.py-md-2.py-1

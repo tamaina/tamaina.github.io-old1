@@ -34,8 +34,11 @@ mixin social_circle( $url, $fa, $title )
 
 #socials.bg-danger.text-center.py-5
   .container.text-light
-    h2 Social Accounts
+    h2 Stalk Me!
     .py-3.d-flex.flex-wrap.justify-content-center
-      +social_circle( "https://twitter.com/t_ma1n", "twitter", "twitter @t_ma1n" )
-      +social_circle( "https://www.flickr.com/people/150974953@N07/", "flickr", "flickr" )
-      +social_circle( "https://github.com/tamaina", "github", "github @tamaina" )
+      if(site.social_media.twitter.stalk)
+        +social_circle( `https://twitter.com/${site.social_media.flickr.stalk}`, "twitter", `twitter ${site.social_media.flickr.stalk}` )
+      if(site.social_media.flickr.stalk)
+        +social_circle( `https://www.flickr.com/people/${site.social_media.flickr.stalk}/`, "flickr", "flickr" )
+      if(site.social_media.github.stalk)
+        +social_circle( `https://github.com/${site.social_media.github.stalk}`, "github", `github @${site.social_media.github.stalk}` )

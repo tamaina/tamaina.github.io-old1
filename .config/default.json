@@ -123,11 +123,39 @@
     "default": {
         "template": "default"
     },
+    "social_media" : {
+        "twitter": {
+            "stalk": "aqzti",
+            "share": true,
+            "card": true,
+            "icon": "fa"
+        },
+        "LINE": {
+            "stalk": false,
+            "share": true,
+            "icon": "fa"
+        },
+        "facebook": {
+            "stalk": false,
+            "share": true,
+            "icon": "fa"
+        },
+        "flickr": {
+            "stalk": "150974953@N07",
+            "share": false,
+            "icon": "fa"
+        },
+        "github": {
+            "stalk": "tamaina",
+            "share": false,
+            "icon": "fa"
+        },
+        "share_button": true
+    },
     "rss_url": "https://github.com/tamaina/tamaina.github.io/commits/master.atom",
-    "twitter_screenname": "t_ma1n",
     "manifest": {
         "start_url": "./",
-        "display": "standalone"
+        "display": "minimal-ui"
     },
     "disqus": "tminxyz",
     "ga": "UA-107753466-1"
