@@ -1,5 +1,5 @@
 #share_modal_open_button
-  .container
+  .container-fluid
     button(type="button", data-toggle="modal", data-target="#share_modal").btn.btn-primary.rounded-circle.my-4
       +fa("share-alt")
 
@@ -26,11 +26,6 @@
           br
           div(class="fb-share-button", data-href=pm, data-layout="button_count", data-size="small", data-mobile-iframe="true")
             a(class="fb-xfbml-parse-ignore", target="_blank", href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pm)}`) シェア
-        script.
-          if(window.FB) FB.XFBML.parse()
-          if(window.twttr) twttr.widgets.load()
-          if(window.gapi) gapi.plusone.go()
-          if(window.LineIt) LineIt.loadButton()
 
 .
   <div id="fb-root"></div>
