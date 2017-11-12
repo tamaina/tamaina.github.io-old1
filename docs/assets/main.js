@@ -14210,7 +14210,7 @@ return exports;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.jQuery = $ = __webpack_require__(0);
+jQuery = $ = __webpack_require__(0);
 
 headwriter_flag = false;
 
@@ -14246,7 +14246,7 @@ $(document).on('pjax:ready',function(){
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.jQuery = $ = __webpack_require__(0);
+jQuery = $ = __webpack_require__(0);
 
 $(window).on("scroll",function(){
   var svar = $(window).scrollTop();
@@ -14263,7 +14263,7 @@ $(window).on("scroll",function(){
 /***/ (function(module, exports, __webpack_require__) {
 
 var UAparser = __webpack_require__(6); 
-window.jQuery = $ = __webpack_require__(0);
+jQuery = $ = __webpack_require__(0);
 
 var agent = UAparser(window.navigator.userAgent);
 
@@ -15389,7 +15389,7 @@ module.exports = __webpack_amd_options__;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.jQuery = $ = __webpack_require__(0);
+jQuery = $ = __webpack_require__(0);
 $("#share_modal").on("shown.bs.modal",function(){
     if(window.FB) FB.XFBML.parse()
     if(window.twttr) twttr.widgets.load()

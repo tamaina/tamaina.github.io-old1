@@ -1,20 +1,20 @@
 #share_modal_open_button
   .container-fluid
-    button(type="button", data-toggle="modal", data-target="#share_modal").btn.btn-primary.rounded-circle.my-4
+    button(type="button", data-toggle="modal", data-target="#share_modal", aria-labelledby="share_modal_label").btn.btn-primary.rounded-circle.my-4
       +fa("share-square-o")
 
 #share_modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="share_modal_label", aria-hidden="true")
   .modal-dialog.modal-dialog-centered(role="document")
     .modal-content
       .modal-header
-        h5.modal-title#share_modal_label
+        h5.modal-title
           +fa("share-square-o")
           | シェア
-        button(type="button", class="close", data-dismiss="modal", aria-label="Close")
+        button(type="button", class="close", data-dismiss="modal", aria-label="閉じる")
           span(aria-hidden="true") &times;
       .modal-body#share_modal_body
         - let pm = `${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`
-        p 「#{page.attributes.title}」をSNSで共有
+        p#share_modal_label 「#{page.attributes.title}」をSNSで共有
         if(site.social_media.twitter.share)
           a(href="https://twitter.com/share?ref_src=twsrc%5Etfw", class="twitter-share-button", data-show-count="true") Tweet
           |  

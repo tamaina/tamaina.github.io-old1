@@ -1,4 +1,4 @@
-window.jQuery = $ = require('jquery');
+jQuery = $ = require('jquery');
 
 $(window).on("scroll",function(){
   var svar = $(window).scrollTop();

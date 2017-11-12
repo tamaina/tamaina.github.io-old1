@@ -1,4 +1,4 @@
-window.jQuery = $ = require('jquery');
+jQuery = $ = require('jquery');
 $(window).on('pjax:load',function(){
   if(window.gtag) gtag('event', 'page_view');
   if(window.DISQUS){
@@ -11,6 +11,6 @@ $(window).on('pjax:load',function(){
   }
 });
 
-$(window).on('pjax:fetch',function(){
-  $('.modal').modal('hide')
+$(window).on('pjax:unload',function(){
+  $('.modal').modal('hide');
 })

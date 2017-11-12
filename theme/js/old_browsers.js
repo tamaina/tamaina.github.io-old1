@@ -1,5 +1,5 @@
 var UAparser = require('ua-parser-js'); 
-window.jQuery = $ = require('jquery');
+jQuery = $ = require('jquery');
 
 var agent = UAparser(window.navigator.userAgent);
 

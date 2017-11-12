@@ -1,4 +1,4 @@
-window.jQuery = $ = require('jquery');
+jQuery = $ = require('jquery');
 
 headwriter_flag = false;
 
