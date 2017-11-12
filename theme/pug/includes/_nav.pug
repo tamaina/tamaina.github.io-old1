@@ -11,9 +11,9 @@ nav#mainnav.navbar.navbar-dark.bg-dark.sticky-top.flex-row
         +fa("external-link")
       a(href=`http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md`, target="_blank", rel="noopener").text-light.nav-item.nav-link.px-3 🇯🇵WebFont
         +fa("external-link")
-nav(aria-label="breadcrumb")#breadcrumb.bg-light
+nav(aria-label="breadcrumb")#breadcrumb.bg-dark
   .container
-    ol.breadcrumb.bg-light.m-0.px-0.py-2
+    ol.breadcrumb.bg-dark.text-white.m-0.px-0.py-2
       - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""]
       if( dirs.length > 2 )
         li.breadcrumb-item
