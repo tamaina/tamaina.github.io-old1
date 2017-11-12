@@ -10335,6 +10335,7 @@ __webpack_require__(3);
 __webpack_require__(4);
 __webpack_require__(5);
 __webpack_require__(8);
+__webpack_require__(9);
 
 /***/ }),
 /* 2 */
@@ -15397,6 +15398,27 @@ $("#share_modal").on("shown.bs.modal",function(){
     if(window.LineIt) LineIt.loadButton()
 })
 
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+jQuery = $ = __webpack_require__(0);
+$(window).on('pjax:load',function(){
+  if(window.gtag) gtag('event', 'page_view');
+  if(window.DISQUS){
+    // DISQUSでresetを送信します。
+    // disqus_configはページ内に別に定義されています。
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    });
+  }
+});
+
+$(window).on('pjax:unload',function(){
+  $('.modal').modal('hide');
+})
 
 /***/ })
 /******/ ]);
