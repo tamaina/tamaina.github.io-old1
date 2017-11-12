@@ -10,3 +10,7 @@ $(window).on('pjax:load',function(){
     });
   }
 });
+
+$(window).on('pjax:fetch',function(){
+  $('.modal').modal('hide')
+})

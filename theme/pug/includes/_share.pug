@@ -1,13 +1,15 @@
 #share_modal_open_button
   .container-fluid
     button(type="button", data-toggle="modal", data-target="#share_modal").btn.btn-primary.rounded-circle.my-4
-      +fa("share-alt")
+      +fa("share-square-o")
 
 #share_modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="share_modal_label", aria-hidden="true")
-  .modal-dialog(role="document")
+  .modal-dialog.modal-dialog-centered(role="document")
     .modal-content
       .modal-header
-        h5.modal-title#share_modal_label シェア
+        h5.modal-title#share_modal_label
+          +fa("share-square-o")
+          | シェア
         button(type="button", class="close", data-dismiss="modal", aria-label="Close")
           span(aria-hidden="true") &times;
       .modal-body#share_modal_body
