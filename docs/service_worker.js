@@ -4,7 +4,7 @@ const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
   {
     "url": "404/index.html",
-    "revision": "f00078bfaf05f5a23b8f4cd0135430da"
+    "revision": "0c9243294b29f0f4de5030a6974f8482"
   },
   {
     "url": "assets/main.js",
@@ -40,39 +40,39 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "a9de4178ff698acf91f8e3a03404371d"
+    "revision": "6435a3810d90a84c11ff69efb1841f56"
   },
   {
     "url": "blog/bootstrap-v4-beta/index.html",
-    "revision": "993105dcef14b3eb580d738304ef0fdf"
+    "revision": "2d72e64baca72a8b5c81f63cbdd3ad41"
   },
   {
     "url": "blog/bunkasai/index.html",
-    "revision": "47079b9aba986e39a819d9f83167918c"
+    "revision": "75d7ddd97ad91f0ad915146daca28995"
   },
   {
     "url": "blog/chirno_intro/index.html",
-    "revision": "23fa8747cde6b25b6ed69c247e1ac00b"
+    "revision": "137ef3eacadd2f12d45048ab3b0557fa"
   },
   {
     "url": "blog/getval_test/index.html",
-    "revision": "767660ac4a0380ba9c8f13822504378b"
+    "revision": "51459a712dec819db68aa08ae62813e8"
   },
   {
     "url": "blog/hachikou/index.html",
-    "revision": "0d5a25c67722ff5bc88f69716cdcade0"
+    "revision": "ac4351022a04437bc75ca7595b3db09a"
   },
   {
     "url": "blog/index.html",
-    "revision": "ad32590f69244e3e98b7aa091b545917"
+    "revision": "b325d6900b013c87aace02a102b98bd3"
   },
   {
     "url": "blog/maqz001400/index.html",
-    "revision": "e605eb7f2bfb09634f5cc01bfa625af2"
+    "revision": "fd462177dd0fa9f658fc2d605dacf8c0"
   },
   {
     "url": "blog/suiranfes2017/index.html",
-    "revision": "d7a42bb4e59a13ddb08921363f8c4277"
+    "revision": "70c05124104b7ff96e57a0ec1dc9a341"
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
@@ -180,11 +180,11 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "7cdcd7666bb80f6088701e526bf4c1ed"
+    "revision": "c0becd2b9ff40a22ce68a15dd74a121c"
   },
   {
     "url": "info.json",
-    "revision": "15b1b3c5ddc23a8593f21b7064669054"
+    "revision": "efd8b8fdec11e1b267a811cffed27890"
   },
   {
     "url": "manifest.json",
@@ -192,22 +192,22 @@ workboxSW.precache([
   },
   {
     "url": "MDBuilder/configulation/index.html",
-    "revision": "99a07988ac2e2720fdc1c55d1aa27ed9"
+    "revision": "28b1982de76b2af90b204ec7a8a1abdf"
   },
   {
     "url": "MDBuilder/howtowrite/index.html",
-    "revision": "9ae5461c675ca755efb4acb0b508698a"
+    "revision": "a2e8eeb16b4b819bc31352d0fe4c511b"
   },
   {
     "url": "MDBuilder/index.html",
-    "revision": "96216d15b04ac5bb397afce39e48bb47"
+    "revision": "3c4bef3ba200ccfe2492de7390f53941"
   },
   {
     "url": "MDBuilder/pages/index.html",
-    "revision": "4208c6abb3e837cc58bece3f5f4a214f"
+    "revision": "8324bb691034a642bc10229822382450"
   },
   {
     "url": "MDBuilder/theme/index.html",
-    "revision": "4d60b410d6b374a027e93d56cf988112"
+    "revision": "2af6a4d16f212b990c776a613d500a3e"
   }
 ])
