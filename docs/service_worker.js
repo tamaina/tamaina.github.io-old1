@@ -8,11 +8,11 @@ workboxSW.precache([
   },
   {
     "url": "assets/main.js",
-    "revision": "b38876953bae62f57999354ec07170a3"
+    "revision": "ce85aa8bed69fcf6214610b49e8ad4db"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "5abe0468eae2a9934c8c054da70f2ae3"
+    "revision": "d3292f0e8547513e7013542f6378047e"
   },
   {
     "url": "assets/pjax-api.js",
@@ -184,7 +184,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "c6638296b55406f11c174a70709d2c10"
+    "revision": "7d992911a69e3084fb08795b759a447f"
   },
   {
     "url": "manifest.json",
