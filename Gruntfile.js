@@ -186,7 +186,15 @@ module.exports = function(grunt){
                         dest: 'docs/assets/'
                     }
                 ]
-            }
+            },
+            f404: {
+                files: [
+                    {
+                        src: 'docs/404/index.html',
+                        dest: '404.html'
+                    }
+                ]
+            } 
         },
         image: {
             files: {
