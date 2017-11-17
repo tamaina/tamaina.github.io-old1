@@ -2,6 +2,7 @@
     "name": "tmin.xyz",
     "short_name": "tmin.xyz",
     "description": "aqzのサイト",
+    "author": "aqz",
     "url":{
         "path": "/docs",
         "host": "tmin.xyz",

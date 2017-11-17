@@ -39,7 +39,6 @@ let dests = {
     'info': 'docs/info.json'
 }
 module.exports = function(grunt){
-
     grunt.initConfig({
         clean: {
             temp: {
@@ -80,14 +79,14 @@ module.exports = function(grunt){
                     }
                 },
                 files: {
-                    'dist/style.css' : src.styl
+                    'docs/assets/style.css' : src.styl
                 }
             }
         },
         cssmin: {
             minifybs: {
                 files: {
-                    'dist/style.min.css': 'dist/style.css'
+                    'docs/assets/style.min.css': 'docs/assets/style.css'
                 }
             }
         },
@@ -123,18 +122,18 @@ module.exports = function(grunt){
                     }
                 },
                 files: {
-                    'dist/main.min.js' : 'dist/main.js'
+                    'docs/assets/main.min.js' : 'docs/assets/main.js'
                 }
             }
         },
         watch: {
             js: {
                 files: [src.js],
-                tasks: ['debug_override','build_script','build_pages', 'sw']
+                tasks: ['debug_override','build_script', 'sw']
             },
             style: {
                 files: [src.styl_all],
-                tasks: ['debug_override','build_style','build_pages','sw']
+                tasks: ['debug_override','build_style','sw']
             },
             settings: {
                 files: ['.config/**','Gruntfile.js'],
@@ -175,6 +174,16 @@ module.exports = function(grunt){
                         expand: true,
                         src: src.files,
                         dest: "docs/"
+                    }
+                ]
+            },
+            wtfpjax: {
+                files:[
+                    {
+                        expand: true,
+                        cwd:'node_modules/pjax-api/dist/',
+                        src: '**',
+                        dest: 'docs/assets/'
                     }
                 ]
             },

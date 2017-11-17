@@ -4,47 +4,63 @@ const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
   {
     "url": "404/index.html",
-    "revision": "c5d204d05cb938503807509111105952"
+    "revision": "eaccabe649d6fdb1c3e20ccca86bf5ed"
+  },
+  {
+    "url": "assets/pjax-api.js",
+    "revision": "64b8d4f19f565a0272b8d35d9ebcfc64"
+  },
+  {
+    "url": "assets/pjax-api.min.js",
+    "revision": "ab77842762b99fd55368279858614470"
+  },
+  {
+    "url": "assets/style.css",
+    "revision": "4c8cec2c9e5c7dba74a306ae43a57fc1"
+  },
+  {
+    "url": "assets/style.min.css",
+    "revision": "74b9c0230bd478c0f01677c2d3884482"
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "d925c56a24afc741290fe727a7555584"
+    "revision": "5a521b3e9b15d64768f767e34a040399"
   },
   {
     "url": "blog/bootstrap-v4-beta/index.html",
-    "revision": "efe09a7e1c958f88e1e9b626f2ba817e"
+    "revision": "ed69bc38411a143e9562d5e444fb7a0d"
   },
   {
     "url": "blog/bunkasai/index.html",
-    "revision": "847c5dd38f61d13c1c870905907a6c19"
+    "revision": "ba8094caf49c956854ab8c82e29b469f"
   },
   {
     "url": "blog/chirno_intro/index.html",
-    "revision": "293cfa8b7231f75fbdb71783a0c8e851"
+    "revision": "bdbf0aa565f13751361ce4bed025d5b3"
   },
   {
     "url": "blog/getval_test/index.html",
-    "revision": "a18fe2864b58d81000b8afd44b68525e"
+    "revision": "26ff0791fd2438a874f462eff00a2bd7"
   },
   {
     "url": "blog/hachikou/index.html",
-    "revision": "046f4241fab43f65d1a0cbaf9c725d6c"
+    "revision": "75678a6e7b8bef8bf249eae497b401ae"
   },
   {
     "url": "blog/index.html",
-    "revision": "86038f7349db1c13b114f6c89d82af62"
+    "revision": "cffe3af342cc0c85670f2ada5a05e46d"
   },
   {
     "url": "blog/maqz001400/index.html",
-    "revision": "b08de9b1fe559b193bd008b38a81b4c4"
+    "revision": "f5255437582a48a3e987b1a1494f64a7"
   },
   {
     "url": "blog/suiranfes2017/index.html",
-    "revision": "ed82c42e4e9392b8078de2af5a13d97f"
+    "revision": "adbec3b44a20491fbc93211aec6803c2"
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
-    "revision": "9fceafd64960b96961bb48f44b2e1aa1"
+    "revision": "c41b9d2de7c2601c0d9f65c170e54ca2"
   },
   {
     "url": "files/blog/hachikou/kiha110.jpeg",
@@ -236,11 +252,11 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "cf7cb76071713939c99ba61241abb5af"
+    "revision": "9c25af6c66aa4b9367f1ef8844376ee3"
   },
   {
     "url": "info.json",
-    "revision": "6b843c1a76accd647731b2cfdbb2b557"
+    "revision": "9487162d0e0456d0bfadbbecc6d29915"
   },
   {
     "url": "manifest.json",
@@ -248,23 +264,23 @@ workboxSW.precache([
   },
   {
     "url": "MDBuilder/configulation/index.html",
-    "revision": "ff0c7adf57700359183c4de9c0dc732c"
+    "revision": "c9af1d65ae399f13b2926b8b7e9cb290"
   },
   {
     "url": "MDBuilder/howtowrite/index.html",
-    "revision": "bb40aa5419d736b618858ae9b15738ca"
+    "revision": "e77ac6ed983bb3ac845646b686cbc240"
   },
   {
     "url": "MDBuilder/index.html",
-    "revision": "edf67b69e90383139ee2105678156f43"
+    "revision": "4e22ba8516b8de8fe8371dfbd05093df"
   },
   {
     "url": "MDBuilder/pages/index.html",
-    "revision": "90276c8dbba293bb805fe6f765fe8916"
+    "revision": "101dbf25cee2f80020d702630b769eed"
   },
   {
     "url": "MDBuilder/theme/index.html",
-    "revision": "7824ac6c4df84aa68e04b04b374d211c"
+    "revision": "dbea010013c675e6c2af08c50befb1ae"
   },
   {
     "url": "workbox-sw.prod.v2.1.1.js",

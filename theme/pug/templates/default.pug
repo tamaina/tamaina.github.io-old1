@@ -27,6 +27,7 @@ html(lang=site.locale)
 
       block seo
         link(rel="canonical", href=`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)
+        meta(name="author" content=site.author)
       
       block description
         meta(name="description", content=page.attributes.description)
