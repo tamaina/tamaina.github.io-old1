@@ -8,7 +8,7 @@ workboxSW.precache([
   },
   {
     "url": "assets/fab.js",
-    "revision": "89165d269e05779e5765e2ba545d95c2"
+    "revision": "8c0daeca27519f37ed58109b0afb934e"
   },
   {
     "url": "assets/main.js",
@@ -272,7 +272,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "dc5f95f54c38b5791a6d9826049f07f6"
+    "revision": "9add5a73a4431bd0e8cf2144698c413e"
   },
   {
     "url": "manifest.json",
