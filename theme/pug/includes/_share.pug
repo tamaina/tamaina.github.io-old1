@@ -1,7 +1,6 @@
 #share_modal_open_button
-  .container-fluid
-    button(type="button", data-toggle="modal", data-target="#share_modal", aria-labelledby="share_modal_label").btn.btn-primary.rounded-circle.my-lg-4.my-2
-      +fa("share-square-o")
+  button(type="button", data-toggle="modal", data-target="#share_modal", aria-labelledby="share_modal_label").btn.btn-primary.rounded-circle.ml-lg-5.m-3
+    +fa("share-square-o")
 
 #share_modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="share_modal_label", aria-hidden="true")
   .modal-dialog.modal-dialog-centered(role="document")
@@ -30,3 +29,6 @@
             a(class="fb-xfbml-parse-ignore", target="_blank", href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pm)}`) シェア
 
 #fb-root
+<script src='https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.11&appId=#{site.social_media.facebook.appId}' id='facebook-jssdk'></script>
+<script src='https://platform.twitter.com/widgets.js'></script>
+<script src='https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js'></script>

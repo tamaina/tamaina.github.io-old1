@@ -1,5 +1,6 @@
 window.jQuery = $ = require('jquery');
 Popper = ("popper.js");
+fuckAdBlock = ("fuckadblock");
 
 require("../../node_modules/chirno/dist/js/bootstrap.js");
 require("./index_header");

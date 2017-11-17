@@ -23,6 +23,7 @@
     "extend": "^3.0.1",
     "fontmin": "^0.9.6",
     "front-matter": "^2.3.0",
+    "fuckadblock": "^3.2.1",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.1.0",

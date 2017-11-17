@@ -19,6 +19,7 @@ let package = require('./package.json')
 let site = extend(true,require('./.config/default.json'),require('./.config/own.json'))
 let temp_dir = 'theme/pug/temp' // 末尾のスラッシュ不要
 const webpackConfig = require('./webpack.config');
+const workboxSWSrcPath = require.resolve('workbox-sw')
 
 let src = {
    'everypug': ['theme/pug/**/*.pug','./.temp/**/*.pug'],
@@ -79,14 +80,14 @@ module.exports = function(grunt){
                     }
                 },
                 files: {
-                    'docs/assets/style.css' : src.styl
+                    'dist/style.css' : src.styl
                 }
             }
         },
         cssmin: {
             minifybs: {
                 files: {
-                    'docs/assets/style.min.css': 'docs/assets/style.css'
+                    'dist/style.min.css': 'dist/style.css'
                 }
             }
         },
@@ -122,18 +123,18 @@ module.exports = function(grunt){
                     }
                 },
                 files: {
-                    'docs/assets/main.min.js' : 'docs/assets/main.js'
+                    'dist/main.min.js' : 'dist/main.js'
                 }
             }
         },
         watch: {
             js: {
                 files: [src.js],
-                tasks: ['debug_override','build_script', 'sw']
+                tasks: ['debug_override','build_script','build_pages', 'sw']
             },
             style: {
                 files: [src.styl_all],
-                tasks: ['debug_override','build_style','sw']
+                tasks: ['debug_override','build_style','build_pages','sw']
             },
             settings: {
                 files: ['.config/**','Gruntfile.js'],
@@ -177,16 +178,6 @@ module.exports = function(grunt){
                     }
                 ]
             },
-            wtfpjax: {
-                files:[
-                    {
-                        expand: true,
-                        cwd:'node_modules/pjax-api/dist/',
-                        src: '**',
-                        dest: 'docs/assets/'
-                    }
-                ]
-            },
             f404: {
                 files: [
                     {
@@ -200,8 +191,8 @@ module.exports = function(grunt){
             files: {
                 options: {
                     optipng: false,
-                    pngquant: true,
-                    zopflipng: true,
+                    pngquant: ['--speed=1'],
+                    zopflipng: false,
                     jpegRecompress: true,
                     mozjpeg: true,
                     guetzli: false,
@@ -242,18 +233,19 @@ module.exports = function(grunt){
     // 以下はmake_config実行時に自動実行
     // コマンドで動かす用に一応登録
     grunt.task.registerTask( 'register_pages' , 'Register Pages' , register_pages )
-    grunt.task.registerTask( 'register_manifest' , 'Register and write out manifest.json' , register_manifest )
+    grunt.task.registerTask( 'register_manifest' , 'Register and write manifest.json' , register_manifest )
     grunt.task.registerTask( 'make_browserconfig' , 'Make Browserconfig' , make_browserconfig )
 
 
-    //タスクの登録
+    // タスクの登録
     grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'copy', 'image', 'sw', 'clean:temp'])
     grunt.registerTask('before_build', ['make_config', 'prepare_pages'])
     grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
 
-    // 以下の3種類でデプロイとして供するときは、swも併せて実行すること。
+    // 以下の2種類でデプロイとして供さないこと(defaultタスクを必ず実行)
     grunt.registerTask('build_script', ['webpack:prod', 'uglify'])
     grunt.registerTask('build_style', ['stylus', 'cssmin'])
+
     grunt.registerTask('build_pages', ['before_build', 'pug'])
 
 function make_config(){
@@ -380,17 +372,16 @@ function workboxer(){
     const config = {
         "globDirectory": "./",
         "globPatterns": [
-          "docs/**/*.{html,css,js,json,png,jpg}"
+          "docs/**/*.{html,css,js,json,png,jpg,jpeg}"
         ],
         "swSrc": "theme/js/sw.js",
         "swDest": "docs/service_worker.js"
      }
 
-    const workboxSWSrcPath = require.resolve('workbox-sw')
     const wbFileName = path.basename(workboxSWSrcPath)
-    const workboxSWDestDir = `${buildPrefix}assets/`
+    const workboxSWDestDir = `${buildPrefix}/`
     const workboxSWDestPath = `${workboxSWDestDir}${wbFileName}`
-    const workboxSWWrite = `${site.url.path}/assets/${wbFileName}`
+    const workboxSWWrite = `${site.url.path}/${wbFileName}`
     const workboxSWSrcMapPath = `${workboxSWSrcPath}.map`
     const workboxSWDestMapPath = `${workboxSWDestPath}.map`
 

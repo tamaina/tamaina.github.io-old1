@@ -1,7 +1,7 @@
 module.exports = {
   entry: './theme/js/main.js',
   output: {
-    path: __dirname + '/docs/assets',
+    path: __dirname + '/dist',
     filename: 'main.js'
   }
 }

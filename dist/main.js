@@ -10329,6 +10329,7 @@ return jQuery;
 
 window.jQuery = $ = __webpack_require__(0);
 Popper = ("popper.js");
+fuckAdBlock = ("fuckadblock");
 
 __webpack_require__(2);
 __webpack_require__(3);
@@ -15391,15 +15392,6 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports, __webpack_require__) {
 
 jQuery = $ = __webpack_require__(0);
-var readButtonScripts = false
-$("#share_modal").on("show.bs.modal",function(){
-    if(!readButtonScripts){
-      $("body").append("<script src='https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.11&appId=#{site.social_media.facebook.appId}' id='facebook-jssdk'></script>")
-      .append("<script src='https://platform.twitter.com/widgets.js'></script>")
-      .append("<script src='https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js'></script>")
-      readButtonScripts = true;
-    }
-})
 $("#share_modal").on("shown.bs.modal",function(){
     if(window.FB) FB.XFBML.parse()
     if(window.twttr) twttr.widgets.load()

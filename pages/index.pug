@@ -21,23 +21,23 @@ mixin social_circle( $url, $fa, $title )
 
 #intro.bg-light.text-center.py-5
   .container
-    h2.mb-3 Introduction
+    h2.mb-3 自己紹介
     .row
       .col-lg-4.d-flex.h-100.py-4.px-md-2
-        img(src=`${site.url.path}/files/images/icons/favicon-600x600.png`, width="100", height="100", alt="icon").m-auto
+        img(src=`${site.url.path}/files/images/icons/icon.png`, width="100", height="100", alt="icon").m-auto
       .col-lg-8.py-4.px-md-2
         h3.mb-3 aqz = tamaina
         p.mb-2 両方の名前を使います。別にどちらで呼んでもかまいません。
         p.mb-2 Web系をうろついています。
         p 趣味は、鉄道だったり、写真だったり。
-        a(href=`${site.url.path}/blog/about_me`).btn.btn-primary.btn-block 詳しく知る
+        a(href=`${site.url.path}/blog/about_me`).btn.btn-primary.btn-block それほど詳しくない詳細
 
 #socials.bg-danger.text-center.py-5
   .container.text-light
-    h2 Stalk Me!
+    h2 SNSとか
     .py-3.d-flex.flex-wrap.justify-content-center
       if(site.social_media.twitter.stalk)
-        +social_circle( `https://twitter.com/${site.social_media.flickr.stalk}`, "twitter", `twitter ${site.social_media.flickr.stalk}` )
+        +social_circle( `https://twitter.com/${site.social_media.twitter.stalk}`, "twitter", `twitter ${site.social_media.twitter.stalk}` )
       if(site.social_media.flickr.stalk)
         +social_circle( `https://www.flickr.com/people/${site.social_media.flickr.stalk}/`, "flickr", "flickr" )
       if(site.social_media.github.stalk)
