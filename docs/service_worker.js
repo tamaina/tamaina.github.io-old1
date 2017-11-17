@@ -7,12 +7,28 @@ workboxSW.precache([
     "revision": "eaccabe649d6fdb1c3e20ccca86bf5ed"
   },
   {
+    "url": "assets/fab.js",
+    "revision": "89165d269e05779e5765e2ba545d95c2"
+  },
+  {
+    "url": "assets/main.js",
+    "revision": "3e96f523da0a35a8a93a6ab01e135bf0"
+  },
+  {
+    "url": "assets/main.min.js",
+    "revision": "28631bcf8e9224c6f6a6de9344edd400"
+  },
+  {
     "url": "assets/pjax-api.js",
     "revision": "64b8d4f19f565a0272b8d35d9ebcfc64"
   },
   {
     "url": "assets/pjax-api.min.js",
     "revision": "ab77842762b99fd55368279858614470"
+  },
+  {
+    "url": "assets/pjax-init.js",
+    "revision": "45d9946b7cdf2734d549bcc499117da3"
   },
   {
     "url": "assets/style.css",
@@ -60,7 +76,7 @@ workboxSW.precache([
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
-    "revision": "c41b9d2de7c2601c0d9f65c170e54ca2"
+    "revision": "9fceafd64960b96961bb48f44b2e1aa1"
   },
   {
     "url": "files/blog/hachikou/kiha110.jpeg",
@@ -256,7 +272,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "9487162d0e0456d0bfadbbecc6d29915"
+    "revision": "87bdee8668559661ddbb00bad71de844"
   },
   {
     "url": "manifest.json",
