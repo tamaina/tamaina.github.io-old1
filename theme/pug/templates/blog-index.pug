@@ -1,8 +1,5 @@
 extends ../templates/default.pug
 
-block title
-  title #{page.attributes.title}の記事一覧 - #{site.name}
-
 block main
   -
     pages.sort(function(a,b) {

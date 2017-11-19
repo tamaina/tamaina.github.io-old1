@@ -1,5 +1,5 @@
 ---
-title: 全部
+title: ブログ
 description: “徒然なるままに”書いていっています。
 layout: blog-index
 ---
