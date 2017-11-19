@@ -1,0 +1,83 @@
+extends ../templates/default.pug
+
+block title
+  title #{page.attributes.title}の記事一覧 - #{site.name}
+
+block main
+  -
+    pages.sort(function(a,b) {
+      if( a.meta.birthtime < b.meta.birthtime ) { return 1 } else { return -1 }
+    });
+
+    let queries = [], qpages = []
+
+    function addQuery(q, n){
+      if( typeof q === "string" ){ queries.push( {"type": n, "query": q} ) }
+      else if( typeof q === "object" ){
+        for( c = 0; c < q.length; c++ ){
+          queries.push( {"type": n, "query": q[c]} )
+        }
+      }
+    }
+    if( !!page.attributes.query ) {
+      if( !!page.attributes.query.category ) {
+        addQuery( page.attributes.query.category, "categories" )
+      }
+      if( !!page.attributes.query.tag ) {
+        addQuery( page.attributes.query.tag, "tags" )
+      }
+      if(queries != []){
+        qpages = pages.filter(function(e,i,a){
+          for( m = 0; m < queries.length; m++ ){
+            if( !!e.attributes[queries[m].type] ){ if( e.attributes[queries[m].type].find(f => f.toLowerCase() === queries[m].query.toLowerCase() ) !== undefined ) { return true } }
+          }
+        })
+      } else {
+        qpages = pages
+      }
+    } else {
+      qpages = pages
+    }
+
+  #main.container
+    h1.pt-4.pb-2 ブログ
+    h2.text-center 記事一覧
+
+    .d-flex.flex-row.row
+      each thispage in qpages
+        if ( thispage.meta.permalink.indexOf("/blog/") == 0 && thispage.meta.permalink != "/blog/" && thispage.meta.permalink.indexOf("/blog/category/") != 0 && thispage.meta.permalink.indexOf("/blog/tag/") != 0 )
+          a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2
+            .card.w-100.h-100.border-dark.pb-5
+              if ( thispage.attributes.thumbnail )
+                img.card-img-top.blog-indexthumb.bg-dark(alt="サムネイル", src=`${site.url.path}${thispage.attributes.thumbnail}`)
+              h4.card-title.blog-title.mb-2.mt-3.px-3 #{thispage.attributes.title}
+              p.card-text.mb-5.px-3 #{thispage.attributes.description}
+              - let birthtime = new Date(thispage.meta.birthtime)
+              - let mtime = new Date(thispage.meta.mtime)
+              .card-footer.py-md-2.py-1
+                small
+                  ul.list-unstyled.mb-2
+                    li
+                      +fa("file-text-o")
+                      time(datetime=thispage.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}
+                      |  作成
+                    li
+                      +fa("clock-o")
+                      time(datetime=thispage.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
+                      |  更新
+                p.mb-0
+                  +fa("folder-open")
+                  if(thispage.attributes.categories)
+                    each category in thispage.attributes.categories
+                      span.badge.badge-success= category
+                      |  
+                  else
+                    | なし
+                  | &emsp;
+                  +fa("tags")
+                  if(thispage.attributes.tags)
+                    each tag in thispage.attributes.tags
+                      span.badge.badge-secondary= tag
+                      |  
+                  else
+                    | なし

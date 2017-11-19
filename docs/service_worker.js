@@ -1,22 +1,18 @@
-self.importScripts('/docs/workbox-sw.prod.v2.1.1.js')
+self.importScripts('/docs/workbox-sw.prod.v2.1.2.js')
 
 const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
   {
     "url": "404/index.html",
-    "revision": "eaccabe649d6fdb1c3e20ccca86bf5ed"
+    "revision": "27b13148d8fefb8a0af1fea394e6818b"
   },
   {
     "url": "assets/fab.js",
-    "revision": "8c0daeca27519f37ed58109b0afb934e"
-  },
-  {
-    "url": "assets/main.js",
-    "revision": "e6c54e7fdf1ae7aedc93e319b2be6024"
+    "revision": "38a0dbf37332204a5cf33a8baf509e57"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "2f070efea5ea4eb7f147d34b4f8c24ab"
+    "revision": "db53964291168c04c2b637aa56fb68ee"
   },
   {
     "url": "assets/pjax-api.js",
@@ -32,47 +28,51 @@ workboxSW.precache([
   },
   {
     "url": "assets/style.css",
-    "revision": "4c8cec2c9e5c7dba74a306ae43a57fc1"
+    "revision": "7f77ae54f5135e2fc0f7e41fbd79e02c"
   },
   {
     "url": "assets/style.min.css",
-    "revision": "74b9c0230bd478c0f01677c2d3884482"
+    "revision": "f242b9753b79e6bc94a189f4149ac69c"
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "5a521b3e9b15d64768f767e34a040399"
+    "revision": "8b9adddd2219a79f4a2f20c1b0ef956f"
   },
   {
     "url": "blog/bootstrap-v4-beta/index.html",
-    "revision": "ed69bc38411a143e9562d5e444fb7a0d"
+    "revision": "49d66f90e63a3d5e0f1ba7f2a17b2197"
   },
   {
     "url": "blog/bunkasai/index.html",
-    "revision": "ba8094caf49c956854ab8c82e29b469f"
+    "revision": "6cfe181548b8ef349652275a51696b3c"
+  },
+  {
+    "url": "blog/category/aqz/index.html",
+    "revision": "170f5080275122f4b0300558c9a4830f"
   },
   {
     "url": "blog/chirno_intro/index.html",
-    "revision": "bdbf0aa565f13751361ce4bed025d5b3"
+    "revision": "c5c9b7916085f223becdf355ea804550"
   },
   {
     "url": "blog/getval_test/index.html",
-    "revision": "26ff0791fd2438a874f462eff00a2bd7"
+    "revision": "1fcf9d1d98b54681485d61571076a129"
   },
   {
     "url": "blog/hachikou/index.html",
-    "revision": "75678a6e7b8bef8bf249eae497b401ae"
+    "revision": "059eaee919e17a3834010eddc5085d22"
   },
   {
     "url": "blog/index.html",
-    "revision": "cffe3af342cc0c85670f2ada5a05e46d"
+    "revision": "9f62c7b597c0cb9a5f0e23cb36acb023"
   },
   {
     "url": "blog/maqz001400/index.html",
-    "revision": "f5255437582a48a3e987b1a1494f64a7"
+    "revision": "a0f32f4672a10b40bef5dacd95eac53c"
   },
   {
     "url": "blog/suiranfes2017/index.html",
-    "revision": "adbec3b44a20491fbc93211aec6803c2"
+    "revision": "5add34166236a01dec99734dd565cd44"
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
@@ -268,38 +268,38 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "9c25af6c66aa4b9367f1ef8844376ee3"
+    "revision": "f1c5ef7500f37a59071289270182ae07"
   },
   {
     "url": "info.json",
-    "revision": "9add5a73a4431bd0e8cf2144698c413e"
+    "revision": "c59c892b0ce3426aa16349fa3920a49c"
   },
   {
     "url": "manifest.json",
-    "revision": "9d49fe8ab2133e546841fb9423c90217"
+    "revision": "22f532e1fef82a242303232e8c3821e7"
   },
   {
-    "url": "MDBuilder/configulation/index.html",
-    "revision": "c9af1d65ae399f13b2926b8b7e9cb290"
+    "url": "maqz/configulation/index.html",
+    "revision": "823e1b99182fb24b8fea5268b6e9c35d"
   },
   {
-    "url": "MDBuilder/howtowrite/index.html",
-    "revision": "e77ac6ed983bb3ac845646b686cbc240"
+    "url": "maqz/howtowrite/index.html",
+    "revision": "c26b68e1e96007b42cce09a015b090f9"
   },
   {
-    "url": "MDBuilder/index.html",
-    "revision": "4e22ba8516b8de8fe8371dfbd05093df"
+    "url": "maqz/index.html",
+    "revision": "1023df5674d4d9ace98aea546cf08082"
   },
   {
-    "url": "MDBuilder/pages/index.html",
-    "revision": "101dbf25cee2f80020d702630b769eed"
+    "url": "maqz/pages/index.html",
+    "revision": "9500604465c4816bb5ac18dfcd04bf28"
   },
   {
-    "url": "MDBuilder/theme/index.html",
-    "revision": "dbea010013c675e6c2af08c50befb1ae"
+    "url": "maqz/theme/index.html",
+    "revision": "12850820c5e53b75ee8dc007138de85d"
   },
   {
-    "url": "workbox-sw.prod.v2.1.1.js",
+    "url": "workbox-sw.prod.v2.1.2.js",
     "revision": "d41d8cd98f00b204e9800998ecf8427e"
   }
 ])

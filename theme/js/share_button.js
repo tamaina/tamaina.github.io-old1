@@ -1,5 +1,5 @@
 jQuery = $ = require('jquery');
-$("#share_modal").on("shown.bs.modal",function(){
+$('#share_modal').on('shown.bs.modal',function(){
     if(window.FB) FB.XFBML.parse()
     if(window.twttr) twttr.widgets.load()
     if(window.gapi) gapi.plusone.go()

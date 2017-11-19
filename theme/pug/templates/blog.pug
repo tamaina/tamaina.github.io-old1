@@ -70,7 +70,10 @@ block main
             +fa("folder-open")
             if(page.attributes.categories)
               each category in page.attributes.categories
-                span.badge.badge-success= category
+                if( pages.find(e => e.meta.permalink.indexOf( `/blog/category/${category}/` ) > -1 ) !== undefined )
+                  a(href=`/blog/category/${category}/`).badge.badge-secondary= category
+                else
+                  span.badge.badge-success= category
                 |  
             else
               | なし
@@ -78,7 +81,10 @@ block main
             +fa("tags")
             if(page.attributes.tags)
               each tag in page.attributes.tags
-                span.badge.badge-secondary= tag
+                if( pages.find(e => e.meta.permalink.indexOf( `/blog/tag/${tag}/` ) > -1 ) !== undefined )
+                  a(href=`/blog/tag/${tag}/`).badge.badge-secondary= tag
+                else
+                  span.badge.badge-secondary= tag
                 |  
             else
               | なし

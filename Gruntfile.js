@@ -1,42 +1,43 @@
 // npm require
-const grunt = require('grunt')
-const extend = require('extend')
-const fs = require('fs')
-const fm = require('front-matter')
-const crypto = require('crypto')
-const path = require('path')
+const grunt = require("grunt")
+const extend = require("extend")
+const fs = require("fs")
+const fm = require("front-matter")
+const crypto = require("crypto")
+const path = require("path")
 const join = path.join
-const swBuild = require('workbox-build')
+const swBuild = require("workbox-build")
 
 // debug
-const DEBUG = !!grunt.option('debug')
+const DEBUG = !!grunt.option("debug")
 
 // グローバル気味変数
 let pages = []
 let info = {}
 let manifest = {}
-let package = require('./package.json')
-let site = extend(true,require('./.config/default.json'),require('./.config/own.json'))
-let temp_dir = 'theme/pug/temp' // 末尾のスラッシュ不要
-const webpackConfig = require('./webpack.config');
-const workboxSWSrcPath = require.resolve('workbox-sw')
+let package = require("./package.json")
+let site = extend(true,require("./.config/default.json"),require("./.config/own.json"))
+let temp_dir = "theme/pug/temp" // 末尾のスラッシュ不要
+const webpackConfig = require("./webpack.config")
+const workboxSWSrcPath = require.resolve("workbox-sw")
 
 let src = {
-   'everypug': ['theme/pug/**/*.pug','./.temp/**/*.pug'],
-   'json': ['config/**/*.json'],
-   'js': ['theme/js/**/*.js'],
-   'styl': ['theme/styl/**/*.styl', '!' + 'theme/styl/**/_*.styl'],
-   'styl_all': ['theme/styl/**/*.styl'],
-   'static': ['theme/static/**'],
-   'files': ['files/**'],
-   'everystyl': ['theme/styl/**/*.styl'],
-   'pages': site.sources
+   "everypug": ["theme/pug/**/*.pug","./.temp/**/*.pug"],
+   "json": ["config/**/*.json"],
+   "js": ["theme/js/**/*.js"],
+   "styl": ["theme/styl/**/*.styl", "!" + "theme/styl/**/_*.styl"],
+   "styl_all": ["theme/styl/**/*.styl"],
+   "static": ["theme/static/**"],
+   "files": ["files/**/*"],
+   "filesPrebuilt": ["filesPrebuilt/**/*"],
+   "everystyl": ["theme/styl/**/*.styl"],
+   "pages": site.sources
 }
 
 let dests = {
-    'root': 'docs/',
-    'everything': 'docs/**',
-    'info': 'docs/info.json'
+    "root": "docs/",
+    "everything": "docs/**",
+    "info": "docs/info.json"
 }
 module.exports = function(grunt){
     grunt.initConfig({
@@ -44,8 +45,11 @@ module.exports = function(grunt){
             temp: {
                 src: [`${temp_dir}/**`]
             },
-            dest: {
+            docs: {
                 src: [dests.everything]
+            },
+            dist: {
+                src: ["dist/**/*"]
             }
         },
         pug: {
@@ -61,7 +65,7 @@ module.exports = function(grunt){
                                 }
                             )
                         },
-                    filters: require('./pugfilters.js'),
+                    filters: require("./pugfilters.js"),
                     debug: false
                 },
                 files: pugfiles()
@@ -71,7 +75,7 @@ module.exports = function(grunt){
             compile: {
                 options: {
                     import: [
-                        'nib'
+                        "nib"
                     ],
                     "include css": true,
                     data: function(dest, src) {
@@ -79,24 +83,24 @@ module.exports = function(grunt){
                     }
                 },
                 files: {
-                    'docs/assets/style.css' : src.styl
+                    "docs/assets/style.css" : src.styl
                 }
             }
         },
         cssmin: {
             minifybs: {
                 files: {
-                    'docs/assets/style.min.css': 'docs/assets/style.css'
+                    "docs/assets/style.min.css": "docs/assets/style.css"
                 }
             }
         },
         webpack: {
           options: {
-            stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            stats: !process.env.NODE_ENV || process.env.NODE_ENV === "development"
           },
           prod: webpackConfig,
           dev: Object.assign({ watch: true }, webpackConfig)
-        },
+        },/*
         uglify: {
             compress: {
                 options: {
@@ -122,42 +126,22 @@ module.exports = function(grunt){
                     }
                 },
                 files: {
-                    'docs/assets/main.min.js' : 'docs/assets/main.js'
+                    "docs/assets/main.min.js" : "docs/assets/main.js"
                 }
             }
-        },
+        },*/
         watch: {
-            js: {
-                files: [src.js],
-                tasks: ['debug_override','build_script', 'sw']
-            },
-            style: {
-                files: [src.styl_all],
-                tasks: ['debug_override','build_style','sw']
-            },
-            settings: {
-                files: ['.config/**','Gruntfile.js'],
-                tasks: ['debug_override','default']
-            },
-            pages: {
-                files: [src.pages,'theme/pug/**'],
-                tasks: ['debug_override','build_pages','sw']
-            },
-            copy_static: {
-                files: [src.static],
-                tasks: ['debug_override','copy:main','sw']
-            },
-            copy_files: {
-                files: [src.files],
-                tasks: ['debug_override','copy:main','image:files','sw']
+            any: {
+                files: ["./**/*"],
+                tasks: ["debug_override", "default"]
             }
         },
         connect: {
             server: {
                 options: {
                     port: 3000,
-                    hostname: '*',
-                    base: 'docs/'
+                    hostname: "*",
+                    base: "docs/"
                 }
             }
         },
@@ -166,14 +150,24 @@ module.exports = function(grunt){
                 files:[
                     {
                         expand: true,
-                        cwd: 'theme/static/',
-                        src: '**',
-                        dest: 'docs/'
+                        cwd: "theme/static/",
+                        src: "**",
+                        dest: "docs/"
                     },
                     {
                         expand: true,
+                        cwd: "dist/files/",
+                        src: "**",
+                        dest: "docs/files/"
+                    }
+                ]
+            },
+            filesPrebuild: {
+                files:[
+                    {
+                        expand: true,
                         src: src.files,
-                        dest: "docs/"
+                        dest: "dist/"
                     }
                 ]
             },
@@ -181,26 +175,26 @@ module.exports = function(grunt){
                 files:[
                     {
                         expand: true,
-                        cwd:'node_modules/pjax-api/dist/',
-                        src: '**',
-                        dest: 'docs/assets/'
+                        cwd:"node_modules/pjax-api/dist/",
+                        src: "**",
+                        dest: "docs/assets/"
                     }
                 ]
             },
             f404: {
                 files: [
                     {
-                        src: 'docs/404/index.html',
-                        dest: '404.html'
+                        src: "docs/404/index.html",
+                        dest: "404.html"
                     }
                 ]
-            } 
+            }
         },
         image: {
-            files: {
+            filesPrebuild: {
                 options: {
                     optipng: false,
-                    pngquant: ['--speed=1'],
+                    pngquant: ["--speed=1"],
                     zopflipng: false,
                     jpegRecompress: true,
                     mozjpeg: true,
@@ -210,9 +204,9 @@ module.exports = function(grunt){
                 },
                 files: [{
                     expand: true,
-                    cwd: 'files/',
-                    src: ['**/*.{png,jpg,jpeg,gif,svg}'],
-                    dest: 'docs/files/'
+                    cwd: "files/",
+                    src: ["**/*.{png,jpg,jpeg,gif,svg}"],
+                    dest: "dist/files/"
                 }]
             }
         }
@@ -220,42 +214,42 @@ module.exports = function(grunt){
 }
 
 
-    grunt.loadNpmTasks('grunt-contrib-pug')
-    grunt.loadNpmTasks('grunt-contrib-stylus')
-    grunt.loadNpmTasks('grunt-contrib-connect')
-    grunt.loadNpmTasks('grunt-contrib-cssmin')
-    grunt.loadNpmTasks('grunt-contrib-clean')
-    grunt.loadNpmTasks('grunt-contrib-copy')
-    grunt.loadNpmTasks('grunt-contrib-watch')
-    grunt.loadNpmTasks('grunt-webpack')
-    grunt.loadNpmTasks('grunt-image')
-    grunt.loadNpmTasks('grunt-contrib-uglify')
+    grunt.loadNpmTasks("grunt-contrib-pug")
+    grunt.loadNpmTasks("grunt-contrib-stylus")
+    grunt.loadNpmTasks("grunt-contrib-connect")
+    grunt.loadNpmTasks("grunt-contrib-cssmin")
+    grunt.loadNpmTasks("grunt-contrib-clean")
+    grunt.loadNpmTasks("grunt-contrib-copy")
+    grunt.loadNpmTasks("grunt-contrib-watch")
+    grunt.loadNpmTasks("grunt-webpack")
+    grunt.loadNpmTasks("grunt-image")
+    grunt.loadNpmTasks("grunt-contrib-uglify")
 
 
-    grunt.task.registerTask( 'make_config' , 'Merge all config files' , make_config )
-    grunt.task.registerTask( 'prepare_pages' , 'Prepare Pages' , prepare_pages )
-    grunt.task.registerTask( 'debug_override' , 'Debug' , () => {
-        site = extend(true,site,require('./.config/debug_override.json'))
+    grunt.task.registerTask( "make_config" , "Merge all config files" , make_config )
+    grunt.task.registerTask( "prepare_pages" , "Prepare Pages" , prepare_pages )
+    grunt.task.registerTask( "debug_override" , "Debug" , () => {
+        site = extend(true,site,require("./.config/debug_override.json"))
     })
-    grunt.task.registerTask( 'sw' , 'Write service worker' , workboxer )
+    grunt.task.registerTask( "sw" , "Write service worker" , workboxer )
 
     // 以下はmake_config実行時に自動実行
     // コマンドで動かす用に一応登録
-    grunt.task.registerTask( 'register_pages' , 'Register Pages' , register_pages )
-    grunt.task.registerTask( 'register_manifest' , 'Register and write manifest.json' , register_manifest )
-    grunt.task.registerTask( 'make_browserconfig' , 'Make Browserconfig' , make_browserconfig )
-
+    grunt.task.registerTask( "register_pages" , "Register Pages" , register_pages )
+    grunt.task.registerTask( "register_manifest" , "Register and write manifest.json" , register_manifest )
+    grunt.task.registerTask( "make_browserconfig" , "Make Browserconfig" , make_browserconfig )
 
     // タスクの登録
-    grunt.registerTask('default', ['clean', 'before_build', 'build_script', 'build_style', 'pug', 'copy', 'image', 'sw', 'clean:temp'])
-    grunt.registerTask('before_build', ['make_config', 'prepare_pages'])
-    grunt.registerTask('server', ['debug_override', 'default', 'connect', 'watch'])
+    grunt.registerTask("default", ["clean:temp", "clean:docs", "before_build", "build_script", "build_style", "pug", "copy:main", "copy:wtfpjax", "copy:f404", "sw", "clean:temp"])
+    grunt.registerTask("filesPrebuild", ["clean:dist", "copy:filesPrebuild", "image:filesPrebuild"])
+    grunt.registerTask("before_build", ["make_config", "prepare_pages"])
+    grunt.registerTask("server", ["debug_override", "default", "connect", "watch"])
 
     // 以下の2種類でデプロイとして供さないこと(defaultタスクを必ず実行)
-    grunt.registerTask('build_script', ['webpack:prod', 'uglify'])
-    grunt.registerTask('build_style', ['stylus', 'cssmin'])
+    grunt.registerTask("build_script", ["webpack:prod"/*, "uglify"*/])
+    grunt.registerTask("build_style", ["stylus", "cssmin"])
 
-    grunt.registerTask('build_pages', ['before_build', 'pug'])
+    grunt.registerTask("build_pages", ["before_build", "pug"])
 
 function make_config(){
     let resultObj = { options: "" }
@@ -280,21 +274,21 @@ function getHash(data, a, b, c){
 
 function register_pages(){
     pages = []
-    grunt.file.recurse('./pages/', process )
+    grunt.file.recurse("./pages/", process )
     function process(abspath, rootdir, subdir, filename){
-        if ( filename == "template.pug" ) return false
+        // if ( filename == "template.pug" ) return false
         let page = {}
         page.meta = {}
         if ( !subdir ) subdir = ""
-        let file = fs.readFileSync( abspath, 'utf-8' )
+        let file = fs.readFileSync( abspath, "utf-8" )
         page = extend(true,page,fm(file))
         page.meta.srcname = filename.slice(0,filename.lastIndexOf("."))
         page.meta.srcext = filename.substr(filename.lastIndexOf("."))
         page.meta.subdir = subdir
-        let md5hash = crypto.createHash('md5')
-        md5hash.update(file, 'binary')
-        page.meta.md5 = getHash(file, 'md5', 'binary', 'hex')
-        page.meta.sha384 = getHash(file, 'sha384', 'binary', 'base64')
+        let md5hash = crypto.createHash("md5")
+        md5hash.update(file, "binary")
+        page.meta.md5 = getHash(file, "md5", "binary", "hex")
+        page.meta.sha384 = getHash(file, "sha384", "binary", "base64")
         page.stats = fs.statSync( abspath )
 
 
@@ -329,12 +323,12 @@ function register_pages(){
         if( page.meta.permalink.indexOf("/") != 0 ) page.meta.permalink = "/" + page.meta.permalink
         if( page.meta.permalink.lastIndexOf("index") == page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
         else if( page.meta.permalink.lastIndexOf("/") != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + "/"
-        if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(" ")
-        if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(" ")
-        if( typeof page.attributes.tag === 'string' )
+        if( typeof page.attributes.tags === "string" ) page.attributes.tags = page.attributes.tags.split(" ")
+        if( typeof page.attributes.categories === "string" ) page.attributes.categories = page.attributes.categories.split(" ")
+        if( typeof page.attributes.tag === "string" )
             page.attributes.tags = page.attributes.tag.split(" ")
             delete page.attributes.tag
-        if( typeof page.attributes.category === 'string' )
+        if( typeof page.attributes.category === "string" )
             page.attributes.categories = page.attributes.category.split(" ")
             delete page.attributes.category
         pages.push(page)
@@ -363,7 +357,7 @@ block constnum
 
 function pugfiles() {
     register_pages()
-    let out = '{'
+    let out = "{"
     for (let i = 0; i < pages.length; i++) {
         let page = pages[i]
         out += `"docs/${page.meta.permalink}index.html" : "${temppath(page, temp_dir)}",`
@@ -377,7 +371,7 @@ function workboxer(){
 
     // twbs/bootstrapより借用
 
-    const buildPrefix = 'docs/'
+    const buildPrefix = "docs/"
     const config = {
         "globDirectory": "./",
         "globPatterns": [
@@ -399,8 +393,8 @@ function workboxer(){
 
     const updateUrl = (manifestEntries) => manifestEntries.map((entry) => {
     if (entry.url.startsWith(buildPrefix)) {
-        const regex = new RegExp(buildPrefix, 'g')
-        entry.url = entry.url.replace(regex, '')
+        const regex = new RegExp(buildPrefix, "g")
+        entry.url = entry.url.replace(regex, "")
     }
     return entry
     })
@@ -409,13 +403,13 @@ function workboxer(){
 
     swBuild.injectManifest(config).then(() => {
     const wbSwRegex = /{path}/g
-    fs.readFile(config.swDest, 'utf8', (err, data) => {
+    fs.readFile(config.swDest, "utf8", (err, data) => {
         if (err) {
         throw err
         }
         const swFileContents = data.replace(wbSwRegex, workboxSWWrite)
         fs.writeFile(config.swDest, swFileContents, () => {
-        console.log('Pre-cache Manifest generated.')
+        console.log("Pre-cache Manifest generated.")
         })
     })
     })

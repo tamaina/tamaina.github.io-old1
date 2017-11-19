@@ -12,13 +12,13 @@ function top_img_chg(){
 }
 function register_imgs(){
     for(var i = 1; i < 36; i++){
-        $("#headimgwrp").append("<div style='background-image:url(\"../files/top/1st/" + i + ".jpeg\")' alt='' id='headimg" + i + "' data-imgnum='" + i + "'></div>");
-        $("#headimg" + i ).css('display', 'none');
+        $('#headimgwrp').append("<div style='background-image:url(\"../files/top/1st/" + i + ".jpeg\")' alt='' id='headimg" + i + "' data-imgnum='" + i + "'></div>");
+        $('#headimg' + i ).css('display', 'none');
     }
 }
-$(document).ready(register_imgs);
 
 $(window).on('load',function(){
+    register_imgs();
     headwriter_flag = true;
     setTimeout(top_img_chg,17500);
 });
