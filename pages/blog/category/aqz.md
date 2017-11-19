@@ -1,6 +1,6 @@
 ---
 title: カテゴリー aqz
-description: aqzタグの一覧です。
+description: aqzカテゴリの記事一覧です。
 layout: blog-index
 query:
   category: aqz

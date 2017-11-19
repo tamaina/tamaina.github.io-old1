@@ -36,31 +36,43 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "8b9adddd2219a79f4a2f20c1b0ef956f"
+    "revision": "a71832643a7e109f61f9f0cabfcffa21"
   },
   {
     "url": "blog/bootstrap-v4-beta/index.html",
-    "revision": "49d66f90e63a3d5e0f1ba7f2a17b2197"
+    "revision": "343977ee29b20890379c2a7655f94de6"
   },
   {
     "url": "blog/bunkasai/index.html",
-    "revision": "6cfe181548b8ef349652275a51696b3c"
+    "revision": "d68ffbd30c15a30a9f218db9f542eee3"
   },
   {
     "url": "blog/category/aqz/index.html",
-    "revision": "170f5080275122f4b0300558c9a4830f"
+    "revision": "e074258c70e85f76eb1ac43d74189578"
+  },
+  {
+    "url": "blog/category/web/index.html",
+    "revision": "6f832ee7fbd6eecbfef7b0ca24752bf5"
+  },
+  {
+    "url": "blog/category/なにか/index.html",
+    "revision": "751f8f01a448d0407239894acc6e7693"
+  },
+  {
+    "url": "blog/category/趣味/index.html",
+    "revision": "8bafc47777c4f19b4ec80f2fc005c839"
   },
   {
     "url": "blog/chirno_intro/index.html",
-    "revision": "c5c9b7916085f223becdf355ea804550"
+    "revision": "d22fedff1a4fdf4e519a3419f1a5be21"
   },
   {
     "url": "blog/getval_test/index.html",
-    "revision": "1fcf9d1d98b54681485d61571076a129"
+    "revision": "d68003fa0bd4d92183005275b977ce46"
   },
   {
     "url": "blog/hachikou/index.html",
-    "revision": "059eaee919e17a3834010eddc5085d22"
+    "revision": "438309fe660a8c6aef544b95bf6d9198"
   },
   {
     "url": "blog/index.html",
@@ -68,11 +80,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/maqz001400/index.html",
-    "revision": "a0f32f4672a10b40bef5dacd95eac53c"
+    "revision": "eb41b3ddd17b98563731debff814ca00"
   },
   {
     "url": "blog/suiranfes2017/index.html",
-    "revision": "5add34166236a01dec99734dd565cd44"
+    "revision": "6d7ad742a3ec5f3c0473f8dc10dab3e7"
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
@@ -272,7 +284,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "c59c892b0ce3426aa16349fa3920a49c"
+    "revision": "d597bc67c0a340f97ce127ff17943d44"
   },
   {
     "url": "manifest.json",

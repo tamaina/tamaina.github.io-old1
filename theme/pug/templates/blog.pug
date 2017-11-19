@@ -71,7 +71,7 @@ block main
             if(page.attributes.categories)
               each category in page.attributes.categories
                 if( pages.find(e => e.meta.permalink.indexOf( `/blog/category/${category}/` ) > -1 ) !== undefined )
-                  a(href=`/blog/category/${category}/`).badge.badge-secondary= category
+                  a(href=`${site.url.path}/blog/category/${category}/`).badge.badge-success= category
                 else
                   span.badge.badge-success= category
                 |  
@@ -82,9 +82,9 @@ block main
             if(page.attributes.tags)
               each tag in page.attributes.tags
                 if( pages.find(e => e.meta.permalink.indexOf( `/blog/tag/${tag}/` ) > -1 ) !== undefined )
-                  a(href=`/blog/tag/${tag}/`).badge.badge-secondary= tag
+                  a(href=`${site.url.path}/blog/tag/${tag}/`).badge.badge-info= tag
                 else
-                  span.badge.badge-secondary= tag
+                  span.badge.badge-info= tag
                 |  
             else
               | なし
