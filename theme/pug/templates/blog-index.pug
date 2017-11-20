@@ -21,9 +21,7 @@ block main
 
     qpages = pages.filter(e => e.meta.permalink.indexOf("/blog/") == 0 // パーマリンクの先頭が"/blog/"
                             && e.attributes.layout == "blog"           // blogレイアウトが適用されている
-                            && e.attributes.draft == undefined         // draftが未設定
                             && e.attributes.draft != true              // 
-                            && e.attributes.published == undefined
                             && e.attributes.published == true
                           )
     if( page.attributes.query ) {

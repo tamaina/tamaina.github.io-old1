@@ -324,7 +324,8 @@ function register_pages(){
             }
         } else { page.meta.permalink = page.attributes.permalink }
         if( page.attributes.layout === undefined || page.attributes.layout === null ) page.attributes.layout = "default"
-        if( page.attributes.published === undefined || page.attributes.published === null ) page.attributes.published = "true"
+        if( page.attributes.published === undefined || page.attributes.published === null ) page.attributes.published = true
+        if( page.attributes.draft === undefined || page.attributes.draft === null ) page.attributes.draft= false
         if( page.meta.permalink.indexOf("/") != 0 ) page.meta.permalink = "/" + page.meta.permalink
         if( page.meta.permalink.lastIndexOf("index") == page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
         else if( page.meta.permalink.lastIndexOf("/") != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + "/"
