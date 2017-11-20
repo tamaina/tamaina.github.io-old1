@@ -23,15 +23,19 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-dark
         -   dirpl = `${dirpl}${nowdir}/`                            // /foo/bar/
         -   let indexPage = pages.find(e => e.meta.permalink === dirpl)
         -   if( indexPage != undefined && i != dirs.length - 2 ){
+        -     if (!!indexPage.attributes.title) {
           li.breadcrumb-item
             a(href=`${site.url.path}${dirpl}`).py-1 #{indexPage.attributes.title}
-        -   } else if( indexPage == undefined && i != dirs.length - 2 ){
+        -     } else {
           li.breadcrumb-item
             a(href=`${site.url.path}${dirpl}`).py-1 #{nowdir}
-        -   } else if( indexPage != undefined && i == dirs.length - 2 ){
+        -     }
+        -   } else if( i == dirs.length - 2 ){
+        -     if (!!page.attributes.title) {
           li.breadcrumb-item(aria-current="page") #{indexPage.attributes.title}
-        -   } else if( indexPage == undefined && i == dirs.length - 2 ){
+        -     } else {
           li.breadcrumb-item(aria-current="page") #{nowdir}
+        -     }
         -   }
         - }
       else

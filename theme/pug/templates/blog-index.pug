@@ -53,7 +53,7 @@ block main
               - let mtime = new Date(thispage.meta.mtime)
               .card-footer.py-md-2.py-1
                 small
-                  ul.list-unstyled.mb-2
+                  ul.list-unstyled.mb-1
                     li
                       +fa("file-text-o")
                       time(datetime=thispage.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}

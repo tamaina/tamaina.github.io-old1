@@ -68,9 +68,9 @@ block main
                 |  更新
           div.mb-3
             +fa("folder-open")
-            if(page.attributes.categories)
+            if(page.attributes.categories !== undefined && page.attributes.categories != [])
               each category in page.attributes.categories
-                if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/category/${category}/`.toLowerCase ) !== undefined )
+                if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/category/${category}/`.toLowerCase() ) !== undefined )
                   a(href=`${site.url.path}/blog/category/${category}/`).badge.badge-success= category
                 else
                   span.badge.badge-success= category
@@ -79,9 +79,9 @@ block main
               | なし
             | &emsp;
             +fa("tags")
-            if(page.attributes.tags)
+            if(page.attributes.tags !== undefined && page.attributes.tags !== [])
               each tag in page.attributes.tags
-                if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/tag/${tag}/`.toLowerCase ) !== undefined )
+                if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/tag/${tag}/`.toLowerCase() ) !== undefined )
                   a(href=`${site.url.path}/blog/tag/${tag}/`).badge.badge-info= tag
                 else
                   span.badge.badge-info= tag
