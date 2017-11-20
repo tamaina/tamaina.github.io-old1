@@ -35,10 +35,23 @@ block main
     } else {
       qpages = pages
     }
+  -
+    let headline = ""
+    let types = { "tags": "タグ", "categories": "カテゴリー" }
+    if( !page.attributes.query ){
+      headline = "記事一覧"
+    } else {
+      for( r = 0; r < queries.length; r++ ){
+        headline = `${headline}${types[queries[r].type]}:${queries[r].query} `
+      }
+      headline = headline + "の記事一覧"
+    }
 
   #main.container
     h1.pt-4.pb-2 ブログ
-    h2.text-center 記事一覧
+    div
+      != getTL(main_html)
+    h2.font-weight-light.h3= headline
 
     .d-flex.flex-row.row
       each thispage in qpages
