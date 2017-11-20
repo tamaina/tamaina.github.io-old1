@@ -2,7 +2,7 @@
 title: Chirnoプロジェクト
 description: Bootstrap v4β日本語化プロジェクト始動……？
 layout: blog
-category: WEB
+category: web
 tag: bootstrap
 ---
 

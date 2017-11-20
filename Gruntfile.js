@@ -197,7 +197,7 @@ module.exports = function(grunt){
                     pngquant: ["--speed=1"],
                     zopflipng: false,
                     jpegRecompress: true,
-                    mozjpeg: true,
+                    mozjpeg: ['-optimize', '-progressive'],
                     guetzli: false,
                     gifsicle: true,
                     svgo: true

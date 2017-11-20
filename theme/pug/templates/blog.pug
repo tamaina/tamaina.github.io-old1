@@ -81,7 +81,7 @@ block main
             +fa("tags")
             if(page.attributes.tags !== undefined && page.attributes.tags !== [])
               each tag in page.attributes.tags
-                if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/tag/${tag}/`.toLowerCase() ) !== undefined )
+                if( pages.find( e => e.meta.permalink === `/blog/tag/${tag}/` ) !== undefined )
                   a(href=`${site.url.path}/blog/tag/${tag}/`).badge.badge-info= tag
                 else
                   span.badge.badge-info= tag

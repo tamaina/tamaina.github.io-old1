@@ -26,7 +26,7 @@ block main
       if(queries != []){
         qpages = pages.filter(function(e,i,a){
           for( m = 0; m < queries.length; m++ ){
-            if( !!e.attributes[queries[m].type] ){ if( e.attributes[queries[m].type].find(f => f.toLowerCase() === queries[m].query.toLowerCase() ) !== undefined ) { return true } }
+            if( !!e.attributes[queries[m].type] ){ if( e.attributes[queries[m].type].find(f => f === queries[m].query ) !== undefined ) { return true } }
           }
         })
       } else {

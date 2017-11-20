@@ -22,7 +22,7 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-dark
         -   let nowdir = dirs[i]                                    // "bar"
         -   dirpl = `${dirpl}${nowdir}/`                            // /foo/bar/
         -   let indexPage = pages.find(e => e.meta.permalink === dirpl)
-        -   if( indexPage != undefined && i != dirs.length - 2 ){
+        -   if( indexPage != undefined && i < dirs.length - 2 ){
         -     if (!!indexPage.attributes.title) {
           li.breadcrumb-item
             a(href=`${site.url.path}${dirpl}`).py-1 #{indexPage.attributes.title}
@@ -30,9 +30,11 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-dark
           li.breadcrumb-item
             a(href=`${site.url.path}${dirpl}`).py-1 #{nowdir}
         -     }
+        -   } else if( indexPage == undefined && i < dirs.length - 2 ){
+          li.breadcrumb-item(aria-current="page") #{nowdir}
         -   } else if( i == dirs.length - 2 ){
         -     if (!!page.attributes.title) {
-          li.breadcrumb-item(aria-current="page") #{indexPage.attributes.title}
+          li.breadcrumb-item(aria-current="page") #{page.attributes.title}
         -     } else {
           li.breadcrumb-item(aria-current="page") #{nowdir}
         -     }
