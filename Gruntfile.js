@@ -1,3 +1,6 @@
+// newでファイルを開くときに使うプログラム
+const openCommand = "code"
+
 // npm require
 const grunt = require("grunt")
 const extend = require("extend")
@@ -7,6 +10,7 @@ const crypto = require("crypto")
 const path = require("path")
 const join = path.join
 const swBuild = require("workbox-build")
+const exec = require('child_process').exec
 
 // debug
 const DEBUG = !!grunt.option("debug")
@@ -238,6 +242,7 @@ module.exports = function(grunt){
     grunt.task.registerTask( "register_pages" , "Register Pages" , register_pages )
     grunt.task.registerTask( "register_manifest" , "Register and write manifest.json" , register_manifest )
     grunt.task.registerTask( "make_browserconfig" , "Make Browserconfig" , make_browserconfig )
+    grunt.task.registerTask( "new" , "Add a page" , newpage )
 
     // タスクの登録
     grunt.registerTask("default", ["clean:temp", "clean:docs", "before_build", "build_script", "build_style", "pug", "copy:main", "copy:wtfpjax", "copy:f404", "sw", "clean:temp"])
@@ -451,4 +456,22 @@ function make_browserconfig(){
       </msapplication>
     </browserconfig>`
     grunt.file.write( `docs/browserconfig.xml` , bcbody )
+}
+
+function newpage(){
+    let layout = "", path = "pages/" + grunt.option("path"), thireisfile = false
+    let done = this.async();
+
+    if( !path ) throw new Error('作成したいファイルのパスを指定してください！')
+    try{ grunt.file.read(path) } catch(e) { thireisfile = true }
+    if( !thireisfile ) throw new Error('ファイルの上書きはやめましょう！')
+
+    if( grunt.option("layout") ) layout = grunt.option("layout")
+    else layout = "default"
+
+    grunt.file.copy(`templates/${layout}.md`,path)
+
+    let command = `${openCommand} "${path}"`
+    let options = {}
+    exec( command , options , (e,so,se) => done() )
 }

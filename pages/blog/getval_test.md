@@ -6,6 +6,13 @@ category: なにか
 tag: なにか
 ---
 
+## この記事の意味
+
+maqzでは、＄{~}を利用して特定の内容を代入することができます。
+
+eval関数の中で、HTML変換後の文字列をテンプレートリテラルとして展開しています。
+
+## 見本
 
 [前の記事…… ${pagePrev.attributes.title}](${pagePrev.meta.permalink})  
 [次の記事…… ${pageNext.attributes.title}](${pageNext.meta.permalink})  

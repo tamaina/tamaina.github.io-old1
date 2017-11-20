@@ -25,4 +25,4 @@ grunt
 ```
 grunt server
 ```
-を実行した後、 https://localhost:3000/MDBuilder/ を参照してください。
+を実行した後、 https://localhost:3000/maqz/ を参照してください。
