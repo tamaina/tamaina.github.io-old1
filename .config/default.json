@@ -58,7 +58,7 @@
         {
             "path": "/files/images/icons/icon.svg",
             "sizes": "600x600",
-            "type": "image/png"
+            "type": "image/svg+xml"
         },
         {
             "path": "/files/images/icons/icon.png",
@@ -83,5 +83,5 @@
             "path": "/files/images/icons/mstile-310x150.png"
         }
     },
-    "site_card_path": "/files/images/icons/favicon-600x600.png"
+    "site_card_path": "/files/images/icons/icon.png"
 }
