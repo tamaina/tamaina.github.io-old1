@@ -6050,22 +6050,31 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-strong {
   font-weight: bold; }
 
+html,
 body {
   word-break: break-word;
   scroll-behavior: smooth; }
 
 @media (max-width: 350px) {
+  html,
   body {
     font-size: 12px; } }
 
 @media (min-width: 350px) {
+  html,
   body {
     font-size: 14px; } }
 
 @media (min-width: 500px) {
+  html,
   body {
     font-size: 16px; } }
 
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
   font-weight: 700;
   font-feature-settings: "palt"; }
@@ -6195,11 +6204,13 @@ nav {
 
 #blogheader_footer {
   margin: 3em 0 0 0; }
+  #blogheader_footer #blogheader_next,
   #blogheader_footer #blogheader_prev {
     font-weight: 400;
     transition: all 0.75s ease;
     flex: auto;
     background-color: rgba(255, 255, 255, 0.25); }
+    #blogheader_footer #blogheader_next:hover,
     #blogheader_footer #blogheader_prev:hover {
       background-color: rgba(0, 0, 0, 0.25); }
 
