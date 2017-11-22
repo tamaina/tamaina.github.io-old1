@@ -1,5 +1,5 @@
 ---
-title: カテゴリー webの記事一覧
+title: web
 description: webカテゴリの記事一覧です。
 layout: blog-index
 query:

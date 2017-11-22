@@ -1,4 +1,4 @@
-nav#mainnav.navbar.navbar-dark.bg-dark.sticky-top.flex-row.p-1
+nav#mainnav.navbar.navbar-dark.bg-dark.flex-row.p-1
   a(href=`${site.url.path}/`).navbar-brand#navbar_brand
     img(src=`${site.url.path}/files/images/icons/icon.svg` width="30" height="30" class="d-inline-block align-top" alt="ICON")
     .navbar-brand-text tmin.xyz
@@ -10,9 +10,9 @@ nav#mainnav.navbar.navbar-dark.bg-dark.sticky-top.flex-row.p-1
         +fa("external-link")
       a(href=`http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md`, target="_blank", rel="noopener").text-light.nav-item.nav-link.px-3 🇯🇵WebFont
         +fa("external-link")
-nav(aria-label="breadcrumb")#breadcrumb.bg-dark
-  .container
-    ol.breadcrumb.bg-dark.text-white.m-0.py-1
+nav(aria-label="breadcrumb")#breadcrumb.bg-primary.sticky-top
+  .container-fulid.px-1.px-lg-5
+    ol.breadcrumb.bg-primary.text-white.my-0.mx-md-5.mx-1.py-1
       - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""]
       if( dirs.length > 2 )
         li.breadcrumb-item
@@ -25,18 +25,18 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-dark
         -   if( indexPage != undefined && i < dirs.length - 2 ){
         -     if (!!indexPage.attributes.title) {
           li.breadcrumb-item
-            a(href=`${site.url.path}${dirpl}`).py-1 #{indexPage.attributes.title}
+            a(href=`${site.url.path}${dirpl}`).py-1.text-white #{indexPage.attributes.title}
         -     } else {
           li.breadcrumb-item
-            a(href=`${site.url.path}${dirpl}`).py-1 #{nowdir}
+            a(href=`${site.url.path}${dirpl}`).py-1.text-white #{nowdir}
         -     }
         -   } else if( indexPage == undefined && i < dirs.length - 2 ){
-          li.breadcrumb-item(aria-current="page") #{nowdir}
+          li.breadcrumb-item(aria-current="page").text-white #{nowdir}
         -   } else if( i == dirs.length - 2 ){
         -     if (!!page.attributes.title) {
-          li.breadcrumb-item(aria-current="page") #{page.attributes.title}
+          li.breadcrumb-item(aria-current="page").text-white.font-weight-bold #{page.attributes.title}
         -     } else {
-          li.breadcrumb-item(aria-current="page") #{nowdir}
+          li.breadcrumb-item(aria-current="page").text-white.font-weight-bold #{nowdir}
         -     }
         -   }
         - }

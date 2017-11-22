@@ -1,6 +1,6 @@
 extends ../templates/default.pug
 
-block main
+block preset
   -
     pages.sort(function(a,b) {
       if( a.meta.birthtime < b.meta.birthtime ) { return 1 } else { return -1 }
@@ -25,6 +25,9 @@ block main
                             && e.attributes.published == true
                           )
     if( page.attributes.query ) {
+
+      // front-matter のquery設定があれば適用します
+
       if( page.attributes.query.category ) {
         addQuery( page.attributes.query.category, "categories" )
       }
@@ -40,16 +43,22 @@ block main
       }
     }
   -
+    // 見出しを設定します。
     let headline = ""
     let types = { "tags": "タグ", "categories": "カテゴリー" }
     if( !page.attributes.query ){
       headline = "記事一覧"
     } else {
       for( r = 0; r < queries.length; r++ ){
-        headline = `${headline}${types[queries[r].type]}:${queries[r].query} `
+        headline = `${headline}${types[queries[r].type]}:${queries[r].query}･`
       }
-      headline = headline + "の記事一覧"
+      headline = headline.slice(0,-1) + "の記事一覧"
     }
+
+block title
+  title ブログ #{headline} - #{site.name}
+
+block main
 
   #main.container
     h1.pt-4.pb-2 ブログ
