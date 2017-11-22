@@ -12,11 +12,11 @@ nav#mainnav.navbar.navbar-dark.bg-dark.flex-row.p-1
         +fa("external-link")
 nav(aria-label="breadcrumb")#breadcrumb.bg-primary.sticky-top
   .container-fulid.px-1.px-lg-5
-    ol.breadcrumb.bg-primary.text-white.my-0.mx-md-5.mx-1.py-1
+    ol.breadcrumb.bg-primary.text-white.my-0.mx-md-5.mx-1.py-1.px-0
       - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""]
       if( dirs.length > 2 )
         li.breadcrumb-item
-          a(href=`${site.url.path}/`).py-1 Home
+          a(href=`${site.url.path}/`).py-1.text-white Home
         - let dirpl = "/"
         - for( let i = 1; i < dirs.length - 1; i++){                // i = 3
         -   let nowdir = dirs[i]                                    // "bar"
@@ -34,11 +34,13 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-primary.sticky-top
           li.breadcrumb-item(aria-current="page").text-white #{nowdir}
         -   } else if( i == dirs.length - 2 ){
         -     if (!!page.attributes.title) {
-          li.breadcrumb-item(aria-current="page").text-white.font-weight-bold #{page.attributes.title}
+          li.breadcrumb-item
+            a(href="javascript:void(0)").py-1.text-white.font-weight-bold.trigger-gototop #{page.attributes.title}
         -     } else {
-          li.breadcrumb-item(aria-current="page").text-white.font-weight-bold #{nowdir}
+          li.breadcrumb-item
+            a(href="javascript:void(0)").py-1.text-white.font-weight-bold.trigger-gototop #{nowdir}
         -     }
         -   }
         - }
       else
-        li.breadcrumb-item(aria-current="page") Home
+        li.breadcrumb-item(aria-current="page").text-white.font-weight-bold.trigger-gototop Home

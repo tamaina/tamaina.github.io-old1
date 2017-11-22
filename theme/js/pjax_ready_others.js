@@ -1,4 +1,4 @@
-jQuery = $ = require('jquery');
+var $ = require('jquery');
 $(window).on('pjax:load',function(){
   if(window.gtag) gtag('event', 'page_view');
   if(window.DISQUS){
