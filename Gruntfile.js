@@ -11,6 +11,7 @@ const path = require("path")
 const join = path.join
 const swBuild = require("workbox-build")
 const exec = require('child_process').exec
+require('load-grunt-tasks')(grunt);
 
 // debug
 const DEBUG = !!grunt.option("debug")
@@ -29,7 +30,6 @@ let src = {
    "everypug": ["theme/pug/**/*.pug","./.temp/**/*.pug"],
    "json": ["config/**/*.json"],
    "js": ["theme/js/**/*.js"],
-   "styl": ["theme/styl/**/*.styl", "!" + "theme/styl/**/_*.styl"],
    "styl_all": ["theme/styl/**/*.styl"],
    "static": ["theme/static/**"],
    "files": ["files/**/*"],
@@ -75,27 +75,28 @@ module.exports = function(grunt){
                 files: pugfiles()
             }
         },
-        stylus: {
+        sass: {
             compile: {
                 options: {
-                    import: [
-                        "nib"
-                    ],
-                    "include css": true,
-                    data: function(dest, src) {
-                        return grunt.file.readJSON(dests.info)
-                    }
+                    sourceMap: true
                 },
                 files: {
-                    "docs/assets/style.css" : src.styl
+                    "docs/assets/style.css": "theme/styl/main.sass"
                 }
             }
         },
-        cssmin: {
-            minifybs: {
-                files: {
-                    "docs/assets/style.min.css": "docs/assets/style.css"
-                }
+        postcss: {
+            options: {
+                map: true, // inline sourcemaps
+                processors: [
+                    require('pixrem')(), // add fallbacks for rem units
+                    require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+                    require('cssnano')() // minify the result
+                ]
+            },
+            dist: {
+                src: "docs/assets/style.css",
+                dest: "docs/assets/style.min.css"
             }
         },
         webpack: {
@@ -104,36 +105,7 @@ module.exports = function(grunt){
           },
           prod: webpackConfig,
           dev: Object.assign({ watch: true }, webpackConfig)
-        },/*
-        uglify: {
-            compress: {
-                options: {
-                    compress: {
-                        sequences     : true,  // join consecutive statemets with the “comma operator”
-                        properties    : true,  // optimize property access: a["foo"] → a.foo
-                        dead_code     : true,  // discard unreachable code
-                        drop_debugger : true,  // discard “debugger” statements
-                        unsafe        : false, // some unsafe optimizations (see below)
-                        conditionals  : true,  // optimize if-s and conditional expressions
-                        comparisons   : true,  // optimize comparisons
-                        evaluate      : true,  // evaluate constant expressions
-                        booleans      : true,  // optimize boolean expressions
-                        loops         : true,  // optimize loops
-                        unused        : true,  // drop unused variables/functions
-                        hoist_funs    : true,  // hoist function declarations
-                        hoist_vars    : false, // hoist variable declarations
-                        if_return     : true,  // optimize if-s followed by return/continue
-                        join_vars     : true,  // join var declarations
-                        cascade       : true,  // try to cascade `right` into `left` in sequences
-                        side_effects  : true,  // drop side-effect-free statements
-                        warnings      : false,  // warn about potentially dangerous optimizations/code
-                    }
-                },
-                files: {
-                    "docs/assets/main.min.js" : "docs/assets/main.js"
-                }
-            }
-        },*/
+        },
         watch: {
             any: {
                 files: ["./**/*"],
@@ -217,19 +189,6 @@ module.exports = function(grunt){
     })
 }
 
-
-    grunt.loadNpmTasks("grunt-contrib-pug")
-    grunt.loadNpmTasks("grunt-contrib-stylus")
-    grunt.loadNpmTasks("grunt-contrib-connect")
-    grunt.loadNpmTasks("grunt-contrib-cssmin")
-    grunt.loadNpmTasks("grunt-contrib-clean")
-    grunt.loadNpmTasks("grunt-contrib-copy")
-    grunt.loadNpmTasks("grunt-contrib-watch")
-    grunt.loadNpmTasks("grunt-webpack")
-    grunt.loadNpmTasks("grunt-image")
-    grunt.loadNpmTasks("grunt-contrib-uglify")
-
-
     grunt.task.registerTask( "make_config" , "Merge all config files" , make_config )
     grunt.task.registerTask( "prepare_pages" , "Prepare Pages" , prepare_pages )
     grunt.task.registerTask( "debug_override" , "Debug" , () => {
@@ -252,7 +211,7 @@ module.exports = function(grunt){
 
     // 以下の2種類でデプロイとして供さないこと(defaultタスクを必ず実行)
     grunt.registerTask("build_script", ["webpack:prod"/*, "uglify"*/])
-    grunt.registerTask("build_style", ["stylus", "cssmin"])
+    grunt.registerTask("build_style", ["sass", "postcss"])
 
     grunt.registerTask("build_pages", ["before_build", "pug"])
 

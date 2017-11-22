@@ -38,19 +38,11 @@ nav
 
   #navbar_items
     width: max-content
-    width: -moz-max-content
-    width: -webkit-max-content
-    width: -o-max-content
-    width: -ms-max-content
     flex: 3 0 0
     .navbar-nav
       width: 100%
       .nav-link
         width: max-content
-        width: -moz-max-content
-        width: -webkit-max-content
-        width: -o-max-content
-        width: -ms-max-content
         word-break: keep-all
 
   #navbar_brand
@@ -73,5 +65,16 @@ nav
 
 @media (min-width: 992px)
   #article_sidenav > ul
-      position: sticky
-      top: 5em
+    position: sticky
+    top: 5em
+
+.button-like-anchor
+  background-color: transparent
+  border: none
+  outline: none
+  padding: 0
+  cursor: pointer
+  
+  &:hover
+  text-decoration: underline
+
