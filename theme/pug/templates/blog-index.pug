@@ -68,15 +68,15 @@ block main
 
     .d-flex.flex-row.row
       each thispage in qpages
-        a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2
-          .card.w-100.h-100.border-dark.pb-5
+        a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2.text-dark
+          article.card.w-100.h-100.border.bg-light.pb-5
             if ( thispage.attributes.thumbnail )
-              img.card-img-top.blog-indexthumb.bg-dark(alt="サムネイル", src=`${site.url.path}${thispage.attributes.thumbnail}`)
+              img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.attributes.thumbnail}`)
             h4.card-title.blog-title.mb-2.mt-3.px-3 #{thispage.attributes.title}
             p.card-text.mb-5.px-3 #{thispage.attributes.description}
             - let birthtime = new Date(thispage.meta.birthtime)
             - let mtime = new Date(thispage.meta.mtime)
-            .card-footer.py-md-2.py-1
+            footer.card-footer.py-md-2.py-1.border-light.bg-white
               small
                 ul.list-unstyled.mb-1
                   li
@@ -87,19 +87,19 @@ block main
                     +fa("clock-o")
                     time(datetime=thispage.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
                     |  更新
-              p.mb-0
-                +fa("folder-open")
-                if(thispage.attributes.categories)
-                  each category in thispage.attributes.categories
-                    span.badge.badge-success= category
-                    |  
-                else
-                  | なし
-                | &emsp;
-                +fa("tags")
-                if(thispage.attributes.tags)
-                  each tag in thispage.attributes.tags
-                    span.badge.badge-secondary= tag
-                    |  
-                else
-                  | なし
+                p.mb-0
+                  +fa("folder-open")
+                  if(thispage.attributes.categories)
+                    each category in thispage.attributes.categories
+                      span.badge.badge-success= category
+                      |  
+                  else
+                    | なし
+                  | &emsp;
+                  +fa("tags")
+                  if(thispage.attributes.tags)
+                    each tag in thispage.attributes.tags
+                      span.badge.badge-secondary= tag
+                      |  
+                  else
+                    | なし
