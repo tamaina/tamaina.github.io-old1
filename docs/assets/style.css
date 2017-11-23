@@ -6131,6 +6131,21 @@ nav {
     #blogheader_footer #blogheader_prev:hover {
       background-color: rgba(0, 0, 0, 0.25); }
 
+#share_modal_open_button {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+  #share_modal_open_button button {
+    font-size: 1.8rem;
+    height: 4rem;
+    width: 4rem;
+    padding: 0; }
+
+.fb-share-button.fb_iframe_widget {
+  max-height: 1em; }
+
 /**
  * GitHub Gist Theme
  * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
