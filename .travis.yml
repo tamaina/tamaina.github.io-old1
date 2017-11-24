@@ -2,7 +2,7 @@ language: node_js
 notifications:
   email: false
 node_js:
-- 7.10.0
+- 8.9.2
 sudo: required
 cache:
   directories:
@@ -11,7 +11,7 @@ git:
   submodules: false
 before_install:
 - echo 'Asia/Tokyo' | sudo tee /etc/timezone
-- npm i grunt -g
+- npm i grunt-cli -g
 - grunt --version
 script:
 - grunt
