@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Chirno v4.0.0-beta.2-chirno17277 (https://chirno.tmin.xyz/)
+ * Chirno v4.0.0-beta.2-chirno17324 (https://chirno.tmin.xyz/)
  * Copyright 2017 aqz
  * Licensed under MIT (https://github.com/9-chirno/chirno/blob/master/LICENSE)
  *
@@ -3095,7 +3095,7 @@ tbody.collapse.show {
   display: inline-block;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  color: #868e96;
+  color: #fff;
   content: ""; }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
@@ -5968,6 +5968,11 @@ a.text-dark:focus, a.text-dark:hover {
 .invisible {
   visibility: hidden !important; }
 
+/*!
+ *
+ * tmin.xyz themed
+ *
+ */
 html,
 body {
   word-break: break-word;
