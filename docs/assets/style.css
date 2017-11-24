@@ -6148,6 +6148,9 @@ nav {
 .fb-share-button.fb_iframe_widget {
   max-height: 1em; }
 
+.breadcrumb-item:before {
+  font-family: fontAwesome; }
+
 /**
  * GitHub Gist Theme
  * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
