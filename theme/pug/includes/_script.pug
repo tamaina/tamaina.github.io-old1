@@ -4,6 +4,10 @@
   const pug_api = require("pug")
   const htmlmin = require("html-minifier").minify
   const kramed = require("kramed")
+  const presummaly = require("summaly")
+  const summaly = presummaly.default
+  const jquery = require("jquery")
+  const cheerio = require("cheerio")
   const hljs = require('highlight.js')
   const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
   let main_html
@@ -12,21 +16,18 @@
     return pug_api.render(val, pug_o)
   }
 
-  function md_better(body){
-    
-    //- h2にpt-5を指定
-    body = body.replace(/<h2(.*?)>/gi,"<h2 class=\"pt-5\"$1>")
-    //- h3以下にpt-4を指定
-    body = body.replace(/<h([3-6])(.*?)>/gi,"<h$1 class=\"pt-5\"$2>")
-
-    //- https?のつくa要素にあーだこーだする
-    body = body.replace(/<a href=\"(https?:)\/\/(.*?)\">(.*?)<\/a>/gi,"<a href=\"$1\/\/$2\" target='_blank' rel='noopener'>$3<i class=\"fa fa-external-link fa-fw\" aria-hidden=\"true\"></i><\/a>")
-
-    //- "/"から始まる画像srcはその前にsite.url.pathを付加、およびimg-fluid付加
-    body = body.replace(/<img(.*?)src=\"\/(.*?)\"(.*?)>/gi,"<img$1src=\"" + site.url.path + "\/$2\"$3 class=\"img-fluid\">")
-
-    body = body.replace(/<table>/gi, "<table class=\"table table-sm table-bordered\">")
-    return body
+  function md_better(htm){
+    let $ = cheerio.load(htm, {decodeEntities: false})
+  
+    $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
+    $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
+    $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
+    $('a[href^="http"], a[href^="//"]').attr({target:'_blank', rel:'noopener'})
+    $('[target="_blank"]').append('<i class="fa fa-external-link fa-fw" aria-hidden="true"></i>')
+    $('img[src^="/"]').attr( 'src', function(i, el){ return `${site.url.path}${$(this).attr('src')}` }).addClass('img-fluid')
+    $('table').addClass('table table-sm table-bordered')
+  
+    return $.html()
   }
 
   function getTL(val){
@@ -87,7 +88,25 @@ case page.meta.srcext
   }
   main_html = highl(main_html)
 
--
+  /*  どうしよう…
+  function suly(htm){  // b4          p            url    af    lead
+    htm = htm.replace(/<a(.*?)href=\"(https?:)?\/\/(.*?)\"(.*?)>(.*)<\/a>/gi, (b4, p, url, af, lead) => {
+      const src = `${p}//${url}`
+      let result = ""
+      summaly(src).then(
+        function(var){
+          result = `<a${b4}href="${val.url}"${af} data-toggle="tooltip" title="<b>${val.title}</b><br><small>${val.url}<br><em>${description.slice(0,50)}<br><b>${val.sitename}</b></em></small>">${lead}<\/a>`
+        },
+        function(reason){
+          result = `<a${b4}href="${val.url}"${af} data-toggle="tooltip"><span class="text-danger">${lead}</span><\/a>`
+        }
+      )
+      return result
+    })
+  }
+  main_html = suly(main_html)
+  */
+
   let heading_html, headings = []
   const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
   while((heading_html = reg_heading.exec(main_html)) !== null){

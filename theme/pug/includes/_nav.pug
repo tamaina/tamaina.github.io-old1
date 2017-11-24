@@ -1,10 +1,10 @@
-//!
+//-
   ナビゲーションバー
 
 nav#mainnav.navbar.navbar-dark.bg-dark.flex-row.p-1
   a(href=`${site.url.path}/`).navbar-brand#navbar_brand
     img(src=`${site.url.path}/files/images/icons/icon.svg` width="30" height="30" class="d-inline-block align-top" alt="ICON")
-    .navbar-brand-text tmin.xyz
+    .navbar-brand-text #{site.name}
   #navbar_items
     .navbar-nav.flex-row.justify-content-center
       a(href=`${site.url.path}/maqz/`).text-light.nav-item.nav-link.px-3 maqz
@@ -14,7 +14,7 @@ nav#mainnav.navbar.navbar-dark.bg-dark.flex-row.p-1
       a(href=`http://tmin.xyz/The-Japanese-Web-Fonts/#!index.md`, target="_blank", rel="noopener").text-light.nav-item.nav-link.px-3 🇯🇵WebFont
         +fa("external-link")
 
-//!
+//-
   パンくずリスト
 
 nav(aria-label="breadcrumb")#breadcrumb.bg-primary.sticky-top
@@ -41,14 +41,14 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-primary.sticky-top
           li.breadcrumb-item(aria-current="page").text-white #{nowdir}
         -   } else if( i == dirs.length - 2 ){  // // // // // // // // // 該当ページに到着したら
         -     if (!!page.attributes.title) {
-          li.breadcrumb-item
+          li.breadcrumb-item.active
             button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{page.attributes.title}
         -     } else {
-          li.breadcrumb-item
+          li.breadcrumb-item.active
             button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{nowdir}
         -     }
         -   }
         - }
       else
-        li.breadcrumb-item
+        li.breadcrumb-item.active
           button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{site.name}
