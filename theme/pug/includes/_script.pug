@@ -22,11 +22,11 @@
     $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
     $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
     $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
-    $('a[href^="http"], a[href^="//"]').attr({target:'_blank', rel:'noopener'})
-    $('[target="_blank"]').append('<i class="fa fa-external-link fa-fw" aria-hidden="true"></i>')
     $('img[src^="/"]').attr( 'src', function(i, el){ return `${site.url.path}${$(this).attr('src')}` }).addClass('img-fluid')
     $('table').addClass('table table-sm table-bordered')
+    $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
   
+    console.log($.html())
     return $.html()
   }
 
@@ -39,26 +39,23 @@
 //- make main html
 case page.meta.srcext
   when '.md'
-    - main_html = htmlmin(md_better(kramed(page.body)),{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": true})
+    - main_html = htmlmin(md_better(kramed(page.body)),{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
   when '.html'
   when '.htm'
-    - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": true})
+    - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
   when '.pug'
     -
       main_html = pugit(page.body)
 
 -
+  function fuckescape(val){
+    val = val.replace(/&amp;/g, "&") .replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
+    val = val.replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
+    return val
+  }
   function highl(htm){
     htm = htm.replace(/<pre><code class="(.*?)">([\s\S]*?)<\/code><\/pre>/gi, function(a, l, b){
-      b = b.replace(/&amp;/g, "&")
-            .replace(/&lt;/g, "<")
-            .replace(/&gt;/g, ">")
-            .replace(/&#39;/g, "'")
-            .replace(/&quot;/g, "\"")
-      b = b.replace(/&lt;/g, "<")
-            .replace(/&gt;/g, ">")
-            .replace(/&#39;/g, "'")
-            .replace(/&quot;/g, "\"")
+      b = fuckescape(b)
       if(l.indexOf("lang-") == 0) l = l.slice(5)
       try {
         const hled = hljs.highlight(l, b)
@@ -72,40 +69,14 @@ case page.meta.srcext
       }
     } )
     htm = htm.replace(/<pre>\s*?<code>([\s\S]*?)<\/code>\s*?<\/pre>/gi, function(a, b){
-      b = b.replace(/&amp;/g, "&")
-            .replace(/&lt;/g, "<")
-            .replace(/&gt;/g, ">")
-            .replace(/&#39;/g, "'")
-            .replace(/&quot;/g, "\"")
-      b = b.replace(/&lt;/g, "<")
-            .replace(/&gt;/g, ">")
-            .replace(/&#39;/g, "'")
-            .replace(/&quot;/g, "\"")
+      b = fuckescape(b)
       const hled = hljs.highlightAuto(b)
       return `<pre><code class="hljs ${hled.language}">${hled.value}</code></pre>`
-    } )
+    }
+    )
     return htm
   }
   main_html = highl(main_html)
-
-  /*  どうしよう…
-  function suly(htm){  // b4          p            url    af    lead
-    htm = htm.replace(/<a(.*?)href=\"(https?:)?\/\/(.*?)\"(.*?)>(.*)<\/a>/gi, (b4, p, url, af, lead) => {
-      const src = `${p}//${url}`
-      let result = ""
-      summaly(src).then(
-        function(var){
-          result = `<a${b4}href="${val.url}"${af} data-toggle="tooltip" title="<b>${val.title}</b><br><small>${val.url}<br><em>${description.slice(0,50)}<br><b>${val.sitename}</b></em></small>">${lead}<\/a>`
-        },
-        function(reason){
-          result = `<a${b4}href="${val.url}"${af} data-toggle="tooltip"><span class="text-danger">${lead}</span><\/a>`
-        }
-      )
-      return result
-    })
-  }
-  main_html = suly(main_html)
-  */
 
   let heading_html, headings = []
   const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
