@@ -95,12 +95,12 @@ block main
               amp-social-share(type="twitter")
               amp-social-share(type="facebook", data-param-app_id= site.social_media.facebook.appId)
           
-        #blogheader_footer.d-flex.flex-wrap
+        #blogheader_footer
           if(pagePrev)
-            a(href=`${site.url.path}${pagePrev.meta.permalink}`)#blogheader_prev.py-3.text-light
+            a(href=`${site.url.path}${pagePrev.meta.permalink}`)#blogheader_prev.text-light
               .container 前: #{pagePrev.attributes.title}
           if(pageNext) 
-            a(href=`${site.url.path}${pageNext.meta.permalink}`)#blogheader_next.py-3.text-light
+            a(href=`${site.url.path}${pageNext.meta.permalink}`)#blogheader_next.text-light
               .container 次: #{pageNext.attributes.title}
 
       .container.pt-3
