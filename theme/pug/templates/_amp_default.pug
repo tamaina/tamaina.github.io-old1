@@ -92,10 +92,6 @@ html(lang=site.locale, amp)
     block wo_footer
       block nav
         include ../includes/_amp_nav.pug
-      block share
-        if ( site.social_media.share_button )
-          amp-social-share(type="twitter")
-          amp-social-share(type="facebook", data-param-app_id= site.social_media.facebook.appId)
       block main
         #main
           != main_html

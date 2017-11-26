@@ -44,7 +44,7 @@
           console.log(`AMP指定記事の外部画像の読み込みは対応していません。\nまたは、規定のURL指定方法ではありません。files/以下に画像ファイルを置き、画像指定パスをfiles/または/files/から始めるようにしてください。\n\nAMP 画像URLエラー: ${href}` )
         }
 
-      $(this).after(`<amp-img href="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
+      $(this).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
     })
     $('img').remove()
     $('amp-img').addClass('img-fluid')
