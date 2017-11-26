@@ -8,7 +8,7 @@ workboxSW.precache([
   },
   {
     "url": "assets/main.min.js",
-    "revision": "690b6d02461d69e424dd153d1611811b"
+    "revision": "4e7c6a3b1afc7782033e9736de90f77f"
   },
   {
     "url": "assets/pjax-api.js",
@@ -76,11 +76,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/chirno_intro/amp.html",
-    "revision": "7152ba518fbef600be06376649de0c6f"
+    "revision": "1d2b3c0f938779e6cec9ee8d5a340356"
   },
   {
     "url": "blog/chirno_intro/index.html",
-    "revision": "6c58e3bbee75fd566a0128c5a0bab02f"
+    "revision": "3e0bb5b6b4d6bc7e2ec7c8a46da07dc4"
   },
   {
     "url": "blog/getval_test/amp.html",
@@ -308,7 +308,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "fbe77ffaf5c701ded0866a0e254bbb22"
+    "revision": "7f361f984a140da7949ab63f020cd86b"
   },
   {
     "url": "manifest.json",
