@@ -1,6 +1,6 @@
 ---
 title: Markdown代入テスト
-description: \${~}を利用して特定の内容を代入することができます。
+description: ${~}を利用して特定の内容を代入することができます。ただそれだけです。
 layout: blog
 category: なにか
 tag: なにか

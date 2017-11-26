@@ -6,11 +6,14 @@
   const kramed = require("kramed")
   const presummaly = require("summaly")
   const summaly = presummaly.default
-  const jquery = require("jquery")
+  const precafy = require("cafy")
+  const $$ = precafy.default
   const cheerio = require("cheerio")
   const hljs = require('highlight.js')
   const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
   let main_html
+
+  if(!$$(page.attributes.description).string().range(25, 124).ok()) console.log("    SEO: descriptionの文字数は、60文字程度(下限25~上限124)をお勧めします。\n         at " + page.meta.permalink)
 
   function pugit(val){
     return pug_api.render(val, pug_o)

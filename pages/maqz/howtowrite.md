@@ -1,6 +1,6 @@
 ---
 title: 文書の書き方
-description: 難しいことはありません。jekyllと同じだし。
+description: 難しいことはありません。jekyllと同じだし。markdownだけでなく、pugやejsを利用することもできます。
 layout: article
 ---
 

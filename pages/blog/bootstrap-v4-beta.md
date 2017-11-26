@@ -1,19 +1,17 @@
 ---
 title: bootstrap v4について
-description: いよいよbetaになりました。
+description: bootstrapは、言わずと知れたフレームワーク。v4は、いよいよbetaになりました。
 layout: blog
 category: web
 tag: bootstrap
 amp: true
 ---
 
-長い年月をかけて、bootstrap v4がいよいよbetaになりました。
+長い年月をかけて、bootstrap v4がいよいよbetaになりました。待ち飽きたと思います。
 
 もう[bootstrapのサイト](//getbootstrap.com)はbootstrap v3から差し替わっています。
 
-ついこの前までv4-alpha.6を利用していましたが、この新しいサイトはbetaを利用しています。
-
-また、npmで導入することによって、バージョンアップが容易になっています。
+ついこの前まではv4-alpha.6を利用していましたが、この新しいサイトはbetaを利用しています。
 
 ## 基本的な使い方
 

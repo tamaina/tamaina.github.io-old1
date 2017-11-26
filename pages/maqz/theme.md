@@ -1,12 +1,12 @@
 ---
 title: テーマ
-description: テーマの編集方法
+description: テーマの編集方法。pug, scss, webpackを駆使して最強・最速のテーマを作りましょう。
 layout: article
 ---
 
 テーマファイルのソースは、themeフォルダに格納されています。
 
-htmlの素のpugを**テンプレート**、cssの素のstylus(.styl)やcssファイルを**スタイル**と呼称します。
+htmlの素のpugを**テンプレート**、cssの素のscss(.sass)やcssファイルを**スタイル**と呼称します。
 
 また、jsフォルダのjsファイルはスクリプトと呼称します。ビルド時に実行されるビルドスクリプトとは区別してください。
 
@@ -59,11 +59,11 @@ Markdownでちょっとした変数を代入する場合に役立ちます。`in
 
 ## スタイル
 
-main.stylファイルをコンパイルしてcssを出力しています。
+`main.sass`ファイルをコンパイルしてcssを出力しています。
 
-stylusの書き方に関しては、[stylus-lang.com](http://stylus-lang.com/)を参照してください。
+cssやsassを追加するには、どこかにcss/sassファイルを作成・コピーし、それに応じて`@import`をmain.sassに追加します。
 
-cssやstylusを追加するには、どこかにcss/stylファイルを作成・コピーし、それに応じて`@import`をmain.stylに追加します。
+当該ファイルを見ればなんとなくわかります。
  
 ## スクリプト
 

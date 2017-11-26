@@ -1,6 +1,6 @@
 ---
 title: pages処理チートシート
-description: ページ配列pagesの処理方法をかんたんにまとめました。
+description: ページ配列 pagesの処理方法をかんたんにまとめました。
 layout: article
 ---
 

@@ -254,19 +254,10 @@ function register_pages(){
         page.meta.sha384 = getHash(file, "sha384", "binary", "base64")
         page.stats = fs.statSync( abspath )
 
-
-        if( page.attributes.title === undefined || page.attributes.title === null ) page.attributes.title = page.meta.srcname
-
-        if( page.attributes.description === undefined || page.attributes.description === null ) page.attributes.description = site.description
-
-        page.meta.mtime = page.stats.mtime
-        page.meta.birthtime = page.stats.birthtime
-        if( page.attributes.date )  page.meta.birthtime = page.attributes.date
-        if( page.attributes.mtime ) page.meta.mtime = page.attributes.mtime
-        if( page.attributes.birthtime ) page.meta.birthtime = page.attributes.birthtime
-
-        page.meta.mtime = (new Date(page.meta.mtime)).toJSON()
-        page.meta.birthtime = (new Date(page.meta.birthtime)).toJSON()
+        page.attributes.title = page.attributes.title || page.meta.srcname
+        page.attributes.description = page.attributes.description || site.description
+        page.meta.mtime = (new Date(page.attributes.mtime || page.stats.mtime)).toJSON()
+        page.meta.birthtime = (new Date(page.attributes.birthtime || page.attributes.date || page.stats.birthtime)).toJSON()
 
         if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
             if( site.page_namingrule == "birthtime" ) {

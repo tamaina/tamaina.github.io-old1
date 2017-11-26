@@ -1,6 +1,6 @@
 ---
 title: ブログ
-description: “徒然なるままに”書いていっています。
+description: “徒然なるままに”書いていっています。内容は、愚痴、メモ、その他。
 layout: blog-index
 ---
 

@@ -1,7 +1,7 @@
 {
     "name": "アキウス",
     "short_name": "アキウス",
-    "description": "aqzのサイト",
+    "description": "aqzというハンドルネームの人間が運営しているサイトです。自家製サイトビルダーmaqz製。主にブログを適当に書いています。",
     "author": "aqz",
     "url":{
         "path": "/docs",

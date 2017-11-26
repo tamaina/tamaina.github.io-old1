@@ -1,6 +1,6 @@
 ---
 title: default.jsonの書き方
-description: 設定ファイルは基本だよね。
+description: どんなサイトビルダーでも、設定ファイルは必須です。情報の変数化は楽をするための第一歩です。
 layout: article
 ---
 
@@ -8,9 +8,10 @@ layout: article
 
 ~~~json
 {
-    "name": "tmin.xyz",
-    "short_name": "tmin.xyz",
-    "description": "aqzのサイト",
+    "name": "アキウス",
+    "short_name": "アキウス",
+    "description": "aqzというハンドルネームの人間が運営しているサイトです。自家製サイトビルダーmaqz製。主にブログを適当に書いています。",
+    "author": "aqz",
     "url":{
         "path": "/docs",
         "host": "tmin.xyz",
@@ -26,24 +27,10 @@ layout: article
     "auther": "tamaina",
     "page_namingrule": "name",
     "locale": "ja",
-    "mstiles": {
-        "s70x70": {
-            "path": "/files/images/icons/mstile-70x70.png"
-        },"s144x144": {
-            "path": "/files/images/icons/mstile-144x144.png"
-        },"s150x150": {
-            "path": "/files/images/icons/mstile-150x150.png"
-        },"s310x310": {
-            "path": "/files/images/icons/mstile-310x310.png"
-        },"w310x150": {
-            "path": "/files/images/icons/mstile-310x150.png"
-        }
-    },
     "theme_color": {
         "primary": "#2d88ef",
         "secondary": "#0e51a0"
     },
-    "site_card_path": "/files/images/icons/favicon-600x600.png",
     "default": {
         "template": "default"
     },
@@ -78,91 +65,34 @@ layout: article
     },
     "icons": [
         {
-            "path": "/files/images/icons/favicon-16x16.png",
-            "sizes": "16x16",
-            "type": "image/png"
+            "path": "/files/images/icons/icon.svg",
+            "sizes": "600x600",
+            "type": "image/svg+xml"
         },
         {
-            "path": "/files/images/icons/favicon-32x32.png",
-            "sizes": "32x32",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-36x36.png",
-            "sizes": "36x36",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-48x48.png",
-            "sizes": "48x48",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-57x57.png",
-            "sizes": "57x57",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-60x60.png",
-            "sizes": "60x60",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-72x72.png",
-            "sizes": "72x72",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-76x76.png",
-            "sizes": "76x76",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-96x96.png",
-            "sizes": "96x96",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-114x114.png",
-            "sizes": "114x114",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-120x120.png",
-            "sizes": "120x120",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-152x152.png",
-            "sizes": "152x152",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-160x160.png",
-            "sizes": "160x160",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-180x180.png",
-            "sizes": "180x180",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-196x196.png",
-            "sizes": "196x196",
-            "type": "image/png"
-        },
-        {
-            "path": "/files/images/icons/favicon-600x600.png",
+            "path": "/files/images/icons/icon.png",
             "sizes": "600x600",
             "type": "image/png"
         }
-    ]
+    ],
+    "mstiles": {
+        "s70x70": {
+            "path": "/files/images/icons/mstile-70x70.png"
+        },
+        "s144x144": {
+            "path": "/files/images/icons/mstile-144x144.png"
+        },
+        "s150x150": {
+            "path": "/files/images/icons/mstile-150x150.png"
+        },
+        "s310x310": {
+            "path": "/files/images/icons/mstile-310x310.png"
+        },
+        "w310x150": {
+            "path": "/files/images/icons/mstile-310x150.png"
+        }
+    },
+    "site_card_path": "/files/images/icons/icon.png"
 }
 ~~~
 

@@ -1,6 +1,6 @@
 ---
-title: About maqz
-description: 静的サイトビルダー maqzについて
+title: maqz
+description: 静的サイトビルダー「maqz」についてです。Jekyll以上Hugo以下といったところ。テーマの少なさが難点。
 layout: article
 ---
 
