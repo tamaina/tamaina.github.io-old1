@@ -47,7 +47,7 @@
       $(this).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
     })
     $('img').remove()
-    $('amp-img').addClass('img-fluid')
+    $('amp-img').attr('type','responsive')
     $('amp-img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-left img-fluid maqz-img-wrap')
     $('table').addClass('table table-sm table-bordered')
     $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
