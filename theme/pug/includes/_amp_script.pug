@@ -90,13 +90,13 @@ case page.meta.srcext
         console.log(e)
         console.log("\nエラーは以上です。既知のエラーであるため、処理を正常に続行します。\n")
         const hled = hljs.highlightAuto(b)
-        return `<pre><code class="hljs ${hled.language} border">${hled.value}</code></pre>`
+        return `<pre><code class="hljs ${hled.language} border rounded">${hled.value}</code></pre>`
       }
     } )
     htm = htm.replace(/<pre>\s*?<code>([\s\S]*?)<\/code>\s*?<\/pre>/gi, function(a, b){
       b = fuckescape(b)
       const hled = hljs.highlightAuto(b)
-      return `<pre><code class="hljs ${hled.language}">${hled.value}</code></pre>`
+      return `<pre><code class="hljs ${hled.language} border rounded">${hled.value}</code></pre>`
     }
     )
     return htm

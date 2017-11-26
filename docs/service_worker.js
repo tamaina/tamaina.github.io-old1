@@ -32,7 +32,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/amp.html",
-    "revision": "55f2de65fce0a5dbf0fcd91ef1d07676"
+    "revision": "8e01f98c1d4ac995c47e7f28344f46f4"
   },
   {
     "url": "blog/about_me/index.html",
@@ -40,7 +40,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/bootstrap-v4-beta/amp.html",
-    "revision": "d4ef48271b11ba9555272105e1a121f7"
+    "revision": "0c5234f3a3ea88fd10bde0cfa13d378b"
   },
   {
     "url": "blog/bootstrap-v4-beta/index.html",
@@ -48,7 +48,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/bunkasai/amp.html",
-    "revision": "c2ec3167e1d0c23579346f8334640ea3"
+    "revision": "7a56cab422e574527d694d880ebf5be4"
   },
   {
     "url": "blog/bunkasai/index.html",
@@ -76,7 +76,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/chirno_intro/amp.html",
-    "revision": "5e0af2f979b8ea9a151742c52355ec55"
+    "revision": "2ad284e5bcd00afb34a82a818b79c76f"
   },
   {
     "url": "blog/chirno_intro/index.html",
@@ -84,15 +84,15 @@ workboxSW.precache([
   },
   {
     "url": "blog/getval_test/amp.html",
-    "revision": "906431b4a77407c3558e969499d3707f"
+    "revision": "b37ab2e7f7a127efddbc5765a050ab75"
   },
   {
     "url": "blog/getval_test/index.html",
-    "revision": "68da181749215146c1439cff735af63f"
+    "revision": "ad11ee42871105cb012614cb728d145d"
   },
   {
     "url": "blog/hachikou/amp.html",
-    "revision": "de98583a36c41180a55034320d494491"
+    "revision": "1b84cd7d22e39f0f179f57affd16214b"
   },
   {
     "url": "blog/hachikou/index.html",
@@ -104,7 +104,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/maqz001400/amp.html",
-    "revision": "eefeadf29925f295e0a2ce877b921392"
+    "revision": "1d569f274f7481f9af5a6090ae6e13f8"
   },
   {
     "url": "blog/maqz001400/index.html",
@@ -308,7 +308,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "7c46ad0dcaa39b0e24fd99f81f96c99d"
+    "revision": "2edd4749596380387c340270f3919043"
   },
   {
     "url": "manifest.json",
@@ -320,11 +320,11 @@ workboxSW.precache([
   },
   {
     "url": "maqz/howtowrite/index.html",
-    "revision": "bca367ef957bd4ef29ea4494524320f4"
+    "revision": "71b63db3606c617661138a79f4da59d2"
   },
   {
     "url": "maqz/index.html",
-    "revision": "363647c2204b4694bfa2c9d48398df3f"
+    "revision": "21f010c990e7aae5b4d839ba68689817"
   },
   {
     "url": "maqz/pages/index.html",
