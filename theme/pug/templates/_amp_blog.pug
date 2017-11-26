@@ -4,9 +4,9 @@ block preset
   - 
     let mainHeaderStyle = ""
     if(page.attributes.thumbnail) {
-      mainHeaderStyle = `background-image: url("${site.url.path}${page.attributes.thumbnail}");`
+      mainHeaderStyle = `background-image: url("${site.url.path}${page.attributes.thumbnail}")`
     } else {
-      mainHeaderStyle = `background-color: #212121;`
+      mainHeaderStyle = `background-color: #212121`
     }
 
     let pagesPast = pages.filter(
@@ -48,10 +48,13 @@ block preset
     const pagePrev = pagesPrev[0]
     const pageNext = pagesNext[0]
 
+append style-custom
+  | #main_header{#{mainHeaderStyle}}
+
 block main
   #main.pb-5.pt-0
     article
-      header#main_header(style= mainHeaderStyle).text-light
+      header#main_header.text-light
         .container
           - let birthtime = new Date(page.meta.birthtime)
           - let mtime = new Date(page.meta.mtime)

@@ -32,7 +32,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/amp.html",
-    "revision": "ca33a2610083d3fe05f3b69c9a0a0df3"
+    "revision": "aaa73f196e360ae4fe63d40a37e3e32e"
   },
   {
     "url": "blog/about_me/index.html",
@@ -40,7 +40,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/bootstrap-v4-beta/amp.html",
-    "revision": "edde4ce5398e8ad19c57e9203e2cbb1d"
+    "revision": "1e9147fa54ad7aa0831a44fef99c1865"
   },
   {
     "url": "blog/bootstrap-v4-beta/index.html",
@@ -48,7 +48,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/bunkasai/amp.html",
-    "revision": "75b2ffdd3cadc895ebdfee31389ed3eb"
+    "revision": "e78028a943287f9a5d1bcb554bda46aa"
   },
   {
     "url": "blog/bunkasai/index.html",
@@ -76,7 +76,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/chirno_intro/amp.html",
-    "revision": "16b4cba7b328f5dfb2b2b6903b75f565"
+    "revision": "9086661ab56e4f6850994999d68f04d9"
   },
   {
     "url": "blog/chirno_intro/index.html",
@@ -84,7 +84,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/getval_test/amp.html",
-    "revision": "9728d9e39c7dec0a47db17f261cc0c8f"
+    "revision": "7423f55d42e237ace16e80875576cc0f"
   },
   {
     "url": "blog/getval_test/index.html",
@@ -92,7 +92,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/hachikou/amp.html",
-    "revision": "aa61d4d819b8b07e7456e99bd9ef9df2"
+    "revision": "571e882521eec721739859b04be280b8"
   },
   {
     "url": "blog/hachikou/index.html",
@@ -104,7 +104,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/maqz001400/amp.html",
-    "revision": "f418d0a6992263c410aeb9cf20973661"
+    "revision": "5c7df53a153243797735d7643a872ea5"
   },
   {
     "url": "blog/maqz001400/index.html",
@@ -308,7 +308,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "7b5d743d62cb697518dd7fa47f230f37"
+    "revision": "15375c2ce9c9776f17d197555f42f10f"
   },
   {
     "url": "manifest.json",
