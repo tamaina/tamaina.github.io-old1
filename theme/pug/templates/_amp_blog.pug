@@ -4,9 +4,9 @@ block preset
   - 
     let mainHeaderStyle = ""
     if(page.attributes.thumbnail) {
-      mainHeaderStyle = `background-image: url("${site.url.path}${page.attributes.thumbnail}")`
+      mainHeaderStyle = `#main_header{background-image:url("${site.url.path}${page.attributes.thumbnail}")}`
     } else {
-      mainHeaderStyle = `background-color: #212121`
+      mainHeaderStyle = `#main_header{background-color:#212121}`
     }
 
     let pagesPast = pages.filter(
@@ -49,7 +49,7 @@ block preset
     const pageNext = pagesNext[0]
 
 append style-custom
-  | #main_header{#{mainHeaderStyle}}
+  != mainHeaderStyle
 
 block main
   #main.pb-5.pt-0
