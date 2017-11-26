@@ -76,11 +76,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/chirno_intro/amp.html",
-    "revision": "1d2b3c0f938779e6cec9ee8d5a340356"
+    "revision": "1b55928d98969725410835b5656b6235"
   },
   {
     "url": "blog/chirno_intro/index.html",
-    "revision": "3e0bb5b6b4d6bc7e2ec7c8a46da07dc4"
+    "revision": "8265a53be3fb7976f22c6ce67e80ae00"
   },
   {
     "url": "blog/getval_test/amp.html",
@@ -92,11 +92,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/hachikou/amp.html",
-    "revision": "4722689e800af5274518d16343029505"
+    "revision": "8bc844e12f09bbe70b8e605139454e92"
   },
   {
     "url": "blog/hachikou/index.html",
-    "revision": "6d6f0f99bfa5ac542c99a9c647a669ea"
+    "revision": "5b2990fbf77582b283ecb3306105923a"
   },
   {
     "url": "blog/index.html",
@@ -308,7 +308,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "7f361f984a140da7949ab63f020cd86b"
+    "revision": "2881a8bfe557a62a308d74b9789bb6ae"
   },
   {
     "url": "manifest.json",
