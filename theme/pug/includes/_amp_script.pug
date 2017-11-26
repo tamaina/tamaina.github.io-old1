@@ -44,11 +44,11 @@
           console.log(`AMP指定記事の外部画像の読み込みは対応していません。\nまたは、規定のURL指定方法ではありません。files/以下に画像ファイルを置き、画像指定パスをfiles/または/files/から始めるようにしてください。\n\nAMP 画像URLエラー: ${href}` )
         }
 
-      $(this).after(`<amp-image href="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
+      $(this).after(`<amp-img href="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
     })
     $('img').remove()
-    .addClass('img-fluid')
-    $('amp-img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-left img-fluid')
+    $('amp-img').addClass('img-fluid')
+    $('amp-img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-left img-fluid maqz-img-wrap')
     $('table').addClass('table table-sm table-bordered')
     $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
   

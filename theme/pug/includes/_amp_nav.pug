@@ -33,14 +33,11 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-primary.sticky-top
           li.breadcrumb-item(aria-current="page").text-white #{nowdir}
         -   } else if( i == dirs.length - 2 ){  // // // // // // // // // 該当ページに到着したら
         -     if (!!page.attributes.title) {
-          li.breadcrumb-item.active
-            button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{page.attributes.title}
+          li.breadcrumb-item.active.text-white.font-weight-bold #{page.attributes.title}
         -     } else {
-          li.breadcrumb-item.active
-            button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{nowdir}
+          li.breadcrumb-item.active.text-white.font-weight-bold #{nowdir}
         -     }
         -   }
         - }
       else
-        li.breadcrumb-item.active
-          button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{site.name}
+        li.breadcrumb-item.active.text-white.font-weight-bold #{site.name}
