@@ -4,6 +4,7 @@ description: いよいよbetaになりました。
 layout: blog
 category: web
 tag: bootstrap
+amp: true
 ---
 
 長い年月をかけて、bootstrap v4がいよいよbetaになりました。

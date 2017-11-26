@@ -4,6 +4,7 @@ description: Bootstrap v4β日本語化プロジェクト始動……？
 layout: blog
 category: web
 tag: bootstrap
+amp: true
 ---
 
 [![イメージ](/files/blog/chirno/scnsht_001.png)Bootstrap Chirno](https://chirno.tmin.xyz/)

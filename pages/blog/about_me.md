@@ -6,6 +6,7 @@ date: 2100-12-26T18:13:20.778+09:00
 thumbnail: /files/blog/rail_eyecatch.jpeg
 category: aqz
 tag: 自己紹介
+amp: true
 ---
 
 ## どうも、こんにちは…

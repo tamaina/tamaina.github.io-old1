@@ -4,6 +4,7 @@ description: 気になってまとめてしまった。
 layout: blog
 category: 学校
 tag: 文化祭
+amp: true
 ---
 
 **え、これ、毎年追うの？？**

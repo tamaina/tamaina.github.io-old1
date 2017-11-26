@@ -13,4 +13,5 @@ $(window).on('pjax:load',function(){
 
 $(window).on('pjax:unload',function(){
   $('.modal').modal('hide');
+  $('script[src$="disqus.com/embed.js"]').remove();
 })

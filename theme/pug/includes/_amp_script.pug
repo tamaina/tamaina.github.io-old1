@@ -6,7 +6,7 @@
   const kramed = require("kramed")
   const presummaly = require("summaly")
   const summaly = presummaly.default
-  const jquery = require("jquery")
+  const sizeOf = require("image-size")
   const cheerio = require("cheerio")
   const hljs = require('highlight.js')
   const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
@@ -22,14 +22,37 @@
     $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
     $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
     $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
-    $('img[src^="/files/"]').attr( 'src', function(i, el){ return `${site.url.path}${$(this).attr('src')}` })
-    $('img[src^="files/"]').attr( 'src', function(i, el){ return `${site.url.path}/${$(this).attr('src')}` })
-    $('img').addClass('img-fluid')
-    $('img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-left img-fluid')
+    $('img[src]').each(function(){
+      let src    = $(this).attr('src')
+      let alt    = $(this).attr('alt')
+      let title  = $(this).attr('title')
+      let id     = $(this).attr('id')
+      let width  = $(this).attr('width')
+      let height = $(this).attr('height')
+
+        if( ( width === undefined || height === undefined ) && src.indexOf("files/") === 0 ){
+          const dims = sizeOf( src )
+          width = dims.width
+          height = dims.height
+          src = site.url.path + "/" + src
+        } else if( ( width === undefined || height === undefined ) && src.indexOf("/files/") === 0 ){
+          const dims = sizeOf( src.slice(1) )
+          width = dims.width
+          height = dims.height
+          src = site.url.path +src
+        } else {
+          console.log(`AMP指定記事の外部画像の読み込みは対応していません。\nまたは、規定のURL指定方法ではありません。files/以下に画像ファイルを置き、画像指定パスをfiles/または/files/から始めるようにしてください。\n\nAMP 画像URLエラー: ${href}` )
+        }
+
+      $(this).after(`<amp-image href="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
+    })
+    $('img').remove()
+    .addClass('img-fluid')
+    $('amp-img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-left img-fluid')
     $('table').addClass('table table-sm table-bordered')
     $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
-
-    return $.html()
+  
+    return $('body').html()
   }
 
   function getTL(val){
@@ -41,10 +64,10 @@
 //- make main html
 case page.meta.srcext
   when '.md'
-    - main_html = htmlmin(md_better(kramed(page.body)),{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+    - main_html = htmlmin(md_better(kramed(page.body)),{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": false})
   when '.html'
   when '.htm'
-    - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+    - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": false})
   when '.pug'
     -
       main_html = pugit(page.body)

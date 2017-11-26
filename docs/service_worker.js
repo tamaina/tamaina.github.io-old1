@@ -4,11 +4,11 @@ const workboxSW = new self.WorkboxSW()
 workboxSW.precache([
   {
     "url": "404/index.html",
-    "revision": "65f58fe6ae923c244e8e4f33a203cda6"
+    "revision": "4adecf5b98cc90cbb4f492f25b93c651"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "dff7de3ad19b5311b4c57f834dd4d5c6"
+    "revision": "690b6d02461d69e424dd153d1611811b"
   },
   {
     "url": "assets/pjax-api.js",
@@ -24,63 +24,91 @@ workboxSW.precache([
   },
   {
     "url": "assets/style.css",
-    "revision": "08d4bea56215aff7225a7163babb7523"
+    "revision": "86896066236a99887376fd44cad11e13"
   },
   {
     "url": "assets/style.min.css",
-    "revision": "85d96e1898a2d2427009c7198ae69e0d"
+    "revision": "b9c81613acaf31056b573e278ffce0d5"
+  },
+  {
+    "url": "blog/about_me/amp.html",
+    "revision": "71e3bb138fe0dbe49c78cd354cead9c3"
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "fc97ed00395038624f399c9f1ce55544"
+    "revision": "c6b61285de49f463da94d59cbc9216c5"
+  },
+  {
+    "url": "blog/bootstrap-v4-beta/amp.html",
+    "revision": "4533923a0f7c0c64175273166a7eed61"
   },
   {
     "url": "blog/bootstrap-v4-beta/index.html",
-    "revision": "646c0a5c7518cb26eb9b76e79a0c3645"
+    "revision": "5c502b52f8e390f4075c5201c1b267a9"
+  },
+  {
+    "url": "blog/bunkasai/amp.html",
+    "revision": "77482614d4fa1bcca4fd8a88f75e1b41"
   },
   {
     "url": "blog/bunkasai/index.html",
-    "revision": "8b9be338cdbae8da66f9db067b5b8bc5"
+    "revision": "1b3f2e318772f8cfaca12465154f5fce"
   },
   {
     "url": "blog/category/aqz/index.html",
-    "revision": "6a72b088128b3498db80e66f988f0636"
+    "revision": "c3ff94a09d08eccd035a1c94aaba96a4"
   },
   {
     "url": "blog/category/index.html",
-    "revision": "ee635af4ed69ac7d2fe8b4d426a1cb48"
+    "revision": "e4bddea41107f93ba4e5a12ead390867"
   },
   {
     "url": "blog/category/web/index.html",
-    "revision": "79947f0d30b8447be5a10d11381bad52"
+    "revision": "8139c542c07d44a2481e7de14b86407a"
   },
   {
     "url": "blog/category/なにか/index.html",
-    "revision": "041233b900017d7eec7ce836f6296d0b"
+    "revision": "9cf098c2cf17d9faf39c9eab0b7d4c41"
   },
   {
     "url": "blog/category/趣味/index.html",
-    "revision": "783674984571c75b8e829df41f685934"
+    "revision": "15257924ee500e943ddc218730693981"
+  },
+  {
+    "url": "blog/chirno_intro/amp.html",
+    "revision": "f67c21df46ca15970cbd22772f29dc6e"
   },
   {
     "url": "blog/chirno_intro/index.html",
-    "revision": "4df0e9073a6c9499afcf352670ae6045"
+    "revision": "1d2216c7681703f90b288079c109fdf9"
+  },
+  {
+    "url": "blog/getval_test/amp.html",
+    "revision": "51eb9fa2381db170b572c116e11421ee"
   },
   {
     "url": "blog/getval_test/index.html",
-    "revision": "41a4061c43310251725ccba0ad484f2a"
+    "revision": "68da181749215146c1439cff735af63f"
+  },
+  {
+    "url": "blog/hachikou/amp.html",
+    "revision": "a2135364fb22a906344167179d27300b"
   },
   {
     "url": "blog/hachikou/index.html",
-    "revision": "3e4469d29a028255e0abe623a94eeb1d"
+    "revision": "dce6ce92dd87a3e35aaf5699d4d90dcd"
   },
   {
     "url": "blog/index.html",
-    "revision": "2216f7bc1c3e7a8a1db2f73311f32335"
+    "revision": "b58e634a8e3fda456b987cf90ad565ba"
+  },
+  {
+    "url": "blog/maqz001400/amp.html",
+    "revision": "21bc06159d0c15356d2f7ce9407a4a62"
   },
   {
     "url": "blog/maqz001400/index.html",
-    "revision": "63a7e87a6c1e48bd3d58f46cd7150dac"
+    "revision": "b8c1d6a1cb1a79159751f64f8c7ce157"
   },
   {
     "url": "files/blog/chirno/scnsht_001.png",
@@ -276,11 +304,11 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "fc264f63e17fd8bba27e220b6414e261"
+    "revision": "2a129c14fdc6b394fdbd0b96d76870cf"
   },
   {
     "url": "info.json",
-    "revision": "9313923075a102008512ecb0a7bf7c5c"
+    "revision": "d6811b1184d6e420ef22c5a73554f742"
   },
   {
     "url": "manifest.json",
@@ -288,23 +316,23 @@ workboxSW.precache([
   },
   {
     "url": "maqz/configulation/index.html",
-    "revision": "46c56e89d6db8e27ecc1a2603a447522"
+    "revision": "23569a15433feb5c26917dd541007eb4"
   },
   {
     "url": "maqz/howtowrite/index.html",
-    "revision": "d4913ed14428a904a1da59392d2b0c5c"
+    "revision": "bca367ef957bd4ef29ea4494524320f4"
   },
   {
     "url": "maqz/index.html",
-    "revision": "148a03df2df71fb40ea43a4fbe2da25a"
+    "revision": "363647c2204b4694bfa2c9d48398df3f"
   },
   {
     "url": "maqz/pages/index.html",
-    "revision": "fd611cfea0d846cb1f849e05c2935dcc"
+    "revision": "8ae748a6c166b4f136532d4b75258a69"
   },
   {
     "url": "maqz/theme/index.html",
-    "revision": "44a940f6519b027a35e1bcc84f386088"
+    "revision": "320717576c892e69c230614bce27a2ac"
   },
   {
     "url": "workbox-sw.prod.v2.1.2.js",

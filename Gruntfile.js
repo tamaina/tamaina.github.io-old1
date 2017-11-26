@@ -300,22 +300,37 @@ function register_pages(){
     return pages
 }
 
-function temppath(page, temp_dir){
-    return `${temp_dir}/${page.meta.subdir.replace( /\//g , "_" )}_${page.meta.srcname}.pug`
+
+function temppath(page, temp_dir, amp){
+    if(amp == false || amp === undefined){
+        return `${temp_dir}/${page.meta.subdir.replace( /\//g , "_" )}_${page.meta.srcname}.pug`
+    } else {
+        return `${temp_dir}/${page.meta.subdir.replace( /\//g , "_" )}_amp_${page.meta.srcname}.pug`
+    }
 }
 
 function prepare_pages(){
     for (let i = 0 ; i < pages.length ; i++) {
         let page = pages[i]
         let layout = page.attributes.layout
-        let outdata = ""
+        let outdata = "", ampdata = ""
         if(grunt.file.exists(`theme/pug/templates/${layout}.pug`)) outdata += `extends ../templates/${layout}.pug`
         else if(grunt.file.exists(`theme/pug/templates/${site.default.template}.pug`)) outdata += `extends ../templates/${site.default.template}.pug`
-        else throw Error
+        else throw Error("default.pugが見つかりませんでした。")
         outdata += `
 block constnum
   - const page_index_numer = ${i}`
         grunt.file.write( temppath(page, temp_dir) , outdata )
+
+        if(page.attributes.amp){
+            if(grunt.file.exists(`theme/pug/templates/_amp_${layout}.pug`)) ampdata += `extends ../templates/_amp_${layout}.pug`
+            else if(grunt.file.exists(`theme/pug/templates/_amp_${site.default.template}.pug`)) ampdata += `extends ../templates/_amp_${site.default.template}.pug`
+            else throw Error("_amp_default.pugが見つかりませんでした。")
+            ampdata += `
+block constnum
+  - const page_index_numer = ${i}`
+            grunt.file.write( temppath(page, temp_dir, true) , ampdata )
+        }
     }
 }
 
@@ -325,6 +340,9 @@ function pugfiles() {
     for (let i = 0; i < pages.length; i++) {
         let page = pages[i]
         out += `"docs/${page.meta.permalink}index.html" : "${temppath(page, temp_dir)}",`
+        if(page.attributes.amp){
+            out += `"docs/${page.meta.permalink}amp.html" : "${temppath(page, temp_dir, true)}",`
+        }
     }
     out = out.substr( 0, out.length - 1 ) 
     out += "}"
