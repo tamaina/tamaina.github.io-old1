@@ -40,7 +40,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "bb09cc6f8f2816e13d0d3ea442dba4ee"
+    "revision": "5584bab2ec14301f262d60c88fcee89c"
   },
   {
     "url": "blog/bootstrap-v4-beta/amp.html",
@@ -312,7 +312,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "26e032c21ff8a28f570e56d2d929988a"
+    "revision": "1705e3ec607a9eeab9a62ff8ae97b415"
   },
   {
     "url": "manifest.json",
