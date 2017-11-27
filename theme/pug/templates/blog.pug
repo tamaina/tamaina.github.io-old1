@@ -145,5 +145,6 @@ block main
 
       .container.pt-3
         if(page.attributes.thumbnail)
-          img(src=`${site.url.path}${page.attributes.thumbnail}` alt="アイキャッチ").image-fluid#blog_eyecatch
+          .text-center
+            img(src=`${site.url.path}${page.attributes.thumbnail}` alt="アイキャッチ").img-fluid#blog_eyecatch
         != getTL(main_html)

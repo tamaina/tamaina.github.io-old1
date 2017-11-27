@@ -154,5 +154,6 @@ block main
             let width = dims.width
             let height = dims.height
             src = site.url.path +src
-          amp-img(src=src, alt="アイキャッチ", width=width, height=height, layout="responsive")
+          .text-center
+            amp-img(src=`${site.url.path}${page.attributes.thumbnail}` alt="アイキャッチ").img-fluid#blog_eyecatch
         != getTL(main_html)
