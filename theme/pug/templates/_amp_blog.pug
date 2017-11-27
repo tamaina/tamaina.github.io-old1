@@ -51,6 +51,51 @@ block preset
 append style-custom
   != mainHeaderStyle
 
+append meta
+
+  script(type="application/ld+json")
+    .
+      {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting" ,
+        "mainEntityOfPage": {
+          "@type": "WebPage" ,
+          "@id": "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.meta.permalink}"
+        } ,
+        "headline": "#{page.attributes.title}" ,
+    - if(page.attributes.thumbnail){
+    .
+        "image": {
+          "@type": "ImageObject" ,
+          "url": "#{site.url.path}#{src}"
+        },
+    - } else {
+    .
+        "image": {
+          "@type": "ImageObject" ,
+          "url": "#{site.site_card_path}"
+        },
+    - }
+    .
+        "datePublished": "#{page.meta.birthtime}" ,
+        "dateModified": "#{page.meta.mtime}" ,
+        "author": {
+          "@type": "Person" ,
+            "name": "#{site.author}"
+        }
+        "publisher": {
+          "@type": "Organization" ,
+          "name": "アキウス" ,
+          "logo": {
+            "@type": "ImageObject" ,
+            "url": "#{site.url.scheme}://#{site.url.host}#{site.url.path}/assets/publisher.png" ,
+            "height": 60 ,
+            "width": 600
+          }
+        },
+        "description": "#{page.attributes.description}"
+      }
+
 block main
   #main.pb-5.pt-0
     article
@@ -102,4 +147,12 @@ block main
               .container 次: #{pageNext.attributes.title}
 
       .container.pt-3
+        if(page.attributes.thumbnail)
+          -
+            let src = `${site.url.path}${page.attributes.thumbnail}`
+            let dims = sizeOf( page.attributes.thumbnail.slice(1) )
+            let width = dims.width
+            let height = dims.height
+            src = site.url.path +src
+          amp-img(src=src, alt="アイキャッチ", width=width, height=height, layout="responsive")
         != getTL(main_html)

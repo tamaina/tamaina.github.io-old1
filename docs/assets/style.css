@@ -6103,6 +6103,9 @@ h6, .h6 {
     #blogheader_footer #blogheader_prev:hover {
       background-color: rgba(0, 0, 0, 0.25); }
 
+#blog_eyecatch {
+  max-width: 540px; }
+
 .button-like-anchor {
   background-color: transparent;
   border: none;
