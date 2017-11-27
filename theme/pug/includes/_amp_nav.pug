@@ -30,14 +30,14 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-primary.sticky-top
             a(href=`${site.url.path}${dirpl}`).py-1.text-white #{nowdir}
         -     }
         -   } else if( indexPage == undefined && i < dirs.length - 2 ){ // ページがなかったら
-          li.breadcrumb-item(aria-current="page").text-white #{nowdir}
+          li.breadcrumb-item.text-white #{nowdir}
         -   } else if( i == dirs.length - 2 ){  // // // // // // // // // 該当ページに到着したら
         -     if (!!page.attributes.title) {
-          li.breadcrumb-item.text-white.font-weight-bold(aria-current="page") #{page.attributes.title}
+          li.breadcrumb-item.text-white.font-weight-bold #{page.attributes.title}
         -     } else {
-          li.breadcrumb-item.text-white.font-weight-bold(aria-current="page") #{nowdir}
+          li.breadcrumb-item.text-white.font-weight-bold #{nowdir}
         -     }
         -   }
         - }
       else
-        li.breadcrumb-item.text-white.font-weight-bold(aria-current="page") #{site.name}
+        li.breadcrumb-item.text-white.font-weight-bold #{site.name}
