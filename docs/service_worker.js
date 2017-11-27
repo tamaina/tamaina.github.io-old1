@@ -36,11 +36,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/amp.html",
-    "revision": "9a1a11abd161a09681944496c1946938"
+    "revision": "d5fc041d5bca194f2ca957a37fdaae44"
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "389ffb025370ec9451f39f7fb371ae5d"
+    "revision": "bb09cc6f8f2816e13d0d3ea442dba4ee"
   },
   {
     "url": "blog/bootstrap-v4-beta/amp.html",
@@ -312,7 +312,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "6dbeb7319fa3d756a22c448c25f09052"
+    "revision": "26e032c21ff8a28f570e56d2d929988a"
   },
   {
     "url": "manifest.json",
