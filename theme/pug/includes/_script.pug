@@ -10,6 +10,7 @@
   const $$ = precafy.default
   const cheerio = require("cheerio")
   const hljs = require('highlight.js')
+  const sizeOf = require("image-size")
   const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
   let main_html
 

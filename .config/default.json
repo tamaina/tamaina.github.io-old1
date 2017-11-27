@@ -83,5 +83,6 @@
             "path": "/files/images/icons/mstile-310x150.png"
         }
     },
-    "site_card_path": "/files/images/icons/icon.png"
+    "site_card_path": "/files/images/icons/icon.png",
+    "publisher_image_path": "/files/images/icons/publisher.png"
 }

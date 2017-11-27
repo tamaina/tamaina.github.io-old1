@@ -1,6 +1,6 @@
 extends _amp_default
 
-block preset
+append preset
   - 
     let mainHeaderStyle = ""
     if(page.attributes.thumbnail) {
@@ -48,6 +48,26 @@ block preset
     const pagePrev = pagesPrev[0]
     const pageNext = pagesNext[0]
 
+  - let thsrc, thdims, thwidth, thheight
+
+  if(page.attributes.thumbnail)
+    -
+      thsrc = `${site.url.path}${page.attributes.thumbnail}`
+      thdims = sizeOf( page.attributes.thumbnail.slice(1) )
+      thwidth = thdims.width
+      thheight = thdims.height
+  else
+    -
+      thsrc = `${site.url.path}${site.site_card_path}`
+      dims = sizeOf( site.site_card_path.slice(1) )
+      thwidth = dims.width
+      thheight = dims.height
+  
+  - 
+    let pdims = sizeOf( site.publisher_image_path.slice(1) )
+    let pwidth = pdims.width
+    let pheight = pdims.height
+
 append style-custom
   != mainHeaderStyle
 
@@ -63,20 +83,12 @@ append meta
           "@id": "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.meta.permalink}"
         } ,
         "headline": "#{page.attributes.title}" ,
-    - if(page.attributes.thumbnail){
-    .
         "image": {
           "@type": "ImageObject" ,
-          "url": "#{site.url.path}#{page.attributes.thumbnail}"
+          "url": "#{site.url.scheme}://#{site.url.host}#{thsrc}" ,
+          "height": #{thheight} ,
+          "width": #{thwidth}
         },
-    - } else {
-    .
-        "image": {
-          "@type": "ImageObject" ,
-          "url": "#{site.site_card_path}"
-        },
-    - }
-    .
         "datePublished": "#{page.meta.birthtime}" ,
         "dateModified": "#{page.meta.mtime}" ,
         "author": {
@@ -85,12 +97,12 @@ append meta
         },
         "publisher": {
           "@type": "Organization" ,
-          "name": "アキウス" ,
+          "name": "#{site.name}" ,
           "logo": {
             "@type": "ImageObject" ,
-            "url": "#{site.url.scheme}://#{site.url.host}#{site.url.path}/assets/publisher.png" ,
-            "height": 60 ,
-            "width": 600
+            "url": "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{site.publisher_image_path}" ,
+            "height": #{pheight} ,
+            "width": #{pwidth}
           }
         },
         "description": "#{page.attributes.description}"
@@ -148,11 +160,6 @@ block main
 
       .container.pt-3
         if(page.attributes.thumbnail)
-          -
-            let src = `${site.url.path}${page.attributes.thumbnail}`
-            let dims = sizeOf( page.attributes.thumbnail.slice(1) )
-            let width = dims.width
-            let height = dims.height
           .text-center
-            amp-img(src=src alt="アイキャッチ", width=width, height=height, layout="responsive")
+            amp-img(src=thsrc alt="アイキャッチ", width=thwidth, height=thheight, layout="responsive")
         != getTL(main_html)
