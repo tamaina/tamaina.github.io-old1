@@ -1,103 +1,159 @@
-//- javascript
--
-  const page = pages[page_index_numer]
-  const pug_api = require("pug")
-  const htmlmin = require("html-minifier").minify
-  const kramed = require("kramed")
-  const presummaly = require("summaly")
-  const summaly = presummaly.default
-  const precafy = require("cafy")
-  const $$ = precafy.default
-  const cheerio = require("cheerio")
-  const hljs = require('highlight.js')
-  const sizeOf = require("image-size")
-  const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
-  let main_html
+  //- javascript
+block script_preset
 
-  if(!$$(page.attributes.description).string().range(25, 124).ok()) console.log("    SEO: descriptionの文字数は、60文字程度(下限25~上限124)をお勧めします。\n         at " + page.meta.permalink)
+block requires
+  -
+    const URL = require('url')
+    const pug_api = require("pug")
+    const htmlmin = require("html-minifier").minify
+    const kramed = require("kramed")
+    const summaly = require("sync-summaly").default
+    const $$ = require("cafy").default
+    const cheerio = require("cheerio")
+    const hljs = require('highlight.js')
+    const colors = require("colors")
+    const sizeOf = require("image-size")
 
-  function pugit(val){
-    return pug_api.render(val, pug_o)
-  }
+block vals
+  -
+    const page = pages[page_index_numer]
+    const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
+    let main_html
+    const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
+    const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
 
-  function md_better(htm){
-    let $ = cheerio.load(htm, {decodeEntities: false})
-  
-    $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
-    $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
-    $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
-    $('img[src^="/files/"]').attr( 'src', function(i, el){ return `${site.url.path}${$(this).attr('src')}` })
-    $('img[src^="files/"]').attr( 'src', function(i, el){ return `${site.url.path}/${$(this).attr('src')}` })
-    $('img').addClass('img-fluid')
-    $('img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
-    $('img').parent('a').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
-    $('table').addClass('table table-sm table-bordered')
-    $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
+block messages
+  -
+    function messenger(type, text, callback){
+      console.log(`${type}: ${text || callback}`.yellow)
+      console.log(`in ${page.meta.permalink}`.gray)
+    }
 
-    return $.html()
-  }
+  -
+    if(!$$(page.attributes.description).string().range(25, 124).ok()) messenger("SEO", messages.seo_description)
 
-  function getTL(val){
-    let result
-    eval("result = `" + val + "`")
-    return result
-  }
-
-//- make main html
-case page.meta.srcext
-  when '.md'
-    - main_html = htmlmin(md_better(kramed(page.body)),{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
-  when '.html'
-  when '.htm'
-    - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
-  when '.pug'
+block functions
+  block pugit
     -
-      main_html = pugit(page.body)
+      function pugit(val){
+        return pug_api.render(val, pug_o)
+      }
 
--
-  function fuckescape(val){
-    val = val.replace(/&amp;/g, "&") .replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
-    val = val.replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
-    return val
-  }
-  function highl(htm){
-    htm = htm.replace(/<pre><code class="(.*?)">([\s\S]*?)<\/code><\/pre>/gi, function(a, l, b){
-      b = fuckescape(b)
-      if(l.indexOf("lang-") == 0) l = l.slice(5)
+  block md_better
+    -
+      function md_better(htm){
+        let $ = cheerio.load(htm, {decodeEntities: false})
+      
+        $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
+        $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
+        $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
+        $('img[src^="/files/"]').attr( 'src', function(i, el){ return `${site.url.path}${$(this).attr('src')}` })
+        $('img[src^="files/"]').attr( 'src', function(i, el){ return `${site.url.path}/${$(this).attr('src')}` })
+        $('img').addClass('img-fluid')
+        $('img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
+        $('img').parent('a').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
+        $('table').addClass('table table-sm table-bordered')
+        $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
+
+        return $('body').html()
+      }
+
+  block getTL
+    -
+      function getTL(val){
+        let result
+        eval("result = `" + val + "`")
+        return result
+      }
+
+block summary
+  -
+    function img_weserv(src){
+      const t = URL.parse(src)
+      return `https://images.weserv.nl/?url=${t.auth || ""}${t.hostname}${t.path}${t.hash || ""}`
+    }
+
+    function suma(href){
       try {
-        const hled = hljs.highlight(l, b)
-        return `<pre><code class="${l}">${hled.value}</code></pre>`
+        if( href.indexOf("//") == 0 ) href = "http:" + href
+        let summ = summaly(href)
+        let thumbnail = "", icon = ""
+        if(!amp){
+          if(summ.thumbnail)thumbnail = `<img src="${img_weserv(summ.thumbnail)}" alt="THUMBNAIL" class="thumbnail">`
+          if(summ.icon) icon = `<img src="${img_weserv(summ.icon)}" alt="ICON" class="icon">`
+        }
+        return `<a href=${summ.url} class="summary">${thumbnail}<article><header><h1>${summ.title}</h1></header><p>${summ.description}</p><footer>${icon}${summ.sitename}</footer></article></a>`
       } catch(e) {
-        console.log("\nhighlight処理中にエラーが発生しました。\nおそらく、markdownで未知の言語が指定されている場合にこのメッセージが表示されているはずです。\nhighlightAuto APIを利用してやりなおします。\n以下にエラーの内容を示します。\n")
-        console.log(e)
-        console.log("\nエラーは以上です。既知のエラーであるため、処理を正常に続行します。\n")
+        messenger("INVALID_URL", messages.invalid_link.replace(/%s/,href), `Invalid URL ${href} is written in your article.`)
+        return false
+      }
+    }
+    function maly(htm){
+      let $ = cheerio.load(htm, {decodeEntities: false})
+      $('a[href^="http"], a[href^="//"]').each(function(){
+        const aftag = suma($(this).attr('href'))
+        if(aftag) $(this).parent().after(aftag)
+      })
+      return $('body').html()
+    }
+
+block make_html
+  //- make main html
+  case page.meta.srcext
+    when '.md'
+      - main_html = htmlmin(maly(md_better(kramed(page.body))),{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+    when '.html'
+    when '.htm'
+      - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+    when '.pug'
+      -
+        main_html = pugit(page.body)
+
+block highlight
+  -
+    function fuckescape(val){
+      val = val.replace(/&amp;/g, "&") .replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
+      val = val.replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
+      return val
+    }
+    function highl(htm){
+      htm = htm.replace(/<pre><code class="(.*?)">([\s\S]*?)<\/code><\/pre>/gi, function(a, l, b){
+        b = fuckescape(b)
+        if(l.indexOf("lang-") == 0) l = l.slice(5)
+        try {
+          const hled = hljs.highlight(l, b)
+          return `<pre><code class="${l}">${hled.value}</code></pre>`
+        } catch(e) {
+          messenger("hljs", messages.hljs_langerr)
+          const hled = hljs.highlightAuto(b)
+          return `<pre><code class="hljs ${hled.language} border rounded">${hled.value}</code></pre>`
+        }
+      } )
+      htm = htm.replace(/<pre>\s*?<code>([\s\S]*?)<\/code>\s*?<\/pre>/gi, function(a, b){
+        b = fuckescape(b)
         const hled = hljs.highlightAuto(b)
         return `<pre><code class="hljs ${hled.language} border rounded">${hled.value}</code></pre>`
       }
-    } )
-    htm = htm.replace(/<pre>\s*?<code>([\s\S]*?)<\/code>\s*?<\/pre>/gi, function(a, b){
-      b = fuckescape(b)
-      const hled = hljs.highlightAuto(b)
-      return `<pre><code class="hljs ${hled.language} border rounded">${hled.value}</code></pre>`
+      )
+      return htm
     }
-    )
-    return htm
-  }
-  main_html = highl(main_html)
+    main_html = highl(main_html)
 
-  let heading_html, headings = []
-  const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
-  while((heading_html = reg_heading.exec(main_html)) !== null){
-    let heading = {},
-        idmatch = []
-    idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)
-    if(idmatch == null)
-      heading.id = null
-    else
-      heading.id = idmatch[2]
-    heading.html     = heading_html[0]
-    heading.number   = heading_html[1]
-    heading.attr     = heading_html[2]
-    heading.text     = heading_html[3]
-    headings.push(heading)
-  }
+block listUp_hedings
+  -
+    let heading_html, headings = []
+    const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
+    while((heading_html = reg_heading.exec(main_html)) !== null){
+      let heading = {},
+          idmatch = []
+      idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)
+      if(idmatch == null)
+        heading.id = null
+      else
+        heading.id = idmatch[2]
+      heading.html     = heading_html[0]
+      heading.number   = heading_html[1]
+      heading.attr     = heading_html[2]
+      heading.text     = heading_html[3]
+      headings.push(heading)
+    }

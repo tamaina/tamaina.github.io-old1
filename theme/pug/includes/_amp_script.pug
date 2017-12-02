@@ -1,122 +1,47 @@
-//- javascript
--
-  const page = pages[page_index_numer]
-  const pug_api = require("pug")
-  const htmlmin = require("html-minifier").minify
-  const kramed = require("kramed")
-  const presummaly = require("summaly")
-  const summaly = presummaly.default
-  const sizeOf = require("image-size")
-  const cheerio = require("cheerio")
-  const hljs = require('highlight.js')
-  const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
-  let main_html
+extends _script.pug
 
-  function pugit(val){
-    return pug_api.render(val, pug_o)
-  }
+append script_preset
+  -
+    const amp = true
 
-  function md_better(htm){
-    let $ = cheerio.load(htm, {decodeEntities: false})
-  
-    $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
-    $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
-    $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
-    $('img[src]').each(function(){
-      let src    = $(this).attr('src')
-      let alt    = $(this).attr('alt')
-      let title  = $(this).attr('title')
-      let id     = $(this).attr('id')
-      let width  = $(this).attr('width')
-      let height = $(this).attr('height')
+block md_better
+  -
+    function md_better(htm){
+      let $ = cheerio.load(htm, {decodeEntities: false})
+    
+      $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
+      $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
+      $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
+      $('img[src]').each(function(){
+        let src    = $(this).attr('src')
+        let alt    = $(this).attr('alt')
+        let title  = $(this).attr('title')
+        let id     = $(this).attr('id')
+        let width  = $(this).attr('width')
+        let height = $(this).attr('height')
 
-        if( ( width === undefined || height === undefined ) && src.indexOf("files/") === 0 ){
-          const dims = sizeOf( src )
-          width = dims.width
-          height = dims.height
-          src = site.url.path + "/" + src
-        } else if( ( width === undefined || height === undefined ) && src.indexOf("/files/") === 0 ){
-          const dims = sizeOf( src.slice(1) )
-          width = dims.width
-          height = dims.height
-          src = site.url.path +src
-        } else {
-          console.log(`AMP指定記事の外部画像の読み込みは対応していません。\nまたは、規定のURL指定方法ではありません。files/以下に画像ファイルを置き、画像指定パスをfiles/または/files/から始めるようにしてください。\n\nAMP 画像URLエラー: ${href}` )
-        }
+          if( ( width === undefined || height === undefined ) && src.indexOf("files/") === 0 ){
+            const dims = sizeOf( src )
+            width = dims.width
+            height = dims.height
+            src = site.url.path + "/" + src
+          } else if( ( width === undefined || height === undefined ) && src.indexOf("/files/") === 0 ){
+            const dims = sizeOf( src.slice(1) )
+            width = dims.width
+            height = dims.height
+            src = site.url.path +src
+          } else {
+            console.log( messages.amp.invalid_imageUrl )
+          }
 
-      $(this).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
-    })
-    $('img').remove()
-    $('amp-img').attr('layout','responsive')
-    $('amp-img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
-    $('amp-img').parent('a').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
-    $('table').addClass('table table-sm table-bordered')
-    $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
-  
-    return $('body').html()
-  }
-
-  function getTL(val){
-    let result
-    eval("result = `" + val + "`")
-    return result
-  }
-
-//- make main html
-case page.meta.srcext
-  when '.md'
-    - main_html = htmlmin(md_better(kramed(page.body)),{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": false})
-  when '.html'
-  when '.htm'
-    - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": true,"removeEmptyElements": false})
-  when '.pug'
-    -
-      main_html = pugit(page.body)
-
--
-  function fuckescape(val){
-    val = val.replace(/&amp;/g, "&") .replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
-    val = val.replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
-    return val
-  }
-  function highl(htm){
-    htm = htm.replace(/<pre><code class="(.*?)">([\s\S]*?)<\/code><\/pre>/gi, function(a, l, b){
-      b = fuckescape(b)
-      if(l.indexOf("lang-") == 0) l = l.slice(5)
-      try {
-        const hled = hljs.highlight(l, b)
-        return `<pre><code class="${l}">${hled.value}</code></pre>`
-      } catch(e) {
-        console.log("\nhighlight処理中にエラーが発生しました。\nおそらく、markdownで未知の言語が指定されている場合にこのメッセージが表示されているはずです。\nhighlightAuto APIを利用してやりなおします。\n以下にエラーの内容を示します。\n")
-        console.log(e)
-        console.log("\nエラーは以上です。既知のエラーであるため、処理を正常に続行します。\n")
-        const hled = hljs.highlightAuto(b)
-        return `<pre><code class="hljs ${hled.language} border rounded">${hled.value}</code></pre>`
-      }
-    } )
-    htm = htm.replace(/<pre>\s*?<code>([\s\S]*?)<\/code>\s*?<\/pre>/gi, function(a, b){
-      b = fuckescape(b)
-      const hled = hljs.highlightAuto(b)
-      return `<pre><code class="hljs ${hled.language} border rounded">${hled.value}</code></pre>`
+        $(this).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
+      })
+      $('img').remove()
+      $('amp-img').attr('layout','responsive')
+      $('amp-img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
+      $('amp-img').parent('a').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
+      $('table').addClass('table table-sm table-bordered')
+      $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
+    
+      return $('body').html()
     }
-    )
-    return htm
-  }
-  main_html = highl(main_html)
-
-  let heading_html, headings = []
-  const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
-  while((heading_html = reg_heading.exec(main_html)) !== null){
-    let heading = {},
-        idmatch = []
-    idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)
-    if(idmatch == null)
-      heading.id = null
-    else
-      heading.id = idmatch[2]
-    heading.html     = heading_html[0]
-    heading.number   = heading_html[1]
-    heading.attr     = heading_html[2]
-    heading.text     = heading_html[3]
-    headings.push(heading)
-  }

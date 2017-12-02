@@ -1,6 +1,10 @@
 extends ../templates/default.pug
 
-block preset
+append preset
+  - 
+    const indexPrefix = "blog"
+    const indexname = "ブログ"
+    const indexHeadline = "記事一覧"
   -
     pages.sort(function(a,b) {
       if( a.meta.birthtime < b.meta.birthtime ) { return 1 } else { return -1 }
@@ -8,32 +12,48 @@ block preset
 
     let queries = [], qpages = []
 
+    // 「${indexname}」として表示するページの条件を指定し、Array.filter()関数でqpagesに代入します。
+
+    qpages = pages.filter(e => e.meta.permalink.indexOf(`/${indexPrefix}/`) == 0 // パーマリンクの先頭が"/blog/"
+                            && e.attributes.layout == indexPrefix           // blogレイアウトが適用されている
+                            && e.attributes.draft != true              // 
+                            && e.attributes.published == true
+                          )
+
     function addQuery(q, n){
       if( typeof q === "string" ){ queries.push( {"type": n, "query": q} ) }
-      else if( typeof q === "object" ){
+      else if( typeof q === "object" && Array.isArray(q) ){
         for( c = 0; c < q.length; c++ ){
           queries.push( {"type": n, "query": q[c]} )
         }
       }
     }
 
-    // 「ブログ」として表示するページの条件を指定し、Array.filter()関数でqpagesに代入します。
-
-    qpages = pages.filter(e => e.meta.permalink.indexOf("/blog/") == 0 // パーマリンクの先頭が"/blog/"
-                            && e.attributes.layout == "blog"           // blogレイアウトが適用されている
-                            && e.attributes.draft != true              // 
-                            && e.attributes.published == true
-                          )
     if( page.attributes.query ) {
 
       // front-matter のquery設定があれば適用します
 
-      if( page.attributes.query.category ) {
-        addQuery( page.attributes.query.category, "categories" )
+      function pathFilter(q, qpages){
+        return qpages.filter(function(e,i,a){
+          if( typeof q === "string" ){
+            return e.meta.permalink.indexOf(`/${indexPrefix}/${q}/`) == 0
+          } else if (typeof q === "object" && Array.isArray(q) ){
+            for( c = 0; c < q.length; c++ ){
+              if( e.meta.permalink.indexOf(`/${indexPrefix}/${q[c]}/`) == 0 ) return true
+            }
+          }
+        })
       }
-      if( page.attributes.query.tag ) {
-        addQuery( page.attributes.query.tag, "tags" )
-      }
+
+      if( page.attributes.query.path ) qpages = pathFilter(page.attributes.query.path, qpages)
+      if( page.attributes.query.directory ) qpages = pathFilter(page.attributes.query.directory, qpages)
+      if( page.attributes.query.directories ) qpages = pathFilter(page.attributes.query.directories, qpages)
+      
+      if( page.attributes.query.category ) addQuery( page.attributes.query.category, "categories" )
+      if( page.attributes.query.categories ) addQuery( page.attributes.query.categories, "categories" )
+      if( page.attributes.query.tag ) addQuery( page.attributes.query.tag, "tags" )
+      if( page.attributes.query.tags ) addQuery( page.attributes.query.tags, "tags" )
+
       if(queries != []){
         qpages = qpages.filter(function(e,i,a){
           for( m = 0; m < queries.length; m++ ){
@@ -41,22 +61,27 @@ block preset
           }
         })
       }
+
     }
   -
     // 見出しを設定します。
     let headline = ""
     let types = { "tags": "タグ", "categories": "カテゴリー" }
     if( !page.attributes.query ){
-      headline = "記事一覧"
+      headline = indexHeadline
     } else {
+      headline = indexHeadline + " "
       for( r = 0; r < queries.length; r++ ){
-        headline = `${headline}${types[queries[r].type]}:${queries[r].query}･`
+        headline += `${headline}${types[queries[r].type]}:${queries[r].query}･`
       }
-      headline = headline.slice(0,-1) + "の記事一覧"
+      headline = headline.slice(0,-1)
     }
 
 block title
-  title ブログ #{headline} - #{site.name}
+  if (page.attributes.title)
+    title #{page.attributes.title} - #{site.name}
+  else
+    title #{indexname} #{headline} - #{site.name}
 
 block main
 

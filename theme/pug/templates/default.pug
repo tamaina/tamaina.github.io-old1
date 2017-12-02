@@ -30,9 +30,9 @@ html(lang=site.locale)
           *
           *
       block canonical
-        link(rel="canonical", href=`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)
+        link(rel="canonical", href=url.href)
         if(page.attributes.amp)
-          link(rel="amphtml", href=`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}amp.html`)
+          link(rel="amphtml", href=`${url.href}amp.html`)
       block seo
         meta(name="author" content=site.author)
         meta(name="generator" content="maqz")
@@ -60,22 +60,22 @@ html(lang=site.locale)
         meta(property="og:title", content=`${page.attributes.title} - ${site.name}`)
         meta(property="og:description", content=page.attributes.description)
         if ( !!page.attributes.thumbnail )
-          meta(property="og:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
+          meta(property="og:image", content=`${urlPrefix}${page.attributes.thumbnail}`)
         else if ( !!site.site_card_path )
-          meta(property="og:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${site.site_card_path}`)
+          meta(property="og:image", content=`${urlPrefix}${site.site_card_path}`)
         else
           meta(property="og:image", content=`/favicon.ico`)
-        meta(property="og:url", content=`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)
+        meta(property="og:url", content=url.href)
         meta(property="og:site_name", content=site.name)
 
       block twitter_card
         if ( site.social_media.twitter.card )
           if ( !!page.attributes.thumbnail )
             meta(name="twitter:card", content="summary_large_image")
-            meta(name="twitter:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${page.attributes.thumbnail}`)
+            meta(name="twitter:image", content=`${urlPrefix}${page.attributes.thumbnail}`)
           else if ( !!site.site_card_path )
             meta(name="twitter:card", content="summary_large_image")
-            meta(name="twitter:image", content=`${site.url.scheme}://${site.url.host}${site.url.path}${site.site_card_path}`)
+            meta(name="twitter:image", content=`${urlPrefix}${site.site_card_path}`)
           else
             meta(name="twitter:card", content="summary")
           meta(name="twitter:title", content=`${page.attributes.title} - ${site.name}`)

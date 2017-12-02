@@ -1,109 +1,15 @@
 extends ../templates/default.pug
 
 append preset
+
+  include ../includes/_blog_preset
+
   - 
-    let mainHeaderStyle = ""
-    if(page.attributes.thumbnail) {
-      mainHeaderStyle = `background-image: url("${site.url.path}${page.attributes.thumbnail}");`
-    } else {
-      mainHeaderStyle = `background-color: #212121;`
-    }
-
-    let pagesPast = pages.filter(
-          function(el, i, array){
-            let elem_time = new Date(el.meta.birthtime)
-            let page_time = new Date(page.meta.birthtime)
-
-            return ( elem_time.getTime() < page_time.getTime() && el.attributes.layout == page.attributes.layout )
-          })
-      , pagesFuture = pages.filter(
-          function(el, i, array){
-            let elem_time = new Date(el.meta.birthtime)
-            let page_time = new Date(page.meta.birthtime)
-
-            return (elem_time.getTime() > page_time.getTime() && el.attributes.layout == page.attributes.layout )
-          })
-    function mapping_pages_time(el, index, array){
-      let eltime = new Date(el.meta.birthtime) 
-      return eltime.getTime()
-    }
-
-    let pagePrev_mTime = Math.max.apply(null,pagesPast.map(mapping_pages_time))
-      , pageNext_mTime = Math.min.apply(null,pagesFuture.map(mapping_pages_time))
-
-    let pagesPrev = pagesPast.filter(
-          function(el, i, array){
-            let elem_time = new Date(el.meta.birthtime)
-
-            return (elem_time.getTime() == pagePrev_mTime)
-          }
-        )
-      , pagesNext = pagesFuture.filter(
-          function(el, i, array){
-            let elem_time = new Date(el.meta.birthtime)
-
-            return (elem_time.getTime() == pageNext_mTime)
-          }
-        )
-    const pagePrev = pagesPrev[0]
-    const pageNext = pagesNext[0]
-
-  - let thsrc, thdims, thwidth, thheight
-
-  if(page.attributes.thumbnail)
-    -
-      thsrc = `${site.url.path}${page.attributes.thumbnail}`
-      thdims = sizeOf( page.attributes.thumbnail.slice(1) )
-      thwidth = thdims.width
-      thheight = thdims.height
-  else
-    -
-      thsrc = `${site.url.path}${site.site_card_path}`
-      thdims = sizeOf( site.site_card_path.slice(1) )
-      thwidth = thdims.width
-      thheight = thdims.height
-  
-  - 
-    let pdims = sizeOf( site.publisher_image_path.slice(1) )
-    let pwidth = pdims.width
-    let pheight = pdims.height
+    const indexPrefix = "blog"
 
 append meta
 
-  script(type="application/ld+json")
-    .
-      {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting" ,
-        "mainEntityOfPage": {
-          "@type": "WebPage" ,
-          "@id": "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.meta.permalink}"
-        } ,
-        "headline": "#{page.attributes.title}" ,
-        "image": {
-          "@type": "ImageObject" ,
-          "url": "#{site.url.scheme}://#{site.url.host}#{thsrc}" ,
-          "height": #{thheight} ,
-          "width": #{thwidth}
-        },
-        "datePublished": "#{page.meta.birthtime}" ,
-        "dateModified": "#{page.meta.mtime}" ,
-        "author": {
-          "@type": "Person" ,
-            "name": "#{site.author}"
-        },
-        "publisher": {
-          "@type": "Organization" ,
-          "name": "#{site.name}" ,
-          "logo": {
-            "@type": "ImageObject" ,
-            "url": "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{site.publisher_image_path}" ,
-            "height": #{pheight} ,
-            "width": #{pwidth}
-          }
-        },
-        "description": "#{page.attributes.description}"
-      }
+  include ../includes/_blog_schema
 
 block main
   #main.pb-5.pt-0
@@ -127,8 +33,8 @@ block main
             +fa("folder-open")
             if(page.attributes.categories !== undefined && page.attributes.categories != [])
               each category in page.attributes.categories
-                if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/category/${category}/`.toLowerCase() ) !== undefined )
-                  a(href=`${site.url.path}/blog/category/${category}/`).badge.badge-success= category
+                if( pages.find( e => e.meta.permalink.toLowerCase() === `/${indexPrefix}/category/${category}/`.toLowerCase() ) !== undefined )
+                  a(href=`${site.url.path}/${indexPrefix}/category/${category}/`).badge.badge-success= category
                 else
                   span.badge.badge-success= category
                 |  
@@ -138,8 +44,8 @@ block main
             +fa("tags")
             if(page.attributes.tags !== undefined && page.attributes.tags !== [])
               each tag in page.attributes.tags
-                if( pages.find( e => e.meta.permalink === `/blog/tag/${tag}/` ) !== undefined )
-                  a(href=`${site.url.path}/blog/tag/${tag}/`).badge.badge-info= tag
+                if( pages.find( e => e.meta.permalink === `/${indexPrefix}/tag/${tag}/` ) !== undefined )
+                  a(href=`${site.url.path}/${indexPrefix}/tag/${tag}/`).badge.badge-info= tag
                 else
                   span.badge.badge-info= tag
                 |  

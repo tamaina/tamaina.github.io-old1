@@ -21,6 +21,7 @@ let pages = []
 let info = {}
 let manifest = {}
 let package = require("./package.json")
+let messages = require("./.config/messages.json")
 let site = extend(true,require("./.config/default.json"),require("./.config/own.json"))
 let temp_dir = "theme/pug/temp" // 末尾のスラッシュ不要
 const webpackConfig = require("./webpack.config")
@@ -56,6 +57,11 @@ module.exports = function(grunt){
                 src: ["dist/**/*"]
             }
         },
+        parallelize: {
+            pug: {
+                compile: 8
+            }
+        },
         pug: {
             compile: {
                 options: {
@@ -64,6 +70,7 @@ module.exports = function(grunt){
                             return extend(
                                 true,grunt.file.readJSON(dests.info),
                                 {
+                                    "messages": messages,
                                     "require": require,
                                     "DEBUG": DEBUG
                                 }
@@ -203,7 +210,7 @@ module.exports = function(grunt){
     grunt.task.registerTask( "new" , "Add a page" , newpage )
 
     // タスクの登録
-    grunt.registerTask("default", ["clean:temp", "clean:docs", "before_build", "build_script", "build_style", "pug", "copy:main", "copy:wtfpjax", "copy:f404", "sw", "clean:temp"])
+    grunt.registerTask("default", ["clean:temp", "clean:docs", "before_build", "build_script", "build_style", "parallelize:pug:compile", "copy:main", "copy:wtfpjax", "copy:f404", "sw", "clean:temp"])
     grunt.registerTask("filesPrebuild", ["clean:dist", "copy:filesPrebuild", "image:filesPrebuild"])
     grunt.registerTask("before_build", ["make_config", "prepare_pages"])
     grunt.registerTask("server", ["debug_override", "default", "connect", "watch"])
@@ -212,7 +219,7 @@ module.exports = function(grunt){
     grunt.registerTask("build_script", ["webpack:prod"/*, "uglify"*/])
     grunt.registerTask("build_style", ["sass", "postcss"])
 
-    grunt.registerTask("build_pages", ["before_build", "pug"])
+    grunt.registerTask("build_pages", ["before_build", "parallelize:pug:compile"])
 
 function make_config(){
     let resultObj = { options: "" }
