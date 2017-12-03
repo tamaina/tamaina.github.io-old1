@@ -1,13 +1,18 @@
 a.summary
   display: flex
+  max-width: 572px
+  margin-top: .5rem
+  line-height: 1.1em
   @extend .border
   @extend .rounded
   @extend .bg-light
+  @extend .text-dark
   
-  img.thumbnail
+  div.thumbnail
     height: auto
-    object-fit: contain
     flex: 80px .25 0
+    background-size: cover
+    background-position: center
 
   article
     flex: 1 0 0

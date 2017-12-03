@@ -1,5 +1,10 @@
-const summaly = require("sync-summaly").default
+const glob = require("glob")
+const path = require("path")
 
-let summary = summaly("https://tmin.xyz/docs/nothing/")
+const result = glob.sync("./pages/**/*.md")
 
-console.log(summary)
+console.log(result)
+
+result.forEach((val,i,arr) => {
+    console.log(path.parse(val))
+})

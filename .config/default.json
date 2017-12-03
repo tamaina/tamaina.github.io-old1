@@ -8,14 +8,10 @@
         "host": "tmin.xyz",
         "scheme": "https"
     },
-    "sources": {
-        "document": [
-            "pages/**/*.md",
-            "pages/**/*.pug",
-            "pages/**/*.html"
-        ]
+    "pages_src": {
+        "path": "./pages",
+        "src": "**/*.{html,htm,pug,md}"
     },
-    "auther": "tamaina",
     "page_namingrule": "name",
     "locale": "ja",
     "theme_color": {

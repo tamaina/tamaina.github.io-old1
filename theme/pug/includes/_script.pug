@@ -1,4 +1,3 @@
-  //- javascript
 block script_preset
 
 block requires
@@ -79,7 +78,7 @@ block summary
         let summ = summaly(href)
         let thumbnail = "", icon = ""
         if(!amp){
-          if(summ.thumbnail)thumbnail = `<img src="${img_weserv(summ.thumbnail)}" alt="THUMBNAIL" class="thumbnail">`
+          if(summ.thumbnail)thumbnail = `<div style="background-image:url('${img_weserv(summ.thumbnail)}')" alt="THUMBNAIL" class="thumbnail">`
           if(summ.icon) icon = `<img src="${img_weserv(summ.icon)}" alt="ICON" class="icon">`
         }
         return `<a href=${summ.url} class="summary">${thumbnail}<article><header><h1>${summ.title}</h1></header><p>${summ.description}</p><footer>${icon}${summ.sitename}</footer></article></a>`
@@ -92,14 +91,15 @@ block summary
       let $ = cheerio.load(htm, {decodeEntities: false})
       $('a[href^="http"], a[href^="//"]').each(function(){
         const aftag = suma($(this).attr('href'))
-        if(aftag) $(this).parent().after(aftag)
+        if(aftag) $(this).parent().append(aftag)
+        else $(this).addClass("text-danger")
       })
       return $('body').html()
     }
 
 block make_html
   //- make main html
-  case page.meta.srcext
+  case page.meta.src.ext
     when '.md'
       - main_html = htmlmin(maly(md_better(kramed(page.body))),{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
     when '.html'

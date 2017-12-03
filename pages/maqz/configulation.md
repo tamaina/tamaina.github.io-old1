@@ -24,7 +24,6 @@ layout: article
             "pages/**/*.html"
         ]
     },
-    "auther": "tamaina",
     "page_namingrule": "name",
     "locale": "ja",
     "theme_color": {
