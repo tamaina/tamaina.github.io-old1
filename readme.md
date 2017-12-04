@@ -16,13 +16,7 @@ License: MIT License
 
 ```
 npm i
-npm i grunt-cli node-gyp -g
-grunt
+npm i gulp-cli node-gyp -g
+gulp prebuild-files
+gulp default
 ```
-
-## How to Customize yourself
-
-```
-grunt server
-```
-を実行した後、 https://localhost:3000/maqz/ を参照してください。
