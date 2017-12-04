@@ -1,59 +1,56 @@
-const openCommand = "code"
+const openCommand = 'code-insiders'
 
 // npm require
-const gulp = require("gulp")
-const extend = require("extend")
-const fs = require("fs")
-const path = require("path")
-const del = require("del")
-const fm = require("front-matter")
-const crypto = require("crypto")
+const gulp = require('gulp')
+const extend = require('extend')
+const fs = require('fs')
+const path = require('path')
+const del = require('del')
+const fm = require('front-matter')
+const crypto = require('crypto')
 const join = path.join
-const swBuild = require("workbox-build")
+const swBuild = require('workbox-build')
 const exec = require('child_process').exec
-const minimist = require("minimist")
-const colors = require("colors")
+const minimist = require('minimist')
+const colors = require('colors')
 const mergeStream = require('merge-stream')
 const mkdirp = require('mkdirp')
-const pump = require("pump")
-const runSequence = require("run-sequence")
-const glob = require("glob")
-$ = require("gulp-load-plugins")()
+const pump = require('pump')
+const runSequence = require('run-sequence')
+const glob = require('glob')
+$ = require('gulp-load-plugins')()
 
 // arg
 const argv = minimist(process.argv.slice(2))
 
 // debug
-const DEBUG = !!( argv._.indexOf("debug") > -1 || argv.debug )
+const DEBUG = !!( argv._.indexOf('debug') > -1 || argv.debug )
 
 // グローバル気味変数
-let pages = []
-let info = {}
-let manifest = {}
-let package = require("./package.json")
-let messages = require("./.config/messages.json")
-let site = extend(true,require("./.config/default.json"),require("./.config/own.json"))
-const webpackConfig = require("./webpack.config")
-const workboxSWSrcPath = require.resolve("workbox-sw")
+let package = require('./package.json')
+let messages = require('./.config/messages.json')
+let site = extend(true,require('./.config/default.json'),require('./.config/own.json'))
+const webpackConfig = require('./webpack.config')
+const workboxSWSrcPath = require.resolve('workbox-sw')
 
-let temp_dir = "theme/pug/temp/" // 末尾のスラッシュ必要
+let temp_dir = 'theme/pug/temp/' // 末尾のスラッシュ必要
 
 let src = {
-   "everypug": ["theme/pug/**/*.pug","./.temp/**/*.pug"],
-   "json": ["config/**/*.json"],
-   "js": ["theme/js/**/*.js"],
-   "styl_all": ["theme/styl/**/*.styl"],
-   "static": ["theme/static/**"],
-   "files": ["files/**/*"],
-   "filesPrebuilt": ["filesPrebuilt/**/*"],
-   "everystyl": ["theme/styl/**/*.styl"],
-   "pages": path.join(site.pages_src.path, site.pages_src.src)
+   'everypug': ['theme/pug/**/*.pug','./.temp/**/*.pug'],
+   'json': ['config/**/*.json'],
+   'js': ['theme/js/**/*.js'],
+   'styl_all': ['theme/styl/**/*.styl'],
+   'static': ['theme/static/**'],
+   'files': ['files/**/*'],
+   'filesPrebuilt': ['filesPrebuilt/**/*'],
+   'everystyl': ['theme/styl/**/*.styl'],
+   'pages': path.join(site.pages_src.path, site.pages_src.src)
 }
 
 let dests = {
-    "root": "./docs",
-    "everything": "./docs/**",
-    "info": "./docs/info.json"
+    'root': './docs',
+    'everything': './docs/**',
+    'info': './docs/info.json'
 }
 
 // メッセージ
@@ -73,16 +70,12 @@ function success_m(type, file, text, callback){
 
 function existFile(file) {
     try {
-        existFile(file)
+        fs.statSync(file)
         return true
     } catch(e) {
         if(e.code === 'ENOENT') return false
     }
 }
-
-gulp.task('clean-temp', () => {return del.bind(null, [`${temp_dir}**`])} )
-gulp.task('clean-docs', () => {return del.bind(null, [dests.everything])} )
-gulp.task('clean-dist', () => {return del.bind(null, ["dist/**/*"])} )
 
 function getHash(data, a, b, c){
     const hashv = crypto.createHash(a)
@@ -90,25 +83,25 @@ function getHash(data, a, b, c){
     return hashv.digest(c)
 }
 
-function register_pages(){
+const pages = function(){
     pages = []
     const srcs = glob.sync(src.pages)
     srcs.forEach(doit)
     function doit(val,i,arr){
         const src = path.parse(val)
-        let subdir = src.dir.replace(site.pages_src.path, "")
+        let subdir = src.dir.replace(site.pages_src.path, '')
         if(subdir.indexOf('/') == 0 && subdir.length > 0) subdir = subdir.slice(1)
         let page = {}
         page.meta = {}
-        if ( !subdir ) subdir = ""
-        let file = fs.readFileSync( val, "utf-8" )
+        if ( !subdir ) subdir = ''
+        let file = fs.readFileSync( val, 'utf-8' )
         page = extend(true,page,fm(file))
         page.meta.src = src
         page.meta.src.subdir = subdir
-        let md5hash = crypto.createHash("md5")
-        md5hash.update(file, "binary")
-        page.meta.md5 = getHash(file, "md5", "binary", "hex")
-        page.meta.sha384 = getHash(file, "sha384", "binary", "base64")
+        let md5hash = crypto.createHash('md5')
+        md5hash.update(file, 'binary')
+        page.meta.md5 = getHash(file, 'md5', 'binary', 'hex')
+        page.meta.sha384 = getHash(file, 'sha384', 'binary', 'base64')
         page.stats = existFile( val )
 
         page.attributes.title = page.attributes.title || page.meta.srcname
@@ -117,11 +110,11 @@ function register_pages(){
         page.meta.birthtime = (new Date(page.attributes.birthtime || page.attributes.date || page.stats.birthtime)).toJSON()
 
         if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
-            if( site.page_namingrule == "birthtime" ) {
+            if( site.page_namingrule == 'birthtime' ) {
                 let birthtime = new Date(page.stats.birthtime)
                 if(subdir) page.meta.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
                 else page.meta.permalink = `/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
-            } else if( site.page_namingrule == "md5" ) {
+            } else if( site.page_namingrule == 'md5' ) {
                 if(subdir) page.meta.permalink = `/${subdir}/${page.meta.md5}`
                 else page.meta.permalink = `/${page.meta.srcname}`
             } else {
@@ -129,38 +122,55 @@ function register_pages(){
                 else page.meta.permalink = `/${page.meta.src.name}`
             }
         } else { page.meta.permalink = page.attributes.permalink }
-        if( page.attributes.layout === undefined || page.attributes.layout === null ) page.attributes.layout = "default"
+        if( page.attributes.layout === undefined || page.attributes.layout === null ) page.attributes.layout = 'default'
         if( page.attributes.published === undefined || page.attributes.published === null ) page.attributes.published = true
         if( page.attributes.draft === undefined || page.attributes.draft === null ) page.attributes.draft= false
-        if( page.meta.permalink.indexOf("/") != 0 ) page.meta.permalink = "/" + page.meta.permalink
-        if( page.meta.permalink.lastIndexOf("index") == page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
-        else if( page.meta.permalink.lastIndexOf("/") != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + "/"
-        if( typeof page.attributes.tags === "string" ) page.attributes.tags = page.attributes.tags.split(" ")
-        if( typeof page.attributes.categories === "string" ) page.attributes.categories = page.attributes.categories.split(" ")
-        if( typeof page.attributes.tag === "string" )
-            page.attributes.tags = page.attributes.tag.split(" ")
+        if( page.meta.permalink.indexOf('/') != 0 ) page.meta.permalink = '/' + page.meta.permalink
+        if( page.meta.permalink.lastIndexOf('index') == page.meta.permalink.length - 5 && page.meta.permalink.indexOf('index') != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
+        else if( page.meta.permalink.lastIndexOf('/') != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + '/'
+        if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(' ')
+        if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(' ')
+        if( typeof page.attributes.tag === 'string' )
+            page.attributes.tags = page.attributes.tag.split(' ')
             delete page.attributes.tag
-        if( typeof page.attributes.category === "string" )
-            page.attributes.categories = page.attributes.category.split(" ")
+        if( typeof page.attributes.category === 'string' )
+            page.attributes.categories = page.attributes.category.split(' ')
             delete page.attributes.category
         pages.push(page)
     }
     return pages
 }
 
+const manifest = () => {
+    let icons = []
+    for (let i = 0 ; i < site.icons.length ; i++) {
+        let icon = site.icons[i]
+        icon.src = site.url.path + icon.path
+        delete icon.path
+        icons.push(icon)
+    }
+    manifest = {
+        'name': site.name,
+        'short_name': site.short_name,
+        'icons': icons,
+        'start_url': site.url.path,
+        'theme_color': site.theme_color.primary,
+        'background_color': site.theme_color.primary
+    }
+    return extend(true,manifest,site.manifest)
+}
 gulp.task('pug', (cd) => {
-    pages = register_pages()
     let works = []
     const pugoptions = {
-        data:
-            extend(
-                true,require(dests.info),
-                {
-                    "messages": messages,
-                    "require": require,
-                    "DEBUG": DEBUG
-                }
-            ),
+        data: {
+                'site': site,
+                'package': package,
+                'pages': pages,
+                'manifest' : manifest,
+                'messages': messages,
+                'require': require,
+                'DEBUG': DEBUG
+        },
         filters: require('./pugfilters.js')
     }
     mkdirp.sync(temp_dir)
@@ -171,7 +181,7 @@ gulp.task('pug', (cd) => {
         let outdata = '', ampdata = ''
         if(existFile(`theme/pug/templates/${layout}.pug`)) outdata += `extends ../templates/${layout}.pug`
         else if(existFile(`theme/pug/templates/${site.default.template}.pug`)) outdata += `extends ../templates/${site.default.template}.pug`
-        else throw Error("default.pugが見つかりませんでした。")
+        else throw Error('default.pugが見つかりませんでした。')
         outdata += `
 block constnum
   - const page_index_numer = ${i}`
@@ -180,8 +190,8 @@ block constnum
         
         works.push(
             gulp.src(dest)
-                .pipe($.rename(`index.html`))
                 .pipe($.pug(pugoptions))
+                .pipe($.rename(`index.html`))
                 .pipe(gulp.dest( dests.root + destd ))
         )
 
@@ -196,13 +206,13 @@ block constnum
             ampdata += `
 block constnum
   - const page_index_numer = ${i}`
-            const ampdest = `${temp_dir}${page.meta.src.subdir.replace( /\//g , "_" )}_amp_${page.meta.src.name}.pug`
+            const ampdest = `${temp_dir}${page.meta.src.subdir.replace( /\//g , '_' )}_amp_${page.meta.src.name}.pug`
             fs.writeFileSync( ampdest , ampdata )
 
             works.push( 
                 gulp.src(dest)
-                    .pipe($.rename(`amp.html`))
                     .pipe($.pug(pugoptions))
+                    .pipe($.rename(`amp.html`))
                     .pipe(gulp.dest( dests.root + destd ))
             )
         }
@@ -213,20 +223,20 @@ block constnum
 gulp.task('css', (cb) => {
     pump([
         gulp.src('theme/styl/main.sass'),
-        $.rename('style.min.css'),
         $.sass( { sourceMap: true, outputStyle: 'compressed' } ),
         $.autoprefixer( { browsers: 'last 3 versions' } ),
-        gulp.dest(dests.root + "/assets")
+        $.rename('style.min.css'),
+        gulp.dest(dests.root + '/assets')
     ], cb)
 })
 
 gulp.task('js', (cb) => {
     pump([
         gulp.src('theme/js/main.js'),
-        $.rename('/assets/style.min.css'),
         $.webpack(),
         $.uglify(),
-        gulp.dest(dests.root + "/assets")
+        $.rename('style.min.css'),
+        gulp.dest(dests.root + '/assets')
     ], cb)
 })
 
@@ -265,7 +275,7 @@ gulp.task('copy-wtfpjax', (cb) => {
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
-gulp.task('f404', (cb) => {
+gulp.task('copy-f404', (cb) => {
     pump([
         gulp.src('docs/404/index.html'),
         $.rename('404.html'),
@@ -278,7 +288,7 @@ gulp.task('image-prebuildFiles', (cb) => {
         gulp.src('files/**/*.{png,jpg,jpeg,gif,svg}'),
         $.image({
             optipng: false,
-            pngquant: ["--speed=1"],
+            pngquant: ['--speed=1'],
             zopflipng: false,
             jpegRecompress: true,
             mozjpeg: ['-optimize', '-progressive'],
@@ -290,42 +300,39 @@ gulp.task('image-prebuildFiles', (cb) => {
     ])
 })
 
-gulp.task('copy-publish', ['copy-theme-static', 'copy-files', 'copy-wtfpjax', 'copy-f404'])
-gulp.task('make-subfiles', ['make-sw', 'make-manifest', 'make-browserconfig'])
-gulp.task('default', (cb) => {
-    runSequence([
-        ['clean-docs', 'config'],
-        ['js', 'css', 'pug'],
-        ['copy-publish', 'make-subfiles', 'clean-temp']
-    ], cb)
-})
+gulp.task('clean-temp', (cb) => {del([`${temp_dir}**`]).then(cb())} )
+gulp.task('clean-docs', (cb) => {del([dests.everything]).then(cb())} )
+gulp.task('clean-dist', (cb) => {del(['dist/**/*']).then(cb())} )
 
 gulp.task('config', (cb) => {
-    let resultObj = { options: "" }
+    let resultObj = { options: '' }
     resultObj.timestamp = (new Date()).toJSON()
-    resultObj = extend(true,resultObj, { "site" : site })
-    resultObj = extend(true,resultObj, { "package" : package })
-    resultObj = extend(true,resultObj, { "pages" : register_pages() })
-    resultObj = extend(true,resultObj, { "manifest" : register_manifest() })
-    fs.writeFile( dests.info, JSON.stringify( resultObj ), cb() )
+    resultObj = extend(true,resultObj, {
+        'site' : site,
+        'package' : package,
+        'pages' : pages,
+        'manifest' : manifest
+    })
+    mkdirp.sync(path.parse(dests.info).dir)
+    fs.writeFile( dests.info, JSON.stringify( resultObj ), cb )
 })
 
 gulp.task( 'debug-override', (cb) => {
-    site = extend(true,site,require("./.config/debug_override.json"))
+    site = extend(true,site,require('./.config/debug_override.json'))
     cb()
 })
 
 gulp.task('make-sw', (cb) => {
     // twbs/bootstrapより借用
 
-    const buildPrefix = "docs/"
+    const buildPrefix = 'docs/'
     const config = {
-        "globDirectory": "./",
-        "globPatterns": [
-          "docs/**/*.{html,css,js,json,png,jpg,jpeg}"
+        'globDirectory': './',
+        'globPatterns': [
+          'docs/**/*.{html,css,js,json,png,jpg,jpeg}'
         ],
-        "swSrc": "theme/js/sw.js",
-        "swDest": "docs/service_worker.js"
+        'swSrc': 'theme/js/sw.js',
+        'swDest': 'docs/service_worker.js'
      }
 
     const wbFileName = path.basename(workboxSWSrcPath)
@@ -340,8 +347,8 @@ gulp.task('make-sw', (cb) => {
 
     const updateUrl = (manifestEntries) => manifestEntries.map((entry) => {
     if (entry.url.startsWith(buildPrefix)) {
-        const regex = new RegExp(buildPrefix, "g")
-        entry.url = entry.url.replace(regex, "")
+        const regex = new RegExp(buildPrefix, 'g')
+        entry.url = entry.url.replace(regex, '')
     }
     return entry
     })
@@ -350,51 +357,32 @@ gulp.task('make-sw', (cb) => {
 
     swBuild.injectManifest(config).then(() => {
     const wbSwRegex = /{path}/g
-    fs.readFile(config.swDest, "utf8", (err, data) => {
+    fs.readFile(config.swDest, 'utf8', (err, data) => {
         if (err) {
         throw err
         }
         const swFileContents = data.replace(wbSwRegex, workboxSWWrite)
         fs.writeFile(config.swDest, swFileContents, () => {
-        console.log("Pre-cache Manifest generated.")
+        console.log('Pre-cache Manifest generated.')
         })
     }).then(cb())
     })
 })
 
-function register_manifest(){
-    let icons = []
-    for (let i = 0 ; i < site.icons.length ; i++) {
-        let icon = site.icons[i]
-        icon.src = site.url.path + icon.path
-        delete icon.path
-        icons.push(icon)
-    }
-    manifest = {
-        "name": site.name,
-        "short_name": site.short_name,
-        "icons": icons,
-        "start_url": site.url.path,
-        "theme_color": site.theme_color.primary,
-        "background_color": site.theme_color.primary
-    }
-    return extend(true,manifest,site.manifest)
-}
-
 gulp.task('make-manifest', (cb) => {
-    fs.writeFile( `docs/manifest.json`, JSON.stringify(register_manifest()), cb )
+    fs.writeFile( `docs/manifest.json`, JSON.stringify(manifest), cb )
 })
 
-function browserconfig(){
-    return `<?xml version="1.0" encoding="utf-8"?>
+const browserconfigXml = () => {
+    return `<?xml version='1.0' encoding='utf-8'?>
     <browserconfig>
       <msapplication>
         <tile>
-          <square70x70logo src="${site.url.path}${site.mstiles.s70x70.path}"/>
-          <square144x144logo src="${site.url.path}${site.mstiles.s144x144.path}"/>
-          <square150x150logo src="${site.url.path}${site.mstiles.s150x150.path}"/>
-          <square310x310logo src="${site.url.path}${site.mstiles.s310x310.path}"/>
-          <wide310x150logo src="${site.url.path}${site.mstiles.w310x150.path}"/>
+          <square70x70logo src='${site.url.path}${site.mstiles.s70x70.path}'/>
+          <square144x144logo src='${site.url.path}${site.mstiles.s144x144.path}'/>
+          <square150x150logo src='${site.url.path}${site.mstiles.s150x150.path}'/>
+          <square310x310logo src='${site.url.path}${site.mstiles.s310x310.path}'/>
+          <wide310x150logo src='${site.url.path}${site.mstiles.w310x150.path}'/>
           <TileColor>${site.theme_color.secondary}</TileColor>
         </tile>
       </msapplication>
@@ -402,23 +390,58 @@ function browserconfig(){
 }
 
 gulp.task('make-browserconfig', (cb) => {
-    fs.writeFile( `docs/browserconfig.xml`, browserconfig(), cb )
+    fs.writeFile( `docs/browserconfig.xml`, browserconfigXml , cb )
 })
 
 gulp.task('new', (cb) => {
-    let layout = "", path = argv["path"], thireisfile = false
+    let layout = '', path = argv['path'], thireisfile = false
+    if( !argv['path'] ) throw new Error('作成したいファイルのパスを指定してください！')
+    if( existFile(site.pages_src.path + path) ) throw new Error('ファイルの上書きはやめましょう！')
 
-    if( !argv["path"] ) throw new Error('作成したいファイルのパスを指定してください！')
-    if( existFile("pages/" + path) ) throw new Error('ファイルの上書きはやめましょう！')
-
-    if( argv["layout"] ) layout = argv["layout"]
-    else layout = "default"
+    if( argv['layout'] ) layout = argv['layout']
+    else layout = 'default'
 
     gulp.src(`templates/${layout}.md`)
-    .pipe($.rename(path.slice(path.lastIndexOf("/") + 1)))
-    .pipe(gulp.dest("./pages/"))
+    .pipe(gulp.dest(site.pages_src.path))
+    .pipe($.rename(path.slice(path.lastIndexOf('/') + 1)))
+    .on('end', () => {
+        let openFile
+        if( path.indexOf(' ') > -1 ) openFile = `"${site.pages_src.path}${path}"`
+        else openFile = `${site.pages_src.path}${path}`
 
-    let command = `${openCommand} "${"pages/" + path}"`
-    let options = {}
-    exec( command , options , cb )
+        let command = `${openCommand} ${openFile}`
+        let options = {}
+        exec( command, options, cb )
+    })
 })
+
+gulp.task('copy-publish',
+    gulp.series(
+        gulp.parallel(
+            'copy-theme-static',
+            'copy-files',
+            'copy-wtfpjax',
+            'copy-f404'
+        ),
+        (cb) => { cb() } 
+    )
+)
+gulp.task('make-subfiles',
+    gulp.series(
+        gulp.parallel(
+            'make-sw',
+            'make-manifest',
+            'make-browserconfig'
+        ),
+        (cb) => { cb() } 
+    )
+)
+gulp.task('default',
+    gulp.series(
+        'clean-docs',
+        'config',
+        gulp.parallel('js', 'css', 'pug'),
+        gulp.parallel('copy-publish', 'make-subfiles', 'clean-temp'),
+        (cb) => { cb() } 
+    )
+)

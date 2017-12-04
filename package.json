@@ -28,7 +28,7 @@
     "fs-readdir-recursive": "^1.1.0",
     "fuckadblock": "^3.2.1",
     "glob": "^7.1.2",
-    "gulp": "^3.9.1",
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-connect": "^5.0.0",
     "gulp-data": "^1.2.1",

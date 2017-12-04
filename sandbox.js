@@ -1,7 +1,8 @@
+
 const glob = require("glob")
 const path = require("path")
 
-const result = glob.sync("./pages/**/*.md")
+const result = glob.sync("pages/**/*.md")
 
 console.log(result)
 

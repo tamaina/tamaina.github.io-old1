@@ -9,7 +9,7 @@
         "scheme": "https"
     },
     "pages_src": {
-        "path": "./pages",
+        "path": "./pages/",
         "src": "**/*.{html,htm,pug,md}"
     },
     "page_namingrule": "name",
