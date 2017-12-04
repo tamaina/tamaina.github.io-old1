@@ -32,11 +32,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/bunkasai/amp.html",
-    "revision": "4f43b5d694b8e8bdce60d2beb61787a9"
+    "revision": "ee3e25f84922edfe229c4a97a6252ddb"
   },
   {
     "url": "blog/bunkasai/index.html",
-    "revision": "ebc4266dce00efe7f6d5bb844897ae8e"
+    "revision": "8807de2b4996cf0c144a1bef2110c51c"
   },
   {
     "url": "blog/category/aqz/index.html",
@@ -84,7 +84,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/index.html",
-    "revision": "ed3d756e5d4b88f98c1f87f9e2c342bd"
+    "revision": "fd652fb5633d4f49ea0c2f9b3f41a4b7"
   },
   {
     "url": "blog/maqz001400/amp.html",
@@ -104,7 +104,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "0c0cdcb928f9b6a0e071b9be04a4a4e0"
+    "revision": "ecb802b67d6b52e5e027768cfd3f8b78"
   },
   {
     "url": "maqz/configulation/index.html",

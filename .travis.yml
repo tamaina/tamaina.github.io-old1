@@ -14,4 +14,5 @@ before_install:
 - npm i gulp-cli -g
 - gulp --version
 script:
+- gulp prebuild-files
 - gulp
