@@ -59,6 +59,7 @@
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6",
     "pump": "^2.0.0",
+    "rimraf": "^2.6.2",
     "run-sequence": "^2.2.0",
     "sync-summaly": "^2.0.3-sync.1",
     "tether": "^1.4.3",

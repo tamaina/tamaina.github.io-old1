@@ -5,7 +5,7 @@ const gulp = require('gulp')
 const extend = require('extend')
 const fs = require('fs')
 const path = require('path')
-const del = require('del')
+const del = require('rimraf')
 const fm = require('front-matter')
 const crypto = require('crypto')
 const join = path.join
@@ -294,9 +294,9 @@ gulp.task('image-prebuildFiles', (cb) => {
     ], cb)
 })
 
-gulp.task('clean-temp', (cb) => { del(`${temp_dir}**`).then(cb()) } )
-gulp.task('clean-docs', (cb) => { del(dests.everything).then(cb()) } )
-gulp.task('clean-dist', (cb) => { del('dist/**/*').then(cb()) } )
+gulp.task('clean-temp', (cb) => { del(temp_dir, cb) } )
+gulp.task('clean-docs', (cb) => { del('docs/', cb) } )
+gulp.task('clean-dist', (cb) => { del('dist/', cb) } )
 
 gulp.task('config', (cb) => {
     let resultObj = { options: '' }
@@ -441,9 +441,7 @@ gulp.task('default',
     gulp.series(
         'clean-docs', 'config',
         gulp.parallel('js', 'css', 'pug'),
-        'clean-temp',
-        'copy-publish',
-        'make-subfiles',
+        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
         (cb) => { cb() }
     )
 )
