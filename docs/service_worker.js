@@ -11,6 +11,18 @@ workboxSW.precache([
     "revision": "d086e55d22cd4da3933f1eca386b7773"
   },
   {
+    "url": "assets/pjax-api.js",
+    "revision": "dc93ae1571d16ccb39cd64bd6849540f"
+  },
+  {
+    "url": "assets/pjax-api.min.js",
+    "revision": "b33d3ec994428e8eb94cf7f5d4dfcbee"
+  },
+  {
+    "url": "assets/pjax-init.js",
+    "revision": "45d9946b7cdf2734d549bcc499117da3"
+  },
+  {
     "url": "assets/style.min.css",
     "revision": "6815be7049ab1d122c16936cdc7f0cde"
   },
@@ -104,7 +116,11 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "ecb802b67d6b52e5e027768cfd3f8b78"
+    "revision": "7f90846bfab6e1d15529c90a18f41d8e"
+  },
+  {
+    "url": "manifest.json",
+    "revision": "11e775ca2a22de5bb01d69dda37767ab"
   },
   {
     "url": "maqz/configulation/index.html",

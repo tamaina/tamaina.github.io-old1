@@ -318,9 +318,12 @@ gulp.task('make-sw', (cb) => {
 
     const buildPrefix = 'docs/'
     const config = {
-        'globDirectory': './',
+        'globDirectory': './docs/',
         'globPatterns': [
-          'docs/**/*.{html,css,js,json,png,jpg,jpeg}'
+          '**/*.{html,css,js,json,png,jpg,jpeg}'
+        ],
+        'globIgnores': [
+          'files/**/*.{html,css,js,json,png,jpg,jpeg}'
         ],
         'swSrc': 'theme/js/sw.js',
         'swDest': 'docs/service_worker.js'
@@ -425,7 +428,6 @@ gulp.task('copy-publish',
 gulp.task('make-subfiles',
     gulp.series(
         gulp.parallel(
-            'make-sw',
             'make-manifest',
             'make-browserconfig'
         ),
@@ -437,6 +439,7 @@ gulp.task('default',
         'clean-docs', 'config',
         gulp.parallel('js', 'css', 'pug'),
         gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
+        'make-sw',
         (cb) => { cb() }
     )
 )
