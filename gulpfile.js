@@ -195,8 +195,8 @@ gulp.task('pug', (cd) => {
             const ampdest = `${temp_dir}${page.meta.src.subdir.replace( /\//g , '_' )}_amp_${page.meta.src.name}.pug`
             fs.writeFileSync( ampdest , ampdata )
 
-            stream.add( 
-                gulp.src(dest)
+            stream.add(
+                gulp.src(ampdest)
                     .pipe($.pug(pugoptions))
                     .pipe($.rename(`amp.html`))
                     .pipe(gulp.dest( dests.root + page.meta.permalink ))
