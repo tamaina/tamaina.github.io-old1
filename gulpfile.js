@@ -89,7 +89,7 @@ function getHash(data, a, b, c){
         md5hash.update(file, 'binary')
         page.meta.md5 = getHash(file, 'md5', 'binary', 'hex')
         page.meta.sha384 = getHash(file, 'sha384', 'binary', 'base64')
-        page.stats = existFile( val )
+        page.stats = fs.statSync( val )
 
         page.attributes.title = page.attributes.title || page.meta.srcname
         page.attributes.description = page.attributes.description || site.description

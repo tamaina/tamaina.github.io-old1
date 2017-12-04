@@ -1,8 +1,10 @@
 - 
-    let mainHeaderStyle = ""
+    let style, mainHeaderStyle
     if(page.attributes.thumbnail) {
-      mainHeaderStyle = `#main_header{background-image:url("${site.url.path}${page.attributes.thumbnail}")}`
+      style = `background-image:url("${site.url.path}${page.attributes.thumbnail}")`
+      mainHeaderStyle = `#main_header{${style}}`
     } else {
+      style = "background-color:#212121"
       mainHeaderStyle = `#main_header{background-color:#212121}`
     }
 
