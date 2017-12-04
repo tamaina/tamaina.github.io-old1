@@ -127,10 +127,6 @@ workboxSW.precache([
     "revision": "1e836f72df0ac99e6036dd6ccc54015a"
   },
   {
-    "url": "files/images/icons/manifest.json",
-    "revision": "1aa32197cd997823573ea9f3bac73d26"
-  },
-  {
     "url": "files/images/icons/mstile-144x144.png",
     "revision": "0544e3e7e0d8cb30e3df7bc990d2482c"
   },
@@ -153,10 +149,6 @@ workboxSW.precache([
   {
     "url": "files/images/icons/publisher.png",
     "revision": "3e5f0fdb993dbfe168c2847e86081c0c"
-  },
-  {
-    "url": "files/index_old.html",
-    "revision": "54b5d8e3112f99ba13706735ee5a8e1e"
   },
   {
     "url": "files/top/1st/0.jpeg",
@@ -311,16 +303,8 @@ workboxSW.precache([
     "revision": "06178adee5fcbc062a9617761b491abe"
   },
   {
-    "url": "info.json",
-    "revision": "3b486bcaa650ef784fc3f5532404968c"
-  },
-  {
-    "url": "manifest.json",
-    "revision": "11e775ca2a22de5bb01d69dda37767ab"
-  },
-  {
     "url": "maqz/configulation/index.html",
-    "revision": "204084a6b50163f5e08670cee6cb3b0f"
+    "revision": "7dfded653115c1151da0bc3704b2a212"
   },
   {
     "url": "maqz/howtowrite/index.html",
@@ -337,10 +321,6 @@ workboxSW.precache([
   {
     "url": "maqz/theme/index.html",
     "revision": "0f9e6fd98f343d9ec360b0b2c174830f"
-  },
-  {
-    "url": "service_worker.js",
-    "revision": "d903683b566acdfb734e7a507a24f8e0"
   },
   {
     "url": "workbox-sw.prod.v2.1.2.js",

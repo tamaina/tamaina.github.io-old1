@@ -56,7 +56,7 @@ ES6によって強化された配列操作を利用すれば、目次や記事�
 
 オレオレ静的サイトビルダーです。
 
-markdown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。ビルドにはタスク自動化ツールGruntを利用しています。
+markdown(パースにKramDownを利用)やpug、htmlを読み込んで、テンプレートに適用し、サイトを出力します。ビルドにはタスク管理ツールgulpを利用しています。
 
 ~~つまり大して自分でコードは書いてないです。~~
 
@@ -98,7 +98,7 @@ markdown(パースにKramDownを利用)やpug、htmlを読み込んで、テン�
 
 ```
 npm install -g node-gyp
-npm install -g grunt-cli
+npm install -g gulp-cli
 npm install
 ```
 
@@ -107,7 +107,7 @@ npm install
 ## 文書を作成する
 
 ```
-grunt new --path=hoge.md --layout=default
+gulp new -path hoge.md -layout default
 ```
 →`pages/hoge.md`が作成され、(インストールされていれば)Visual Studio Codeが開き、編集できるようになります。
 
@@ -137,7 +137,8 @@ const openCommand = "code"
 ### ただビルドする
 
 ```
-grunt filesPrebuilt default
+gulp prebuild-files
+gulp default
 ```
 
 - `filesPrebuilt`タスクは、画像の圧縮をしながら`files/`フォルダ内の内容を準備します。
@@ -147,8 +148,10 @@ grunt filesPrebuilt default
 
 ### ブラウザで確認してみる
 
+**この機能は現在作成中なので、動作しません。**ご不便をおかけします。
+
 ```
-grunt server
+gulp server
 ```
 
 正常にビルドできれば、`localhost:3000`に接続すると見ることができます。
@@ -219,7 +222,7 @@ GitHub Pagesを利用すれば無料で公開できますし、PHPを利用し�
 │
 ├────────   .gitignore  ┐
 ├──────    .travis.yml  │
-├─────    Gruntfile.js  │
+├──────    gulpfile.js  │
 ├─────────     LICENSE  │  配布に際して必要なファイルです。
 ├─────    package.json  │
 ├─   package-lock.json  │

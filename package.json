@@ -1,6 +1,6 @@
 {
   "name": "tmin.xyz",
-  "version": "0.18.0",
+  "version": "1.0.0-alpha.1",
   "main": "docs/index.html",
   "description": "tmin.xyz",
   "scripts": {

@@ -439,9 +439,11 @@ gulp.task('make-subfiles',
 )
 gulp.task('default',
     gulp.series(
-        'config',
+        'clean-docs', 'config',
         gulp.parallel('js', 'css', 'pug'),
-        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
+        'clean-temp',
+        'copy-publish',
+        'make-subfiles',
         (cb) => { cb() }
     )
 )
