@@ -148,31 +148,29 @@ function getHash(data, a, b, c){
 
 gulp.task('pug', (cd) => {
     let works = []
-    const pugoptions = {
-        data: 
-            {
-                'site' : site,
-                'package' : package,
-                'pages' : pages,
-                'manifest' : manifest,
-                "messages": messages,
-                "require": require,
-                "DEBUG": DEBUG
-            },
-        filters: require('./pugfilters.js')
-    }
     mkdirp.sync(temp_dir)
     let stream = mergeStream()
     for (let i = 0; i < pages.length; i++) {
         const page = pages[i]
+        const pugoptions = {
+            data: 
+                {
+                    'page': page,
+                    'site' : site,
+                    'package' : package,
+                    'pages' : pages,
+                    'manifest' : manifest,
+                    "messages": messages,
+                    "require": require,
+                    "DEBUG": DEBUG
+                },
+            filters: require('./pugfilters.js')
+        }
         let layout = page.attributes.layout
         let outdata = '', ampdata = ''
         if(existFile(`theme/pug/templates/${layout}.pug`)) outdata += `extends ../templates/${layout}.pug`
         else if(existFile(`theme/pug/templates/${site.default.template}.pug`)) outdata += `extends ../templates/${site.default.template}.pug`
         else throw Error('default.pugが見つかりませんでした。')
-        outdata += `
-block constnum
-  - const page_index_numer = ${i}`
         const dest = `${temp_dir}${page.meta.src.subdir.replace( /\//g , '_' )}_${page.meta.src.name}.pug`
         fs.writeFileSync( dest , outdata )
 
@@ -194,9 +192,6 @@ block constnum
             if(existFile(`theme/pug/templates/_amp_${layout}.pug`)) ampdata += `extends ../templates/_amp_${layout}.pug`
             else if(existFile(`theme/pug/templates/_amp_${site.default.template}.pug`)) ampdata += `extends ../templates/_amp_${site.default.template}.pug`
             else throw Error('_amp_default.pugが見つかりませんでした。')
-            ampdata += `
-block constnum
-  - const page_index_numer = ${i}`
             const ampdest = `${temp_dir}${page.meta.src.subdir.replace( /\//g , '_' )}_amp_${page.meta.src.name}.pug`
             fs.writeFileSync( ampdest , ampdata )
 

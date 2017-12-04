@@ -15,7 +15,6 @@ block requires
 
 block vals
   -
-    const page = pages[page_index_numer]
     const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
     let main_html
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
