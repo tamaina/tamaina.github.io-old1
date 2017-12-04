@@ -23,8 +23,8 @@ block vals
 
 block messages
   -
-    function messenger(type, text, callback){
-      console.log(`${type}: ${text || callback}`.yellow)
+    function messenger(type, text, fallback){
+      console.log(`${type}: ${text || fallback}`.yellow)
       console.log(`in ${page.meta.permalink}`.gray)
     }
 
@@ -66,7 +66,7 @@ block functions
       }
 
 block summary
-  //
+  //-
     function img_weserv(src){
       const t = URL.parse(src)
       return `https://images.weserv.nl/?url=${t.auth || ""}${t.hostname}${t.path}${t.hash || ""}`
@@ -101,7 +101,7 @@ block make_html
   //- make main html
   case page.meta.src.ext
     when '.md'
-      - main_html = htmlmin(maly(md_better(kramed(page.body))),{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+      - main_html = htmlmin(/*maly(*/md_better(kramed(page.body))/*)*/,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
     when '.html'
     when '.htm'
       - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})

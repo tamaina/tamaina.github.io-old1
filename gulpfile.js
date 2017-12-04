@@ -53,20 +53,6 @@ let dests = {
     'info': './docs/info.json'
 }
 
-// メッセージ
-
-function alert_m(type, file, text, callback){
-    console.log(`${type}: ${text || callback}`.yellow)
-    console.log(`in ${file}`.gray)
-}
-function info_m(type, file, text, callback){
-    console.log(`${type}: ${text || callback}`.cyan)
-    console.log(`in ${file}`.gray)
-}
-function success_m(type, file, text, callback){
-    console.log(`${type}: ${text || callback}`.green)
-    console.log(`in ${file}`.gray)
-}
 
 function existFile(file) {
     try {
@@ -83,14 +69,15 @@ function getHash(data, a, b, c){
     return hashv.digest(c)
 }
 
-const pages = function(){
+{
     pages = []
     const srcs = glob.sync(src.pages)
+    let srcpath = path.parse(site.pages_src.path)
     srcs.forEach(doit)
     function doit(val,i,arr){
         const src = path.parse(val)
-        let subdir = src.dir.replace(site.pages_src.path, '')
-        if(subdir.indexOf('/') == 0 && subdir.length > 0) subdir = subdir.slice(1)
+        let subdir = src.dir.replace(srcpath.base, '')
+        if(subdir.indexOf('/') == 0) subdir = subdir.slice(1)
         let page = {}
         page.meta = {}
         if ( !subdir ) subdir = ''
@@ -112,13 +99,13 @@ const pages = function(){
         if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
             if( site.page_namingrule == 'birthtime' ) {
                 let birthtime = new Date(page.stats.birthtime)
-                if(subdir) page.meta.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
+                if(subdir != '') page.meta.permalink = `/${subdir}/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
                 else page.meta.permalink = `/${`000${birthtime.getFullYear()}`.slice(-4)}-${`0${birthtime.getMonth()+1}`.slice(-2)}-${`0${birthtime.getDay()}`.slice(-2)}-${`0${birthtime.getHours()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getMinutes()}`.slice(-2)}-${`0${birthtime.getSeconds()}`.slice(-2)}.${`000${birthtime.getMilliseconds()}`.slice(-4)}` 
             } else if( site.page_namingrule == 'md5' ) {
-                if(subdir) page.meta.permalink = `/${subdir}/${page.meta.md5}`
+                if(subdir != '') page.meta.permalink = `/${subdir}/${page.meta.md5}`
                 else page.meta.permalink = `/${page.meta.srcname}`
             } else {
-                if(subdir) page.meta.permalink = `/${subdir}/${page.meta.src.name}`
+                if(subdir != '') page.meta.permalink = `/${subdir}/${page.meta.src.name}`
                 else page.meta.permalink = `/${page.meta.src.name}`
             }
         } else { page.meta.permalink = page.attributes.permalink }
@@ -138,10 +125,9 @@ const pages = function(){
             delete page.attributes.category
         pages.push(page)
     }
-    return pages
 }
 
-const manifest = () => {
+{
     let icons = []
     for (let i = 0 ; i < site.icons.length ; i++) {
         let icon = site.icons[i]
@@ -157,26 +143,28 @@ const manifest = () => {
         'theme_color': site.theme_color.primary,
         'background_color': site.theme_color.primary
     }
-    return extend(true,manifest,site.manifest)
+    manifest = extend(true,manifest,site.manifest)
 }
+
 gulp.task('pug', (cd) => {
     let works = []
     const pugoptions = {
-        data: {
-                'site': site,
-                'package': package,
-                'pages': pages,
+        data: 
+            {
+                'site' : site,
+                'package' : package,
+                'pages' : pages,
                 'manifest' : manifest,
-                'messages': messages,
-                'require': require,
-                'DEBUG': DEBUG
-        },
+                "messages": messages,
+                "require": require,
+                "DEBUG": DEBUG
+            },
         filters: require('./pugfilters.js')
     }
     mkdirp.sync(temp_dir)
+    let stream = mergeStream()
     for (let i = 0; i < pages.length; i++) {
         const page = pages[i]
-        const destd = page.meta.permalink.substr(0,page.meta.permalink.slice(0, -1).lastIndexOf('/'))
         let layout = page.attributes.layout
         let outdata = '', ampdata = ''
         if(existFile(`theme/pug/templates/${layout}.pug`)) outdata += `extends ../templates/${layout}.pug`
@@ -187,12 +175,15 @@ block constnum
   - const page_index_numer = ${i}`
         const dest = `${temp_dir}${page.meta.src.subdir.replace( /\//g , '_' )}_${page.meta.src.name}.pug`
         fs.writeFileSync( dest , outdata )
-        
-        works.push(
+
+        stream.add(
             gulp.src(dest)
                 .pipe($.pug(pugoptions))
                 .pipe($.rename(`index.html`))
-                .pipe(gulp.dest( dests.root + destd ))
+                .pipe(gulp.dest( dests.root + page.meta.permalink ))
+                .on('end',() => {
+                    $.util.log($.util.colors.green(`✔ ${page.meta.permalink}`))
+                })
         )
 
         /*
@@ -209,15 +200,18 @@ block constnum
             const ampdest = `${temp_dir}${page.meta.src.subdir.replace( /\//g , '_' )}_amp_${page.meta.src.name}.pug`
             fs.writeFileSync( ampdest , ampdata )
 
-            works.push( 
+            stream.add( 
                 gulp.src(dest)
                     .pipe($.pug(pugoptions))
                     .pipe($.rename(`amp.html`))
-                    .pipe(gulp.dest( dests.root + destd ))
+                    .pipe(gulp.dest( dests.root + page.meta.permalink ))
+                    .on('end',() => {
+                        $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
+                    })
             )
         }
     }
-    Promise.all(works).then(cd())
+    return stream
 })
 
 gulp.task('css', (cb) => {
@@ -235,7 +229,7 @@ gulp.task('js', (cb) => {
         gulp.src('theme/js/main.js'),
         $.webpack(),
         $.uglify(),
-        $.rename('style.min.css'),
+        $.rename('main.min.js'),
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
@@ -263,12 +257,6 @@ gulp.task('copy-files', (cb) => {
         gulp.dest(dests.root + '/files')
     ], cb)
 })
-gulp.task('copy-prebuildFiles', (cb) => {
-    pump([
-        gulp.src(src.files),
-        gulp.dest('./dist')
-    ], cb)
-})
 gulp.task('copy-wtfpjax', (cb) => {
     pump([
         gulp.src('node_modules/pjax-api/dist/**'),
@@ -280,6 +268,12 @@ gulp.task('copy-f404', (cb) => {
         gulp.src('docs/404/index.html'),
         $.rename('404.html'),
         gulp.dest('.')
+    ], cb)
+})
+gulp.task('copy-prebuildFiles', (cb) => {
+    pump([
+        gulp.src(src.files),
+        gulp.dest('./dist')
     ], cb)
 })
 
@@ -296,13 +290,13 @@ gulp.task('image-prebuildFiles', (cb) => {
             gifsicle: true,
             svgo: true
         }),
-        gulp.dest('./dist/files')
-    ])
+        gulp.dest('dist/files')
+    ], cb)
 })
 
-gulp.task('clean-temp', (cb) => {del([`${temp_dir}**`]).then(cb())} )
-gulp.task('clean-docs', (cb) => {del([dests.everything]).then(cb())} )
-gulp.task('clean-dist', (cb) => {del(['dist/**/*']).then(cb())} )
+gulp.task('clean-temp', (cb) => { del(`${temp_dir}**`).then(cb()) } )
+gulp.task('clean-docs', (cb) => { del(dests.everything).then(cb()) } )
+gulp.task('clean-dist', (cb) => { del('dist/**/*').then(cb()) } )
 
 gulp.task('config', (cb) => {
     let resultObj = { options: '' }
@@ -314,7 +308,9 @@ gulp.task('config', (cb) => {
         'manifest' : manifest
     })
     mkdirp.sync(path.parse(dests.info).dir)
-    fs.writeFile( dests.info, JSON.stringify( resultObj ), cb )
+    fs.writeFile( dests.info, JSON.stringify( resultObj ), () => {
+        $.util.log($.util.colors.green(`✔ info.json`)); cb()
+    })
 })
 
 gulp.task( 'debug-override', (cb) => {
@@ -363,14 +359,17 @@ gulp.task('make-sw', (cb) => {
         }
         const swFileContents = data.replace(wbSwRegex, workboxSWWrite)
         fs.writeFile(config.swDest, swFileContents, () => {
-        console.log('Pre-cache Manifest generated.')
+        $.util.log($.util.colors.green(`✔ service_worker.js`)); cb()
+        cb()
         })
-    }).then(cb())
+    })
     })
 })
 
 gulp.task('make-manifest', (cb) => {
-    fs.writeFile( `docs/manifest.json`, JSON.stringify(manifest), cb )
+    fs.writeFile( `docs/manifest.json`, JSON.stringify(manifest), () => {
+        $.util.log($.util.colors.green(`✔ manifest.json`)); cb()
+    } )
 })
 
 const browserconfigXml = () => {
@@ -390,7 +389,9 @@ const browserconfigXml = () => {
 }
 
 gulp.task('make-browserconfig', (cb) => {
-    fs.writeFile( `docs/browserconfig.xml`, browserconfigXml , cb )
+    fs.writeFile( `docs/browserconfig.xml`, browserconfigXml, () => {
+        $.util.log($.util.colors.green(`✔ browserconfig.xml`)); cb()
+    })
 })
 
 gulp.task('new', (cb) => {
@@ -438,10 +439,18 @@ gulp.task('make-subfiles',
 )
 gulp.task('default',
     gulp.series(
-        'clean-docs',
         'config',
         gulp.parallel('js', 'css', 'pug'),
-        gulp.parallel('copy-publish', 'make-subfiles', 'clean-temp'),
+        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
+        (cb) => { cb() }
+    )
+)
+
+gulp.task('prebuild-files',
+    gulp.series(
+        'clean-dist',
+        'copy-prebuildFiles',
+        'image-prebuildFiles',
         (cb) => { cb() } 
     )
 )
