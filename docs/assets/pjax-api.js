@@ -1,4 +1,4 @@
-/*! pjax-api v3.17.8 https://github.com/falsandtru/pjax-api | (c) 2017, falsandtru | (Apache-2.0 AND MPL-2.0) License */
+/*! pjax-api v3.18.2 https://github.com/falsandtru/pjax-api | (c) 2017, falsandtru | (Apache-2.0 AND MPL-2.0) License */
 require = function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
@@ -5451,7 +5451,7 @@ require = function e(t, n, r) {
                         return __generator(this, function (_a) {
                             return [
                                 2,
-                                undefined
+                                'fetch'
                             ];
                         });
                     });
@@ -5461,7 +5461,17 @@ require = function e(t, n, r) {
                         return __generator(this, function (_a) {
                             return [
                                 2,
-                                undefined
+                                'unload'
+                            ];
+                        });
+                    });
+                };
+                Sequence.prototype.content = function () {
+                    return __awaiter(this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            return [
+                                2,
+                                'content'
                             ];
                         });
                     });
@@ -5471,18 +5481,20 @@ require = function e(t, n, r) {
                         return __generator(this, function (_a) {
                             return [
                                 2,
-                                undefined
+                                'ready'
                             ];
                         });
                     });
                 };
                 Sequence.prototype.load = function () {
+                    return __awaiter(this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            return [2];
+                        });
+                    });
                 };
                 return Sequence;
             }();
-            var SequenceData;
-            (function (SequenceData_1) {
-            }(SequenceData = exports.SequenceData || (exports.SequenceData = {})));
         },
         {
             './config/scope': 92,
@@ -6391,10 +6403,10 @@ require = function e(t, n, r) {
                         return [
                             2,
                             new hlist_1.HNil().push(process.either(seq)).modify(function (m) {
-                                return m.fmap(function (seq) {
-                                    return content_1.separate(documents, config.areas).fmap(function (_a) {
+                                return m.fmap(function (seqA) {
+                                    return content_1.separate(documents, config.areas).bind(function (_a) {
                                         var _b = __read(_a, 1), area = _b[0];
-                                        return void config.rewrite(documents.src, area);
+                                        return void config.rewrite(documents.src, area), content_1.separate(documents, config.areas);
                                     }).extract(function () {
                                         return __awaiter(_this, void 0, void 0, function () {
                                             return __generator(this, function (_a) {
@@ -6404,22 +6416,27 @@ require = function e(t, n, r) {
                                                 ];
                                             });
                                         });
-                                    }, function () {
+                                    }, function (_a) {
+                                        var _b = __read(_a, 2), areas = _b[1];
                                         return __awaiter(_this, void 0, void 0, function () {
-                                            var _a, _b;
-                                            return __generator(this, function (_c) {
-                                                switch (_c.label) {
+                                            var _c, _d, _e;
+                                            return __generator(this, function (_f) {
+                                                switch (_f.label) {
                                                 case 0:
                                                     void window.dispatchEvent(new Event('pjax:unload'));
-                                                    _b = (_a = process).either;
+                                                    _d = (_c = process).either;
+                                                    _e = tuple_1.tuple;
                                                     return [
                                                         4,
-                                                        config.sequence.unload(seq, response)
+                                                        config.sequence.unload(seqA, response)
                                                     ];
                                                 case 1:
                                                     return [
                                                         2,
-                                                        _b.apply(_a, [_c.sent()])
+                                                        _d.apply(_c, [_e.apply(void 0, [[
+                                                                    _f.sent(),
+                                                                    areas
+                                                                ]])])
                                                     ];
                                                 }
                                             });
@@ -6440,7 +6457,8 @@ require = function e(t, n, r) {
                                             case 1:
                                                 return [
                                                     2,
-                                                    _a.sent().fmap(function (seq) {
+                                                    _a.sent().bind(process.either).fmap(function (_a) {
+                                                        var _b = __read(_a, 2), seqB = _b[0], areas = _b[1];
                                                         return new hlist_1.HNil().extend(function () {
                                                             return __awaiter(_this, void 0, void 0, function () {
                                                                 return __generator(this, function (_a) {
@@ -6449,14 +6467,12 @@ require = function e(t, n, r) {
                                                                         (void blur_1.blur(documents.dst), void url_1.url(new router_1.RouterEventLocation(response.url || event.location.dest.href), documents.src.title, event.type, event.source, config.replace), void title_1.title(documents), void path_1.saveTitle(), void head_1.head({
                                                                             src: documents.src.head,
                                                                             dst: documents.dst.head
-                                                                        }, config.update.head, config.update.ignore), content_1.content(documents, config.areas).fmap(function (_a) {
+                                                                        }, config.update.head, config.update.ignore), process.either(content_1.content(documents, areas)).fmap(function (_a) {
                                                                             var _b = __read(_a, 2), as = _b[0], ps = _b[1];
                                                                             return [
                                                                                 as,
                                                                                 Promise.all(ps)
                                                                             ];
-                                                                        }).fmap(process.either).extract(function () {
-                                                                            return either_1.Left(new error_1.DomainError('Failed to update areas.'));
                                                                         }))
                                                                     ];
                                                                 });
@@ -6488,10 +6504,7 @@ require = function e(t, n, r) {
                                                                                                 }, config.update.ignore) : undefined, config.update.css ? void css_1.css({
                                                                                                     src: documents.src.body,
                                                                                                     dst: documents.dst.body
-                                                                                                }, config.update.ignore) : undefined, void focus_1.focus(documents.dst), void scroll_1.scroll(event.type, documents.dst, {
-                                                                                                    hash: event.location.dest.fragment,
-                                                                                                    position: io.position
-                                                                                                }), void path_1.savePosition();
+                                                                                                }, config.update.ignore) : undefined;
                                                                                                 if (!config.update.script)
                                                                                                     return [
                                                                                                         3,
@@ -6528,33 +6541,45 @@ require = function e(t, n, r) {
                                                                                     });
                                                                                 }).extend(function () {
                                                                                     return __awaiter(_this, void 0, void 0, function () {
-                                                                                        var _a, _b;
-                                                                                        return __generator(this, function (_c) {
-                                                                                            switch (_c.label) {
+                                                                                        var seqC;
+                                                                                        return __generator(this, function (_a) {
+                                                                                            switch (_a.label) {
                                                                                             case 0:
-                                                                                                void io.document.dispatchEvent(new Event('pjax:ready'));
-                                                                                                _b = (_a = process).either;
+                                                                                                void io.document.dispatchEvent(new Event('pjax:content'));
                                                                                                 return [
                                                                                                     4,
-                                                                                                    config.sequence.ready(seq, areas)
+                                                                                                    config.sequence.content(seqB, areas)
                                                                                                 ];
                                                                                             case 1:
+                                                                                                seqC = _a.sent();
+                                                                                                void focus_1.focus(event.type, documents.dst);
+                                                                                                void scroll_1.scroll(event.type, documents.dst, {
+                                                                                                    hash: event.location.dest.fragment,
+                                                                                                    position: io.position
+                                                                                                });
+                                                                                                void path_1.savePosition();
+                                                                                                void io.document.dispatchEvent(new Event('pjax:ready'));
+                                                                                                return [
+                                                                                                    4,
+                                                                                                    config.sequence.ready(seqC)
+                                                                                                ];
+                                                                                            case 2:
                                                                                                 return [
                                                                                                     2,
-                                                                                                    _b.apply(_a, [_c.sent()])
+                                                                                                    _a.sent()
                                                                                                 ];
                                                                                             }
                                                                                         });
                                                                                     });
-                                                                                }).reverse().tuple()).then(function (_a) {
-                                                                                    var _b = __read(_a, 2), m1 = _b[0], m2 = _b[1];
-                                                                                    return m1.bind(function (ss) {
-                                                                                        return m2.fmap(function (seq) {
-                                                                                            return tuple_1.tuple([
-                                                                                                ss,
-                                                                                                seq
-                                                                                            ]);
-                                                                                        });
+                                                                                }).reverse().tuple());
+                                                                            }).fmap(function (p) {
+                                                                                return p.then(function (_a) {
+                                                                                    var _b = __read(_a, 2), m = _b[0], seqD = _b[1];
+                                                                                    return m.fmap(function (sst) {
+                                                                                        return [
+                                                                                            sst,
+                                                                                            seqD
+                                                                                        ];
                                                                                     });
                                                                                 });
                                                                             }).extract(function (e) {
@@ -6592,49 +6617,68 @@ require = function e(t, n, r) {
                                             case 1:
                                                 return [
                                                     2,
-                                                    _a.sent().fmap(function (_a) {
+                                                    _a.sent().bind(process.either).fmap(function (_a) {
                                                         var _b = __read(_a, 2), p1 = _b[0], p2 = _b[1];
-                                                        return p2.then(function (m2) {
-                                                            return void p1.then(function (m1) {
-                                                                return m1.bind(function (_a) {
-                                                                    var _b = __read(_a, 2), cp = _b[1];
-                                                                    return m2.fmap(function (_a) {
-                                                                        var _b = __read(_a, 2), _c = __read(_b[0], 2), sp = _c[1], seq = _b[1];
-                                                                        return __awaiter(_this, void 0, void 0, function () {
-                                                                            var events;
-                                                                            return __generator(this, function (_d) {
-                                                                                switch (_d.label) {
-                                                                                case 0:
-                                                                                    return [
-                                                                                        4,
+                                                        return __awaiter(_this, void 0, void 0, function () {
+                                                            var _c, _d;
+                                                            return __generator(this, function (_e) {
+                                                                switch (_e.label) {
+                                                                case 0:
+                                                                    _d = (_c = process).either;
+                                                                    return [
+                                                                        4,
+                                                                        Promise.all([
+                                                                            p1,
+                                                                            p2
+                                                                        ])
+                                                                    ];
+                                                                case 1:
+                                                                    return [
+                                                                        2,
+                                                                        (void _d.apply(_c, [_e.sent()]).bind(function (_a) {
+                                                                            var _b = __read(_a, 2), m1 = _b[0], m2 = _b[1];
+                                                                            return m1.bind(function (_a) {
+                                                                                var _b = __read(_a, 2), cp = _b[1];
+                                                                                return m2.fmap(function (_a) {
+                                                                                    var _b = __read(_a, 2), _c = __read(_b[0], 2), sp = _c[1], seqD = _b[1];
+                                                                                    return void Promise.all([
+                                                                                        cp,
                                                                                         sp
-                                                                                    ];
-                                                                                case 1:
-                                                                                    _d.sent();
-                                                                                    return [
-                                                                                        4,
-                                                                                        cp
-                                                                                    ];
-                                                                                case 2:
-                                                                                    events = _d.sent();
-                                                                                    if (process.canceled)
-                                                                                        return [2];
-                                                                                    void window.dispatchEvent(new Event('pjax:load'));
-                                                                                    void config.sequence.load(seq, events);
-                                                                                    return [2];
-                                                                                }
+                                                                                    ]).then(process.either).then(function (m) {
+                                                                                        return m.fmap(function (_a) {
+                                                                                            var _b = __read(_a, 1), events = _b[0];
+                                                                                            return void window.dispatchEvent(new Event('pjax:load')), void config.sequence.load(seqD, events);
+                                                                                        }).extract(function () {
+                                                                                            return undefined;
+                                                                                        });
+                                                                                    });
+                                                                                });
                                                                             });
-                                                                        });
-                                                                    });
-                                                                }).extract(function () {
-                                                                    return undefined;
-                                                                });
-                                                            }), m2.fmap(function (_a) {
-                                                                var _b = __read(_a, 1), _c = __read(_b[0], 2), ss = _c[0], p = _c[1];
-                                                                return tuple_1.tuple([
-                                                                    ss,
-                                                                    p
-                                                                ]);
+                                                                        }).extract(function () {
+                                                                            return undefined;
+                                                                        }), p2)
+                                                                    ];
+                                                                }
+                                                            });
+                                                        });
+                                                    }).fmap(function (p) {
+                                                        return __awaiter(_this, void 0, void 0, function () {
+                                                            return __generator(this, function (_a) {
+                                                                switch (_a.label) {
+                                                                case 0:
+                                                                    return [
+                                                                        4,
+                                                                        p
+                                                                    ];
+                                                                case 1:
+                                                                    return [
+                                                                        2,
+                                                                        _a.sent().fmap(function (_a) {
+                                                                            var _b = __read(_a, 1), sst = _b[0];
+                                                                            return sst;
+                                                                        })
+                                                                    ];
+                                                                }
                                                             });
                                                         });
                                                     }).extract(either_1.Left)
@@ -6686,27 +6730,6 @@ require = function e(t, n, r) {
     103: [
         function (require, module, exports) {
             'use strict';
-            var __read = this && this.__read || function (o, n) {
-                var m = typeof Symbol === 'function' && o[Symbol.iterator];
-                if (!m)
-                    return o;
-                var i = m.call(o), r, ar = [], e;
-                try {
-                    while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
-                        ar.push(r.value);
-                } catch (error) {
-                    e = { error: error };
-                } finally {
-                    try {
-                        if (r && !r.done && (m = i['return']))
-                            m.call(i);
-                    } finally {
-                        if (e)
-                            throw e.error;
-                    }
-                }
-                return ar;
-            };
             Object.defineProperty(exports, '__esModule', { value: true });
             var maybe_1 = require('spica/maybe');
             var concat_1 = require('spica/concat');
@@ -6722,15 +6745,12 @@ require = function e(t, n, r) {
                         }
                     };
                 }
-                return separate(documents, areas).fmap(function (_a) {
-                    var _b = __read(_a, 2), areas = _b[1];
-                    return [
-                        areas.map(function (a) {
-                            return a.dst;
-                        }).reduce(concat_1.concat, []),
-                        areas.map(load).reduce(concat_1.concat, [])
-                    ];
-                });
+                return [
+                    areas.map(function (r) {
+                        return r.dst;
+                    }).reduce(concat_1.concat, []),
+                    areas.map(load).reduce(concat_1.concat, [])
+                ];
                 function load(area) {
                     return area.src.map(function (_, i) {
                         return {
@@ -6850,17 +6870,29 @@ require = function e(t, n, r) {
         function (require, module, exports) {
             'use strict';
             Object.defineProperty(exports, '__esModule', { value: true });
+            var router_1 = require('../../../event/router');
             var dom_1 = require('../../../../../lib/dom');
-            function focus(document) {
-                return void dom_1.find(document, 'body, [autofocus]').slice(-1).filter(function (el) {
-                    return document === window.document && el !== document.activeElement;
-                }).forEach(function (el) {
-                    return void el.focus();
-                });
+            function focus(type, document) {
+                switch (type) {
+                case router_1.RouterEventType.click:
+                case router_1.RouterEventType.submit:
+                    return void dom_1.find(document, '[autofocus]').slice(-1).filter(function (el) {
+                        return el.closest('html') === window.document.documentElement && el !== document.activeElement;
+                    }).forEach(function (el) {
+                        return void el.focus();
+                    });
+                case router_1.RouterEventType.popstate:
+                    return;
+                default:
+                    throw new TypeError(type);
+                }
             }
             exports.focus = focus;
         },
-        { '../../../../../lib/dom': 127 }
+        {
+            '../../../../../lib/dom': 127,
+            '../../../event/router': 94
+        }
     ],
     106: [
         function (require, module, exports) {

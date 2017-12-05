@@ -12,11 +12,9 @@ const join = path.join
 const swBuild = require('workbox-build')
 const exec = require('child_process').exec
 const minimist = require('minimist')
-const colors = require('colors')
 const mergeStream = require('merge-stream')
 const mkdirp = require('mkdirp')
 const pump = require('pump')
-const runSequence = require('run-sequence')
 const glob = require('glob')
 $ = require('gulp-load-plugins')()
 
