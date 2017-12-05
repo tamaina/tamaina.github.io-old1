@@ -216,7 +216,9 @@ gulp.task('css', (cb) => {
         $.autoprefixer( { browsers: 'last 3 versions' } ),
         $.rename('style.min.css'),
         gulp.dest(dests.root + '/assets')
-    ], cb)
+    ], () => {
+        $.util.log($.util.colors.green(`✔ assets/style.min.css`)); cb()
+    })
 })
 
 gulp.task('js', (cb) => {
@@ -226,15 +228,17 @@ gulp.task('js', (cb) => {
         $.uglify(),
         $.rename('main.min.js'),
         gulp.dest(dests.root + '/assets')
-    ], cb)
+    ], () => {
+        $.util.log($.util.colors.green(`✔ assets/main.min.js`)); cb()
+    })
 })
 
 gulp.task('watch', () => {
-    $.watch(['./**/*'],['debug_override', 'default'])
+    $.watch(['./**/*'],['default'])
 })
 
 gulp.task('connect', () => {
-    connect.server({
+    $.connect.server({
         root: 'docs',
         livereload: true
     })
@@ -449,6 +453,17 @@ gulp.task('prebuild-files',
         'clean-dist',
         'copy-prebuildFiles',
         'image-prebuildFiles',
+        (cb) => { cb() } 
+    )
+)
+
+gulp.task('server',
+    gulp.series(
+        'clean-docs', 'config', 'debug-override',
+        gulp.parallel('js', 'css', 'pug'),
+        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
+        'make-sw',
+        gulp.parallel('connect', 'watch'),
         (cb) => { cb() } 
     )
 )
