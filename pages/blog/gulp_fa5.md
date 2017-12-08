@@ -1,8 +1,9 @@
 ---
-title: Gruntをgulpに・Font Awesomeを5にした話
+title: Gruntをgulpに ･ Font Awesomeを5にした話
 description: タイトルの通りです。情報が少ないうちに簡単な導入方法を書いてみます。
 layout: blog
 category: web
+amp: true
 ---
 
 ## Font Awesome 5
@@ -26,7 +27,7 @@ URLも従来の.ioから移転されました。
 - アイコンの種類が明確に分かれました。
   * **Solid**(塗りつぶし), **Regular**(線・標準の太さ), *light*(線・細い *Proのみ*), **Brands**(ブランド)の4種類があります。
 - `fa`プレフィックスに代わり、種類ごとのプレフィックス`fas`,`far`,*`fal`*,`fab`になりました。
-  * 例えば`&lt;i class="fab line"i&gt;&lt;/i&gt;`,`&lt;i class="fas clock"i&gt;&lt;/i&gt;`など。
+  * 例えば`&lt;i class="fab line"&gt;&lt;/i&gt;`,`&lt;i class="fas clock"&gt;&lt;/i&gt;`など。
 - 種類分けに併せて、アイコンの命名が変わりました。
   * より論理的に、そして無垢になりました。
   * 4から利用している方は要注意です。しかしご安心ください。`fa-v4-shim.js`を利用すれば、そのままで大丈夫です。
@@ -91,7 +92,7 @@ const $option = { classes: ["fa-fw"] }
 fontawesome.icon({ prefix: $prefix , iconName: $icon }, $option ).html[0] //:string (svgタグ)
 ```
 
-SVGタグはiタグ等で囲わずともそのまま利用できます。以前に比べ、かなり導入時の読み込みデータ量が少なくなりました。
+SVGタグはiタグ等で囲わずともそのまま利用できます。以前に比べ、外部ファイルの参照がなくなり、読み込みデータ量もかなり少なくなりました。
 
 ## Grunt → gulp
 

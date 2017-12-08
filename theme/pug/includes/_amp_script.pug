@@ -8,10 +8,10 @@ block md_better
   -
     function md_better(htm){
       let $ = cheerio.load(htm, {decodeEntities: false})
-    
+
       $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
-      $('h3, h4').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
-      $('h5, h6').addClass('mt-3 p-1 border border-left-0 border-top-0 border-right-0 border-light')
+      $('h3, h4').addClass('mt-5 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
+      $('h5, h6').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0')
       $('img[src]').each(function(){
         let src    = $(this).attr('src')
         let alt    = $(this).attr('alt')
