@@ -22,15 +22,15 @@ block main
           div.mb-1
             ul.list-unstyled
               li
-                +fa("file-text-o")
+                +fa_fw("file-alt")
                 time(datetime=page.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}
                 |  作成
               li
-                +fa("clock-o")
+                +fa_fw("clock")
                 time(datetime=page.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
                 |  更新
           div.mb-3
-            +fa("folder-open")
+            +fa_fw("folder-open")
             if(page.attributes.categories !== undefined && page.attributes.categories != [])
               each category in page.attributes.categories
                 if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/category/${category}/`.toLowerCase() ) !== undefined )
@@ -41,7 +41,7 @@ block main
             else
               | なし
             | &emsp;
-            +fa("tags")
+            +fa_fw("tags")
             if(page.attributes.tags !== undefined && page.attributes.tags !== [])
               each tag in page.attributes.tags
                 if( pages.find( e => e.meta.permalink === `/blog/tag/${tag}/` ) !== undefined )

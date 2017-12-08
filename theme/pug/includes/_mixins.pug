@@ -1,9 +1,10 @@
 //- pug mixins
 
-mixin fa( $icon )
-  i(class=`fa fa-${$icon} fa-fw`, aria-hidden="true")
-mixin fa_li( $icon )
-  i(class=`fa-li fa fa-${$icon} fa-fw`, aria-hidden="true")
+mixin fa( $icon, $prefix, $option )
+  i(class=`fa ${$prefix || "fas"} ${$icon}`)!= fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon },$option).html[0]
+
+mixin fa_fw( $icon, $prefix )
+  +fa( $icon, $prefix, {classes: ['fa-fw']})
 
 mixin toc( headings, n, tag, cl )
   -

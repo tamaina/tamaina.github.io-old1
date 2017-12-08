@@ -3,12 +3,18 @@ title: トップページ
 layout: index
 ---
 
-mixin fa( $icon )
-  i(class=`fa fa-${$icon} fa-fw`, aria-hidden="true")
+-
+  const fontawesome = require("@fortawesome/fontawesome")
+  const faSolid = require("@fortawesome/fontawesome-free-solid")
+  const faBrands = require("@fortawesome/fontawesome-free-brands")
+  fontawesome.library.add(faSolid, faBrands)
+
+mixin fa( $icon, $prefix )
+  i(class=`fa ${$prefix || "fas"} ${$icon}`)!= fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon }).html[0]
 
 mixin social_circle( $url, $fa, $title )
   a(href=$url, target='_blank', rel='noopener', title=$title).rounded-circle.bg-light.text-dark.social-circle.m-2
-    +fa($fa)
+    +fa($fa, "fab")
 
 #head.text-center
   #headimgwrp
@@ -16,7 +22,7 @@ mixin social_circle( $url, $fa, $title )
   #headgo.container
     #headwrp
       h1.pt-4 アキウス
-      p.lead= aqz = tamaina
+      p.lead= "aqz = tamaina"
 
 #intro.bg-light.text-center.py-5
   .container

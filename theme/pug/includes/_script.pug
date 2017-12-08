@@ -12,10 +12,15 @@ block requires
     const hljs = require('highlight.js')
     const colors = require("colors")
     const sizeOf = require("image-size")
+    const cleanCss = require("clean-css")
+    const fontawesome = require("@fortawesome/fontawesome")
+    const faSolid = require("@fortawesome/fontawesome-free-solid")
+    const faBrands = require("@fortawesome/fontawesome-free-brands")
+    fontawesome.library.add(faSolid, faBrands)
 
 block vals
   -
-    const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, filters: require('./pugfilters.js')}
+    const pug_o = {"site": site, "pages": pages, "page": page, "package": package, "option": option, "require": require, filters: require('./pugfilters.js')}
     let main_html
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
     const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)

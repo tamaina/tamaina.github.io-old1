@@ -17,7 +17,7 @@ style(amp-custom)
 
       $headings-font-weight: 700
       $breadcrumb-divider-color: $white
-      $breadcrumb-divider: "\f105"
+      $breadcrumb-divider: "…"
       $grid-breakpoints: map-remove($grid-breakpoints, xl, lg)
 
       @import "node_modules/chirno/scss/mixins"
@@ -73,3 +73,6 @@ style(amp-custom)
       @import "theme/styl/blog"
       @import "theme/styl/summary"
       @import "node_modules/highlight.js/styles/github-gist"
+
+  block fa
+    != new cleanCss().minify(fontawesome.dom.css()).styles

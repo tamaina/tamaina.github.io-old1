@@ -17,9 +17,14 @@ layout: article
     "pages": [
         {
             "meta": {
-                "srcname": "hoge",
-                "srcext": ".md",
-                "subdir": "foo/bar",
+                "src": {
+                    "root": "",
+                    "dir": "pages/foo/bar",
+                    "base": "hoge.md",
+                    "ext": ".md",
+                    "name": "hoge",
+                    "subdir": "foo/bar"
+                },
                 "md5": "16373b01c4af2da0986dbdf1c0b413b4",
                 "sha384": "OAZAV1YnEdrl6phd0dJT1rFBgkKTe3rYhCEbccJV4nzcrm/xoS5SN2OmfjsZkTZk",
                 "mtime": "2100-12-26T09:13:20.778Z",
@@ -33,8 +38,7 @@ layout: article
                 "date": "2100-12-26T09:13:20.778Z",
                 "published": "true"
             },
-            "body": "MARKDOWNの例\r\n\r\n## 見出し！ \r\n\r\n本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文",
-            "frontmatter": "title: ほげほげ\r\ndescription: ほげほげ、ふー、ばー！何か概要を書くよ！\r\nlayout: article\r\ndate: 2100-12-26T18:13:20.778+09:00",
+            "body": "MARKDOWNの例\n\n## 見出し！ \n\n本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文",
             "stats": {
                 "dev": 3807904075,
                 "mode": 33206,
@@ -64,11 +68,11 @@ metaにはビルド時に必要と思われる情報をまとめて記述して�
 
 頻繁に利用する配列といえます。
 
-#### `.meta.src*`, `.meta.subdir`
+#### `.meta.src`, `.meta.src.subdir`
 
-`srcname` `srcext`はそれぞれソースの名前と拡張子が挿入されています。  
-`subdir`にはソースディレクトリ以下のサブディレクトリの情報が挿入されています。
-通常は、`/srcdir/srcname/`が,meta.permalinkになるはずです。
+`meta.src`にはnode.jsの[path.parse()](https://nodejs.org/api/path.html#path_path_parse_path)で得られた情報が格納されます。
+
+さらに、
 
 #### `.meta.md5`, `.meta.sha384`
 
@@ -88,9 +92,11 @@ metaにはビルド時に必要と思われる情報をまとめて記述して�
 
 `frontmatter`が加工されたマップです。npmパッケージ「front-matter」が生成します。
 
-### `.body`, `.frontmatter`
+### `.body`
 
-npmパッケージ「front-matter」によってソースファイルのfront-matterと本文が分離して挿入されています。
+npmパッケージ「front-matter」によってソースファイルのfront-matterと本文が分離し、本文のみ挿入されています。
+
+元ファイルの開業コードがCR+LFであっても、JavaScriptで処理する限り不要であるため\rは消去されます。
 
 ### `.stats`
 

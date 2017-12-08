@@ -89,6 +89,9 @@ function getHash(data, a, b, c){
         page.meta.sha384 = getHash(file, 'sha384', 'binary', 'base64')
         page.stats = fs.statSync( val )
 
+        page.body = page.body.replace(/\r\n?/gi,"\n") // 文字コードをLFにそろえる
+        delete page.frontmatter
+
         page.attributes.title = page.attributes.title || page.meta.srcname
         page.attributes.description = page.attributes.description || site.description
         page.meta.mtime = (new Date(page.attributes.mtime || page.stats.mtime)).toJSON()
@@ -215,24 +218,32 @@ gulp.task('css', (cb) => {
         $.rename('style.min.css'),
         gulp.dest(dests.root + '/assets')
     ], () => {
-        $.util.log($.util.colors.green(`✔ assets/style.min.css`)); cb()
+        $.util.log($.util.colors.green(`✔ assets/style.min.css`))
+        cb()
     })
 })
 
 gulp.task('js', (cb) => {
     pump([
         gulp.src('theme/js/main.js'),
+
         $.webpack(),
+        $.rename('main.js'),
+        $.babel({presets: ['babel-preset-env']}),
+        gulp.dest(dests.root + '/assets'),
         $.uglify(),
         $.rename('main.min.js'),
         gulp.dest(dests.root + '/assets')
     ], () => {
-        $.util.log($.util.colors.green(`✔ assets/main.min.js`)); cb()
+        $.util.log($.util.colors.green(`✔ assets/main.js`))
+        $.util.log($.util.colors.green(`✔ assets/main.min.js`))
+        cb()
     })
 })
 
-gulp.task('watch', () => {
-    $.watch(['./**/*'],['default'])
+gulp.task('watch', (cb) => {
+    gulp.watch(['theme/**/*',`!${temp_dir}**/*`,'theme/**/*','./.config/**/*'], gulp.series('wait-5sec','default',(cb)=>{cb()}))
+    gulp.watch(['files/**/*'], gulp.series('wait-5sec','prebuild-files',(cb)=>{cb()}))
 })
 
 gulp.task('connect', () => {
@@ -277,6 +288,9 @@ gulp.task('copy-prebuildFiles', (cb) => {
 gulp.task('image-prebuildFiles', (cb) => {
     pump([
         gulp.src('files/**/*.{png,jpg,jpeg,gif,svg}'),
+        $.plumber({
+            errorHandler: notify.onError("Error: <%= error.message %>")
+        }),
         $.image({
             optipng: false,
             pngquant: ['--speed=1'],
@@ -414,6 +428,35 @@ gulp.task('new', (cb) => {
         let options = {}
         exec( command, options, cb )
     })
+})
+
+function wait4(cb, sec){
+    let interval = null
+    process.stdout.write($.util.colors.green(`${sec} ██████████    `))
+    function waiti(){
+        sec--
+        if( sec < 0 && interval != null ){
+            process.stdout.write(`\r`)
+            cb()
+            clearInterval(interval)
+        }
+        else if ( sec == 0 ) process.stdout.write($.util.colors.red(`\r${sec}               `))
+        else if ( sec == 1 ) process.stdout.write($.util.colors.red(`\r${sec} ██            `))
+        else if ( sec == 2 ) process.stdout.write($.util.colors.red(`\r${sec} ████          `))
+        else if ( sec == 3 ) process.stdout.write($.util.colors.red(`\r${sec} ██████        `))
+        else if ( sec == 4 ) process.stdout.write($.util.colors.yellow(`\r${sec} ████████      `))
+        else if ( sec == 5 ) process.stdout.write($.util.colors.yellow(`\r${sec} ██████████    `))
+        else process.stdout.write($.util.colors.green(`\r${sec} ██████████    `))
+    }
+    interval = setInterval(waiti, 1000)
+}
+
+gulp.task('wait-5sec', (cb) => {
+    wait4(cb, 5)
+})
+
+gulp.task('wait-10sec', (cb) => {
+    wait4(cb, 10)
 })
 
 gulp.task('copy-publish',
