@@ -1,6 +1,6 @@
 ---
-title: Gruntをgulpに ･ Font Awesomeを5にした話
-description: タイトルの通りです。情報が少ないうちに簡単な導入方法を書いてみます。
+title: Font Awesomeを5にした話
+description: タイトルの通りです。情報が少ないうちに簡単な導入方法を書いてみます。Gruntをgulpにしたこともついでにご報告いたします。
 layout: blog
 category: web
 amp: true
