@@ -1,4 +1,5 @@
-window.jQuery = $ = require('jquery')
+window.jQuery = require('jquery')
+$ = window.jQuery
 
 require('../../node_modules/chirno/dist/js/bootstrap.bundle.js')
 

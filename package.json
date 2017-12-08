@@ -21,6 +21,7 @@
     "@fortawesome/fontawesome-free-brands": "^5.0.0",
     "@fortawesome/fontawesome-free-solid": "^5.0.0",
     "babel-core": "^6.26.0",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
     "babel-preset-env": "^1.6.1",
     "cafy": "^3.2.0",
     "cheerio": "^1.0.0-rc.2",

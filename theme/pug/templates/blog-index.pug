@@ -72,16 +72,15 @@ append preset
     } else {
       headline = indexHeadline + " "
       for( r = 0; r < queries.length; r++ ){
-        headline += `${headline}${types[queries[r].type]}:${queries[r].query}･`
+        headline += `${types[queries[r].type]}:${queries[r].query}･`
       }
       headline = headline.slice(0,-1)
     }
 
+    if(!page.attributes.title) page.attributes.title = headline
+
 block title
-  if (page.attributes.title)
-    title #{page.attributes.title} - #{site.name}
-  else
-    title #{indexname} #{headline} - #{site.name}
+  title #{page.attributes.title} - #{site.name}
 
 block main
 

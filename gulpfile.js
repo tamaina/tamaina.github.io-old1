@@ -51,7 +51,6 @@ let dests = {
     'info': './docs/info.json'
 }
 
-
 function existFile(file) {
     try {
         fs.statSync(file)
@@ -67,8 +66,8 @@ function getHash(data, a, b, c){
     return hashv.digest(c)
 }
 
-{
-    pages = []
+function register_pages(){
+    let pages = []
     const srcs = glob.sync(src.pages)
     let srcpath = path.parse(site.pages_src.path)
     srcs.forEach(doit)
@@ -126,9 +125,10 @@ function getHash(data, a, b, c){
             delete page.attributes.category
         pages.push(page)
     }
+    return pages
 }
 
-{
+function register_manifest(){
     let icons = []
     for (let i = 0 ; i < site.icons.length ; i++) {
         let icon = site.icons[i]
@@ -136,7 +136,7 @@ function getHash(data, a, b, c){
         delete icon.path
         icons.push(icon)
     }
-    manifest = {
+    let manifest = {
         'name': site.name,
         'short_name': site.short_name,
         'icons': icons,
@@ -145,7 +145,17 @@ function getHash(data, a, b, c){
         'background_color': site.theme_color.primary
     }
     manifest = extend(true,manifest,site.manifest)
+    return manifest
 }
+
+let manifest = register_manifest()
+let pages = register_pages()
+
+gulp.task('reregister', (cd) => {
+    manifest = register_manifest()
+    pages = register_pages()
+    cd()
+})
 
 gulp.task('pug', (cd) => {
     let works = []
@@ -229,7 +239,7 @@ gulp.task('js', (cb) => {
 
         $.webpack(),
         $.rename('main.js'),
-        $.babel({presets: ['babel-preset-env']}),
+        $.babel({presets: ['babel-preset-env'], plugins: ['transform-remove-strict-mode'], compact: false}),
         gulp.dest(dests.root + '/assets'),
         $.uglify(),
         $.rename('main.min.js'),
@@ -242,7 +252,7 @@ gulp.task('js', (cb) => {
 })
 
 gulp.task('watch', (cb) => {
-    gulp.watch(['theme/**/*',`!${temp_dir}**/*`,'theme/**/*','./.config/**/*'], gulp.series('wait-5sec','default',(cb)=>{cb()}))
+    gulp.watch(['theme/**/*',`!${temp_dir}**/*`,'pages/**/*','./.config/**/*'], gulp.series(gulp.parallel('wait-5sec','reregister'),'default',(cb)=>{cb()}))
     gulp.watch(['files/**/*'], gulp.series('wait-5sec','prebuild-files',(cb)=>{cb()}))
 })
 
@@ -417,14 +427,10 @@ gulp.task('new', (cb) => {
     else layout = 'default'
 
     gulp.src(`templates/${layout}.md`)
+    .pipe($.rename(path))
     .pipe(gulp.dest(site.pages_src.path))
-    .pipe($.rename(path.slice(path.lastIndexOf('/') + 1)))
     .on('end', () => {
-        let openFile
-        if( path.indexOf(' ') > -1 ) openFile = `"${site.pages_src.path}${path}"`
-        else openFile = `${site.pages_src.path}${path}`
-
-        let command = `${openCommand} ${openFile}`
+        let command = `${openCommand} "${site.pages_src.path}${path}"`
         let options = {}
         exec( command, options, cb )
     })
