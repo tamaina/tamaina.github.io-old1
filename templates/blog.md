@@ -43,10 +43,10 @@ VS CodeなどのMarkdownプレビュー機能があるエディタを利用す�
 
 ### maqz独自機能
 
-`&lt;m-aqz&gt;`タグによる制御が可能です。
+`&lt;div maqz&gt;`タグによる制御が可能です。
 
-<m-aqz maqz-role="img-wrap" maqz-type="dark" class="float-md-left">
-![画像の説明(画像を表示できない環境用)](/files/blog/**/****.jpeg "画像のキャプション")</m-aqz>
+<div maqz maqz-role="img-wrap" maqz-type="dark" class="float-md-left">
+![画像の説明(画像を表示できない環境用)](/files/blog/**/****.jpeg "画像のキャプション")</div>
 
 | 機能     | maqz-role | maqz-type    | class                          |
 |----------|-----------|--------------|--------------------------------|

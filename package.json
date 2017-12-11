@@ -17,10 +17,10 @@
   },
   "homepage": "https://tmin.xyz/docs/",
   "devDependencies": {
-    "@fortawesome/fontawesome": "^1.0.0",
-    "@fortawesome/fontawesome-free-brands": "^5.0.0",
+    "@fortawesome/fontawesome": "^1.0.1",
+    "@fortawesome/fontawesome-free-brands": "^5.0.1",
     "@fortawesome/fontawesome-free-regular": "^5.0.1",
-    "@fortawesome/fontawesome-free-solid": "^5.0.0",
+    "@fortawesome/fontawesome-free-solid": "^5.0.1",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-remove-strict-mode": "0.0.2",
     "babel-preset-env": "^1.6.1",
