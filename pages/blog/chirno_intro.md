@@ -7,8 +7,8 @@ tag: bootstrap
 amp: true
 ---
 
-<m-aqz maqz-role="img-wrap" maqz-type="dark" class="float-md-left">
-[![イメージ](/files/blog/chirno/scnsht_001.png)Bootstrap Chirno](https://chirno.tmin.xyz/)</m-aqz>
+<div maqz maqz-role="img-wrap" maqz-type="dark" class="float-md-left">
+[![イメージ](/files/blog/chirno/scnsht_001.png)Bootstrap Chirno](https://chirno.tmin.xyz/)</div>
 
 ## もしかして: Cirno
 
