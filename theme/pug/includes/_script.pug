@@ -15,8 +15,9 @@ block requires
     const cleanCss = require("clean-css")
     const fontawesome = require("@fortawesome/fontawesome")
     const faSolid = require("@fortawesome/fontawesome-free-solid")
+    const faRegular = require("@fortawesome/fontawesome-free-regular")
     const faBrands = require("@fortawesome/fontawesome-free-brands")
-    fontawesome.library.add(faSolid, faBrands)
+    fontawesome.library.add(faSolid, faRegular, faBrands)
 
 block vals
   -
@@ -52,9 +53,6 @@ block functions
         $('h5, h6').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0')
         $('img[src^="/files/"]').attr( 'src', function(i, el){ return `${site.url.path}${$(this).attr('src')}` })
         $('img[src^="files/"]').attr( 'src', function(i, el){ return `${site.url.path}/${$(this).attr('src')}` })
-        $('img').addClass('img-fluid')
-        $('img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
-        $('img').parent('a').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
         $('table').addClass('table table-sm table-bordered')
         $('a[href^="http"], a[href^="//"]').append(fontawesome.icon({ prefix: "fas", iconName: "external-link-alt" },{classes:['fa-fw']}).html[0]).attr({target:'_blank', rel:'noopener'})
 
@@ -105,13 +103,15 @@ block make_html
   //- make main html
   case page.meta.src.ext
     when '.md'
-      - main_html = htmlmin(/*maly(*/md_better(kramed(page.body))/*)*/,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+      - main_html = kramed(page.body)
+      - main_html = md_better(main_html)
+      //- main_html = maly(main_html)
+      - main_html = htmlmin(main_html ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
     when '.html'
     when '.htm'
-      - main_html = htmlmin(page.body,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+      - main_html = htmlmin(page.body ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
     when '.pug'
-      -
-        main_html = pugit(page.body)
+      - main_html = pugit(page.body)
 
 block highlight
   -

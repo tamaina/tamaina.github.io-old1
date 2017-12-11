@@ -72,16 +72,20 @@ function register_pages(){
     let srcpath = path.parse(site.pages_src.path)
     srcs.forEach(doit)
     function doit(val,i,arr){
+        let page = {}
         const src = path.parse(val)
+
         let subdir = src.dir.replace(srcpath.base, '')
         if(subdir.indexOf('/') == 0) subdir = subdir.slice(1)
-        let page = {}
-        page.meta = {}
         if ( !subdir ) subdir = ''
+
         let file = fs.readFileSync( val, 'utf-8' )
         page = extend(true,page,fm(file))
+
+        page.meta = {}
         page.meta.src = src
         page.meta.src.subdir = subdir
+
         let md5hash = crypto.createHash('md5')
         md5hash.update(file, 'binary')
         page.meta.md5 = getHash(file, 'md5', 'binary', 'hex')
@@ -438,7 +442,7 @@ gulp.task('new', (cb) => {
 
 function wait4(cb, sec){
     let interval = null
-    process.stdout.write($.util.colors.green(`${sec} ██████████    `))
+    process.stdout.write($.util.colors.green(`${sec} ██████████    \r`))
     function waiti(){
         sec--
         if( sec < 0 && interval != null ){
@@ -446,12 +450,12 @@ function wait4(cb, sec){
             cb()
             clearInterval(interval)
         }
-        else if ( sec == 0 ) process.stdout.write($.util.colors.red(`\r${sec}               `))
-        else if ( sec == 1 ) process.stdout.write($.util.colors.red(`\r${sec} ██            `))
-        else if ( sec == 2 ) process.stdout.write($.util.colors.red(`\r${sec} ████          `))
-        else if ( sec == 3 ) process.stdout.write($.util.colors.red(`\r${sec} ██████        `))
-        else if ( sec == 4 ) process.stdout.write($.util.colors.yellow(`\r${sec} ████████      `))
-        else if ( sec == 5 ) process.stdout.write($.util.colors.yellow(`\r${sec} ██████████    `))
+        else if ( sec == 0 ) process.stdout.write($.util.colors.red(`\r${sec}               \r`))
+        else if ( sec == 1 ) process.stdout.write($.util.colors.red(`\r${sec} ██            \r`))
+        else if ( sec == 2 ) process.stdout.write($.util.colors.red(`\r${sec} ████          \r`))
+        else if ( sec == 3 ) process.stdout.write($.util.colors.red(`\r${sec} ██████        \r`))
+        else if ( sec == 4 ) process.stdout.write($.util.colors.yellow(`\r${sec} ████████      \r`))
+        else if ( sec == 5 ) process.stdout.write($.util.colors.yellow(`\r${sec} ██████████    \r`))
         else process.stdout.write($.util.colors.green(`\r${sec} ██████████    `))
     }
     interval = setInterval(waiti, 1000)
@@ -485,6 +489,14 @@ gulp.task('make-subfiles',
         (cb) => { cb() } 
     )
 )
+gulp.task('core',
+    gulp.series(
+        gulp.parallel('js', 'css', 'pug'),
+        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
+        'make-sw',
+        (cb) => { cb() }
+    )
+)
 gulp.task('default',
     gulp.series(
         'clean-docs', 'config',
@@ -504,7 +516,16 @@ gulp.task('prebuild-files',
     )
 )
 
-gulp.task('server',
+gulp.task('watch',
+    gulp.series(
+        'clean-docs', 'config',
+        'core',
+        'watch',
+        (cb) => { cb() } 
+    )
+)
+
+gulp.task('local-server',
     gulp.series(
         'clean-docs', 'config', 'debug-override',
         gulp.parallel('js', 'css', 'pug'),

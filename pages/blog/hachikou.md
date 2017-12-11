@@ -9,8 +9,8 @@ amp: true
 
 今回の愚痴は毎日のように利用する八高北線についてです。
 
-![キハ110系](/files/blog/hachikou/kiha110.jpeg)  
-キハ110系 @高崎駅
+<m-aqz maqz-role="img-wrap" maqz-type="dark" class="float-md-left">
+![キハ110系](/files/blog/hachikou/kiha110.jpeg "キハ110系 @高崎駅")</m-aqz>
 
 まあ要約すると**満員列車が嫌だ**って話なんですけど。
 

@@ -17074,6 +17074,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /***/function (module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
+
 	$(function () {
 		$('.trigger-gototop').on('click', function () {
 			$('html,body').animate({ scrollTop: 0 }, 200);

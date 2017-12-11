@@ -9,6 +9,13 @@ block md_better
     function md_better(htm){
       let $ = cheerio.load(htm, {decodeEntities: false})
 
+      $('maqz[maqz-role="img-wrap"]').each(() => {
+        const $_targetImg = $(this).next('img')
+        $(this).append($_targetImg.html())
+        $(this).append($_targetImg.attr('title') || '')
+        $_targetImg.remove()
+      })
+
       $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
       $('h3, h4').addClass('mt-5 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
       $('h5, h6').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0')
@@ -38,8 +45,6 @@ block md_better
       })
       $('img').remove()
       $('amp-img').attr('layout','responsive')
-      $('amp-img').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
-      $('amp-img').parent('a').parent('p').addClass('bg-dark text-light p-1 p-sm-2 mr-md-2 mb-1 mb-md-2 float-md-left img-fluid maqz-img-wrap')
       $('table').addClass('table table-sm table-bordered')
       $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
     

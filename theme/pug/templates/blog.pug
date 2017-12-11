@@ -65,4 +65,4 @@ block main
         if(page.attributes.thumbnail)
           .text-center
             img(src=thsrc alt="アイキャッチ").img-fluid#blog_eyecatch
-        != getTL(main_html)
+        #blog_body!= getTL(main_html)
