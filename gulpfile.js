@@ -46,9 +46,9 @@ let src = {
 }
 
 let dests = {
-    'root': './docs',
-    'everything': './docs/**',
-    'info': './docs/info.json'
+    'root': './dist/docs',
+    'everything': './dist/docs/**',
+    'info': './dist/docs/info.json'
 }
 
 function existFile(file) {
@@ -191,6 +191,11 @@ gulp.task('pug', (cd) => {
 
         stream.add(
             gulp.src(dest)
+                .pipe(
+                    $.plumber({
+                        errorHandler: $.notify.onError("Error: <%= error.message %>")
+                    })
+                )
                 .pipe($.pug(pugoptions))
                 .pipe($.rename(`index.html`))
                 .pipe(gulp.dest( dests.root + page.meta.permalink ))
@@ -212,6 +217,11 @@ gulp.task('pug', (cd) => {
 
             stream.add(
                 gulp.src(ampdest)
+                    .pipe(
+                        $.plumber({
+                            errorHandler: $.notify.onError("Error: <%= error.message %>")
+                        })
+                    )
                     .pipe($.pug(pugoptions))
                     .pipe($.rename(`amp.html`))
                     .pipe(gulp.dest( dests.root + page.meta.permalink ))
@@ -227,6 +237,9 @@ gulp.task('pug', (cd) => {
 gulp.task('css', (cb) => {
     pump([
         gulp.src('theme/styl/main.sass'),
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
         $.sass( { sourceMap: true, outputStyle: 'compressed' } ),
         $.autoprefixer( { browsers: 'last 3 versions' } ),
         $.rename('style.min.css'),
@@ -240,7 +253,9 @@ gulp.task('css', (cb) => {
 gulp.task('js', (cb) => {
     pump([
         gulp.src('theme/js/main.js'),
-
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
         $.webpack(),
         $.rename('main.js'),
         $.babel({presets: ['babel-preset-env'], plugins: ['transform-remove-strict-mode'], compact: false}),
@@ -267,27 +282,48 @@ gulp.task('connect', () => {
     })
 })
 
+gulp.task('copy-docs', (cb) => {
+    pump([
+        gulp.src('dist/docs/**/*'),
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
+        gulp.dest('./docs')
+    ], cb)
+})
 gulp.task('copy-theme-static', (cb) => {
     pump([
         gulp.src('theme/static/**/*'),
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
         gulp.dest(dests.root)
     ], cb)
 })
 gulp.task('copy-files', (cb) => {
     pump([
         gulp.src('dist/files/**/*'),
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
         gulp.dest(dests.root + '/files')
     ], cb)
 })
 gulp.task('copy-wtfpjax', (cb) => {
     pump([
         gulp.src('node_modules/pjax-api/dist/**'),
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
 gulp.task('copy-f404', (cb) => {
     pump([
-        gulp.src('docs/404/index.html'),
+        gulp.src('dist/docs/404/index.html'),
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
         $.rename('404.html'),
         gulp.dest('.')
     ], cb)
@@ -295,7 +331,10 @@ gulp.task('copy-f404', (cb) => {
 gulp.task('copy-prebuildFiles', (cb) => {
     pump([
         gulp.src(src.files),
-        gulp.dest('./dist')
+        $.plumber({
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
+        }),
+        gulp.dest('./dist/files')
     ], cb)
 })
 
@@ -303,7 +342,7 @@ gulp.task('image-prebuildFiles', (cb) => {
     pump([
         gulp.src('files/**/*.{png,jpg,jpeg,gif,svg}'),
         $.plumber({
-            errorHandler: notify.onError("Error: <%= error.message %>")
+            errorHandler: $.notify.onError("Error: <%= error.message %>")
         }),
         $.image({
             optipng: false,
@@ -321,7 +360,8 @@ gulp.task('image-prebuildFiles', (cb) => {
 
 gulp.task('clean-temp', (cb) => { del(temp_dir, cb) } )
 gulp.task('clean-docs', (cb) => { del('docs/', cb) } )
-gulp.task('clean-dist', (cb) => { del('dist/', cb) } )
+gulp.task('clean-dist-docs', (cb) => { del('dist/docs/', cb) } )
+gulp.task('clean-dist-files', (cb) => { del('dist/files/', cb) } )
 
 gulp.task('config', (cb) => {
     let resultObj = { options: '' }
@@ -346,9 +386,9 @@ gulp.task( 'debug-override', (cb) => {
 gulp.task('make-sw', (cb) => {
     // twbs/bootstrapより借用
 
-    const buildPrefix = 'docs/'
+    const buildPrefix = 'dist/docs/'
     const config = {
-        'globDirectory': './docs/',
+        'globDirectory': './dist/docs/',
         'globPatterns': [
           '**/*.{html,css,js,json,png,jpg,jpeg}'
         ],
@@ -356,7 +396,7 @@ gulp.task('make-sw', (cb) => {
           'files/**/*.{html,css,js,json,png,jpg,jpeg}'
         ],
         'swSrc': 'theme/js/sw.js',
-        'swDest': 'docs/service_worker.js'
+        'swDest': 'dist/docs/service_worker.js'
      }
 
     const wbFileName = path.basename(workboxSWSrcPath)
@@ -395,7 +435,7 @@ gulp.task('make-sw', (cb) => {
 })
 
 gulp.task('make-manifest', (cb) => {
-    fs.writeFile( `docs/manifest.json`, JSON.stringify(manifest), () => {
+    fs.writeFile( `dist/docs/manifest.json`, JSON.stringify(manifest), () => {
         $.util.log($.util.colors.green(`✔ manifest.json`)); cb()
     } )
 })
@@ -417,7 +457,7 @@ const browserconfigXml = () => {
 }
 
 gulp.task('make-browserconfig', (cb) => {
-    fs.writeFile( `docs/browserconfig.xml`, browserconfigXml, () => {
+    fs.writeFile( `dist/docs/browserconfig.xml`, browserconfigXml, () => {
         $.util.log($.util.colors.green(`✔ browserconfig.xml`)); cb()
     })
 })
@@ -442,7 +482,7 @@ gulp.task('new', (cb) => {
 
 function wait4(cb, sec){
     let interval = null
-    process.stdout.write($.util.colors.green(`${sec} ██████████    \r`))
+    process.stdout.write($.util.colors.green(` ${sec} ██████    \r`))
     function waiti(){
         sec--
         if( sec < 0 && interval != null ){
@@ -450,13 +490,13 @@ function wait4(cb, sec){
             cb()
             clearInterval(interval)
         }
-        else if ( sec == 0 ) process.stdout.write($.util.colors.red(`\r${sec}               \r`))
-        else if ( sec == 1 ) process.stdout.write($.util.colors.red(`\r${sec} ██            \r`))
-        else if ( sec == 2 ) process.stdout.write($.util.colors.red(`\r${sec} ████          \r`))
-        else if ( sec == 3 ) process.stdout.write($.util.colors.red(`\r${sec} ██████        \r`))
-        else if ( sec == 4 ) process.stdout.write($.util.colors.yellow(`\r${sec} ████████      \r`))
-        else if ( sec == 5 ) process.stdout.write($.util.colors.yellow(`\r${sec} ██████████    \r`))
-        else process.stdout.write($.util.colors.green(`\r${sec} ██████████    `))
+        else if ( sec == 0 ) process.stdout.write($.util.colors.red(`\r ${sec}              \r`))
+        else if ( sec == 1 ) process.stdout.write($.util.colors.red(`\r ${sec}  █            \r`))
+        else if ( sec == 2 ) process.stdout.write($.util.colors.red(`\r ${sec}  ██          \r`))
+        else if ( sec == 3 ) process.stdout.write($.util.colors.red(`\r ${sec}  ███        \r`))
+        else if ( sec == 4 ) process.stdout.write($.util.colors.yellow(`\r ${sec}  ████      \r`))
+        else if ( sec == 5 ) process.stdout.write($.util.colors.yellow(`\r ${sec}  █████    \r`))
+        else process.stdout.write($.util.colors.green(`\r ${sec}  ██████    `))
     }
     interval = setInterval(waiti, 1000)
 }
@@ -468,6 +508,16 @@ gulp.task('wait-5sec', (cb) => {
 gulp.task('wait-10sec', (cb) => {
     wait4(cb, 10)
 })
+
+
+gulp.task('last',
+    gulp.series(
+        'clean-docs',
+        'copy-docs',
+        'clean-dist-docs',
+        (cb) => { cb() } 
+    )
+)
 
 gulp.task('copy-publish',
     gulp.series(
@@ -489,17 +539,18 @@ gulp.task('make-subfiles',
         (cb) => { cb() } 
     )
 )
+
 gulp.task('core',
     gulp.series(
         gulp.parallel('js', 'css', 'pug'),
         gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
-        'make-sw',
+        'make-sw', 'last',
         (cb) => { cb() }
     )
 )
 gulp.task('default',
     gulp.series(
-        'clean-docs', 'config',
+        'config',
         'core',
         (cb) => { cb() }
     )
@@ -507,7 +558,7 @@ gulp.task('default',
 
 gulp.task('prebuild-files',
     gulp.series(
-        'clean-dist',
+        'clean-dist-files',
         'copy-prebuildFiles',
         'image-prebuildFiles',
         (cb) => { cb() } 
@@ -516,7 +567,7 @@ gulp.task('prebuild-files',
 
 gulp.task('watch',
     gulp.series(
-        'clean-docs', 'config',
+        'config',
         'core',
         'watch',
         (cb) => { cb() } 
@@ -525,10 +576,8 @@ gulp.task('watch',
 
 gulp.task('local-server',
     gulp.series(
-        'clean-docs', 'config', 'debug-override',
-        gulp.parallel('js', 'css', 'pug'),
-        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
-        'make-sw',
+        'config', 'debug-override',
+        'core',
         gulp.parallel('connect', 'watch'),
         (cb) => { cb() } 
     )
