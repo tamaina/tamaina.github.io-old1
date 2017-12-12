@@ -500,9 +500,7 @@ gulp.task('core',
 gulp.task('default',
     gulp.series(
         'clean-docs', 'config',
-        gulp.parallel('js', 'css', 'pug'),
-        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
-        'make-sw',
+        'core',
         (cb) => { cb() }
     )
 )

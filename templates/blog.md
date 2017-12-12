@@ -35,22 +35,31 @@ VS CodeなどのMarkdownプレビュー機能があるエディタを利用す�
 
 [リンク](../hoge/)はこのように記述します。[外部リンク](https://example.com)には自動で書式が付加されます。
 
+
+
 ### 画像の指定
 
 画像は以下のように記述します。
 
 ![画像の説明(画像を表示できない環境用)](/files/blog/**/****.jpeg)
 
+
+
 ### maqz独自機能
 
-`&lt;div maqz&gt;`タグによる制御が可能です。
+`span.maqz`による制御が可能です。
 
-<div maqz maqz-role="img-wrap" maqz-type="dark" class="float-md-left">
-![画像の説明(画像を表示できない環境用)](/files/blog/**/****.jpeg "画像のキャプション")</div>
+<span class="maqz maqz-img-wrap-light float-md-left">
+![画像の説明(画像を表示できない環境用)](/files/blog/**/****.jpeg "画像のキャプション")
+</span>
 
-| 機能     | maqz-role | maqz-type    | class                          |
-|----------|-----------|--------------|--------------------------------|
-|画像の枠  |`img-wrap` |`dark`/`light`|`float-md-left`/`float-md-right`|
+| 機能     | 1つめ     | 2つめ          | その他のclass                  |
+|----------|-----------|----------------|--------------------------------|
+|画像の枠  |`img-wrap` |`dark`/`light`等|`float-md-left`/`float-md-right`|
+
+その他のclass指定では、利用しているテンプレートのクラスが利用できます。
+
+
 
 ### エスケープ
 
