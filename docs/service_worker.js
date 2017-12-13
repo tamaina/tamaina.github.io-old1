@@ -8,11 +8,11 @@ workboxSW.precache([
   },
   {
     "url": "assets/main.js",
-    "revision": "8654aaa5e76d9cfd78e7ac5c9e3c42c0"
+    "revision": "32da49153cd9ece881c8c832ccc9613a"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "9005f2b8ae1f82bbd24fd015712f3e1d"
+    "revision": "e4299bd4b73132bf5d047b86cadedb50"
   },
   {
     "url": "assets/pjax-api.js",
@@ -32,11 +32,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/amp.html",
-    "revision": "4c8eaaaef32961f444b5ce7920c9e196"
+    "revision": "a19b2c207ba71491374277e099a7b78e"
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "281e865813009fad419ed1b8dd1ac133"
+    "revision": "e6e7930ec760486c1e5c34ef32739ade"
   },
   {
     "url": "blog/bootstrap-v4-beta/amp.html",
@@ -56,7 +56,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/category/aqz/index.html",
-    "revision": "850b37e788ddd1ea38902a5e02606d05"
+    "revision": "484e73240e38e9f0d8ea68ff13ff548b"
   },
   {
     "url": "blog/category/index.html",
@@ -108,7 +108,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/index.html",
-    "revision": "c2fc3e205ba7d99f54a450d260fdb06b"
+    "revision": "37fc159fb76a098672b3dcee35c07259"
   },
   {
     "url": "blog/maqz001400/amp.html",
@@ -124,11 +124,11 @@ workboxSW.precache([
   },
   {
     "url": "index.html",
-    "revision": "e8b69e14e5193404a64e55dcc1002f14"
+    "revision": "267d3ab1593e46aa97dae4bd5764bdb2"
   },
   {
     "url": "info.json",
-    "revision": "9e93c736f127eb85662cb955d81aa97d"
+    "revision": "dbee686ebc42fbe8760311cda743231f"
   },
   {
     "url": "manifest.json",

@@ -21,6 +21,11 @@
             "type": "gulp",
             "task": "prebuild-files",
             "problemMatcher": []
+        },
+        {
+            "type": "gulp",
+            "task": "local-server",
+            "problemMatcher": []
         }
     ]
 }

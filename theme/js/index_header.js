@@ -12,7 +12,7 @@ function top_img_chg(){
 }
 function register_imgs(){
     for(var i = 1; i < 36; i++){
-        $('#headimgwrp').append(`<div style='background-image:url("../files/top/1st/${i}.jpeg")' alt='' id='headimg${i}' data-imgnum='${i}'></div>`)
+        $('#headimgwrp').append(`<div style='background-image:url("../files/top/1st/${i}1024.jpeg")' alt='' id='headimg${i}' data-imgnum='${i}'></div>`)
         $('#headimg' + i ).css('display', 'none')
     }
 }

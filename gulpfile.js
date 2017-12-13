@@ -107,7 +107,7 @@ function register_pages(){
         page.meta.mtime = (new Date(page.attributes.mtime || page.stats.mtime)).toJSON()
         page.meta.birthtime = (new Date(page.attributes.birthtime || page.attributes.date || page.stats.birthtime)).toJSON()
 
-        page.meta.thumbnail = page.meta.thumbnail ? path.parse(page.meta.thumbnail) : null
+        page.meta.thumbnail = page.attributes.thumbnail ? path.parse(page.attributes.thumbnail) : null
 
         if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
             if( site.page_namingrule == 'birthtime' ) {
@@ -269,7 +269,7 @@ gulp.task('js', (cb) => {
     })
 })
 
-gulp.task('watch', (cb) => {
+gulp.task('watcher', (cb) => {
     gulp.watch(['theme/**/*',`!${temp_dir}**/*`,'pages/**/*','./.config/**/*'], gulp.series(gulp.parallel('wait-5sec','reregister'),'default',(cb)=>{cb()}))
     gulp.watch(['files/**/*'], gulp.series('wait-5sec','prebuild-files',(cb)=>{cb()}))
 })
@@ -564,8 +564,7 @@ gulp.task('prebuild-files',
 gulp.task('watch',
     gulp.series(
         'config',
-        'core',
-        'watch',
+        'watcher',
         (cb) => { cb() } 
     )
 )
