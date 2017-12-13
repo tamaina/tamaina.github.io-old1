@@ -3,9 +3,7 @@
         "files": {
             "all": {
                 "image": {
-                    "pngquant": true,
-                    "gifsicle": true,
-                    "svgo": true
+                    "pngquant": true
                 }
             },
             "sizes": [
@@ -16,7 +14,7 @@
                         "crop": false,
                         "upscale": false,
                         "interlace": "line",
-                        "cover": true,
+                        "cover": false,
                         "imageMagick": true
                     },
                     "image": {
@@ -25,89 +23,17 @@
                 },
                 {
                     "rename": {
-                        "suffix": "thumb256",
+                        "suffix": "thumb400",
                         "extname": ".jpeg"
                     },
                     "resize": {
-                        "width": 256,
-                        "height": 256,
+                        "width": 400,
+                        "height": 400,
                         "crop": false,
                         "upscale": false,
                         "interlace": "line",
                         "format": "jpeg",
-                        "cover": true,
-                        "imageMagick": true
-                    },
-                    "image": {
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
-                },
-                {
-                    "rename": {
-                        "suffix": "thumb512",
-                        "extname": ".jpeg"
-                    },
-                    "resize": {
-                        "width": 512,
-                        "height": 512,
-                        "crop": false,
-                        "upscale": false,
-                        "interlace": "line",
-                        "format": "jpeg",
-                        "cover": true,
-                        "imageMagick": true
-                    },
-                    "image": {
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
-                },
-                {
-                    "rename": {
-                        "suffix": "512"
-                    },
-                    "resize": {
-                        "width": 512,
-                        "height": 512,
-                        "crop": false,
-                        "upscale": true,
-                        "interlace": "line",
-                        "cover": true,
-                        "imageMagick": true
-                    },
-                    "image": {
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
-                },
-                {
-                    "rename": {
-                        "suffix": "thumb720",
-                        "extname": ".jpeg"
-                    },
-                    "resize": {
-                        "width": 720,
-                        "height": 720,
-                        "crop": false,
-                        "upscale": false,
-                        "interlace": "line",
-                        "format": "jpeg",
-                        "cover": true,
-                        "imageMagick": true
-                    },
-                    "image": {
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
-                },
-                {
-                    "rename": {
-                        "suffix": "720"
-                    },
-                    "resize": {
-                        "width": 720,
-                        "height": 720,
-                        "crop": false,
-                        "upscale": false,
-                        "interlace": "line",
-                        "cover": true,
+                        "cover": false,
                         "imageMagick": true
                     },
                     "image": {
@@ -126,7 +52,7 @@
                         "upscale": false,
                         "interlace": "line",
                         "format": "jpeg",
-                        "cover": true,
+                        "cover": false,
                         "imageMagick": true
                     },
                     "image": {
@@ -135,11 +61,11 @@
                 },
                 {
                     "rename": {
-                        "suffix": "1024"
+                        "suffix": "720"
                     },
                     "resize": {
-                        "width": 1024,
-                        "height": 1024,
+                        "width": 720,
+                        "height": 720,
                         "crop": false,
                         "upscale": true,
                         "interlace": "line",
