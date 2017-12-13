@@ -62,7 +62,7 @@ block main
               .container 次: #{pageNext.attributes.title}
 
       .container.pt-3
-        if(page.attributes.thumbnail)
+        if(page.meta.thumbnail)
           .text-center
             amp-img(src=thsrc alt="アイキャッチ", width=thwidth, height=thheight, layout="responsive")
         != getTL(main_html)

@@ -32,11 +32,11 @@ workboxSW.precache([
   },
   {
     "url": "blog/about_me/amp.html",
-    "revision": "a19b2c207ba71491374277e099a7b78e"
+    "revision": "4c8eaaaef32961f444b5ce7920c9e196"
   },
   {
     "url": "blog/about_me/index.html",
-    "revision": "e6e7930ec760486c1e5c34ef32739ade"
+    "revision": "281e865813009fad419ed1b8dd1ac133"
   },
   {
     "url": "blog/bootstrap-v4-beta/amp.html",
@@ -56,7 +56,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/category/aqz/index.html",
-    "revision": "bb1622fee6cd12662df06206578ae85f"
+    "revision": "850b37e788ddd1ea38902a5e02606d05"
   },
   {
     "url": "blog/category/index.html",
@@ -108,7 +108,7 @@ workboxSW.precache([
   },
   {
     "url": "blog/index.html",
-    "revision": "2104a14b3560e015f25036283ae864c8"
+    "revision": "c2fc3e205ba7d99f54a450d260fdb06b"
   },
   {
     "url": "blog/maqz001400/amp.html",
@@ -128,7 +128,7 @@ workboxSW.precache([
   },
   {
     "url": "info.json",
-    "revision": "ac77656bdee477bf3c74d0a22b56e9ef"
+    "revision": "9e93c736f127eb85662cb955d81aa97d"
   },
   {
     "url": "manifest.json",

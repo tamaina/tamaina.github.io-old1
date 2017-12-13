@@ -1,0 +1,191 @@
+{
+    "images": {
+        "files": {
+            "all": {
+                "image": {
+                    "pngquant": true,
+                    "gifsicle": true,
+                    "svgo": true
+                }
+            },
+            "sizes": [
+                {
+                    "resize": {
+                        "width": 1600,
+                        "height": 1600,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "thumb256",
+                        "extname": ".jpeg"
+                    },
+                    "resize": {
+                        "width": 256,
+                        "height": 256,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "quality": 0.7,
+                        "format": "jpeg",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "thumb512",
+                        "extname": ".jpeg"
+                    },
+                    "resize": {
+                        "width": 512,
+                        "height": 512,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "quality": 0.7,
+                        "format": "jpeg",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "512"
+                    },
+                    "resize": {
+                        "width": 512,
+                        "height": 512,
+                        "crop": false,
+                        "upscale": true,
+                        "interlace": "line",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "thumb720",
+                        "extname": ".jpeg"
+                    },
+                    "resize": {
+                        "width": 720,
+                        "height": 720,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "quality": 0.7,
+                        "format": "jpeg",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "720"
+                    },
+                    "resize": {
+                        "width": 720,
+                        "height": 720,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "thumb1024",
+                        "extname": ".jpeg"
+                    },
+                    "resize": {
+                        "width": 1024,
+                        "height": 1024,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "quality": 0.7,
+                        "format": "jpeg",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "1024"
+                    },
+                    "resize": {
+                        "width": 1024,
+                        "height": 1024,
+                        "crop": false,
+                        "upscale": true,
+                        "interlace": "line",
+                        "cover": true,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "mozjpeg": ["-optimize"]
+                    }
+                }
+            ]
+        }
+    },
+    "icons": [
+        {
+            "path": "/files/images/icons/icon.svg",
+            "sizes": "600x600",
+            "type": "image/svg+xml"
+        },
+        {
+            "path": "/files/images/icons/icon.png",
+            "sizes": "700x700",
+            "type": "image/png"
+        }
+    ],
+    "mstiles": {
+        "s70x70": {
+            "path": "/files/images/icons/mstile-70x70.png"
+        },
+        "s144x144": {
+            "path": "/files/images/icons/mstile-144x144.png"
+        },
+        "s150x150": {
+            "path": "/files/images/icons/mstile-150x150.png"
+        },
+        "s310x310": {
+            "path": "/files/images/icons/mstile-310x310.png"
+        },
+        "w310x150": {
+            "path": "/files/images/icons/mstile-310x150.png"
+        }
+    },
+    "site_card_path": "/files/images/icons/icon.png",
+    "publisher_image_path": "/files/images/icons/publisher.png"
+}

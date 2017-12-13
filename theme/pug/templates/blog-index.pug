@@ -94,8 +94,8 @@ block main
       each thispage in qpages
         a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2.text-dark
           article.card.w-100.h-100.border.bg-light.pb-5
-            if ( thispage.attributes.thumbnail )
-              img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.attributes.thumbnail}`)
+            if ( thispage.meta.thumbnail )
+              img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}${thispage.meta.thumbnail.name}thumb720.jpeg`)
             h4.card-title.blog-title.mb-2.mt-3.px-3 #{thispage.attributes.title}
             p.card-text.mb-5.px-3 #{thispage.attributes.description}
             - let birthtime = new Date(thispage.meta.birthtime)

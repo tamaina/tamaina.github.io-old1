@@ -49,36 +49,5 @@
     "manifest": {
         "start_url": "./",
         "display": "minimal-ui"
-    },
-    "icons": [
-        {
-            "path": "/files/images/icons/icon.svg",
-            "sizes": "600x600",
-            "type": "image/svg+xml"
-        },
-        {
-            "path": "/files/images/icons/icon.png",
-            "sizes": "700x700",
-            "type": "image/png"
-        }
-    ],
-    "mstiles": {
-        "s70x70": {
-            "path": "/files/images/icons/mstile-70x70.png"
-        },
-        "s144x144": {
-            "path": "/files/images/icons/mstile-144x144.png"
-        },
-        "s150x150": {
-            "path": "/files/images/icons/mstile-150x150.png"
-        },
-        "s310x310": {
-            "path": "/files/images/icons/mstile-310x310.png"
-        },
-        "w310x150": {
-            "path": "/files/images/icons/mstile-310x150.png"
-        }
-    },
-    "site_card_path": "/files/images/icons/icon.png",
-    "publisher_image_path": "/files/images/icons/publisher.png"
+    }
 }

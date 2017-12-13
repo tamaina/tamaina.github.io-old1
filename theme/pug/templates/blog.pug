@@ -62,7 +62,7 @@ block main
               .container 次: #{pageNext.attributes.title}
 
       .container.pt-3
-        if(page.attributes.thumbnail)
+        if(page.meta.thumbnail)
           .text-center
             img(src=thsrc alt="アイキャッチ").img-fluid#blog_eyecatch
         #blog_body!= getTL(main_html)

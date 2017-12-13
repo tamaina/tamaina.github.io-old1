@@ -1,7 +1,7 @@
 - 
     let style, mainHeaderStyle
-    if(page.attributes.thumbnail) {
-      style = `background-image:url("${site.url.path}${page.attributes.thumbnail}")`
+    if(page.meta.thumbnail) {
+      style = `background-image:url("${site.url.path}${page.meta.thumbnail.dir}${page.meta.thumbnail.base}")`
       mainHeaderStyle = `#main_header{${style}}`
     } else {
       style = "background-color:#212121"
@@ -49,10 +49,10 @@
 
 - let thsrc, thdims, thwidth, thheight
 
-if(page.attributes.thumbnail)
+if(page.meta.thumbnail)
     -
-      thsrc = `${site.url.path}${page.attributes.thumbnail}`
-      thdims = sizeOf( page.attributes.thumbnail.slice(1) )
+      thsrc = `${site.url.path}${page.meta.thumbnail.dir}${page.meta.thumbnail.base}`
+      thdims = sizeOf( page.meta.thumbnail.slice(1) )
       thwidth = thdims.width
       thheight = thdims.height
 else
