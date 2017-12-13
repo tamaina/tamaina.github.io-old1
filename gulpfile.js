@@ -347,7 +347,7 @@ gulp.task('image-prebuildFiles', (cb) => {
         $.image({
             optipng: false,
             pngquant: ['--speed=1'],
-            zopflipng: false,
+            zopflipng: true,
             jpegRecompress: true,
             mozjpeg: ['-optimize', '-progressive'],
             guetzli: false,
