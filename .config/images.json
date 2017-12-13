@@ -18,6 +18,7 @@
                         "imageMagick": true
                     },
                     "image": {
+                        "jpegRecompress": true,
                         "mozjpeg": ["-optimize", "-progressive"]
                     }
                 },
@@ -34,9 +35,11 @@
                         "interlace": "line",
                         "format": "jpeg",
                         "cover": false,
+                        "noProfile": true,
                         "imageMagick": true
                     },
                     "image": {
+                        "jpegRecompress": true,
                         "mozjpeg": ["-optimize", "-progressive"]
                     }
                 },
@@ -53,9 +56,11 @@
                         "interlace": "line",
                         "format": "jpeg",
                         "cover": false,
+                        "noProfile": true,
                         "imageMagick": true
                     },
                     "image": {
+                        "jpegRecompress": true,
                         "mozjpeg": ["-optimize", "-progressive"]
                     }
                 },
@@ -73,6 +78,7 @@
                         "imageMagick": true
                     },
                     "image": {
+                        "jpegRecompress": true,
                         "mozjpeg": ["-optimize", "-progressive"]
                     }
                 }

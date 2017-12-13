@@ -26,6 +26,21 @@
             "type": "gulp",
             "task": "local-server",
             "problemMatcher": []
+        },
+        {
+            "type": "gulp",
+            "task": "copy-prebuildFiles",
+            "problemMatcher": []
+        },
+        {
+            "type": "gulp",
+            "task": "copy-files",
+            "problemMatcher": []
+        },
+        {
+            "type": "gulp",
+            "task": "copy-docs",
+            "problemMatcher": []
         }
     ]
 }
