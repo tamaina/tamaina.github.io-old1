@@ -55,7 +55,7 @@
     "image-size": "^0.6.1",
     "jquery": "^3.2.1",
     "jstransformer-clean-css": "^2.0.0",
-    "jstransformer-highlight": "^1.0.1",
+    "jstransformer-highlight": "^2.0.0",
     "jstransformer-sass": "^1.0.0",
     "jstransformer-uglify-js": "^1.2.0",
     "kramed": "^0.5.6",
