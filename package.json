@@ -73,7 +73,7 @@
     "sync-summaly": "^2.0.3-sync.2",
     "tether": "^1.4.3",
     "ua-parser-js": "^0.7.17",
-    "workbox-build": "^2.1.2",
+    "workbox-build": "^3.6.1",
     "workbox-sw": "latest"
   }
 }
