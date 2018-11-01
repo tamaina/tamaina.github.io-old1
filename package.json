@@ -30,7 +30,7 @@
     "clean-css": "^4.1.9",
     "colors": "^1.1.2",
     "extend": "^3.0.1",
-    "front-matter": "^2.3.0",
+    "front-matter": "^3.0.1",
     "fuckadblock": "^3.2.1",
     "glob": "^7.1.2",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
