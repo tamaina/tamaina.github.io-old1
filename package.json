@@ -38,7 +38,7 @@
     "gulp-babel": "^7.0.0",
     "gulp-connect": "^5.0.0",
     "gulp-data": "^1.2.1",
-    "gulp-image": "^4.1.0",
+    "gulp-image": "^4.4.0",
     "gulp-image-resize": "^0.13.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
