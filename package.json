@@ -65,7 +65,7 @@
     "minimist": "^1.2.0",
     "mississippi2": "^1.0.4",
     "mkdirp": "^0.5.1",
-    "pjax-api": "^3.18.2",
+    "pjax-api": "^3.25.0",
     "popper.js": "^1.13.0",
     "pug": "^2.0.0-rc.4",
     "pump": "^2.0.0",
